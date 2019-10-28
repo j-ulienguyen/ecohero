@@ -5,11 +5,11 @@ import {View, Text} from 'react-native';
 
 
 
-export default function LoginScreen(){
+export default function SignupScreen(){
     // UI
     return (
         <View>
-            <Text>Login</Text>
+            <Text>Sign Up</Text>
         </View>
     )
 }
