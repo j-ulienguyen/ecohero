@@ -3,24 +3,29 @@ import {View, Text, ScrollView} from 'react-native';
 
 // Import comps & styles below
 import styles from '../styles/HomeScreenStyles';
-import ProfileCard from '../comps/ProfileCard';
-import PrizeCard from '../comps/PrizeCard';
 import PatternBG from '../comps/PatternBG';
+import ProfileCard from '../comps/ProfileCard';
+import PrizeProgress from '../comps/PrizeProgress';
+import PrizeCard from '../comps/PrizeCard';
 
 
 export default function HomeScreen(){
     // UI
     return (
 		<View style={styles.container}>
+			{/* Fixed Pattern BG */}
+			<PatternBG/>
+
+			{/* Scrollable Content - On Top*/}
 			<ScrollView>
 				<View>
-					{/* Pattern doesn't display properly in scrollview (hence why I duped the pattern comp).
-					I want it to be able to stay sticky while only the content moves */}
-					<PatternBG/>
-					<PatternBG/>
+					{/* User Profile Card */}
 					<ProfileCard/>
 
-					{/* Prize Section */}
+					{/* Star Prizes - Progress Bar */}
+					<PrizeProgress/>
+
+					{/* Prize Card Section */}
 					<View style={styles.prizeSection}>
 						<PrizeCard/>
 						<PrizeCard/>

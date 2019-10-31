@@ -4,6 +4,7 @@ import theme from './ThemeStyles';
 var styles = StyleSheet.create({
     container: {
         alignItems: "center",
+        // Spacing between cards
         marginBottom: 20
     },
 

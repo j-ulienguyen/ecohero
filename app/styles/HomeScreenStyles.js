@@ -7,11 +7,13 @@ var styles = StyleSheet.create({
     },
 
     prizeSection: {
-        position: "absolute",
-        top: 400,
+        // top: 50,
 
         justifyContent: "center",
-        width: "100%"
+        width: "100%",
+
+        marginTop: 35,
+        marginBottom: 20
     }
 });
 

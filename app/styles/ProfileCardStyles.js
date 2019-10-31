@@ -3,14 +3,8 @@ import theme from './ThemeStyles';
 
 var styles = StyleSheet.create({
     container: {
-        position: "absolute"
+        // Currently no code needed
     },
-
-    // cardContainer: {
-    //     position: "absolute",
-    //     top: 0
-    //     left: 0
-    // },
 
     userBubbleContainer: {
         position: "absolute",
