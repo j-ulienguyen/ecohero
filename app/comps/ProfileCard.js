@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, ScrollView} from 'react-native';
+import {View, Text, Image} from 'react-native';
 
 // Import comps & styles below
 import styles from '../styles/ProfileCardStyles';

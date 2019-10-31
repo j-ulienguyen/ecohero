@@ -3,14 +3,14 @@ import {View, Text} from 'react-native';
 
 // Import comps & styles below
 import styles from './app/styles/AppStyles';
-import HomeScreen from './app/screens/HomeScreen';
+import MissionsScreen from './app/screens/MissionsScreen';
 
 
 export default function App(){
 	// UI
 	return (
 		<View style={styles.container}>
-			<HomeScreen/>
+			<MissionsScreen/>
 		</View>
 	)
 }
