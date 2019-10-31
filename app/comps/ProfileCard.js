@@ -9,7 +9,7 @@ import UserBubble from './UserBubble';
 export default function ProfileCard(){
     // UI
     return (
-        <View>
+        <View style={styles.container}>
             <View>
                 {/* Green BG Card */}
                 <Image
