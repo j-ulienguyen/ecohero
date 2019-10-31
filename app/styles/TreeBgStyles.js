@@ -4,14 +4,14 @@ import theme from './ThemeStyles';
 var styles = StyleSheet.create({
  
    container: {
-      flex: 1
+      flex: 1,
    },
       
    treebg: {
-      width: 412,
-      height: 160,
       position: "absolute",
-      bottom: -325
+      bottom: -290,
+      width: "100%",
+      height: 160
     }
  
 });

@@ -1,58 +1,51 @@
 import {StyleSheet} from 'react-native';
-import theme from './ThemeStyles';
+import theme from '../styles/ThemeStyles';
  
 var styles = StyleSheet.create({
- 
+
    container: {
-      top: 80,
+      flex: 1,
+      top: 220,
       justifyContent: "center",
-      alignItems: 'center',
+      alignItems: "center"
    },
- 
-   twoFields: {
-      flexDirection: "row",
-      borderBottomWidth: 1,
-      width: 250,
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingBottom: 10,
-      borderBottomColor: theme.lightGray
+
+   headTxt: {
+      top: 20,
+      fontSize: 18,
+      fontWeight: "bold"
    },
- 
-   signInText: {
-      marginRight: 70,
+
+   subTxt: {
+      fontSize: 16,
+      textAlign: "center",
+      width: "80%",
+      top: 30
    },
- 
-   userInput: {
-      top: 25,
+
+   emailInput: {
+      top: 400,
       flexDirection: 'row',
       borderBottomWidth: 1,
       width: 309,
-      borderBottomColor: theme.lightGray
+      borderBottomColor: theme.lightGray,
+      left: 50
    },
- 
+
    inputIcon: {
       marginRight: 20,
       marginLeft: 15,
       bottom: -12
    },
- 
-   passInput: {
-      top: 40,
-      flexDirection: 'row',
-      borderBottomWidth: 1,
-      width: 309,
-      borderBottomColor: theme.lightGray
-   },
- 
+
    greenBtn: {
       width: 309,
       height: 43,
       borderRadius: 30,
       backgroundColor: theme.darkGreen,
+      top: 240,
       justifyContent: "center",
-      alignItems: "center",
-      top: 70
+      alignItems: "center"
    },
  
    btnText: {
@@ -65,10 +58,13 @@ var styles = StyleSheet.create({
  
    btmText: {
       textAlign:'center',
-      top: 90
+      top: 250
    }
- 
- 
+
+
+
+
+    
 });
 
 export default styles;
