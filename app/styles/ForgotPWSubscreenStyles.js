@@ -1,13 +1,12 @@
 import {StyleSheet} from 'react-native';
 import theme from '../styles/ThemeStyles';
- 
-var styles = StyleSheet.create({
 
+var styles = StyleSheet.create({
    container: {
       flex: 1,
-      top: 220,
       justifyContent: "center",
-      alignItems: "center"
+      alignItems: "center",
+      top: 220
    },
 
    headTxt: {
@@ -25,11 +24,11 @@ var styles = StyleSheet.create({
 
    emailInput: {
       top: 400,
+      left: 50,
+      width: 309,
       flexDirection: 'row',
       borderBottomWidth: 1,
-      width: 309,
-      borderBottomColor: theme.lightGray,
-      left: 50
+      borderBottomColor: theme.lightGray
    },
 
    inputIcon: {
@@ -43,11 +42,11 @@ var styles = StyleSheet.create({
       height: 43,
       borderRadius: 30,
       backgroundColor: theme.darkGreen,
-      top: 240,
+      top: 230,
       justifyContent: "center",
       alignItems: "center"
    },
- 
+
    btnText: {
       fontFamily: theme.PoppinsBold,
       fontSize: 12,
@@ -55,16 +54,11 @@ var styles = StyleSheet.create({
       letterSpacing: 2,
       color: theme.white
    },
- 
+
    btmText: {
       textAlign:'center',
-      top: 250
+      top: 245
    }
-
-
-
-
-    
 });
 
 export default styles;

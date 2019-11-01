@@ -1,28 +1,30 @@
 import React, {useState} from 'react';
 import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
-import styles from '../styles/SignInEntryStyles';
 
-/* import subscreen comps below */
+// Import comps & styles below
+import styles from '../styles/SignInEntryStyles';
 import ForgotPW from '../subscreens/ForgotPWSubscreen';
- 
+
+
 export default function SignInEntry(){
    const [txt, setTxt] = useState("");
 
+   // UI
    return (
       <View style={styles.container}>
- 
-         {/* Sign In Option */}
+         {/* Sign In / Sign Up Buttons */}
          <View style={styles.twoFields}>
-         <TouchableOpacity>
+            {/* Sign In Option */}
+            <TouchableOpacity>
                <Text style={styles.signInText}>SIGN IN</Text>
-         </TouchableOpacity>
+            </TouchableOpacity>
 
-         {/* Sign Up Option */}
-         <TouchableOpacity>
-               <Text>SIGN UP</Text>
-         </TouchableOpacity>
+            {/* Sign Up Option */}
+            <TouchableOpacity>
+               <Text style={styles.signUpText}>SIGN UP</Text>
+            </TouchableOpacity>
          </View>
- 
+
          {/* Username Field Entry */}
          <View style={styles.userInput}>
             <Image
@@ -36,39 +38,37 @@ export default function SignInEntry(){
                }}
             />
          </View>
- 
+
          {/* Password Field Entry */}
          <View style={styles.passInput}>
             <Image
                style={styles.inputIcon}
                source={require('../assets/imgs/lock-icon.png')}
             />
-            <TextInput 
-               secureTextEntry={true} 
+            <TextInput
+               secureTextEntry={true}
                placeholder = "Password"
                onChangeText = {(text)=>{
                   setTxt(text);
                }}
             />
          </View>
-         
-         {/* Continue Button */}
+
+         {/* Buttons */}
          <View>
-         <TouchableOpacity
-            style={styles.greenBtn}>
-            
- 
+            {/* Continue Button */}
+            <TouchableOpacity
+               style={styles.greenBtn}
+            >
                <Text style={styles.btnText}>Continue</Text>
             </TouchableOpacity>
 
-               
-         {/* Forgot Pw Button */}
-         <TouchableOpacity>
-             <Text style={styles.btmText}>Forgot Password?</Text>
-
-         </TouchableOpacity>
-         </View> 
+            {/* Forgot Pw Text Button */}
+            <TouchableOpacity>
+               <Text style={styles.btmText}>Forgot Password?</Text>
+            </TouchableOpacity>
+         </View>
       </View>
    );
- 
+
 };

@@ -10,18 +10,21 @@ import SignInEntry from '../comps/SignInEntry';
 import ForgotPW from '../subscreens/ForgotPWSubscreen';
 import BackBar from '../comps/BackBar';
 
+
 export default function SigninScreen(){
     // UI
     return (
         <View>
-            {/* Signin */}
-            <TreeBg /> 
-            <EcoHeroLogo />
-            <SignInEntry />
+            {/* Fixed Tree BG */}
+            <TreeBg/>
 
-            {/* Forgot PW */}            
-            <BackBar /> 
-            <ForgotPW />
+            {/* Signin */}
+            <EcoHeroLogo/>
+            <SignInEntry/>
+
+            {/* Forgot PW */}
+            {/* <BackBar/>
+            <ForgotPW/> */}
         </View>
     )
 }

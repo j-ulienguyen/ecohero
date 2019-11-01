@@ -1,14 +1,13 @@
 import {StyleSheet} from 'react-native';
 import theme from './ThemeStyles';
- 
+
 var styles = StyleSheet.create({
- 
    container: {
       top: 80,
       justifyContent: "center",
       alignItems: 'center',
    },
- 
+
    twoFields: {
       flexDirection: "row",
       borderBottomWidth: 1,
@@ -18,11 +17,16 @@ var styles = StyleSheet.create({
       paddingBottom: 10,
       borderBottomColor: theme.lightGray
    },
- 
+
    signInText: {
-      marginRight: 70,
+      fontFamily: theme.PoppinsRegular,
+      marginRight: 70
    },
- 
+
+   signUpText: {
+      fontFamily: theme.PoppinsRegular
+   },
+
    userInput: {
       top: 25,
       flexDirection: 'row',
@@ -30,13 +34,13 @@ var styles = StyleSheet.create({
       width: 309,
       borderBottomColor: theme.lightGray
    },
- 
+
    inputIcon: {
       marginRight: 20,
       marginLeft: 15,
       bottom: -12
    },
- 
+
    passInput: {
       top: 40,
       flexDirection: 'row',
@@ -44,7 +48,7 @@ var styles = StyleSheet.create({
       width: 309,
       borderBottomColor: theme.lightGray
    },
- 
+
    greenBtn: {
       width: 309,
       height: 43,
@@ -54,7 +58,7 @@ var styles = StyleSheet.create({
       alignItems: "center",
       top: 70
    },
- 
+
    btnText: {
       fontFamily: theme.PoppinsBold,
       fontSize: 12,
@@ -62,13 +66,11 @@ var styles = StyleSheet.create({
       letterSpacing: 2,
       color: theme.white
    },
- 
+
    btmText: {
       textAlign:'center',
-      top: 90
+      top: 85
    }
- 
- 
 });
 
 export default styles;
