@@ -24,7 +24,11 @@ export default function RewardModal(){
             <RewardsBar/>
 
             {/* Redeem Button */}
-            <View style={{backgroundColor: "green", width: 250,height: 50, marginTop: 30}}></View>
+            <TouchableOpacity
+                style = {styles.greenBtn}
+            >
+                <Text style={styles.btnText}>Redeem</Text>
+            </TouchableOpacity>
         </View>
     )
 }
