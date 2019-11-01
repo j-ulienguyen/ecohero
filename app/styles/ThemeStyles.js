@@ -9,14 +9,13 @@ const theme = {
     medGray: "#BDBDBD",
     appBlack: "#2D2D2D",
 
-    primaryFont: "Poppins",
-    secondaryFont: "Roboto",
-
-    fontLight: "300",
-    fontRegular: "400",
-    fontMedium: "500",
-    fontSemibold: "600",
-    fontBold: "700"
+    PoppinsBold: "Poppins-Bold",
+    PoppinsMedium: "Poppins-Medium",
+    PoppinsSemibold: "Poppins-SemiBold",
+    PoppinsRegular: "Poppins-Regular",
+    
+    RobotoLight: "Roboto-Light",
+    RobotoRegular: "Roboto-Regular",
 };
 
 export default theme;

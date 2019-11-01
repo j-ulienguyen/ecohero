@@ -2,8 +2,8 @@ import React from 'react';
 import {View, Text} from 'react-native';
 
 // Import comps below
-import EcoHeroLogo from '../comps/EcoHeroLogo';
 import TreeBg from '../comps/TreeBg';
+import EcoHeroLogo from '../comps/EcoHeroLogo';
 import SignInEntry from '../comps/SignInEntry';
 
 // Subscreen comps
@@ -15,14 +15,13 @@ export default function SigninScreen(){
     return (
         <View>
             {/* Signin */}
+            <TreeBg /> 
             <EcoHeroLogo />
             <SignInEntry />
-            <TreeBg /> 
 
             {/* Forgot PW */}            
-            {/* <BackBar /> 
+            <BackBar /> 
             <ForgotPW />
-            <TreeBg /> */}
         </View>
     )
 }

@@ -21,7 +21,8 @@ var styles = StyleSheet.create({
       position: "absolute",
       top: 12,
       left: 40,
-      color: "white"
+      color: "white",
+      fontFamily: theme.PoppinsBold
     }
 
 });

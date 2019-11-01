@@ -9,6 +9,7 @@ export default function TreeBg(){
          {/* Tree Background */}
          <Image
             style={styles.treebg}
+            // resizeMode="contain"
             source={require('../assets/imgs/tree-bg.png')}
          />
          
