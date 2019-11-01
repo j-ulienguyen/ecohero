@@ -13,7 +13,7 @@ const theme = {
     PoppinsMedium: "Poppins-Medium",
     PoppinsSemibold: "Poppins-SemiBold",
     PoppinsRegular: "Poppins-Regular",
-    
+
     RobotoLight: "Roboto-Light",
     RobotoRegular: "Roboto-Regular",
 };
