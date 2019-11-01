@@ -3,6 +3,7 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 
 // Import comps & styles below
 import styles from '../styles/MissionCardStyles';
+import RewardsBar from './RewardsBar';
 
 
 export default function MissionCard(){
@@ -28,23 +29,8 @@ export default function MissionCard(){
                 {/* Mission Details */}
                 <View style={styles.missionDetailContainer}>
                     <Text style={styles.missionName}>Mission Name</Text>
-                    {/* Rewards Bar */}
-                    <View style={styles.rewardsContainer}>
-                        <Text style={styles.rewardsHeading}>Rewards</Text>
-
-                        {/* Star Reward Amount */}
-                        <View style={styles.starAmountContainer}>
-                            {/* Star Amount # */}
-                            <Text style={styles.starAmount}>20</Text>
-                            <Image
-                                style = {styles.starIcon}
-                                source = {require('../assets/imgs/star-icon.png')}
-                            />
-                        </View>
-
-                        {/* XP Reward Amount */}
-                        <Text style={styles.xpText}>50 XP</Text>
-                    </View>
+                    {/* Rewards Bar - Star + XP */}
+                    <RewardsBar/>
                 </View>
             </View>
         </View>
