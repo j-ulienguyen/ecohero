@@ -24,7 +24,7 @@ var styles = StyleSheet.create({
     },
 
     rewardImage: {
-        marginVertical: 10
+        marginVertical: 25
     },
 
     earnedText: {
