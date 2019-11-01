@@ -5,7 +5,8 @@ import {View, Text, ScrollView} from 'react-native';
 import styles from '../styles/MissionsScreenStyles';
 import PatternBG from '../comps/PatternBG';
 import MissionBoardCard from '../comps/MissionBoardCard';
-import PrizeCard from '../comps/PrizeCard';
+import MissionCard from '../comps/MissionCard';
+import BonusMissionCard from '../comps/BonusMissionCard';
 
 
 export default function MissionsScreen(){
@@ -23,9 +24,10 @@ export default function MissionsScreen(){
 
                     {/* Mission Card Section */}
                     <View style={styles.cardSection}>
-                        <PrizeCard/>
-                        <PrizeCard/>
-                        <PrizeCard/>
+                        <BonusMissionCard/>
+                        <MissionCard/>
+                        <MissionCard/>
+                        <MissionCard/>
                     </View>
                 </View>
             </ScrollView>

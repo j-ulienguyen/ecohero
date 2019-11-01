@@ -51,13 +51,6 @@ var styles = StyleSheet.create({
 
     filterBtn: {
         // Currently no code needed
-
-        // backgroundColor: "blue",
-        // width: 80,
-        // height: 45,
-
-        // justifyContent: "flex-end",
-        // alignItems: "center"
     },
 
     filterBtnText: {
