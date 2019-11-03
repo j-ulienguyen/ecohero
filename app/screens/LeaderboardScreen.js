@@ -1,15 +1,30 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
+import PatternBG from '../comps/PatternBG'
+import LeaderBoardCard from '../comps/leaderboard/LeaderBoardCard'
 
 // Import comps below
 
 
 
-export default function LeaderboardScreen(){
+export default function LeaderBoardScreen(){
     // UI
     return (
         <View>
-            <Text>Leaderboard</Text>
+            {/* Fixed Pattern BG */}
+            <PatternBG />
+            {/* Scrollable Content */}
+            <ScrollView>
+                <View>
+                    {/* Leaderboard Header Card */}
+                    <LeaderBoardCard />
+                    
+                </View>
+
+
+
+            </ScrollView>
+            
         </View>
     )
 }
