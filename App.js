@@ -13,7 +13,7 @@ import LevelUpModal from './app/comps/LevelUpModal';
 export default function App(){
 	// UI
 	return (
-		<View style={styles.container}
+		<View style={styles.container}>
 		{/* <SigninScreen/> */}
 		<SignupScreen />
       {/* <RewardModal/> */}
