@@ -5,6 +5,11 @@ import {View, Text} from 'react-native';
 import TreeBg from '../comps/TreeBg';
 import EcoHeroLogo from '../comps/EcoHeroLogo';
 import SignUpEntry from '../comps/SignUpEntry';
+import StepProgressBar from '../comps/StepProgressBar';
+
+// Import subcomps below
+import BasicProfile from '../subscreens/BasicProfile';
+import BackBar from '../comps/BackBar';
 
 export default function SignupScreen(){
     // UI
@@ -13,9 +18,15 @@ export default function SignupScreen(){
             {/* Fixed Tree BG */}
             <TreeBg/>
 
-            {/* Signin */}
-            <EcoHeroLogo/>
-            <SignUpEntry/>
+            {/* Signup */}
+            {/* <EcoHeroLogo/>
+            <SignUpEntry/> */}
+
+            {/* Step 1 - EcoHero Profile */}
+                {/* Progress Bar Component */}
+                    <StepProgressBar />
+                    <BackBar />
+                    <BasicProfile />
 
         </View>
     )
