@@ -31,9 +31,9 @@ export default function SignupScreen(){
 
             {/* Step 2 - Choose Avatar NO TREE BG */}
                 {/* Progress Bar Component */}
-                <StepProgressBar />
+                {/* <StepProgressBar />
                     <BackBar />
-                    <ChooseAvatar />
+                    <ChooseAvatar /> */}
 
         </View>
     )

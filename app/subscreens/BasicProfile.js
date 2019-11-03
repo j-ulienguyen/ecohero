@@ -22,7 +22,7 @@ export default function BasicProfile(){
                  
                   <TextInput 
                      placeholder = "First Name"
-                     onChangeText = {(text)=>{
+                     onChangeText = {(text)=>{ 
                         setTxt(text);
                      }}
                   />
