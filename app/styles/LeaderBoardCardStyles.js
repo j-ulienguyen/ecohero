@@ -77,12 +77,6 @@ var styles = StyleSheet.create({
         lineHeight: 35, // Adjust spacing between text and borderBottom
         color: theme.white
     },
-    userCard : {
-        position:"absolute",
-        bottom: 100,
-        justifyContent:"center",
-
-    }
 
 });
 export default styles;

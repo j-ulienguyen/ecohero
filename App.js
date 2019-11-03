@@ -8,6 +8,7 @@ import HomeScreen from './app/screens/HomeScreen'
 import LeaderBoardScreen from './app/screens/LeaderBoardScreen'
 
 
+
 export default function App(){
 	// UI
 	return (

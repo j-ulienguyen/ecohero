@@ -57,15 +57,6 @@ export default function LeaderBoardCard() {
 
         </View>
 
-        {/* User Card */}
-        <View
-        style={styles.userCard}
-        >
-          <Image 
-          source = {require('../../assets/imgs/user-leaderboard-card.png')}
-          />
-          
-        </View>
     </View>
   );
 }
