@@ -14,11 +14,10 @@ export default function App(){
 	return (
 		<View style={styles.container}>
 			<HomeScreen/>
-      {/* <SigninScreen/> */}
-      {/* <RewardModal/> */}
-			{/* <HomeScreen/> */}
+			{/* <SigninScreen/> */}
+			{/* <RewardModal/> */}
 			{/* <MissionsScreen/> */}
-			<LevelUpModal/>
+			{/* <LevelUpModal/> */}
 		</View>
 	)
 }
