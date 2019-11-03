@@ -6,7 +6,7 @@ var styles = StyleSheet.create({
         flex: 1
     },
 
-    prizeSection: {
+    achievementSection: {
         justifyContent: "center",
         width: "100%",
 

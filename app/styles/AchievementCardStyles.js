@@ -10,68 +10,64 @@ var styles = StyleSheet.create({
 
     cardContainer: {
         width: 345,
-        height: 120,
+        height: 110,
 
-        // Adjust dropshadows later using react-native-shadow potentially
         elevation: 4,
 
         borderRadius: 10,
-        backgroundColor: "#FAFAFA"
+        backgroundColor: theme.darkGreen,
+
+        justifyContent: "center"
     },
 
-    prizeIcon: {
-        width: 45,
-        height: 45,
+    countContainer: {
+        width: 50,
+        height: 70,
+        borderRadius: 7,
 
-        position: "absolute",
-        top: 25,
-        left: 19
-    },
-
-    starCountContainer: {
-        width: 45,
-
-        flexDirection: "row",
         justifyContent: "center",
-
+        alignItems: "center",
         position: "absolute",
-        top: 78,
-        left: 19
+        left: 15,
+
+        backgroundColor: "#8AD560" // light green
+        // backgroundColor: "#95D5EC" // light blue
     },
 
     countText: {
         fontFamily: theme.PoppinsBold,
-        fontSize: 14,
-        color: theme.appBlack
+        fontSize: 24,
+        lineHeight: 30,
+        color: theme.white,
     },
 
-    starIcon: {
-        width: 15,
-        height: 15,
-
-        top: 2,
-        marginLeft: 1
+    achievementIcon: {
+        // backgroundColor: "red"
+        // width: 15,
+        // height: 15,
+        // top: 2,
+        // marginLeft: 1
     },
 
-    prizeDetailContainer: {
-        width: "70%",
+    achievementDetailContainer: {
+        width: "75%",
         height: "100%",
 
         justifyContent: "center",
         alignItems: "flex-start",
-        left: 82
+        left: 80
     },
 
-    prizeName: {
+    achievementName: {
         fontFamily: theme.PoppinsBold,
         fontSize: 16,
-        color: theme.appBlack
+        color: theme.white
     },
 
-    prizeDesc: {
+    achievementDesc: {
         fontFamily: theme.RobotoRegular,
         fontSize: 15,
-        color: theme.appBlack
+        color: theme.white
     }
 });
 
