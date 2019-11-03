@@ -19,12 +19,12 @@ export default function SigninScreen(){
             <TreeBg/>
 
             {/* Signin */}
-            <EcoHeroLogo/>
-            <SignInEntry/>
+            {/* <EcoHeroLogo/>
+            <SignInEntry/> */}
 
             {/* Forgot PW */}
-            {/* <BackBar/>
-            <ForgotPW/> */}
+            <BackBar/>
+            <ForgotPW/>
         </View>
     )
 }

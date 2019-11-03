@@ -12,7 +12,7 @@ export default function App(){
 	return (
 		<View style={styles.container}>
       <SigninScreen/>
-			// <MissionsScreen/>
+			{/* <MissionsScreen/> */}
 		</View>
 	)
 }

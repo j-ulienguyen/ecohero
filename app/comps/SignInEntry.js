@@ -16,12 +16,15 @@ export default function SignInEntry(){
          <View style={styles.twoFields}>
             {/* Sign In Option */}
             <TouchableOpacity>
-               <Text style={styles.signInText}>SIGN IN</Text>
+
+               <Text style={styles.signInText, styles.activeTxt}>SIGN IN</Text>
+               <View style={styles.lineLeft}></View>
             </TouchableOpacity>
 
             {/* Sign Up Option */}
             <TouchableOpacity>
                <Text style={styles.signUpText}>SIGN UP</Text>
+               {/* <View style={styles.rightLeft}></View> */}
             </TouchableOpacity>
          </View>
 

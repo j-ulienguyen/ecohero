@@ -6,7 +6,7 @@ var styles = StyleSheet.create({
       flex: 1,
       justifyContent: "center",
       alignItems: "center",
-      top: 220
+      top: 210
    },
 
    headTxt: {
@@ -23,7 +23,7 @@ var styles = StyleSheet.create({
    },
 
    emailInput: {
-      top: 400,
+      top: 390,
       left: 50,
       width: 309,
       flexDirection: 'row',
@@ -42,7 +42,7 @@ var styles = StyleSheet.create({
       height: 43,
       borderRadius: 30,
       backgroundColor: theme.darkGreen,
-      top: 230,
+      top: 220,
       justifyContent: "center",
       alignItems: "center"
    },
@@ -57,7 +57,7 @@ var styles = StyleSheet.create({
 
    btmText: {
       textAlign:'center',
-      top: 245
+      top: 240
    }
 });
 

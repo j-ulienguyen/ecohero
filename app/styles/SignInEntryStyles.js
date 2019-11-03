@@ -18,13 +18,34 @@ var styles = StyleSheet.create({
       borderBottomColor: theme.lightGray
    },
 
+   lineLeft: {
+      width: 125, 
+      height: 3, 
+      backgroundColor: theme.lightGreen,position: "absolute",
+      left: -40,
+      top: 28
+   },
+
+   rightLeft: {
+      width: 125, 
+      height: 3, 
+      backgroundColor: theme.lightGreen,position: "absolute",
+      right: -40,
+      top: 28
+   },
+
    signInText: {
       fontFamily: theme.PoppinsRegular,
-      marginRight: 70
    },
 
    signUpText: {
-      fontFamily: theme.PoppinsRegular
+      fontFamily: theme.PoppinsRegular,
+      marginLeft: 70
+   },
+
+   activeTxt: {
+      fontFamily: theme.PoppinsMedium,
+      color: theme.darkGreen,
    },
 
    userInput: {
@@ -69,6 +90,8 @@ var styles = StyleSheet.create({
 
    btmText: {
       textAlign:'center',
+      fontFamily: theme.RobotoLight,
+      fontSize: 14,
       top: 85
    }
 });
