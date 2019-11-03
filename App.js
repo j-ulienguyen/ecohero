@@ -7,13 +7,18 @@ import HomeScreen from './app/screens/HomeScreen';
 import MissionsScreen from './app/screens/MissionsScreen';
 import SigninScreen from './app/screens/SigninScreen';
 import RewardModal from './app/comps/RewardModal';
+import SignupScreen from './app/screens/SignupScreen';
 import LevelUpModal from './app/comps/LevelUpModal';
 
 export default function App(){
 	// UI
 	return (
-		<View style={styles.container}>
-			<HomeScreen/>
+		<View style={styles.container}
+		{/* <SigninScreen/> */}
+		<SignupScreen />
+      {/* <RewardModal/> */}
+			{/* <HomeScreen/> */}
+      {/* <HomeScreen/> */}
 			{/* <SigninScreen/> */}
 			{/* <RewardModal/> */}
 			{/* <MissionsScreen/> */}
