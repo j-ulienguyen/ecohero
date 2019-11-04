@@ -25,6 +25,8 @@ export default function App(){
 				heading = "Woo-hoo!"
 				description = "Thank you for joining EcoHero. Please accept these rewards as a token of appreciation"
 				imagePath = {require('./app/assets/imgs/star-reward.png')}
+				starAmount = {5}
+				xpAmount = {100}
 			/> */}
 
 			<MissionsScreen/>

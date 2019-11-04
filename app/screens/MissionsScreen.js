@@ -6,7 +6,6 @@ import styles from '../styles/MissionsScreenStyles';
 import PatternBG from '../comps/PatternBG';
 import MissionBoardCard from '../comps/missions/MissionBoardCard';
 import MissionCard from '../comps/missions/MissionCard';
-import BonusMissionCard from '../comps/missions/BonusMissionCard';
 
 
 export default function MissionsScreen(){
@@ -20,14 +19,32 @@ export default function MissionsScreen(){
             <ScrollView>
                 <View>
                     {/* Mission Board Card */}
-                    <MissionBoardCard/>
+                    <MissionBoardCard
+                        missionStatement='“Our mission is to recycle and maintain a clean environment”'
+                    />
 
                     {/* Mission Card Section */}
                     <View style={styles.cardSection}>
-                        <BonusMissionCard/>
-                        <MissionCard/>
-                        <MissionCard/>
-                        <MissionCard/>
+                        <MissionCard
+                            type="bonus"
+                            starAmount={5}
+                            xpAmount={50}
+                        />
+                        <MissionCard
+                            type="normal"
+                            starAmount={5}
+                            xpAmount={50}
+                        />
+                        <MissionCard
+                            type="normal"
+                            starAmount={5}
+                            xpAmount={50}
+                        />
+                        <MissionCard
+                            type="normal"
+                            starAmount={5}
+                            xpAmount={50}
+                        />
                     </View>
                 </View>
             </ScrollView>
