@@ -27,21 +27,25 @@ export default function MissionsScreen(){
                     <View style={styles.cardSection}>
                         <MissionCard
                             type="bonus"
+                            iconPath={require('../assets/imgs/recycle-icon.png')}
                             starAmount={5}
                             xpAmount={50}
                         />
                         <MissionCard
                             type="normal"
+                            iconPath={require('../assets/imgs/reduce-icon.png')}
                             starAmount={5}
                             xpAmount={50}
                         />
                         <MissionCard
                             type="normal"
+                            iconPath={require('../assets/imgs/reuse-icon.png')}
                             starAmount={5}
                             xpAmount={50}
                         />
                         <MissionCard
                             type="normal"
+                            iconPath={require('../assets/imgs/eco-icon.png')}
                             starAmount={5}
                             xpAmount={50}
                         />

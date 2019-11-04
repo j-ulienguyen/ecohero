@@ -47,7 +47,7 @@ export default function MissionCard(props){
                 {/* Mission Icon */}
                 <Image
                     style = {styles.missionIcon}
-                    source = {require('../../assets/imgs/recycle-icon.png')}
+                    source = {props.iconPath}
                 />
 
                 {/* Expand/Close Button */}
