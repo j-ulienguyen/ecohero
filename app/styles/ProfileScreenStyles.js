@@ -32,6 +32,13 @@ var styles = StyleSheet.create({
         width: 75,
         borderBottomWidth: 4,
         borderBottomColor: theme.lightGreen,
+    },
+
+    badgeContainer: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        flexWrap: "wrap",
+        marginVertical: 30
     }
 });
 
