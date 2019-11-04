@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 
 // Import comps & styles below
-import styles from '../styles/MissionBoardCardStyles';
+import styles from '../../styles/MissionBoardCardStyles';
 import MotivationCard from './MotivationCard';
 
 
@@ -13,7 +13,7 @@ export default function MissionBoardCard(){
             {/* Blue BG Card */}
             <Image
             style = {styles.bgCard}
-            source = {require('../assets/imgs/mission-card-bg.png')}
+            source = {require('../../assets/imgs/mission-card-bg.png')}
             />
 
             {/* Mission Board Heading */}

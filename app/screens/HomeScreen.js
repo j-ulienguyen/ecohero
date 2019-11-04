@@ -4,9 +4,9 @@ import {View, Text, ScrollView} from 'react-native';
 // Import comps & styles below
 import styles from '../styles/HomeScreenStyles';
 import PatternBG from '../comps/PatternBG';
-import ProfileCard from '../comps/ProfileCard';
-import PrizeProgress from '../comps/PrizeProgress';
-import PrizeCard from '../comps/PrizeCard';
+import ProfileCard from '../comps/home/ProfileCard';
+import PrizeProgress from '../comps/home/PrizeProgress';
+import PrizeCard from '../comps/home/PrizeCard';
 
 
 export default function HomeScreen(){

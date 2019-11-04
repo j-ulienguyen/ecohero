@@ -9,7 +9,7 @@ export default function SettingsIcon(){
             style = {styles.settingsIcon}
         >
             <Image
-                source = {require('../assets/imgs/settings-icon.png')}
+                source = {require('../../assets/imgs/settings-icon.png')}
             />
         </TouchableOpacity>
     )

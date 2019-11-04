@@ -2,8 +2,8 @@ import React from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 
 // Import comps & styles below
-import styles from '../styles/LevelUpModalStyles';
-import ScreenOverlay from './ScreenOverlay';
+import styles from '../../styles/LevelUpModalStyles';
+import ScreenOverlay from '../ScreenOverlay';
 
 
 export default function LevelUpModal(){
@@ -22,7 +22,7 @@ export default function LevelUpModal(){
 				<View style={styles.badgeContainer}>
 					<Image
 						style = {styles.levelupBadge}
-						source = {require('../assets/imgs/levelup-badge.png')}
+						source = {require('../../assets/imgs/levelup-badge.png')}
 					/>
 					<Text style={styles.levelText}>2</Text>
 				</View>

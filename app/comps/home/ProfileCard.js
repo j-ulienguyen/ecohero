@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Image} from 'react-native';
 
 // Import comps & styles below
-import styles from '../styles/ProfileCardStyles';
+import styles from '../../styles/ProfileCardStyles';
 import UserBubble from './UserBubble';
 
 
@@ -13,7 +13,7 @@ export default function ProfileCard(){
             {/* Green BG Card */}
             <Image
                 style = {styles.bgCard}
-                source = {require('../assets/imgs/profile-card-bg.png')}
+                source = {require('../../assets/imgs/profile-card-bg.png')}
             />
 
             {/* User Speech Bubble */}
@@ -28,13 +28,13 @@ export default function ProfileCard(){
                     {/* Hex Badge */}
                     <Image
                         style = {styles.hexBadge}
-                        source = {require('../assets/imgs/hex-badge.png')}
+                        source = {require('../../assets/imgs/hex-badge.png')}
                     />
                     {/* Badge Content */}
                     <View style={styles.hexBadgeContent}>
                         <Text style={styles.countText}>5</Text>
                         <Image
-                            source = {require('../assets/imgs/star-icon.png')}
+                            source = {require('../../assets/imgs/star-icon.png')}
                         />
                     </View>
                 </View>
@@ -47,14 +47,14 @@ export default function ProfileCard(){
                         <Image
                             style = {styles.avatarIcon}
                             resizeMode = "contain"
-                            source = {require('../assets/imgs/can-avatar.png')}
+                            source = {require('../../assets/imgs/can-avatar.png')}
                         />
 
                         {/* Level Badge */}
                         <View style={styles.levelContainer}>
                             <Image
                                 style = {styles.levelBadge}
-                                source = {require('../assets/imgs/level-badge.png')}
+                                source = {require('../../assets/imgs/level-badge.png')}
                             />
 
                             {/* Level # */}
@@ -68,7 +68,7 @@ export default function ProfileCard(){
                     {/* Hex Badge */}
                     <Image
                         style = {styles.hexBadge}
-                        source = {require('../assets/imgs/hex-badge.png')}
+                        source = {require('../../assets/imgs/hex-badge.png')}
                     />
                     {/* Badge Content */}
                     <View style={styles.hexBadgeContent}>

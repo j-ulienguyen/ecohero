@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Image} from 'react-native';
 
 // Import comps & styles below
-import styles from '../styles/AchievementCardStyles';
+import styles from '../../styles/AchievementCardStyles';
 
 
 export default function AchievementCard(){
@@ -18,7 +18,7 @@ export default function AchievementCard(){
                     {/* Icon */}
                     <Image
                         style = {styles.achievementIcon}
-                        source = {require('../assets/imgs/complete-mission-icon.png')}
+                        source = {require('../../assets/imgs/complete-mission-icon.png')}
                     />
                 </View>
 

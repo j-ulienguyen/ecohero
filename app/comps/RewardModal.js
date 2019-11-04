@@ -3,7 +3,7 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 
 // Import comps & styles below
 import styles from '../styles/RewardModalStyles';
-import RewardsBar from './RewardsBar';
+import RewardsBar from './missions/RewardsBar';
 
 
 export default function RewardModal(){

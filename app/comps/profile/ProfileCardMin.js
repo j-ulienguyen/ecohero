@@ -1,9 +1,8 @@
 import React from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image} from 'react-native';
 
 // Import comps & styles below
-import styles from '../styles/ProfileCardMinStyles';
-import SettingsIcon from '../comps/SettingsIcon';
+import styles from '../../styles/ProfileCardMinStyles';
 
 
 export default function ProfileCardMin(){
@@ -13,7 +12,7 @@ export default function ProfileCardMin(){
             {/* Green BG Card */}
             <Image
                 style = {styles.bgCard}
-                source = {require('../assets/imgs/profile-card-bg.png')}
+                source = {require('../../assets/imgs/profile-card-bg.png')}
             />
 
             {/* Avatar / Level */}
@@ -24,14 +23,14 @@ export default function ProfileCardMin(){
                     <Image
                         style = {styles.avatarIcon}
                         resizeMode = "contain"
-                        source = {require('../assets/imgs/can-avatar.png')}
+                        source = {require('../../assets/imgs/can-avatar.png')}
                     />
 
                     {/* Level Badge */}
                     <View style={styles.levelContainer}>
                         <Image
                             style = {styles.levelBadge}
-                            source = {require('../assets/imgs/level-badge.png')}
+                            source = {require('../../assets/imgs/level-badge.png')}
                         />
 
                         {/* Level # */}

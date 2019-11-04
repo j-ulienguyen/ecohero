@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image} from 'react-native';
 
 // Import comps & styles below
-import styles from '../styles/RewardsBarStyles';
+import styles from '../../styles/RewardsBarStyles';
 
 
 export default function RewardsBar(){
@@ -18,7 +18,7 @@ export default function RewardsBar(){
                     <Text style={styles.starAmount}>20</Text>
                     <Image
                         style = {styles.starIcon}
-                        source = {require('../assets/imgs/star-icon.png')}
+                        source = {require('../../assets/imgs/star-icon.png')}
                     />
                 </View>
 

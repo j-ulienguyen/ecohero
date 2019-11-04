@@ -4,9 +4,9 @@ import {View, Text, ScrollView} from 'react-native';
 // Import comps below
 import styles from '../styles/MissionsScreenStyles';
 import PatternBG from '../comps/PatternBG';
-import MissionBoardCard from '../comps/MissionBoardCard';
-import MissionCard from '../comps/MissionCard';
-import BonusMissionCard from '../comps/BonusMissionCard';
+import MissionBoardCard from '../comps/missions/MissionBoardCard';
+import MissionCard from '../comps/missions/MissionCard';
+import BonusMissionCard from '../comps/missions/BonusMissionCard';
 
 
 export default function MissionsScreen(){

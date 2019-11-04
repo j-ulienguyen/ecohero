@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Image} from 'react-native';
 
 // Import comps & styles below
-import styles from '../styles/PrizeCardStyles';
+import styles from '../../styles/PrizeCardStyles';
 
 
 export default function PrizeCard(){
@@ -14,7 +14,7 @@ export default function PrizeCard(){
                 {/* Prize Icon */}
                 <Image
                     style = {styles.prizeIcon}
-                    source = {require('../assets/imgs/bronze-prize.png')}
+                    source = {require('../../assets/imgs/bronze-prize.png')}
                 />
 
                 {/* Star Count Requirement */}
@@ -23,7 +23,7 @@ export default function PrizeCard(){
                     <Text style={styles.countText}>20</Text>
                     <Image
                         style = {styles.starIcon}
-                        source = {require('../assets/imgs/star-icon.png')}
+                        source = {require('../../assets/imgs/star-icon.png')}
                     />
                 </View>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Image} from 'react-native';
-import styles from '../styles/UserBubbleStyles';
+import styles from '../../styles/UserBubbleStyles';
 
 
 export default function UserBubble(){
@@ -10,7 +10,7 @@ export default function UserBubble(){
             {/* EcoHero Character */}
             <Image
                 style = {styles.character}
-                source = {require('../assets/imgs/ecohero-wave.png')}
+                source = {require('../../assets/imgs/ecohero-wave.png')}
             />
 
             {/* User Speech Bubble */}
@@ -18,7 +18,7 @@ export default function UserBubble(){
                 {/* Speech Bubble Shape */}
                 <Image
                     style = {styles.speechBubble}
-                    source = {require('../assets/imgs/speech-bubble.png')}
+                    source = {require('../../assets/imgs/speech-bubble.png')}
                 />
 
                 {/* Content inside Speech Bubble*/}

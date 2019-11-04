@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 
 // Import comps & styles below
-import styles from '../styles/BonusRewardsBarStyles';
+import styles from '../../styles/BonusRewardsBarStyles';
 
 
 export default function BonusRewardsBar(){
@@ -18,7 +18,7 @@ export default function BonusRewardsBar(){
                     <Text style={styles.starAmount}>20</Text>
                     <Image
                         style = {styles.starIcon}
-                        source = {require('../assets/imgs/star-icon.png')}
+                        source = {require('../../assets/imgs/star-icon.png')}
                     />
                 </View>
 

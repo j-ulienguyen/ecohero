@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Image, Animated} from 'react-native';
 
 // Import comps & styles below
-import styles from '../styles/PrizeProgressStyles';
+import styles from '../../styles/PrizeProgressStyles';
 
 
 export default function PrizeProgress(){
@@ -28,7 +28,7 @@ export default function PrizeProgress(){
                             <Text style={styles.countText}>5</Text>
                             <Image
                                 style = {styles.starIcon}
-                                source = {require('../assets/imgs/star-icon.png')}
+                                source = {require('../../assets/imgs/star-icon.png')}
                             />
                         </View>
                     </View>
@@ -43,7 +43,7 @@ export default function PrizeProgress(){
                             <Text style={styles.countText}>10</Text>
                             <Image
                                 style = {styles.starIcon}
-                                source = {require('../assets/imgs/star-icon.png')}
+                                source = {require('../../assets/imgs/star-icon.png')}
                             />
                         </View>
                     </View>
@@ -58,7 +58,7 @@ export default function PrizeProgress(){
                             <Text style={styles.countText}>20</Text>
                             <Image
                                 style = {styles.starIcon}
-                                source = {require('../assets/imgs/star-icon.png')}
+                                source = {require('../../assets/imgs/star-icon.png')}
                             />
                         </View>
                     </View>
