@@ -4,6 +4,10 @@ import {View, Text} from 'react-native';
 // Import comps below
 import EcoHeroLogo from '../comps/EcoHeroLogo';
 import GetStarted from '../comps/GetStarted';
+import BackBar from '../comps/BackBar';
+
+// Import subscreens below
+import OnboardSteps from '../subscreens/OnboardSteps'
 
 
 export default function OnboardingScreen(){
@@ -11,10 +15,14 @@ export default function OnboardingScreen(){
     return (
         <View>
             {/* Get Started */}
-            <View style={{top: 50}}>
-             <EcoHeroLogo />
+            {/* <View style={{top: 50}}>
+                <EcoHeroLogo />
             </View>
-                <GetStarted />
+                <GetStarted /> */}
+
+            {/* Onboarding Steps 1-3 */}
+            <BackBar />
+            <OnboardSteps />
         </View>
     )
 }
