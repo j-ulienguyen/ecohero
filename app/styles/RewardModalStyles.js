@@ -43,13 +43,13 @@ var styles = StyleSheet.create({
         marginTop: 50
      },
 
-     btnText: {
-        fontFamily: theme.PoppinsBold,
-        fontSize: 12,
-        textTransform: "uppercase",
-        letterSpacing: 2,
-        color: theme.white
-     }
+    btnText: {
+    fontFamily: theme.PoppinsBold,
+    fontSize: 12,
+    textTransform: "uppercase",
+    letterSpacing: 2,
+    color: theme.white
+    }
 });
 
 export default styles;

@@ -14,20 +14,20 @@ export default function AchievementCard(props){
                 {/* Achievement Count */}
                 <View style={styles.countContainer}>
                     {/* Count # */}
-                    <Text style={styles.countText}>{props.count}</Text>
+                    <Text style={styles.countText}>{props.countText}</Text>
                     {/* Icon */}
                     <Image
                         style = {styles.achievementIcon}
-                        source = {props.imagePath}
+                        source = {require('../../assets/imgs/complete-mission-icon.png')}
                     />
                 </View>
 
                 {/* Achievement Details */}
                 <View style={styles.achievementDetailContainer}>
                     {/* Achievement Name */}
-                    <Text style={styles.achievementName}>{props.name}</Text>
+                    <Text style={styles.achievementName}>{props.achievementName}</Text>
                     {/* Achievement Description */}
-                    <Text style={styles.achievementDesc}>{props.description}</Text>
+                    <Text style={styles.achievementDesc}>{props.achievementDesc}</Text>
                 </View>
             </View>
         </View>

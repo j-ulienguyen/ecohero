@@ -5,9 +5,7 @@ import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
 export default function SettingsIcon(){
     // UI
     return (
-        <TouchableOpacity
-            style = {styles.settingsIcon}
-        >
+        <TouchableOpacity style={styles.settingsIcon}>
             <Image
                 source = {require('../../assets/imgs/settings-icon.png')}
             />

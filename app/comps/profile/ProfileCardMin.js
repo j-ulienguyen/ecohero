@@ -5,7 +5,7 @@ import {View, Text, Image} from 'react-native';
 import styles from '../../styles/ProfileCardMinStyles';
 
 
-export default function ProfileCardMin(){
+export default function ProfileCardMin(props){
     // UI
     return (
         <View style={styles.container}>
@@ -23,7 +23,7 @@ export default function ProfileCardMin(){
                     <Image
                         style = {styles.avatarIcon}
                         resizeMode = "contain"
-                        source = {require('../../assets/imgs/can-avatar.png')}
+                        source = {props.avatarPath}
                     />
 
                     {/* Level Badge */}
@@ -34,14 +34,14 @@ export default function ProfileCardMin(){
                         />
 
                         {/* Level # */}
-                        <Text style={styles.levelText}>1</Text>
+                        <Text style={styles.levelText}>{props.level}</Text>
                     </View>
                 </View>
             </View>
 
             {/* Username */}
             <View style={styles.usernameContainer}>
-                <Text style={styles.usernameText}>hardcoreHenry</Text>
+                <Text style={styles.usernameText}>{props.username}</Text>
             </View>
         </View>
     )

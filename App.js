@@ -17,11 +17,22 @@ export default function App(){
 		<View style={styles.container}>
 			{/* <SigninScreen/> */}
 			{/* <HomeScreen/> */}
-			{/* <RewardModal/> */}
+
+			{/* <RewardModal
+				heading = "Woo-hoo!"
+				description = "Thank you for joining EcoHero. Please accept these rewards as a token of appreciation"
+				imagePath = {require('./app/assets/imgs/star-reward.png')}
+			/> */}
+
 			{/* <MissionsScreen/> */}
 			{/* <LevelUpModal/> */}
 			<ProfileScreen/>
-			{/* <BadgeModal/> */}
+
+			{/* <BadgeModal
+				heading = "Eco-friendly"
+				imagePath = {require('./app/assets/imgs/eco-badge.png')}
+				description = "You've unlocked a badge for completing your first eco mission"
+			/> */}
 		</View>
 	)
 }

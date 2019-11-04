@@ -19,17 +19,31 @@ export default function ProfileScreen(){
 
             <ScrollView>
                 {/* Profile Card */}
-                <ProfileCardMin/>
+                <ProfileCardMin
+                    avatarPath = {require('../assets/imgs/can-avatar.png')}
+                    level = "5"
+                    username = "hardcoreHenry"
+                />
 
                 {/* Settings - Gear Icon */}
                 <SettingsIcon/>
 
                 <View style={styles.achievementSection}>
                     {/* Total Stars Card */}
-                    <AchievementCard/>
+                    <AchievementCard
+                        count = "99"
+                        imagePath = {require('../assets/imgs/star-icon.png')}
+                        name = "Total Stars"
+                        description = "All of the stars that you have earned so far on EcoHero"
+                    />
 
                     {/* Completed Missions Card */}
-                    <AchievementCard/>
+                    <AchievementCard
+                        count = "75"
+                        imagePath = {require('../assets/imgs/complete-mission-icon.png')}
+                        name = "Completed Missions"
+                        description = "All of the missions that you have completed so far on EcoHero"
+                    />
                 </View>
 
                 <View style={styles.centerContent}>
@@ -39,12 +53,36 @@ export default function ProfileScreen(){
 
                         {/* Badges x 6 */}
                         <View style={styles.badgeContainer}>
-                            <ProfileBadge/>
-                            <ProfileBadge/>
-                            <ProfileBadge/>
-                            <ProfileBadge/>
-                            <ProfileBadge/>
-                            <ProfileBadge/>
+                            <ProfileBadge
+                                imagePath = {require('../assets/imgs/eco-badge.png')}
+                                lockIcon = {null}
+                                disabled = {false}
+                            />
+                            <ProfileBadge
+                                imagePath = {require('../assets/imgs/10-badge.png')}
+                                lockIcon = {null}
+                                disabled = {false}
+                            />
+                            <ProfileBadge
+                                imagePath = {require('../assets/imgs/crown-badge.png')}
+                                lockIcon = {null}
+                                disabled = {false}
+                            />
+                            <ProfileBadge
+                                imagePath = {require('../assets/imgs/locked-badge.png')}
+                                lockIcon = {require('../assets/imgs/lock-icon.png')}
+                                disabled = {true}
+                            />
+                            <ProfileBadge
+                                imagePath = {require('../assets/imgs/locked-badge.png')}
+                                lockIcon = {require('../assets/imgs/lock-icon.png')}
+                                disabled = {true}
+                            />
+                            <ProfileBadge
+                                imagePath = {require('../assets/imgs/locked-badge.png')}
+                                lockIcon = {require('../assets/imgs/lock-icon.png')}
+                                disabled = {true}
+                            />
                         </View>
                     </View>
                 </View>
