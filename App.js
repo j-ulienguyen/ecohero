@@ -10,11 +10,14 @@ import ProfileScreen from './app/screens/ProfileScreen';
 import RewardModal from './app/comps/RewardModal';
 import LevelUpModal from './app/comps/home/LevelUpModal';
 import BadgeModal from './app/comps/profile/BadgeModal';
+import SignupScreen from './app/screens/SignupScreen';
+
 
 export default function App(){
 	// UI
 	return (
 		<View style={styles.container}>
+      {/* <SignupScreen /> */}
 			{/* <SigninScreen/> */}
 			{/* <HomeScreen/> */}
 			{/* <RewardModal/> */}
