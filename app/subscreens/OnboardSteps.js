@@ -10,34 +10,60 @@ export default function OnboardSteps(){
 
          <View style={styles.container}>
 
-         <View> 
          {/* Step 1 */}
+         <View> 
             <Image
-            style = {styles.bgCard}
+            style = {styles.stepImg}
             source = {require('../assets/imgs/mission-onboard.png')}
             />
          </View>
-         
-         {/* Step 1 Description */}
             <Text style={styles.headTxt}>Missions</Text>
             <Text style={styles.subTxt}>Missions are updated monthly and each mission will reflect a certain number of stars and XP. </Text>
+     
+         
+         {/* Step 2 */}
+         {/* <View> 
+            <Image
+            style = {styles.stepImg}
+            source = {require('../assets/imgs/proof-onboard.png')}
+            />
          </View>
+            <Text style={styles.headTxt}>Proof of Mission</Text>
+            <Text style={styles.subTxt}>To verify that you completed your mission, you must either enter or scan a special code given to you. </Text> */}
 
-
+         {/* Step 3 */}
+         {/* <View> 
+            <Image
+            style = {styles.stepImg}
+            source = {require('../assets/imgs/rewards-onboard.png')}
+            />
+         </View>
+            <Text style={styles.headTxt}>s</Text>
+            <Text style={styles.subTxt}>Keep on completing missions to receive rewards and badges. The more stars you collect the better the prize! </Text> */}
+         </View>
+         
          {/* Bottom Page Nav */}
          <View style={styles.navContainer}>
-            {/* Next Button */}
-            <TouchableOpacity
-               style={styles.greenBtn}>
-                  <Text style={styles.btnText}>Next</Text>
-               </TouchableOpacity>
 
             {/* Skip Button */}
             <TouchableOpacity>
                <Text style={styles.btmText}>Skip</Text>
             </TouchableOpacity>
-         </View> 
+            
+            {/* Page Navigation */}
+            <View style={styles.pageDots}>
+               <View style={[styles.regDot, styles.activeDot]}></View>
+               <View style={styles.regDot}></View>
+               <View style={styles.regDot}></View>
+            </View>
 
+            {/* Next Button */}
+            <TouchableOpacity
+               style={styles.greenBtn}>
+                  <Text style={styles.btnText}>Next</Text>
+            </TouchableOpacity>
+            
+         </View> 
       </View>
    );
 };

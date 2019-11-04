@@ -4,7 +4,7 @@ import {View, Text} from 'react-native';
 // Import comps below
 import TreeBg from '../comps/TreeBg';
 import EcoHeroLogo from '../comps/EcoHeroLogo';
-import SignInEntry from '../comps/SignInEntry';
+import SignInEntry from '../comps/signin/SignInEntry';
 
 // Subscreen comps
 import ForgotPW from '../subscreens/ForgotPWSubscreen';
@@ -16,11 +16,11 @@ export default function SigninScreen(){
     return (
         <View>
             {/* Fixed Tree BG */}
-            {/* <TreeBg/> */}
+            <TreeBg/>
 
             {/* Signin */}
-            {/* <EcoHeroLogo/>
-            <SignInEntry/> */}
+            <EcoHeroLogo/>
+            <SignInEntry/>
 
             {/* Forgot PW */}
             {/* <BackBar/>

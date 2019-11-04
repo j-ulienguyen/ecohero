@@ -23,20 +23,51 @@ var styles = StyleSheet.create({
       textAlign: "center",
    },
 
-   greenBtn: {
-      width: 100,
-      height: 43,
-      borderRadius: 30,
-      backgroundColor: theme.darkGreen,
-      position: "relative",
-      top: 400,
+   stepImg: {
       justifyContent: "center",
       alignItems: "center"
    },
 
    navContainer: {
-      left: 270,
-      bottom: -150
+      bottom: -580,
+      width: "90%",
+      alignItems: "center",
+      flexDirection: "row",
+      justifyContent: "space-evenly"
+      // backgroundColor: "pink",
+   },
+   
+   pageDots: {
+      flexDirection: "row",
+      left: 50
+   }, 
+   
+   regDot: {
+      width: 10,
+      height: 10,
+      borderRadius: 10,
+      margin: 10,
+      backgroundColor: theme.lightGray,
+   },
+
+   activeDot: {
+      width: 10,
+      height: 10,
+      borderRadius: 10,
+      margin: 10,
+      backgroundColor: theme.darkGreen,
+      position: "relative",
+      top: 0
+   },
+
+   greenBtn: {
+      width: 100,
+      height: 43,
+      borderRadius: 30,
+      backgroundColor: theme.darkGreen,
+      justifyContent: "center",
+      alignItems: "center",
+      left: 60
    },
    
    btnText: {
@@ -44,17 +75,16 @@ var styles = StyleSheet.create({
       fontSize: 14,
       textTransform: "uppercase",
       letterSpacing: 2,
-      color: theme.white
+      color: theme.white,
    },
 
    btmText: {
       textAlign:'center',
-      top: 400,
       textTransform: "uppercase",
       fontFamily: theme.PoppinsBold,
+      color: theme.medGray,
       fontSize: 14,
-      right: 400,
-      top: 370
+      letterSpacing: 2,
    },
 
 });

@@ -15,6 +15,8 @@ export default function App(){
 	// UI
 	return (
 		<View style={styles.container}>
+			{/* <SigninScreen /> */}
+			{/* <SignupScreen /> */}
 			<OnboardingScreen />
 		</View>
 	)

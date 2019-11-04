@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
-import styles from '../styles/GetStartedStyles';
+import styles from '../../styles/GetStartedStyles';
 
 export default function GetStarted(){
    const [txt, setTxt] = useState("");
