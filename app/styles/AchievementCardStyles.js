@@ -10,58 +10,57 @@ var styles = StyleSheet.create({
 
     cardContainer: {
         width: 345,
-        height: 120,
+        height: 110,
 
-        // Adjust dropshadows later using react-native-shadow potentially
         elevation: 4,
 
         borderRadius: 10,
-        backgroundColor: "#FAFAFA"
+        // backgroundColor: theme.darkGreen,
+
+        justifyContent: "center"
     },
 
-    lockIcon: {
-        width: 15,
-        height: 20,
+    countContainer: {
+        width: 50,
+        height: 70,
+        borderRadius: 7,
 
+        justifyContent: "center",
+        alignItems: "center",
         position: "absolute",
-        top: 36,
-        left: 34
+        left: 15
     },
 
-    starCountContainer: {
-        position: "absolute",
-        top: 78,
-        left: 19
+    countText: {
+        fontFamily: theme.PoppinsBold,
+        fontSize: 24,
+        lineHeight: 30,
+        color: theme.white,
     },
 
-    prizeIcon: {
-        width: 45,
-        height: 45,
-
-        position: "absolute",
-        top: 25,
-        left: 19
+    achievementIcon: {
+        // Currently no code needed
     },
 
-    prizeDetailContainer: {
-        width: "70%",
+    achievementDetailContainer: {
+        width: "75%",
         height: "100%",
 
         justifyContent: "center",
         alignItems: "flex-start",
-        left: 82
+        left: 80
     },
 
-    prizeName: {
+    achievementName: {
         fontFamily: theme.PoppinsBold,
         fontSize: 16,
-        color: theme.appBlack
+        color: theme.white
     },
 
-    prizeDesc: {
+    achievementDesc: {
         fontFamily: theme.RobotoRegular,
         fontSize: 15,
-        color: theme.appBlack
+        color: theme.white
     }
 });
 

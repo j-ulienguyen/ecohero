@@ -13,18 +13,18 @@ var styles = StyleSheet.create({
 
     modal: {
         // Position to middle of screen
-        top: 150,
+        top: 140,
         left: 55,
 
         width: 300,
-        height: 350,
+        height: 375,
         borderRadius: 20,
         backgroundColor: "#F2F2F2",
 
         // Align content inside
         justifyContent: "space-evenly",
         alignItems: "center",
-        paddingVertical: 20
+        paddingVertical: 15
     },
 
     modalHeading: {
@@ -33,23 +33,18 @@ var styles = StyleSheet.create({
         color: theme.darkGreen
     },
 
-    badgeContainer: {
-        alignItems: "center",
-        top: 15
+    badge: {
+        marginTop: 10
     },
 
-    levelupBadge: {
-        // Currently no code needed
-    },
+    badgeDesc: {
+        fontFamily: theme.PoppinsRegular,
+        fontSize: 14,
+        textAlign: "center",
+        color: theme.appBlack,
 
-    levelText: {
-        fontFamily: theme.PoppinsExtrabold,
-        fontSize: 50,
-        color: theme.white,
-
-        // Position # inside badge
-        position: "absolute",
-        top: 18
+        marginVertical: 10,
+        paddingHorizontal: 10
     }
 });
 
