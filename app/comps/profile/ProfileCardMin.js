@@ -3,6 +3,7 @@ import {View, Text, Image} from 'react-native';
 
 // Import comps & styles below
 import styles from '../../styles/ProfileCardMinStyles';
+import UsernameLabel from '../UsernameLabel';
 
 
 export default function ProfileCardMin(props){
@@ -10,10 +11,7 @@ export default function ProfileCardMin(props){
     return (
         <View style={styles.container}>
             {/* Green BG Card */}
-            <Image
-                style = {styles.bgCard}
-                source = {require('../../assets/imgs/profile-card-bg.png')}
-            />
+            <Image source = {require('../../assets/imgs/profile-card-bg.png')}/>
 
             {/* Avatar / Level */}
             <View style={styles.avatarContainer}>
@@ -40,9 +38,10 @@ export default function ProfileCardMin(props){
             </View>
 
             {/* Username */}
-            <View style={styles.usernameContainer}>
+            {/* <View style={styles.usernameContainer}>
                 <Text style={styles.usernameText}>{props.username}</Text>
-            </View>
+            </View> */}
+            <UsernameLabel/>
         </View>
     )
 }

@@ -45,25 +45,7 @@ var styles = StyleSheet.create({
 
         marginVertical: 10,
         paddingHorizontal: 10
-    },
-
-    greenBtn: {
-        width: 174,
-        height: 43,
-        borderRadius: 30,
-        backgroundColor: theme.darkGreen,
-
-        justifyContent: "center",
-        alignItems: "center"
-     },
-
-     btnText: {
-        fontFamily: theme.PoppinsBold,
-        fontSize: 12,
-        textTransform: "uppercase",
-        letterSpacing: 2,
-        color: theme.white
-     }
+    }
 });
 
 export default styles;

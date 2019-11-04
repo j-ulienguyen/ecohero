@@ -10,16 +10,13 @@ export default function AchievementCard(props){
     return (
         <View style={styles.container}>
             {/* Achievement Card */}
-            <View style={styles.cardContainer}>
+            <View style={[styles.cardContainer, {backgroundColor: props.cardBG}]}>
                 {/* Achievement Count */}
-                <View style={styles.countContainer}>
+                <View style={[styles.countContainer, {backgroundColor: props.countBG}]}>
                     {/* Count # */}
                     <Text style={styles.countText}>{props.count}</Text>
                     {/* Icon */}
-                    <Image
-                        style = {styles.achievementIcon}
-                        source = {props.imagePath}
-                    />
+                    <Image source = {props.imagePath}/>
                 </View>
 
                 {/* Achievement Details */}

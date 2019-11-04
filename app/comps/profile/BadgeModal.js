@@ -29,11 +29,7 @@ export default function BadgeModal(props){
 				<Text style={styles.badgeDesc}>{props.description}</Text>
 
 				{/* Done Button */}
-				<TouchableOpacity style={styles.greenBtn}>
-					<Text style={styles.btnText}>Done</Text>
-				</TouchableOpacity>
-
-				{/* <GreenButton title="Done"/> */}
+				<GreenButton title="Done" width={174} height={43}/>
 			</View>
 		</View>
 	)

@@ -15,7 +15,7 @@ var styles = StyleSheet.create({
         elevation: 4,
 
         borderRadius: 10,
-        backgroundColor: theme.darkGreen,
+        // backgroundColor: theme.darkGreen,
 
         justifyContent: "center"
     },
@@ -28,10 +28,7 @@ var styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         position: "absolute",
-        left: 15,
-
-        backgroundColor: "#8AD560" // light green
-        // backgroundColor: "#95D5EC" // light blue
+        left: 15
     },
 
     countText: {
@@ -42,11 +39,7 @@ var styles = StyleSheet.create({
     },
 
     achievementIcon: {
-        // backgroundColor: "red"
-        // width: 15,
-        // height: 15,
-        // top: 2,
-        // marginLeft: 1
+        // Currently no code needed
     },
 
     achievementDetailContainer: {

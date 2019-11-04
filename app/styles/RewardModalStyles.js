@@ -31,24 +31,6 @@ var styles = StyleSheet.create({
         fontFamily: theme.PoppinsBold,
         fontSize: 18,
         color: theme.appBlack
-    },
-
-    greenBtn: {
-        width: 309,
-        height: 43,
-        borderRadius: 30,
-        backgroundColor: theme.darkGreen,
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: 50
-     },
-
-    btnText: {
-    fontFamily: theme.PoppinsBold,
-    fontSize: 12,
-    textTransform: "uppercase",
-    letterSpacing: 2,
-    color: theme.white
     }
 });
 

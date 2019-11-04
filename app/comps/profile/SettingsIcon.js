@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
+import {Image, TouchableOpacity, StyleSheet} from 'react-native';
 
 
 export default function SettingsIcon(){
@@ -14,6 +14,7 @@ export default function SettingsIcon(){
 }
 
 
+// COMPONENT STYLING
 var styles = StyleSheet.create({
     settingsIcon: {
         position: "absolute",

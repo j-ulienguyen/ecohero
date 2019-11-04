@@ -25,7 +25,7 @@ export default function RewardModal(props){
             <RewardsBar/>
 
             {/* Redeem Button */}
-            <GreenButton title="Redeem"/>
+            <GreenButton title="Done" width={309} height={43} marginTop={50}/>
         </View>
     )
 }

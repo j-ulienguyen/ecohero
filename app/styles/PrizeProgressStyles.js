@@ -31,6 +31,11 @@ var styles = StyleSheet.create({
         flexDirection: "row"
     },
 
+    checkpoint: {
+        // Align circle + star count
+        alignItems: "center"
+    },
+
     progressCheckpoint: {
         width: 20,
         height: 20,
@@ -40,36 +45,10 @@ var styles = StyleSheet.create({
         bottom: 6
     },
 
-    checkpoint5: {
-        left: 65
-    },
-
-    checkpoint10: {
-        left: 125
-    },
-
-    checkpoint20: {
-        left: 255
-    },
-
-    starCountContainer: {
-        flexDirection: "row",
-        justifyContent: "center",
-    },
-
-    countText: {
-        fontFamily: theme.PoppinsBold,
-        fontSize: 14,
-        color: theme.appBlack
-    },
-
-    starIcon: {
-        width: 15,
-        height: 15,
-
-        top: 2,
-        marginLeft: 1
-    },
+    // Checkpoint Positions
+    checkpoint5: { left: 55 },
+    checkpoint10: { left: 90 },
+    checkpoint20: { left: 200 },
 
     progressFill: {
         position: "absolute",

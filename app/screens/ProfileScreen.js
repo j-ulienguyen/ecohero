@@ -3,9 +3,10 @@ import {View, Text, ScrollView} from 'react-native';
 
 // Import comps & styles below
 import styles from '../styles/ProfileScreenStyles';
+import theme from '../styles/ThemeStyles';
 import PatternBG from '../comps/PatternBG';
+import ProfileCard from '../comps/home/ProfileCard';
 import SettingsIcon from '../comps/profile/SettingsIcon';
-import ProfileCardMin from '../comps/profile/ProfileCardMin';
 import AchievementCard from '../comps/profile/AchievementCard';
 import ProfileBadge from '../comps/profile/ProfileBadge';
 
@@ -18,12 +19,15 @@ export default function ProfileScreen(){
 			<PatternBG/>
 
             <ScrollView>
-                {/* Profile Card */}
-                <ProfileCardMin
-                    avatarPath = {require('../assets/imgs/can-avatar.png')}
-                    level = "5"
-                    username = "hardcoreHenry"
-                />
+                {/* Profile Card - Compact Version */}
+                <View style={{marginTop: -150}}>
+                    <ProfileCard
+                        type="compact"
+                        avatarPath={require('../assets/imgs/can-avatar.png')}
+						username="hardcoreHenry"
+						level={5}
+                    />
+                </View>
 
                 {/* Settings - Gear Icon */}
                 <SettingsIcon/>
@@ -31,6 +35,8 @@ export default function ProfileScreen(){
                 <View style={styles.achievementSection}>
                     {/* Total Stars Card */}
                     <AchievementCard
+                        cardBG = {theme.darkGreen}
+                        countBG = "#8AD560"
                         count = "99"
                         imagePath = {require('../assets/imgs/star-icon.png')}
                         name = "Total Stars"
@@ -39,6 +45,8 @@ export default function ProfileScreen(){
 
                     {/* Completed Missions Card */}
                     <AchievementCard
+                        cardBG = "#7FC6E4"
+                        countBG = "#95D5EC"
                         count = "75"
                         imagePath = {require('../assets/imgs/complete-mission-icon.png')}
                         name = "Completed Missions"
@@ -54,33 +62,30 @@ export default function ProfileScreen(){
                         {/* Badges x 6 */}
                         <View style={styles.badgeContainer}>
                             <ProfileBadge
+                                badgeState = "unlocked"
                                 imagePath = {require('../assets/imgs/eco-badge.png')}
-                                lockIcon = {null}
-                                disabled = {false}
-                            />
-                            <ProfileBadge
-                                imagePath = {require('../assets/imgs/10-badge.png')}
-                                lockIcon = {null}
                                 disabled = {false}
                             />
                             <ProfileBadge
                                 imagePath = {require('../assets/imgs/crown-badge.png')}
-                                lockIcon = {null}
+                                badgeState = "unlocked"
                                 disabled = {false}
                             />
                             <ProfileBadge
-                                imagePath = {require('../assets/imgs/locked-badge.png')}
-                                lockIcon = {require('../assets/imgs/lock-icon.png')}
+                                badgeState = "unlocked"
+                                imagePath = {require('../assets/imgs/10-badge.png')}
+                                disabled = {false}
+                            />
+                            <ProfileBadge
+                                badgeState = "locked"
                                 disabled = {true}
                             />
                             <ProfileBadge
-                                imagePath = {require('../assets/imgs/locked-badge.png')}
-                                lockIcon = {require('../assets/imgs/lock-icon.png')}
+                                badgeState = "locked"
                                 disabled = {true}
                             />
                             <ProfileBadge
-                                imagePath = {require('../assets/imgs/locked-badge.png')}
-                                lockIcon = {require('../assets/imgs/lock-icon.png')}
+                                badgeState = "locked"
                                 disabled = {true}
                             />
                         </View>

@@ -19,6 +19,21 @@ var styles = StyleSheet.create({
         backgroundColor: "#FAFAFA"
     },
 
+    lockIcon: {
+        width: 15,
+        height: 20,
+
+        position: "absolute",
+        top: 36,
+        left: 34
+    },
+
+    starCountContainer: {
+        position: "absolute",
+        top: 78,
+        left: 19
+    },
+
     prizeIcon: {
         width: 45,
         height: 45,
@@ -26,31 +41,6 @@ var styles = StyleSheet.create({
         position: "absolute",
         top: 25,
         left: 19
-    },
-
-    starCountContainer: {
-        width: 45,
-
-        flexDirection: "row",
-        justifyContent: "center",
-
-        position: "absolute",
-        top: 78,
-        left: 19
-    },
-
-    countText: {
-        fontFamily: theme.PoppinsBold,
-        fontSize: 14,
-        color: theme.appBlack
-    },
-
-    starIcon: {
-        width: 15,
-        height: 15,
-
-        top: 2,
-        marginLeft: 1
     },
 
     prizeDetailContainer: {

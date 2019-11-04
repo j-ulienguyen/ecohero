@@ -24,9 +24,9 @@ export default function App(){
 				imagePath = {require('./app/assets/imgs/star-reward.png')}
 			/> */}
 
-			{/* <MissionsScreen/> */}
-			{/* <LevelUpModal/> */}
-			<ProfileScreen/>
+			<MissionsScreen/>
+			{/* <LevelUpModal level="5"/> */}
+			{/* <ProfileScreen/> */}
 
 			{/* <BadgeModal
 				heading = "Eco-friendly"

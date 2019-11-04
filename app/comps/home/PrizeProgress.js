@@ -3,9 +3,10 @@ import {View, Text, Image, Animated} from 'react-native';
 
 // Import comps & styles below
 import styles from '../../styles/PrizeProgressStyles';
+import StarCount from '../StarCount';
 
 
-export default function PrizeProgress(){
+export default function PrizeProgress(props){
     // UI
     return (
         <View style={styles.container}>
@@ -19,54 +20,36 @@ export default function PrizeProgress(){
                 {/* Progress Bar Checkpoints */}
                 <View style={styles.checkpointContainer}>
                     {/* Checkpoint 5 Stars */}
-                    <View>
+                    <View style={[styles.checkpoint, styles.checkpoint5]}>
                         {/* Checkpoint Circle */}
-                        <View style={[styles.progressCheckpoint, styles.checkpoint5]}></View>
+                        <View style={styles.progressCheckpoint}></View>
                         {/* Star Count Requirement */}
-                        <View style={[styles.starCountContainer, {left: 65}]}>
-                            {/* Star Count # */}
-                            <Text style={styles.countText}>5</Text>
-                            <Image
-                                style = {styles.starIcon}
-                                source = {require('../../assets/imgs/star-icon.png')}
-                            />
-                        </View>
+                        <StarCount starCount={5}/>
                     </View>
 
                     {/* Checkpoint 10 Stars */}
-                    <View>
+                    <View style={[styles.checkpoint, styles.checkpoint10]}>
                         {/* Checkpoint Circle */}
-                        <View style={[styles.progressCheckpoint, styles.checkpoint10]}></View>
+                        <View style={styles.progressCheckpoint}></View>
                         {/* Star Count Requirement */}
-                        <View style={[styles.starCountContainer, {left: 122}]}>
-                            {/* Star Count # */}
-                            <Text style={styles.countText}>10</Text>
-                            <Image
-                                style = {styles.starIcon}
-                                source = {require('../../assets/imgs/star-icon.png')}
-                            />
-                        </View>
+                        <StarCount starCount={10}/>
                     </View>
 
                     {/* Checkpoint 20 Stars */}
-                    <View>
+                    <View style={[styles.checkpoint, styles.checkpoint20]}>
                         {/* Checkpoint Circle */}
-                        <View style={[styles.progressCheckpoint, styles.checkpoint20]}></View>
+                        <View style={styles.progressCheckpoint}></View>
                         {/* Star Count Requirement */}
-                        <View style={[styles.starCountContainer, {left: 245}]}>
-                            {/* Star Count # */}
-                            <Text style={styles.countText}>20</Text>
-                            <Image
-                                style = {styles.starIcon}
-                                source = {require('../../assets/imgs/star-icon.png')}
-                            />
-                        </View>
+                        <StarCount starCount={20}/>
                     </View>
                 </View>
             </View>
 
             {/* Star Progress Text */}
-            <Text style={styles.progressText}>You’re <Text style={styles.boldText}>5 stars</Text> away from unlocking the Silver Prize!</Text>
+            <Text style={styles.progressText}>You’re <Text style={styles.boldText}>{props.starRemainder}</Text> away from unlocking the {props.prizeName}!</Text>
+
+            {/* Progress Text Statements */}
+            {/* <Text style={styles.progressText}>{props.progressText}</Text> */}
         </View>
     )
 }

@@ -3,9 +3,10 @@ import {View, Text, Image} from 'react-native';
 
 // Import comps & styles below
 import styles from '../../styles/PrizeCardStyles';
+import StarCount from '../StarCount';
 
 
-export default function PrizeCard(){
+export default function PrizeCard(props){
     // UI
     return (
         <View style={styles.container}>
@@ -14,25 +15,25 @@ export default function PrizeCard(){
                 {/* Prize Icon */}
                 <Image
                     style = {styles.prizeIcon}
-                    source = {require('../../assets/imgs/bronze-prize.png')}
+                    source = {props.imagePath}
+                />
+                {/* Lock Icon */}
+                <Image
+                    style = {styles.lockIcon}
+                    source = {props.lockIcon}
                 />
 
                 {/* Star Count Requirement */}
                 <View style={styles.starCountContainer}>
-                    {/* Star Count # */}
-                    <Text style={styles.countText}>20</Text>
-                    <Image
-                        style = {styles.starIcon}
-                        source = {require('../../assets/imgs/star-icon.png')}
-                    />
+                    <StarCount starCount={props.starCount}/>
                 </View>
 
                 {/* Prize Details */}
                 <View style={styles.prizeDetailContainer}>
                     {/* Prize Name */}
-                    <Text style={styles.prizeName}>Bronze Prize</Text>
+                    <Text style={styles.prizeName}>{props.prizeName}</Text>
                     {/* Prize Description */}
-                    <Text style={styles.prizeDesc}>Awesome! You get to redeem an extra 5 minutes in recess.</Text>
+                    <Text style={styles.prizeDesc}>{props.description}</Text>
                 </View>
             </View>
         </View>
