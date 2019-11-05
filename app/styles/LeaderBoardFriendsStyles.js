@@ -11,8 +11,7 @@ var styles = StyleSheet.create({
 
     friendCard : {
         flex:1,
-        flexDirection:"column",
-        position:"absolute",
+        alignItems:"center",
     }
 
 });

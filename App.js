@@ -5,7 +5,7 @@ import {View, Text} from 'react-native';
 import styles from './app/styles/AppStyles';
 import HomeScreen from './app/screens/HomeScreen';
 import MissionsScreen from './app/screens/MissionsScreen';
-import LeaderBoardScreen from './app/screens/LeaderBoardScreen'
+import LeaderboardScreen from './app/screens/LeaderboardScreen'
 import SigninScreen from './app/screens/SigninScreen';
 import RewardModal from './app/comps/RewardModal';
 
@@ -15,7 +15,7 @@ export default function App(){
 	// UI
 	return (
 		<View style={styles.container}>
-			<LeaderBoardScreen/>
+			<LeaderboardScreen/>
       {/* <SigninScreen/> */}
       {/* <RewardModal/> */}
 			{/* <HomeScreen/> */}

@@ -2,13 +2,13 @@ import {StyleSheet} from 'react-native';
 import theme from './ThemeStyles';
 
 var styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
+   
 
     cardSection: {
-        justifyContent: "center",
-        width: "100%",
+        flex: 1,
+        width:"100%",
+        height:"100%",
+        marginTop:-75
 
     }
 });

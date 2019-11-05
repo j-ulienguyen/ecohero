@@ -2,10 +2,10 @@ import React from 'react';
 import {View, Text, Image,TouchableOpacity,} from 'react-native';
 
 // Import comps & styles below
-import styles from '../../styles/LeaderBoardCardStyles';
+import styles from '../../styles/LeaderboardCardStyles';
 
 
-export default function LeaderBoardCard() {
+export default function LeaderboardCard() {
   // UI
   return (
     <View style={styles.container}>
