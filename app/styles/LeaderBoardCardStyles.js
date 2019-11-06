@@ -6,11 +6,10 @@ var styles = StyleSheet.create({
         alignItems: "center",
         justifyContent:"center",
     },
-    // Leaderboard  - Heading
-    mainHeading: {
 
+    // Leaderboard - Heading
+    mainHeading: {
         fontFamily: theme.PoppinsBold,
-        
         fontSize: 24,
         color: theme.white,
 
@@ -21,10 +20,9 @@ var styles = StyleSheet.create({
         textShadowOffset: { width: 3, height: 3 },
         textShadowRadius: 3
     },
-    subHeading: {
 
+    subHeading: {
         fontFamily: theme.PoppinsSemibold,
-        
         fontSize: 24,
         color: theme.white,
 
@@ -35,10 +33,9 @@ var styles = StyleSheet.create({
         textShadowOffset: { width: 3, height: 3 },
         textShadowRadius: 3
     },
-    timePeriod: {
 
+    timePeriod: {
         fontFamily: theme.PoppinsSemibold,
-        
         fontSize: 14,
         color: theme.white,
 
@@ -49,10 +46,9 @@ var styles = StyleSheet.create({
         textShadowOffset: { width: 3, height: 3 },
         textShadowRadius: 3
     },
-    reset30days: {
 
+    reset30days: {
         fontFamily: theme.RobotoRegular,
-        
         fontSize: 14,
         color: theme.white,
 
@@ -63,6 +59,7 @@ var styles = StyleSheet.create({
         textShadowOffset: { width: 3, height: 3 },
         textShadowRadius: 3
     },
+
     filterContainer: {
         width: "100%",
         flexDirection: "row",
@@ -71,12 +68,13 @@ var styles = StyleSheet.create({
         position: "absolute",
         bottom: 1
     },
+
     filterBtnText: {
         fontFamily: theme.PoppinsRegular,
         fontSize: 14,
         lineHeight: 35, // Adjust spacing between text and borderBottom
         color: theme.white
     },
-
 });
+
 export default styles;

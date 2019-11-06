@@ -1,12 +1,13 @@
 import React from 'react';
-import {View, Text, ScrollView, StyleSheet} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
+
+// Import comps below
+import styles from '../styles/LeaderboardScreenStyles';
 import PatternBG from '../comps/PatternBG';
 import LeaderboardCard from '../comps/leaderboard/LeaderboardCard';
 import LeaderboardUser from '../comps/leaderboard/LeaderboardUser';
 import LeaderboardFriends from '../comps/leaderboard/LeaderboardFriends';
-import styles from '../styles/LeaderboardScreenStyles';
 
-// Import comps below
 
 export default function LeaderboardScreen() {
   // UI
@@ -20,14 +21,12 @@ export default function LeaderboardScreen() {
         <ScrollView style={{flex: 1}}>
           {/* Leaderboard Header Card */}
           <LeaderboardCard />
-        </ScrollView>
+        {/* </ScrollView> */}
 
         {/* LeaderBoard Card Section */}
-        <ScrollView
-        style={styles.cardSection}>
+        {/* <ScrollView style={styles.cardSection}> */}
           <LeaderboardFriends />
           <LeaderboardFriends />
-
         </ScrollView>
       </View>
 
