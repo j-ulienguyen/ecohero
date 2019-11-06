@@ -9,13 +9,14 @@ const theme = {
     medGray: "#BDBDBD",
     appBlack: "#2D2D2D",
 
+    PoppinsExtrabold: "Poppins-ExtraBold",
     PoppinsBold: "Poppins-Bold",
     PoppinsMedium: "Poppins-Medium",
     PoppinsSemibold: "Poppins-SemiBold",
     PoppinsRegular: "Poppins-Regular",
 
     RobotoLight: "Roboto-Light",
-    RobotoRegular: "Roboto-Regular",
+    RobotoRegular: "Roboto-Regular"
 };
 
 export default theme;

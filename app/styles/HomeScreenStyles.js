@@ -7,8 +7,6 @@ var styles = StyleSheet.create({
     },
 
     prizeSection: {
-        // top: 50,
-
         justifyContent: "center",
         width: "100%",
 
