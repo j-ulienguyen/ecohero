@@ -1,6 +1,8 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
-import styles from '../styles/MotivationCardStyles';
+
+// Import comps & styles below
+import styles from '../../styles/MotivationCardStyles';
 
 
 export default function MotivationCard(){
@@ -16,7 +18,7 @@ export default function MotivationCard(){
             {/* EcoHero Character */}
             <Image
             style = {styles.character}
-            source = {require('../assets/imgs/ecohero-handsup.png')}
+            source = {require('../../assets/imgs/ecohero-handsup.png')}
             />
         </View>
     )
