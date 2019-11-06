@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, ScrollView, StyleSheet, Image, ImageBackground} from 'react-native';
-import styles from '../../styles/VerificationStyles';
+import styles from '../styles/VerificationStyles'
 import PatternBG from '../comps/PatternBG';
 
 export default function QRCode() {
@@ -8,9 +8,9 @@ export default function QRCode() {
     <View>
       {/* Background Pattern */}
       <View>
-        <ImageBackground 
-            source= {require('../../assets/imgs/qrcode.png')}
-        />
+        {/* <ImageBackground 
+            source= {require('../assets/imgs/qrcode.png')}
+        /> */}
 
         <View style={styles.container}>
           <Text style={styles.headingQR}>Verification Code</Text>
@@ -19,7 +19,7 @@ export default function QRCode() {
           </Text>
           <Image
             style={styles.codeScan}
-            source={require('../../assets/imgs/qrcode-scanbox.png')}
+            source={require('../assets/imgs/qrcode-scanbox.png')}
           />
         </View>
       </View>
