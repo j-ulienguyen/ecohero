@@ -14,14 +14,16 @@ import BadgeModal from './app/comps/profile/BadgeModal';
 import SignupScreen from './app/screens/SignupScreen';
 
 
-export default function App(){
+export default from './storybook';
+
+function App(){
 	// UI
 	return (
 		<View style={styles.container}>
 
-			<LeaderboardScreen />
+			{/* <LeaderboardScreen /> */}
 			{/* <MissionsScreen /> */}
-      {/* <SignupScreen /> */}
+			{/* <SignupScreen /> */}
 			{/* <SigninScreen/> */}
 
 			{/* <HomeScreen/> */}

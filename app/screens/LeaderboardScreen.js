@@ -42,24 +42,26 @@ export default function LeaderboardScreen() {
 
           {/* In process of merging FriendsCard*/}
 					<LeaderboardFriends
-						barBG='#FCDF76'
+						//barBG='#FCDF76'
 						iconPath={require('../assets/imgs/paper-avatar.png')}
 						rankNumber='1'
 						starAmount='35'
+						type = "first"
 					/>
 
 					<LeaderboardFriends
-						barBG='#ECECEC'
+						//barBG='#ECECEC'
 						iconPath={require('../assets/imgs/lunchbox-avatar.png')}
 						rankNumber='2'
 						starAmount='30'
 					/>
 
 					<LeaderboardFriends
-						barBG='#F6B684'
+						//barBG='#F6B684'
 						iconPath={require('../assets/imgs/lunchbox-avatar.png')}
 						rankNumber='3'
 						starAmount='25'
+						type = "third"
 					/>
           <LeaderboardFriends 
           rankNumber='4'

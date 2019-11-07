@@ -6,6 +6,8 @@ import styles from '../../styles/FriendsCardStyles';
 
 
 export default function FriendsCard(props){
+
+
     // UI
     return (
         <View style={[styles.friendsCardContainer, {backgroundColor: props.barBG}]}>

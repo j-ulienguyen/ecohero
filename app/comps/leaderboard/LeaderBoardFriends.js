@@ -44,7 +44,6 @@ export default function LeaderboardFriends(props){
         cardBG = '#FAFAFA',
 		textColor = theme.appBlack,
 		barBG = '#DFF0D7'
-
 	}
 
 	/*
@@ -58,7 +57,7 @@ export default function LeaderboardFriends(props){
 	return (
 		<View style={styles.container}>
 			{/* Friends Card */}
-			<View style={[styles.friendCardContainer, {justifyContent:'center',}]}>
+			<View style={[styles.friendCardContainer, {justifyContent:'center'}]}>
 				{/* Friend Card Content - Star + Avatar */}
 				<FriendsCard
 					rankNumber={props.rankNumber}
