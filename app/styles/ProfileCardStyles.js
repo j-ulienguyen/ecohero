@@ -25,33 +25,6 @@ var styles = StyleSheet.create({
         width: "100%"
     },
 
-    hexBadgeContainer: {
-        // Centers the content inside the hex badge
-        justifyContent: "center",
-        alignItems: "center"
-    },
-
-    hexBadgeContent: {
-        // Centers the content inside the hex badge
-        position: "absolute",
-        justifyContent: "center",
-        alignItems: "center"
-    },
-
-    countText: {
-        fontFamily: theme.PoppinsBold,
-        fontSize: 24,
-        lineHeight: 30,
-        color: theme.appBlack
-    },
-
-    missionLabel: {
-        fontFamily: theme.PoppinsSemibold,
-        fontSize: 12,
-        textTransform: "uppercase",
-        letterSpacing: 0.5
-    },
-
     avatar: {
         justifyContent: "center",
         alignItems: "center",
@@ -84,20 +57,6 @@ var styles = StyleSheet.create({
     levelText: {
         fontFamily: theme.PoppinsBold,
         fontSize: 14,
-        color: theme.white
-    },
-
-    usernameContainer: {
-        position: "absolute",
-        bottom: 15,
-
-        alignItems: "center",
-        width: "100%"
-    },
-
-    usernameText: {
-        fontFamily: theme.PoppinsBold,
-        fontSize: 18,
         color: theme.white
     }
 });

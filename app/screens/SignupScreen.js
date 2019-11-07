@@ -9,8 +9,8 @@ import StepProgressBar from '../comps/signup/StepProgressBar';
 import BackBar from '../comps/BackBar';
 
 // Import subcomps below
-import BasicProfile from '../subscreens/BasicProfile';
-import ChooseAvatar from '../subscreens/ChooseAvatar';
+import BasicProfile from '../subscreens/BasicProfileSubscreen';
+import ChooseAvatar from '../subscreens/ChooseAvatarSubscreen';
 
 export default function SignupScreen(){
     // UI

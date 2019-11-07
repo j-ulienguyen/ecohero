@@ -19,6 +19,12 @@ var styles = StyleSheet.create({
         backgroundColor: "#FAFAFA"
     },
 
+    bonusRibbon: {
+        position: "absolute",
+        top: -4,
+        left: -4
+    },
+
     missionIcon: {
         width: 45,
         height: 45,

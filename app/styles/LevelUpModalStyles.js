@@ -50,26 +50,7 @@ var styles = StyleSheet.create({
         // Position # inside badge
         position: "absolute",
         top: 18
-    },
-
-    greenBtn: {
-        width: 174,
-        height: 43,
-        borderRadius: 30,
-        backgroundColor: theme.darkGreen,
-
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: 50
-     },
-
-     btnText: {
-        fontFamily: theme.PoppinsBold,
-        fontSize: 12,
-        textTransform: "uppercase",
-        letterSpacing: 2,
-        color: theme.white
-     }
+    }
 });
 
 export default styles;
