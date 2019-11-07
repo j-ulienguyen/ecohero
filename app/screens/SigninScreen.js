@@ -16,11 +16,11 @@ export default function SigninScreen(){
     return (
         <View>
             {/* Fixed Tree BG */}
-            {/* <TreeBg/> */}
+            <TreeBg/>
 
             {/* Signin */}
-            {/* <EcoHeroLogo/>
-            <SignInEntry/> */}
+            <EcoHeroLogo/>
+            <SignInEntry/>
 
             {/* Forgot PW */}
             {/* <BackBar/>

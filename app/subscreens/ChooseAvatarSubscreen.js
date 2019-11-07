@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
-import styles from '../styles/ChooseAvatarStyles';
+import styles from '../styles/ChooseAvatarSubscreenStyles';
 
 export default function ChooseAvatar(){
    const [txt, setTxt] = useState("");
