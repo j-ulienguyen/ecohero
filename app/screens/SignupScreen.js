@@ -4,8 +4,8 @@ import {View, Text} from 'react-native';
 // Import comps below
 import TreeBg from '../comps/TreeBg';
 import EcoHeroLogo from '../comps/EcoHeroLogo';
-import SignUpEntry from '../comps/SignUpEntry';
-import StepProgressBar from '../comps/StepProgressBar';
+import SignUpEntry from '../comps/signup/SignUpEntry';
+import StepProgressBar from '../comps/signup/StepProgressBar';
 import BackBar from '../comps/BackBar';
 
 // Import subcomps below
