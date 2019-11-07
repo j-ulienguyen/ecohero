@@ -6,7 +6,7 @@ import styles from '../styles/LeaderboardScreenStyles';
 import PatternBG from '../comps/PatternBG';
 import LeaderboardCard from '../comps/leaderboard/LeaderboardCard';
 import LeaderboardUser from '../comps/leaderboard/LeaderboardUser';
-import LeaderboardFriends from '../comps/leaderboard/LeaderboardFriends';
+import FriendsCard from '../comps/leaderboard/FriendsCard';
 
 
 export default function LeaderboardScreen() {
@@ -32,42 +32,66 @@ export default function LeaderboardScreen() {
 			 */}
 
 			<View style={{flex: 1, elevation: 100000}}>
-				<ScrollView style={{flex: 1}}>
-					{/* Leaderboard Header Card */}
-					<LeaderboardCard />
-				</ScrollView>
+
 
 				{/* LeaderBoard Card Section */}
-				<ScrollView style={styles.cardSection}>
+				<ScrollView>
+					
+					<LeaderboardCard />
 
-          {/* In process of merging FriendsCard*/}
-					<LeaderboardFriends
-						//barBG='#FCDF76'
+					<View style={styles.cardSection}>
+
+					<FriendsCard 
+						type="first"
+						username='jjanicefong'
+						starAmount={45}
+						iconPath={require('../assets/imgs/lunchbox-avatar.png')}
+						rankNumber={1}
+						/>
+					<FriendsCard 
+						type="second"
+						username='xAznJay'
+						starAmount={35}
 						iconPath={require('../assets/imgs/paper-avatar.png')}
-						rankNumber='1'
-						starAmount='35'
-						type = "first"
-					/>
+						rankNumber={2}
 
-					<LeaderboardFriends
-						//barBG='#ECECEC'
-						iconPath={require('../assets/imgs/lunchbox-avatar.png')}
-						rankNumber='2'
-						starAmount='30'
-					/>
+						/>
+					<FriendsCard 
+						type="third"
+						username='jujubean'
+						starAmount={30}
+						iconPath={require('../assets/imgs/can-avatar.png')}
+						rankNumber={3}
 
-					<LeaderboardFriends
-						//barBG='#F6B684'
-						iconPath={require('../assets/imgs/lunchbox-avatar.png')}
-						rankNumber='3'
-						starAmount='25'
-						type = "third"
-					/>
-          <LeaderboardFriends 
-          rankNumber='4'
-          starAmount='20'
-          
-          />
+						/>
+					<FriendsCard 
+						type="normal"
+						username='ashlynnchen'
+						starAmount={25}
+						iconPath={require('../assets/imgs/can-avatar.png')}
+						rankNumber={4}
+
+						
+						/>
+					<FriendsCard 
+						type="normal"
+						username='noob'
+						starAmount={10}
+						iconPath={require('../assets/imgs/jug-avatar.png')}
+						rankNumber={5}
+
+						/>
+					<FriendsCard 
+						type="normal"
+						username='ramtheram2017'
+						starAmount={10}
+						iconPath={require('../assets/imgs/jug-avatar.png')}
+						rankNumber={6}
+
+						/>
+
+					</View>
+
 				</ScrollView>
 			</View>
 
