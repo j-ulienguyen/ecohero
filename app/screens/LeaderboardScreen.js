@@ -39,19 +39,33 @@ export default function LeaderboardScreen() {
 
 				{/* LeaderBoard Card Section */}
 				<ScrollView style={styles.cardSection}>
+
+          {/* In process of merging FriendsCard*/}
 					<LeaderboardFriends
-						barBG='#FAB'
+						barBG='#FCDF76'
 						iconPath={require('../assets/imgs/paper-avatar.png')}
 						rankNumber='1'
-						starAmount='25'
+						starAmount='35'
 					/>
 
 					<LeaderboardFriends
-						barBG='#FAB'
+						barBG='#ECECEC'
 						iconPath={require('../assets/imgs/lunchbox-avatar.png')}
-						rankNumber='1'
+						rankNumber='2'
+						starAmount='30'
+					/>
+
+					<LeaderboardFriends
+						barBG='#F6B684'
+						iconPath={require('../assets/imgs/lunchbox-avatar.png')}
+						rankNumber='3'
 						starAmount='25'
 					/>
+          <LeaderboardFriends 
+          rankNumber='4'
+          starAmount='20'
+          
+          />
 				</ScrollView>
 			</View>
 

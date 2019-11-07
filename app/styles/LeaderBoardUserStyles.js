@@ -20,7 +20,7 @@ var styles = StyleSheet.create({
         justifyContent:"center",
         position:'relative',
         fontFamily:theme.PoppinsBold,
-        backgroundColor: "black",
+        color:'black',
         height: 200,
         width: 50,
         marginTop: -110,

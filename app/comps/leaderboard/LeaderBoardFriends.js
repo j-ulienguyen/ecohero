@@ -16,9 +16,8 @@ export default function LeaderboardFriends(props){
 
 	// Normal Leaderboard Card
 	if (props.type === 'normal') {
-		cardBG = '#FAFAFA',
 		textColor = theme.appBlack,
-		barBG = '#DFF0D7'
+		barBG = '#FAFAFA'
 	}
 
 	/*
@@ -28,16 +27,23 @@ export default function LeaderboardFriends(props){
 
 	// 1st Gold Leaderboard Card
 	if (props.type === 'first'){
+		textColor = theme.appBlack,
+		barBG = '#DFF0D7'
 
 	}
 
 	// 2nd Silver Leaderboard Card
 	if (props.type === 'second'){
+		textColor = theme.appBlack,
+		barBG = '#DFF0D7'
 
 	}
 
 	// 3rd Bronze Leaderboard Card
 	if (props.type === 'third'){
+        cardBG = '#FAFAFA',
+		textColor = theme.appBlack,
+		barBG = '#DFF0D7'
 
 	}
 

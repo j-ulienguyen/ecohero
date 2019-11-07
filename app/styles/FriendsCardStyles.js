@@ -7,7 +7,7 @@ var styles = StyleSheet.create({
     },
 
     friendsCardContainer: {
-        width: 145,
+        width: 345,
         height: 70,
         borderRadius: 10,
 
@@ -32,25 +32,21 @@ var styles = StyleSheet.create({
         left: 25,
     },
 
-    starAmount: {
-        fontFamily: theme.PoppinsSemibold,
-        fontSize: 14,
-        color: theme.appBlack
-    },
-
     starIcon: {
         width: 15,
         height: 15,
 
         top: 0,
-        left:50,
-        marginLeft: 1
+        left:30,
+        marginLeft: 0
     },
 
     starAmount: {
+        position:'relative',
         fontFamily: theme.PoppinsBold,
         fontSize: 14,
-        color: theme.appBlack
+        color: theme.appBlack,
+        paddingHorizontal:10,
     },
     rankNumber: {
         fontFamily: theme.PoppinsBold,
