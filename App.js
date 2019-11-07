@@ -18,7 +18,9 @@ export default function App(){
 	// UI
 	return (
 		<View style={styles.container}>
-			<LeaderboardScreen/>
+
+			<LeaderboardScreen />
+			{/* <MissionsScreen /> */}
       {/* <SignupScreen /> */}
 			{/* <SigninScreen/> */}
 

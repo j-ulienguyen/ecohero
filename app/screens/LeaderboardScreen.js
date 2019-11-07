@@ -21,12 +21,24 @@ export default function LeaderboardScreen() {
         <ScrollView style={{flex: 1}}>
           {/* Leaderboard Header Card */}
           <LeaderboardCard />
-        {/* </ScrollView> */}
+        </ScrollView>
 
         {/* LeaderBoard Card Section */}
-        {/* <ScrollView style={styles.cardSection}> */}
-          <LeaderboardFriends />
-          <LeaderboardFriends />
+        <ScrollView style={styles.cardSection}>
+          <LeaderboardFriends 
+            barBG='#FAB'
+            iconPath={require('../assets/imgs/paper-avatar.png')}
+            rankNumber='1'
+            starAmount='25'
+
+          />
+          {/* <LeaderboardFriends
+            barBG='#FAB'
+            iconPath={require('../assets/imgs/lunchbox-avatar.png')}
+            rankNumber='1'
+            starAmount='25'
+          
+          /> */}
         </ScrollView>
       </View>
 
