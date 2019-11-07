@@ -7,14 +7,14 @@ var styles = StyleSheet.create({
         flex:1,
         backgroundColor:"black",
     },
-    
-    // Leaderboard  - User Card
-    
+
+    // Leaderboard - User Card
     userCard : {
         position:"relative",
         // temporary fix - -20 to keep it at the bottom
         bottom:-20,
     },
+
     userName : {
         elevation:10000000,
         justifyContent:"center",
@@ -24,10 +24,6 @@ var styles = StyleSheet.create({
         height: 200,
         width: 50,
         marginTop: -110,
-
-        
-
     }
-
 });
 export default styles;

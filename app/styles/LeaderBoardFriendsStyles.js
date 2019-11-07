@@ -20,8 +20,6 @@ var styles = StyleSheet.create({
         height: 65,
         alignItems:'center',
 
-
-        // Adjust dropshadows later using react-native-shadow potentially
         elevation: 4,
 
         borderRadius: 10,

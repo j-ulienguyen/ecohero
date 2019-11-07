@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image} from 'react-native';
 
 // Import comps & styles below
 import styles from '../../styles/LeaderboardUserStyles';
+
 
 export default function LeaderboardUser() {
   // UI
