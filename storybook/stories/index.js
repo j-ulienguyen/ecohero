@@ -10,8 +10,8 @@ import LeaderboardScreen from '../../app/screens/LeaderboardScreen';
 import ProfileScreen from '../../app/screens/ProfileScreen';
 
 // Import Subscreens comps
-// import BasicProfile from '../../app/subscreens/BasicProfile';
-// import ChooseAvatar from '../../app/subscreens/ChooseAvatar';
+import BasicProfileSubscreen from '../../app/subscreens/BasicProfileSubscreen';
+import ChooseAvatarSubscreen from '../../app/subscreens/ChooseAvatarSubscreen';
 import ForgotPWSubscreen from '../../app/subscreens/ForgotPWSubscreen';
 
 // Import General comps
@@ -52,6 +52,9 @@ import SettingsIcon from '../../app/comps/profile/SettingsIcon';
 import AchievementCard from '../../app/comps/profile/AchievementCard';
 import ProfileBadge from '../../app/comps/profile/ProfileBadge';
 import BadgeModal from '../../app/comps/profile/BadgeModal';
+import BasicProfile from '../../app/subscreens/BasicProfileSubscreen';
+import ForgotPW from '../../app/subscreens/ForgotPWSubscreen';
+import ChooseAvatar from '../../app/subscreens/ChooseAvatarSubscreen';
 
 
 // Screens
@@ -64,9 +67,9 @@ storiesOf('Screens', module)
 
 // Subscreens
 storiesOf('Subscreens', module)
-  .add('Comp Name', () => <GreenButton/>)
-  .add('Comp Name', () => <GreenButton/>)
-  .add('Comp Name', () => <GreenButton/>)
+  .add('Basic Profile Subscreen', () => <BasicProfile/>)
+  .add('Forgot Password Subscreen', () => <ForgotPW/>)
+  .add('Choose Avatar Subscreen', () => <ChooseAvatar/>)
 
 
 // General Components

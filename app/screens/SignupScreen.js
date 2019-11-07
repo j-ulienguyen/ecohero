@@ -9,19 +9,19 @@ import StepProgressBar from '../comps/StepProgressBar';
 import BackBar from '../comps/BackBar';
 
 // Import subcomps below
-import BasicProfile from '../subscreens/BasicProfile';
-import ChooseAvatar from '../subscreens/ChooseAvatar';
+import BasicProfile from '../subscreens/BasicProfileSubscreen';
+import ChooseAvatar from '../subscreens/ChooseAvatarSubscreen';
 
 export default function SignupScreen(){
     // UI
     return (
         <View>
             {/* Fixed Tree BG */}
-            {/* <TreeBg/> */}
+            <TreeBg/>
 
             {/* Signup */}
-            {/* <EcoHeroLogo/>
-            <SignUpEntry/> */}
+            <EcoHeroLogo/>
+            <SignUpEntry/>
 
             {/* Step 1 - EcoHero Profile */}
                 {/* Progress Bar Component */}
@@ -31,9 +31,9 @@ export default function SignupScreen(){
 
             {/* Step 2 - Choose Avatar NO TREE BG */}
                 {/* Progress Bar Component */}
-                <StepProgressBar />
+                {/* <StepProgressBar />
                     <BackBar />
-                    <ChooseAvatar />
+                    <ChooseAvatar /> */}
 
         </View>
     )
