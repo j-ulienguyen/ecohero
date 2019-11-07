@@ -8,9 +8,7 @@ export default function QRCode() {
     <View>
       {/* Background Pattern */}
       <View>
-        {/* <ImageBackground 
-            source= {require('../assets/imgs/qrcode.png')}
-        /> */}
+
 
         <View style={styles.container}>
           <Text style={styles.headingQR}>Verification Code</Text>

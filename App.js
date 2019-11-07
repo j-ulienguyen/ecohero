@@ -6,7 +6,7 @@ import styles from './app/styles/AppStyles';
 import SigninScreen from './app/screens/SigninScreen';
 import HomeScreen from './app/screens/HomeScreen';
 import MissionsScreen from './app/screens/MissionsScreen';
-import LeaderboardScreen from './app/screens/LeaderboardScreen'
+// import LeaderboardScreen from './app/screens/LeaderboardScreen'
 import ProfileScreen from './app/screens/ProfileScreen';
 import RewardModal from './app/comps/RewardModal';
 import LevelUpModal from './app/comps/home/LevelUpModal';
@@ -25,7 +25,8 @@ export default function App(){
 		<View style={styles.container}>
 			{/* <LeaderboardScreen/> */}
 			{/* <Code /> */}
-			<QRCode />
+			{/* <QRCode /> */}
+			<Code />
       {/* <SigninScreen/> */}
       {/* <RewardModal/> */}
       {/* <SignupScreen /> */}
