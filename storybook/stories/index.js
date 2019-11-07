@@ -99,7 +99,10 @@ storiesOf('Home', module)
 
 // Mission Components
 storiesOf('Mission', module)
-  .add('CompName', () => <GreenButton/>)
+  .add('Mission Board Card', () => <MissionBoardCard/>)
+  .add('Mission Card', () => <MissionCard/>)
+  .add('Motivation Card', () => <MotivationCard/>)
+  .add('Rewards Bar', () => <RewardsBar/>)
 
 
 // Leaderboard Components
@@ -109,4 +112,7 @@ storiesOf('Leaderboard', module)
 
 // Profile Components
 storiesOf('Profile', module)
-  .add('CompName', () => <GreenButton/>)
+  .add('Settings Icon', () => <SettingsIcon/>)
+  .add('Achievement Card', () => <AchievementCard/>)
+  .add('Profile Badge', () => <ProfileBadge/>)
+  .add('Badge Modal', () => <BadgeModal/>)
