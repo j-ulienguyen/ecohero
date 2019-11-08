@@ -25,7 +25,7 @@ var styles = StyleSheet.create({
         left:80,
         fontFamily: theme.PoppinsMedium,
         fontSize: 14,
-        color: theme.appBlack,
+        color: theme.white,
         marginLeft:20,
     },
 

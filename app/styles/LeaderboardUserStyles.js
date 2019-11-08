@@ -5,25 +5,70 @@ var styles = StyleSheet.create({
     container: {
         alignItems: "center",
         flex:1,
-        backgroundColor:"black",
+        // Margin of 20 to accommodate Navbar
+        marginBottom:20,
+    },
+    userCardContainer: {
+        alignItems: "center",
+        flexDirection:'row',
+        flex:1,
+        elevation:4,
     },
 
-    // Leaderboard - User Card
+    // Leaderboard - User Card PNG
     userCard : {
-        position:"relative",
-        // temporary fix - -20 to keep it at the bottom
-        bottom:-20,
+        position:"absolute",
+        bottom:20,
     },
 
     userName : {
-        elevation:10000000,
-        justifyContent:"center",
-        position:'relative',
-        fontFamily:theme.PoppinsBold,
-        color:'black',
-        height: 200,
-        width: 50,
-        marginTop: -110,
-    }
+        position:'absolute',
+        bottom:30,
+        left:135,
+        fontFamily:theme.PoppinsMedium,
+        fontSize:14,
+        color:'white',
+    },
+    starIcon: {
+        width: 15,
+        height: 15,
+
+        top: 0,
+        // left:30,
+        marginLeft: 0
+    },
+    avatarIcon: {
+        width: 40,
+        height: 40,
+        position:'absolute',
+        // 73 is looking more visually aligned than 75
+        left:73,
+        bottom:25,
+
+    },
+    rankNumber: {
+        position:'absolute',
+        fontFamily: theme.PoppinsBold,
+        fontSize: 14,
+        color: theme.white,
+        // 43 is looking more visually aligned than 45
+        marginLeft:43
+    },
+    starAmount: {
+        position:'absolute',
+        // 83 is looking more visually aligned than 85
+        right: 100,
+        fontFamily: theme.PoppinsBold,
+        color: theme.white,
+        paddingHorizontal:10,
+    },
+    starIcon: {
+        width: 15,
+        height: 15,
+
+        top:0,
+        right:83,
+        marginLeft: 0
+    },
 });
 export default styles;

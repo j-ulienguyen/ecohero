@@ -5,17 +5,43 @@ import {View, Text, Image} from 'react-native';
 import styles from '../../styles/LeaderboardUserStyles';
 
 
-export default function LeaderboardUser() {
+export default function LeaderboardUser(props) {
+
+    var username;
+
   // UI
   return (
-    <View styles={styles.container}>
+    <View style={styles.container}>
+      <View style={styles.userCardContainer}>
+
       {/* User Card */}
-      <View style={styles.userCard}>
         <Image
           source={require('../../assets/imgs/user-leaderboard-card.png')}
-        />
-        <Text styles={styles.userName}>hardcoreHenry</Text>
-      </View>
+          />
+         {/* User Avatar */}
+
+        <Image
+			    style = {styles.avatarIcon}
+			    source = {props.iconPath}
+          />
+
+        <Text style={styles.userName}>
+          {props.username}</Text>
+
+        {/* Star Amount */}
+        <Text style={styles.starAmount}>
+          {props.starAmount}
+        </Text>
+        {/* Rank Number */}
+        <Text style={styles.rankNumber}>
+          {props.rankNumber}			
+        </Text>
+        {/* Star Icon */}
+        <Image
+            style={styles.starIcon}
+            source={require('../../assets/imgs/star-icon.png')}
+          />
+          </View>
     </View>
   );
 }

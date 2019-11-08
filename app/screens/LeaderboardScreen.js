@@ -97,7 +97,14 @@ export default function LeaderboardScreen() {
 
 			<View style={{position: 'absolute', bottom: 0, elevation:1000000}}>
 				{/* Leaderboard User Card */}
-				<LeaderboardUser />
+				<LeaderboardUser
+					username='hardcoreHenry'
+					iconPath={require('../assets/imgs/can-avatar.png')}
+					rankNumber={35}
+					starAmount={5}
+					
+					
+					/>
 			</View>
 		</View>
 	);

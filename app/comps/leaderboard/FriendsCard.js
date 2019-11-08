@@ -32,7 +32,6 @@ export default function FriendsCard(props) {
       <View style={[styles.friendsCardContainer, {backgroundColor: barBG}]}>
         <Text style={[styles.rankNumber, {color: textColor}]}>
           {props.rankNumber}			
-          
         </Text>
           <Image
 			style = {styles.avatarIcon}
@@ -40,10 +39,10 @@ export default function FriendsCard(props) {
 				/>
         <Text style={[styles.userName, {color: textColor}]}>{props.username}</Text>
 
-        {/* Star Reward Amount */}
+        {/* Star Amount Container */}
         <View style={styles.starAmountContainer}>
-          {/* Star Amount # */}
-          <Text style={[styles.starAmount, {color: textColor}]}></Text>
+
+          {/* Star Icon # */}
           <Image
             style={styles.starIcon}
             source={require('../../assets/imgs/black-star-icon.png')}
@@ -51,8 +50,7 @@ export default function FriendsCard(props) {
           
         </View>
 
-        {/* XP Reward Amount */}
-        {/* Rank Number */}
+      {/* Star Amount */}
         <Text style={[styles.starAmount, {color: textColor}]}>
           {props.starAmount}
         </Text>
