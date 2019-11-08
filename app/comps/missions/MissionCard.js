@@ -7,7 +7,7 @@ import theme from '../../styles/ThemeStyles';
 import RewardsBar from './RewardsBar';
 
 
-export default function MissionCard({type}){
+export default function MissionCard(props){
 
     var cardBG;
     var textColor;
@@ -28,7 +28,7 @@ export default function MissionCard({type}){
     }
 
     // Normal Mission Card
-    if(type === "normal"){
+    if(props.type === "normal"){
         cardBG = "#FAFAFA",
         textColor = theme.appBlack,
         barBG = "#DFF0D7",

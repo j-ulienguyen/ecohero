@@ -12,6 +12,7 @@ import RewardModal from './app/comps/RewardModal';
 import LevelUpModal from './app/comps/home/LevelUpModal';
 import BadgeModal from './app/comps/profile/BadgeModal';
 import SignupScreen from './app/screens/SignupScreen';
+import OnboardingScreen from './app/screens/OnboardingScreen';
 
 
 export default from './storybook';
@@ -20,6 +21,9 @@ function App(){
 	// UI
 	return (
 		<View style={styles.container}>
+			{/* <SigninScreen /> */}
+			{/* <SignupScreen /> */}
+			{/* <OnboardingScreen /> */}
 
 			{/* <LeaderboardScreen /> */}
 			{/* <MissionsScreen /> */}

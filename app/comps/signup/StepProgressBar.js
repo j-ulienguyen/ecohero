@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Image, Animated} from 'react-native';
 
 // Import comps & styles below
-import styles from '../styles/StepProgressBarStyles';
+import styles from '../../styles/StepProgressBarStyles';
 
 
 export default function StepProgressBar(){
