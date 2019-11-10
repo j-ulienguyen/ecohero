@@ -9,9 +9,11 @@ var styles = StyleSheet.create({
         elevation: 100000,
     },
 
-    codeContainer: {
+    codeInputContainer: {
+        height:100,
+        width:100,
+        backgroundColor:"black",
         flex:1,
-        flexDirection:'row',
     },
     heading : {
         justifyContent: 'center',
@@ -48,21 +50,21 @@ var styles = StyleSheet.create({
         top: 275,
     
     },
-    codeInput : {
-        position:'absolute',
-        flex:1,
-        flexDirection:'row',
-        height:50,
-        width:50,
-        backgroundColor:'grey',
-        borderWidth:1,
-        borderRadius:4,
-        bottom:1003,
-    },
     codeScan : {
         position:'absolute',
         top: 230,
-
+    },
+    codeInput : {
+        position:'absolute',
+        bottom:10,
+    },
+    verifyBut : {
+        position:'absolute',
+        bottom:0,
+        height:200,
+        width:'50%',
+        // height:100,
+        // width:200,
     }
 
 
