@@ -6,7 +6,7 @@ import styles from '../../styles/PrizeProgressStyles';
 import StarCount from '../StarCount';
 
 
-export default function PrizeProgress(props){
+export default function PrizeProgress({starRemainder, prizeName}){
     // UI
     return (
         <View style={styles.container}>
@@ -46,7 +46,7 @@ export default function PrizeProgress(props){
             </View>
 
             {/* Star Progress Text */}
-            <Text style={styles.progressText}>You’re <Text style={styles.boldText}>{props.starRemainder}</Text> away from unlocking the {props.prizeName}!</Text>
+            <Text style={styles.progressText}>You’re <Text style={styles.boldText}>{starRemainder}</Text> away from unlocking the {prizeName}!</Text>
 
             {/* Progress Text Statements */}
             {/* <Text style={styles.progressText}>{props.progressText}</Text> */}

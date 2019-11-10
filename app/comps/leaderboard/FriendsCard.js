@@ -6,35 +6,35 @@ import styles from '../../styles/FriendsCardStyles';
 import theme from '../../styles/ThemeStyles';
 import StarCount from '../StarCount';
 
-export default function FriendsCard(props) {
+export default function FriendsCard({type, rankNumber, username, starCount, iconPath}) {
 
 	var textColor;
 	var barBG;
 	var starIcon;
 
 	// 1st Gold Leaderboard Card
-	if (props.type === 'first') {
+	if (type === 'first') {
 		textColor = theme.appBlack,
 		barBG = '#FCDF76',
 		starIcon = "black";
 	}
 
 	// 2nd Silver Leaderboard Card
-	if (props.type === 'second') {
+	if (type === 'second') {
 		textColor = theme.appBlack,
 		barBG = '#ECECEC',
 		starIcon = "black";
 	}
 
 	// 3rd Bronze Leaderboard Card
-	if (props.type === 'third') {
+	if (type === 'third') {
 		textColor = theme.appBlack,
 		barBG = '#F6B684',
 		starIcon = "black";
 	}
 
 	// Normal Leaderboard Card
-	if (props.type === 'normal') {
+	if (type === 'normal') {
 		textColor = theme.appBlack,
 		barBG = '#FAFAFA',
 		starIcon = "yellow";
@@ -44,30 +44,22 @@ export default function FriendsCard(props) {
 	return (
 	<View style={styles.container}>
 		<View style={[styles.friendsCardContainer, {backgroundColor: barBG}]}>
-			<Text style={[styles.rankNumber, {color: textColor}]}>{props.rankNumber}</Text>
+			{/* Rank # */}
+			<Text style={[styles.rankNumber, {color: textColor}]}>{rankNumber}</Text>
+
+			{/* Avatar Icon */}
 			<Image
 				style = {styles.avatarIcon}
-				source = {props.iconPath}
+				source = {iconPath}
 			/>
-			<Text style={[styles.userName, {color: textColor}]}>{props.username}</Text>
 
+			{/* Username */}
+			<Text style={[styles.userName, {color: textColor}]}>{username}</Text>
+
+			{/* Star Count # */}
 			<View style={styles.starCountContainer}>
-				<StarCount type={starIcon} starCount={props.starCount}/>
+				<StarCount type={starIcon} starCount={starCount}/>
 			</View>
-
-			{/* Star Amount Container */}
-			{/* <View style={styles.starAmountContainer}> */}
-				{/* Star Icon # */}
-				{/* <Image
-				style={styles.starIcon}
-				source={require('../../assets/imgs/black-star-icon.png')}
-				/>
-			</View> */}
-
-			{/* Star Amount */}
-			{/* <Text style={[styles.starAmount, {color: textColor}]}>
-				{props.starAmount}
-			</Text> */}
 		</View>
 	</View>
 	);

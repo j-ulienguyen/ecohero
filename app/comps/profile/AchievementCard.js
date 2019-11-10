@@ -5,26 +5,26 @@ import {View, Text, Image} from 'react-native';
 import styles from '../../styles/AchievementCardStyles';
 
 
-export default function AchievementCard(props){
+export default function AchievementCard({cardBG, countBG, count, imagePath, name, description}){
     // UI
     return (
         <View style={styles.container}>
             {/* Achievement Card */}
-            <View style={[styles.cardContainer, {backgroundColor: props.cardBG}]}>
+            <View style={[styles.cardContainer, {backgroundColor: cardBG}]}>
                 {/* Achievement Count */}
-                <View style={[styles.countContainer, {backgroundColor: props.countBG}]}>
+                <View style={[styles.countContainer, {backgroundColor: countBG}]}>
                     {/* Count # */}
-                    <Text style={styles.countText}>{props.count}</Text>
+                    <Text style={styles.countText}>{count}</Text>
                     {/* Icon */}
-                    <Image source = {props.imagePath}/>
+                    <Image source = {imagePath}/>
                 </View>
 
                 {/* Achievement Details */}
                 <View style={styles.achievementDetailContainer}>
                     {/* Achievement Name */}
-                    <Text style={styles.achievementName}>{props.name}</Text>
+                    <Text style={styles.achievementName}>{name}</Text>
                     {/* Achievement Description */}
-                    <Text style={styles.achievementDesc}>{props.description}</Text>
+                    <Text style={styles.achievementDesc}>{description}</Text>
                 </View>
             </View>
         </View>

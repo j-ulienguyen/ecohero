@@ -5,16 +5,18 @@ import {View, Text, StyleSheet} from 'react-native';
 import theme from '../styles/ThemeStyles';
 
 
-export default function UsernameLabel(props){
+export default function UsernameLabel({username}){
+
     // UI
     return (
         <View style={styles.usernameContainer}>
-            <Text style={styles.usernameText}>{props.username}</Text>
+            <Text style={styles.usernameText}>{username}</Text>
         </View>
     )
 }
 
 
+// COMPONENT STYLING
 var styles = StyleSheet.create({
     usernameContainer: {
         position: "absolute",

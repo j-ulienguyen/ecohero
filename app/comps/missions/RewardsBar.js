@@ -5,17 +5,17 @@ import {View, Text, Image} from 'react-native';
 import styles from '../../styles/RewardsBarStyles';
 
 
-export default function RewardsBar(props){
+export default function RewardsBar({barBG, textColor, starAmount, xpAmount}){
     // UI
     return (
         <View>
-            <View style={[styles.rewardsContainer, {backgroundColor: props.barBG}]}>
-                <Text style={[styles.rewardsHeading, {color: props.textColor}]}>Rewards</Text>
+            <View style={[styles.rewardsContainer, {backgroundColor: barBG}]}>
+                <Text style={[styles.rewardsHeading, {color: textColor}]}>Rewards</Text>
 
                 {/* Star Reward Amount */}
                 <View style={styles.starAmountContainer}>
                     {/* Star Amount # */}
-                    <Text style={[styles.starAmount, {color: props.textColor}]}>{props.starAmount}</Text>
+                    <Text style={[styles.starAmount, {color: textColor}]}>{starAmount}</Text>
                     <Image
                         style = {styles.starIcon}
                         source = {require('../../assets/imgs/star-icon.png')}
@@ -23,7 +23,7 @@ export default function RewardsBar(props){
                 </View>
 
                 {/* XP Reward Amount */}
-                <Text style={[styles.xpText, {color: props.textColor}]}>{props.xpAmount} XP</Text>
+                <Text style={[styles.xpText, {color: textColor}]}>{xpAmount} XP</Text>
             </View>
         </View>
     )

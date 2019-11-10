@@ -8,25 +8,25 @@ import GreenButton from '../comps/GreenButton';
 import theme from '../styles/ThemeStyles';
 
 
-export default function RewardModal(props){
+export default function RewardModal({heading, description, imagePath, starAmount, xpAmount}){
     // UI
     return (
         <View style={styles.container}>
-            <Text style={styles.mainHeading}>{props.heading}</Text>
-            <Text style={styles.description}>{props.description}</Text>
+            <Text style={styles.mainHeading}>{heading}</Text>
+            <Text style={styles.description}>{description}</Text>
 
             {/* Reward Image */}
             <Image
                 style = {styles.rewardImage}
-                source = {props.imagePath}
+                source = {imagePath}
             />
 
             {/* You Earned - Rewards Bar */}
             <Text style={styles.earnedText}>You Earned</Text>
             <RewardsBar
                 barBG="#DFF0D7"
-                starAmount={props.starAmount}
-                xpAmount={props.xpAmount}
+                starAmount={starAmount}
+                xpAmount={xpAmount}
             />
 
             {/* Redeem Button */}

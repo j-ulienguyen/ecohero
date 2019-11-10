@@ -6,9 +6,6 @@ import styles from '../../styles/LeaderboardCardStyles';
 import FilterTabMenu from '../FilterTabMenu';
 
 
-// Can you make the text shadow color a bit darker than what it is right now?
-
-
 export default function LeaderboardCard() {
 
 	// UI
@@ -33,9 +30,9 @@ export default function LeaderboardCard() {
 
 			{/* Filter Tab Menu */}
 			<FilterTabMenu
-			tab1 = "Weekly"
-			tab2 = "Monthly"
-			tab3 = "All-time"
+				tab1 = "Weekly"
+				tab2 = "Monthly"
+				tab3 = "All-time"
 			/>
 		</View>
 	);

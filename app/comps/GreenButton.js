@@ -5,17 +5,12 @@ import {Text, TouchableOpacity, StyleSheet} from 'react-native';
 import theme from '../styles/ThemeStyles';
 
 
-export default function GreenButton(props){
+export default function GreenButton({width, height, marginTop, title}){
     // UI
     return (
         <TouchableOpacity
-            style={[styles.greenBtn,
-                {width: props.width,
-                height: props.height,
-                marginTop: props.marginTop}
-            ]}
-        >
-            <Text style={styles.btnText}>{props.title}</Text>
+            style={[styles.greenBtn, {width: width, height: height, marginTop: marginTop}]}>
+            <Text style={styles.btnText}>{title}</Text>
         </TouchableOpacity>
     )
 }

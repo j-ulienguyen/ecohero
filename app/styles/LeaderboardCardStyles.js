@@ -16,7 +16,7 @@ var styles = StyleSheet.create({
         position: "absolute",
         top: 40,
 
-        textShadowColor: "#AB92D5",
+        textShadowColor: "#895dd4",
         textShadowOffset: { width: 3, height: 3 },
         textShadowRadius: 3
     },
@@ -29,7 +29,7 @@ var styles = StyleSheet.create({
         position: "absolute",
         top: 100,
 
-        textShadowColor: "#AB92D5",
+        textShadowColor: "#895dd4",
         textShadowOffset: { width: 3, height: 3 },
         textShadowRadius: 3
     },
@@ -42,7 +42,7 @@ var styles = StyleSheet.create({
         position: "absolute",
         top: 150,
 
-        textShadowColor: "#AB92D5",
+        textShadowColor: "#895dd4",
         textShadowOffset: { width: 3, height: 3 },
         textShadowRadius: 3
     },
@@ -55,26 +55,10 @@ var styles = StyleSheet.create({
         position: "absolute",
         top: 175,
 
-        textShadowColor: "#AB92D5",
+        textShadowColor: "#895dd4",
         textShadowOffset: { width: 3, height: 3 },
         textShadowRadius: 3
-    },
-
-    filterContainer: {
-        width: "100%",
-        flexDirection: "row",
-        justifyContent: "space-evenly",
-
-        position: "absolute",
-        bottom: 1
-    },
-
-    filterBtnText: {
-        fontFamily: theme.PoppinsRegular,
-        fontSize: 14,
-        lineHeight: 35, // Adjust spacing between text and borderBottom
-        color: theme.white
-    },
+    }
 });
 
 export default styles;

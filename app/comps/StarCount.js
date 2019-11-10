@@ -5,13 +5,11 @@ import {View, Text, Image, StyleSheet} from 'react-native';
 import theme from '../styles/ThemeStyles';
 
 
-export default function StarCount(props){
-
-    // var iconPath = '../assets/imgs/star-icon.png';
+export default function StarCount({type, textColor, starCount}){
 
     var starIcon;
 
-    if (props.type === "yellow"){
+    if (type === "yellow"){
         starIcon = (
             <Image
                 style = {styles.starIcon}
@@ -20,7 +18,7 @@ export default function StarCount(props){
         )
     }
 
-    if (props.type === "black"){
+    if (type === "black"){
         starIcon = (
             <Image
                 style = {styles.starIcon}
@@ -34,12 +32,9 @@ export default function StarCount(props){
     return (
         <View style={styles.starCountContainer}>
             {/* Star Count # */}
-            <Text style={[styles.countText, {color: props.textColor}]}>{props.starCount}</Text>
+            <Text style={[styles.countText, {color: textColor}]}>{starCount}</Text>
+            {/* Star Icon */}
             {starIcon}
-            {/* <Image
-                style = {styles.starIcon}
-                source = {require('../assets/imgs/star-icon.png')}
-            /> */}
         </View>
     )
 }

@@ -6,43 +6,33 @@ import styles from '../../styles/LeaderboardUserStyles';
 import StarCount from '../StarCount';
 
 
-export default function LeaderboardUser(props) {
-
+export default function LeaderboardUser({rankNumber, iconPath, username, starCount}) {
 
 	// UI
 	return (
-	<View style={styles.container}>
-		<View style={styles.userCardContainer}>
+		<View style={styles.container}>
+			<View style={styles.userCardContainer}>
 
-			{/* Purple User Card */}
-			<Image source={require('../../assets/imgs/user-leaderboard-card.png')}/>
+				{/* Purple User Card */}
+				<Image source={require('../../assets/imgs/user-leaderboard-card.png')}/>
 
-			{/* Rank Number */}
-			<Text style={styles.rankNumber}>{props.rankNumber}</Text>
+				{/* Rank Number */}
+				<Text style={styles.rankNumber}>{rankNumber}</Text>
 
-			{/* User Avatar */}
-			<Image
-				style = {styles.avatarIcon}
-				source = {props.iconPath}
-			/>
+				{/* User Avatar */}
+				<Image
+					style = {styles.avatarIcon}
+					source = {iconPath}
+				/>
 
-			{/* Username */}
-			<Text style={styles.userName}>{props.username}</Text>
+				{/* Username */}
+				<Text style={styles.userName}>{username}</Text>
 
-			{/* Star Count */}
-			<View style={styles.starCountContainer}>
-				<StarCount type="yellow" starCount={props.starCount} textColor="white"/>
+				{/* Star Count */}
+				<View style={styles.starCountContainer}>
+					<StarCount type="yellow" starCount={starCount} textColor="white"/>
+				</View>
 			</View>
-
-			{/* Star Amount */}
-			{/* <Text style={styles.starAmount}>{props.starAmount}</Text> */}
-
-			{/* Star Icon */}
-			{/* <Image
-				style={styles.starIcon}
-				source={require('../../assets/imgs/star-icon.png')}
-			/> */}
 		</View>
-	</View>
 	);
 }

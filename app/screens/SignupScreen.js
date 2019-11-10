@@ -12,6 +12,7 @@ import BackBar from '../comps/BackBar';
 import BasicProfile from '../subscreens/BasicProfileSubscreen';
 import ChooseAvatar from '../subscreens/ChooseAvatarSubscreen';
 
+
 export default function SignupScreen(){
     // UI
     return (
@@ -34,7 +35,6 @@ export default function SignupScreen(){
                 {/* <StepProgressBar />
                     <BackBar />
                     <ChooseAvatar /> */}
-
         </View>
     )
 }

@@ -34,29 +34,6 @@ var styles = StyleSheet.create({
         right: 12
     },
 
-    // starAmountContainer: {
-    //     position:'absolute',
-    //     right:35,
-    //     flexDirection: "row",
-    // },
-
-    // starIcon: {
-    //     width: 15,
-    //     height: 15,
-
-    //     top: 0,
-    //     marginLeft: 0
-    // },
-
-    // starAmount: {
-    //     position:'absolute',
-    //     right: 50,
-    //     fontFamily: theme.PoppinsBold,
-    //     fontSize: 14,
-    //     color: theme.appBlack,
-    //     paddingHorizontal:10,
-    // },
-
     rankNumber: {
         fontFamily: theme.PoppinsBold,
         fontSize: 14,

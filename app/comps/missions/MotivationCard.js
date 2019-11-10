@@ -17,8 +17,8 @@ export default function MotivationCard(){
 
             {/* EcoHero Character */}
             <Image
-            style = {styles.character}
-            source = {require('../../assets/imgs/ecohero-handsup.png')}
+                style = {styles.character}
+                source = {require('../../assets/imgs/ecohero-handsup.png')}
             />
         </View>
     )

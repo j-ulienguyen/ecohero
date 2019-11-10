@@ -7,7 +7,7 @@ import ScreenOverlay from '../ScreenOverlay';
 import GreenButton from '../GreenButton';
 
 
-export default function LevelUpModal(props){
+export default function LevelUpModal({level}){
 	// UI
 	return (
 		<View style={styles.container}>
@@ -25,7 +25,7 @@ export default function LevelUpModal(props){
 						style = {styles.levelupBadge}
 						source = {require('../../assets/imgs/levelup-badge.png')}
 					/>
-					<Text style={styles.levelText}>{props.level}</Text>
+					<Text style={styles.levelText}>{level}</Text>
 				</View>
 
 				{/* Done Button */}

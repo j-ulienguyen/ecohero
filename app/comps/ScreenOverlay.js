@@ -10,6 +10,7 @@ export default function ScreenOverlay(){
 }
 
 
+// COMPONENT STYLING
 var styles = StyleSheet.create({
     screenOverlay: {
         position: "absolute",

@@ -3,6 +3,7 @@ import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
 
 // Import comps & styles below
 import styles from '../../styles/SignUpEntryStyles';
+import GreenButton from '../../comps/GreenButton';
 
 
 export default function SignUpEntry(){
@@ -15,7 +16,6 @@ export default function SignUpEntry(){
          <View style={styles.twoFields}>
             {/* Sign In Option */}
             <TouchableOpacity>
-
                <Text style={styles.signInText}>SIGN IN</Text>
                {/* <View style={styles.lineLeft}></View> */}
             </TouchableOpacity>
@@ -56,16 +56,8 @@ export default function SignUpEntry(){
             />
          </View>
 
-         {/* Buttons */}
-         <View>
-            {/* Continue Button */}
-            <TouchableOpacity
-               style={styles.greenBtn}
-            >
-               <Text style={styles.btnText}>Create Account</Text>
-            </TouchableOpacity>
-
-         </View>
+         {/* Create Account Button */}
+         <GreenButton width={309} height={43} title="Create Account" marginTop={70}/>
       </View>
    );
 

@@ -21,6 +21,7 @@ export default function LeaderboardScreen() {
 				{/* Leaderboard Card */}
 				<LeaderboardCard />
 
+				{/* Leaderboard Friends Card Section*/}
 				<View style={styles.cardSection}>
 
 					<FriendsCard
@@ -73,7 +74,7 @@ export default function LeaderboardScreen() {
 				</View>
 			</ScrollView>
 
-			<View style={{position: 'absolute', bottom: 0, elevation:1000000}}>
+			<View style={{position: 'absolute', bottom: 0}}>
 				{/* Leaderboard User Card */}
 				<LeaderboardUser
 					username='hardcoreHenry'

@@ -7,7 +7,7 @@ import ScreenOverlay from '../ScreenOverlay';
 import GreenButton from '../GreenButton';
 
 
-export default function BadgeModal(props){
+export default function BadgeModal({heading, imagePath, description}){
 	// UI
 	return (
 		<View style={styles.container}>
@@ -17,16 +17,16 @@ export default function BadgeModal(props){
 			{/* Badge Modal */}
 			<View style={styles.modal}>
 				{/* Badge Name */}
-				<Text style={styles.modalHeading}>{props.heading}</Text>
+				<Text style={styles.modalHeading}>{heading}</Text>
 
 				{/* Badge Icon */}
 				<Image
 					style = {styles.badge}
-					source = {props.imagePath}
+					source = {imagePath}
 				/>
 
 				{/* Badge Description */}
-				<Text style={styles.badgeDesc}>{props.description}</Text>
+				<Text style={styles.badgeDesc}>{description}</Text>
 
 				{/* Done Button */}
 				<GreenButton title="Done" width={174} height={43}/>

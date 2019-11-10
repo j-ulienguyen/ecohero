@@ -40,7 +40,7 @@ function App(){
 				xpAmount = {100}
 			/> */}
 
-      {/* <MissionsScreen/> */}
+      		{/* <MissionsScreen/> */}
 			{/* <LevelUpModal level="5"/> */}
 			{/* <ProfileScreen/> */}
 
