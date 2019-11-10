@@ -6,6 +6,9 @@ import styles from '../../styles/SignInEntryStyles';
 import ForgotPW from '../../subscreens/ForgotPWSubscreen';
 import GreenButton from '../../comps/GreenButton';
 
+// Navigation
+import * as navigateTo from '../../../RouteConstants';
+
 
 export default function SignInEntry(){
    const [txt, setTxt] = useState("");
@@ -22,7 +25,7 @@ export default function SignInEntry(){
             </TouchableOpacity>
 
             {/* Sign Up Option */}
-            <TouchableOpacity>
+            <TouchableOpacity onPress={navigateTo.Signup}>
                <Text style={styles.signUpText}>SIGN UP</Text>
                {/* <View style={styles.rightLeft}></View> */}
             </TouchableOpacity>
@@ -58,10 +61,10 @@ export default function SignInEntry(){
          </View>
 
          {/* Continue Button */}
-         <GreenButton width={309} height={43} title="Continue" marginTop={70}/>
+         <GreenButton width={309} height={43} title="Continue" marginTop={70} onPress={navigateTo.Home}/>
 
          {/* Forgot Pw Text Button */}
-         <TouchableOpacity>
+         <TouchableOpacity onPress={navigateTo.ForgotPW}>
             <Text style={styles.btmText}>Forgot Password?</Text>
          </TouchableOpacity>
       </View>

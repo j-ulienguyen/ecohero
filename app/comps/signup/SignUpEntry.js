@@ -5,6 +5,9 @@ import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
 import styles from '../../styles/SignUpEntryStyles';
 import GreenButton from '../../comps/GreenButton';
 
+// Navigation
+import * as navigateTo from '../../../RouteConstants';
+
 
 export default function SignUpEntry(){
    const [txt, setTxt] = useState("");
@@ -15,7 +18,7 @@ export default function SignUpEntry(){
          {/* Sign In / Sign Up Buttons */}
          <View style={styles.twoFields}>
             {/* Sign In Option */}
-            <TouchableOpacity>
+            <TouchableOpacity onPress={navigateTo.Signin}>
                <Text style={styles.signInText}>SIGN IN</Text>
                {/* <View style={styles.lineLeft}></View> */}
             </TouchableOpacity>
@@ -57,7 +60,7 @@ export default function SignUpEntry(){
          </View>
 
          {/* Create Account Button */}
-         <GreenButton width={309} height={43} title="Create Account" marginTop={70}/>
+         <GreenButton width={309} height={43} title="Create Account" marginTop={70} onPress={navigateTo.BasicProfile}/>
       </View>
    );
 

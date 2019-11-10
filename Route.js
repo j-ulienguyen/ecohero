@@ -20,11 +20,12 @@ export default function Route(){
     return (
         <Router>
             <Stack key="root" hideNavBar={true}>
+                {/* ============================= */}
                 <Scene
                     key = "signin"
                     title = "Signin Screen"
                     component = {SigninScreen}
-                    //initial = {true} // App will start with this screen
+                    initial = {true} // App will start with this screen
                 />
                 <Scene
                     key = "signup"
@@ -32,15 +33,32 @@ export default function Route(){
                     component = {SignupScreen}
                 />
                 <Scene
+                    key = "basicProfile"
+                    title = "Basic Profile"
+                    component = {BasicProfile}
+                />
+                <Scene
+                    key = "chooseAvatar"
+                    title = "Choose Avatar"
+                    component = {ChooseAvatar}
+                />
+                <Scene
+                    key = "forgotPW"
+                    title = "Forgot Password"
+                    component = {ForgotPW}
+                />
+                {/* ============================= */}
+                <Scene
                     key = "onboard"
                     title = "Onboarding Screen"
                     component = {OnboardingScreen}
                 />
+                {/* ============================= */}
                 <Scene
                     key = "home"
                     title = "Home Screen"
                     component = {HomeScreen}
-                    initial = {true}
+                    //initial = {true}
                 />
                 <Scene
                     key = "missions"

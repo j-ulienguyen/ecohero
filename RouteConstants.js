@@ -10,6 +10,18 @@ export const Signup = ()=>{
     Actions.signup()
 }
 
+export const ForgotPW = ()=>{
+    Actions.forgotPW()
+}
+
+export const BasicProfile = ()=>{
+    Actions.basicProfile()
+}
+
+export const ChooseAvatar = ()=>{
+    Actions.chooseAvatar()
+}
+
 export const Onboard = ()=>{
     Actions.onboard()
 }
@@ -35,5 +47,8 @@ export const Back = ()=>{
 }
 
 
+
 // How To Use:
+
+// Navigation
 // import * as navigateTo from 'pathTo/RouteConstants';
