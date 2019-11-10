@@ -2,6 +2,9 @@ import React from 'react';
 import {View, Text, TouchableOpacity, Image} from 'react-native';
 import styles from '../../styles/UserBubbleStyles';
 
+// Navigation
+import * as navigateTo from '../../../RouteConstants';
+
 
 export default function UserBubble({username, missionAvailable}){
     // UI
@@ -30,7 +33,7 @@ export default function UserBubble({username, missionAvailable}){
                     {/* View Mission Button */}
                     <TouchableOpacity
                         style = {styles.blueBtn}
-                        /* onPress = {} */
+                        onPress = {navigateTo.Missions}
                     >
                         <Text style={styles.btnText}>View Missions</Text>
                     </TouchableOpacity>

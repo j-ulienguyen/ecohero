@@ -24,7 +24,7 @@ export default function Route(){
                     key = "signin"
                     title = "Signin Screen"
                     component = {SigninScreen}
-                    initial = {true} // App will start with this screen
+                    //initial = {true} // App will start with this screen
                 />
                 <Scene
                     key = "signup"
@@ -40,6 +40,7 @@ export default function Route(){
                     key = "home"
                     title = "Home Screen"
                     component = {HomeScreen}
+                    initial = {true}
                 />
                 <Scene
                     key = "missions"

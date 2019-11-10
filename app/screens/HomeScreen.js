@@ -9,6 +9,7 @@ import PrizeProgress from '../comps/home/PrizeProgress';
 import PrizeCard from '../comps/home/PrizeCard';
 
 
+
 export default function HomeScreen(){
     // UI
     return (
