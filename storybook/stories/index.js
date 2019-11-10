@@ -24,10 +24,10 @@ import GreenButton from '../../app/comps/GreenButton';
 import PatternBG from '../../app/comps/PatternBG';
 import RewardModal from '../../app/comps/RewardModal';
 import ScreenOverlay from '../../app/comps/ScreenOverlay';
-import SignInEntry from '../../app/comps/SignInEntry';
-import SignUpEntry from '../../app/comps/SignUpEntry';
+import SignInEntry from '../../app/comps/signin/SignInEntry';
+import SignUpEntry from '../../app/comps/signup/SignUpEntry';
 import StarCount from '../../app/comps/StarCount';
-import StepProgressBar from '../../app/comps/StepProgressBar';
+import StepProgressBar from '../../app/comps/signup/StepProgressBar';
 import TreeBg from '../../app/comps/TreeBg';
 import UsernameLabel from '../../app/comps/UsernameLabel';
 
@@ -50,6 +50,8 @@ import RewardsBar from '../../app/comps/missions/RewardsBar';
 
 // Import Leaderboard comps
 import LeaderboardCard from '../../app/comps/leaderboard/LeaderboardCard';
+import FriendsCard from '../../app/comps/leaderboard/FriendsCard';
+import LeaderboardUser from '../../app/comps/leaderboard/LeaderboardUser';
 
 
 // Import Profile comps
@@ -116,8 +118,10 @@ storiesOf('Mission', module)
 // Leaderboard Components
 storiesOf('Leaderboard', module)
   .add('Leaderboard Card', () => <LeaderboardCard/>)
+  .add('Leaderboard Friends Card', () => <FriendsCard/>)
+  .add('Leaderboard User Card', () => <LeaderboardUser/>)
 
-       
+
 // Profile Components
 storiesOf('Profile', module)
   .add('Settings Icon', () => <SettingsIcon/>)

@@ -12,88 +12,66 @@ import FriendsCard from '../comps/leaderboard/FriendsCard';
 export default function LeaderboardScreen() {
 	// UI
 	return (
-		<View style={{flex: 1, height: '100%'}}>
+		<View style={styles.container}>
 			{/* Fixed Pattern BG */}
 			<PatternBG />
 
 			{/* Scrollable Content - On Top */}
+			<ScrollView>
+				{/* Leaderboard Card */}
+				<LeaderboardCard />
 
-			{/*
-				I'm not sure why you have 2 ScrollViews. I think you can just do one and have it as
+				<View style={styles.cardSection}>
 
-				Scrollview
-				- LeaderboardCard
-				- LeaderboardFriends
-				/Scrollview
-
-				Do keep in mind that we still need to implement the nav bar, so the bottom portion of the screen will be that. Hence we would need more area to scroll above
-
-				Also what is the purpose of elevation? I thought it was used for dropshadows.
-			 */}
-
-			<View style={{flex: 1, elevation: 100000}}>
-
-
-				{/* LeaderBoard Card Section */}
-				<ScrollView>
-					
-					<LeaderboardCard />
-
-					<View style={styles.cardSection}>
-
-					<FriendsCard 
+					<FriendsCard
 						type="first"
 						username='jjanicefong'
-						starAmount={45}
+						starCount={45}
 						iconPath={require('../assets/imgs/lunchbox-avatar.png')}
 						rankNumber={1}
-						/>
-					<FriendsCard 
+					/>
+
+					<FriendsCard
 						type="second"
 						username='xAznJay'
-						starAmount={35}
+						starCount={35}
 						iconPath={require('../assets/imgs/paper-avatar.png')}
 						rankNumber={2}
+					/>
 
-						/>
-					<FriendsCard 
+					<FriendsCard
 						type="third"
 						username='jujubean'
-						starAmount={30}
+						starCount={30}
 						iconPath={require('../assets/imgs/can-avatar.png')}
 						rankNumber={3}
+					/>
 
-						/>
-					<FriendsCard 
+					<FriendsCard
 						type="normal"
 						username='ashlynnchen'
-						starAmount={25}
+						starCount={25}
 						iconPath={require('../assets/imgs/can-avatar.png')}
 						rankNumber={4}
+					/>
 
-						
-						/>
-					<FriendsCard 
+					<FriendsCard
 						type="normal"
 						username='noob'
-						starAmount={10}
+						starCount={10}
 						iconPath={require('../assets/imgs/jug-avatar.png')}
 						rankNumber={5}
+					/>
 
-						/>
-					<FriendsCard 
+					<FriendsCard
 						type="normal"
 						username='ramtheram2017'
-						starAmount={10}
+						starCount={10}
 						iconPath={require('../assets/imgs/jug-avatar.png')}
 						rankNumber={6}
-
-						/>
-
-					</View>
-
-				</ScrollView>
-			</View>
+					/>
+				</View>
+			</ScrollView>
 
 			<View style={{position: 'absolute', bottom: 0, elevation:1000000}}>
 				{/* Leaderboard User Card */}
@@ -101,10 +79,8 @@ export default function LeaderboardScreen() {
 					username='hardcoreHenry'
 					iconPath={require('../assets/imgs/can-avatar.png')}
 					rankNumber={35}
-					starAmount={5}
-					
-					
-					/>
+					starCount={5}
+				/>
 			</View>
 		</View>
 	);

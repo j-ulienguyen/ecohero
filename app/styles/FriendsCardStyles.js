@@ -5,7 +5,7 @@ var styles = StyleSheet.create({
     container: {
         alignItems:'center',
         marginBottom:15,
-        elevation:4,
+        // elevation:4,
     },
 
     friendsCardContainer: {
@@ -29,41 +29,46 @@ var styles = StyleSheet.create({
         marginLeft:20,
     },
 
-    starAmountContainer: {
-        position:'absolute',
-        right:35,
-        flexDirection: "row",
+    starCountContainer: {
+        position: "absolute",
+        right: 12
     },
 
-    starIcon: {
-        width: 15,
-        height: 15,
+    // starAmountContainer: {
+    //     position:'absolute',
+    //     right:35,
+    //     flexDirection: "row",
+    // },
 
-        top: 0,
-        // left:30,
-        marginLeft: 0
-    },
+    // starIcon: {
+    //     width: 15,
+    //     height: 15,
 
-    starAmount: {
-        position:'absolute',
-        right: 50,
-        fontFamily: theme.PoppinsBold,
-        fontSize: 14,
-        color: theme.appBlack,
-        paddingHorizontal:10,
-    },
+    //     top: 0,
+    //     marginLeft: 0
+    // },
+
+    // starAmount: {
+    //     position:'absolute',
+    //     right: 50,
+    //     fontFamily: theme.PoppinsBold,
+    //     fontSize: 14,
+    //     color: theme.appBlack,
+    //     paddingHorizontal:10,
+    // },
+
     rankNumber: {
         fontFamily: theme.PoppinsBold,
         fontSize: 14,
         color: theme.appBlack,
         marginLeft:10
     },
+
     avatarIcon: {
         width: 40,
         height: 40,
         position:'absolute',
         left:40
-
     },
 });
 

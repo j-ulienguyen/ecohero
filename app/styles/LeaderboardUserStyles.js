@@ -29,6 +29,7 @@ var styles = StyleSheet.create({
         fontSize:14,
         color:'white',
     },
+
     starIcon: {
         width: 15,
         height: 15,
@@ -37,6 +38,7 @@ var styles = StyleSheet.create({
         // left:30,
         marginLeft: 0
     },
+
     avatarIcon: {
         width: 40,
         height: 40,
@@ -46,6 +48,7 @@ var styles = StyleSheet.create({
         bottom:25,
 
     },
+
     rankNumber: {
         position:'absolute',
         fontFamily: theme.PoppinsBold,
@@ -54,6 +57,7 @@ var styles = StyleSheet.create({
         // 43 is looking more visually aligned than 45
         marginLeft:43
     },
+
     starAmount: {
         position:'absolute',
         // 83 is looking more visually aligned than 85
@@ -62,6 +66,7 @@ var styles = StyleSheet.create({
         color: theme.white,
         paddingHorizontal:10,
     },
+
     starIcon: {
         width: 15,
         height: 15,
@@ -70,5 +75,10 @@ var styles = StyleSheet.create({
         right:83,
         marginLeft: 0
     },
+
+    starCountContainer: {
+        position: "absolute",
+        right: 30
+    }
 });
 export default styles;
