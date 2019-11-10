@@ -10,9 +10,10 @@ import LeaderboardScreen from '../../app/screens/LeaderboardScreen';
 import ProfileScreen from '../../app/screens/ProfileScreen';
 
 // Import Subscreens comps
-import BasicProfileSubscreen from '../../app/subscreens/BasicProfileSubscreen';
-import ChooseAvatarSubscreen from '../../app/subscreens/ChooseAvatarSubscreen';
-import ForgotPWSubscreen from '../../app/subscreens/ForgotPWSubscreen';
+import OnboardSteps from '../../app/subscreens/OnboardSteps';
+import BasicProfile from '../../app/subscreens/BasicProfileSubscreen';
+import ChooseAvatar from '../../app/subscreens/ChooseAvatarSubscreen';
+import ForgotPW from '../../app/subscreens/ForgotPWSubscreen';
 
 
 // Import General comps
@@ -24,12 +25,16 @@ import GreenButton from '../../app/comps/GreenButton';
 import PatternBG from '../../app/comps/PatternBG';
 import RewardModal from '../../app/comps/RewardModal';
 import ScreenOverlay from '../../app/comps/ScreenOverlay';
-import SignInEntry from '../../app/comps/signin/SignInEntry';
-import SignUpEntry from '../../app/comps/signup/SignUpEntry';
 import StarCount from '../../app/comps/StarCount';
-import StepProgressBar from '../../app/comps/signup/StepProgressBar';
 import TreeBg from '../../app/comps/TreeBg';
 import UsernameLabel from '../../app/comps/UsernameLabel';
+
+
+// Import Signin / Signup / Onboard
+import SignInEntry from '../../app/comps/signin/SignInEntry';
+import SignUpEntry from '../../app/comps/signup/SignUpEntry';
+import StepProgressBar from '../../app/comps/signup/StepProgressBar';
+import GetStarted from '../../app/comps/onboard/GetStarted';
 
 
 // Import Home comps
@@ -59,9 +64,7 @@ import SettingsIcon from '../../app/comps/profile/SettingsIcon';
 import AchievementCard from '../../app/comps/profile/AchievementCard';
 import ProfileBadge from '../../app/comps/profile/ProfileBadge';
 import BadgeModal from '../../app/comps/profile/BadgeModal';
-import BasicProfile from '../../app/subscreens/BasicProfileSubscreen';
-import ForgotPW from '../../app/subscreens/ForgotPWSubscreen';
-import ChooseAvatar from '../../app/subscreens/ChooseAvatarSubscreen';
+
 
 
 // Screens
@@ -74,6 +77,7 @@ storiesOf('Screens', module)
 
 // Subscreens
 storiesOf('Subscreens', module)
+  .add('Onboarding Subscreen', () => <OnboardSteps/>)
   .add('Basic Profile Subscreen', () => <BasicProfile/>)
   .add('Forgot Password Subscreen', () => <ForgotPW/>)
   .add('Choose Avatar Subscreen', () => <ChooseAvatar/>)
@@ -89,18 +93,23 @@ storiesOf('General', module)
   .add('Pattern BG', () => <PatternBG/>)
   .add('Reward Modal', () => <RewardModal/>)
   .add('Screen Overlay', () => <ScreenOverlay/>)
-  .add('Sign In Entry', () => <SignInEntry/>)
-  .add('Sign Up Entry', () => <SignUpEntry/>)
   .add('Star Count', () => <StarCount/>)
-  .add('Step Progress Bar', () => <StepProgressBar/>)
   .add('Tree BG', () => <TreeBg/>)
   .add('Username Label', () => <UsernameLabel/>)
+
+
+// Signin / Signup / Onboard
+storiesOf('Sign / Onboard', module)
+  .add('Sign In Entry', () => <SignInEntry/>)
+  .add('Sign Up Entry', () => <SignUpEntry/>)
+  .add('Step Progress Bar', () => <StepProgressBar/>)
+  .add('Get Started', () => <GetStarted/>)
 
 
 // Home Components
 storiesOf('Home', module)
   .add('Profile Card', () => <ProfileCard/>)
-  .add('User Bubble', () => <GreenBUserBubbleutton/>)
+  .add('User Bubble', () => <UserBubble/>)
   .add('Hex Badge', () => <HexBadge/>)
   .add('Prize Card', () => <PrizeCard/>)
   .add('Prize Progress', () => <PrizeProgress/>)
