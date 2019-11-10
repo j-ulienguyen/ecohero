@@ -3,56 +3,73 @@ import theme from './ThemeStyles';
 
 var styles = StyleSheet.create({
     container: {
-        flex: 1
+        alignItems:'center',
+        marginBottom:15,
+        // elevation:4,
     },
 
     friendsCardContainer: {
         width: 345,
         height: 70,
         borderRadius: 10,
+        elevation:4,
 
         flexDirection: "row",
-        justifyContent: "space-between",
         alignItems: "center",
         paddingLeft: 10,
         paddingRight: 0,
     },
 
     userName: {
+        position:'absolute',
+        left:80,
         fontFamily: theme.PoppinsMedium,
         fontSize: 14,
-        letterSpacing: 1,
-        textTransform: "uppercase",
-        color: theme.appBlack,
+        color: theme.white,
         marginLeft:20,
     },
 
-    starAmountContainer: {
-        flexDirection: "row",
-        left: 25,
+    starCountContainer: {
+        position: "absolute",
+        right: 12
     },
 
-    starIcon: {
-        width: 15,
-        height: 15,
+    // starAmountContainer: {
+    //     position:'absolute',
+    //     right:35,
+    //     flexDirection: "row",
+    // },
 
-        top: 0,
-        left:30,
-        marginLeft: 0
-    },
+    // starIcon: {
+    //     width: 15,
+    //     height: 15,
 
-    starAmount: {
-        position:'relative',
-        fontFamily: theme.PoppinsBold,
-        fontSize: 14,
-        color: theme.appBlack,
-        paddingHorizontal:10,
-    },
+    //     top: 0,
+    //     marginLeft: 0
+    // },
+
+    // starAmount: {
+    //     position:'absolute',
+    //     right: 50,
+    //     fontFamily: theme.PoppinsBold,
+    //     fontSize: 14,
+    //     color: theme.appBlack,
+    //     paddingHorizontal:10,
+    // },
+
     rankNumber: {
         fontFamily: theme.PoppinsBold,
         fontSize: 14,
-        color: theme.appBlack
-    }
+        color: theme.appBlack,
+        marginLeft:10
+    },
+
+    avatarIcon: {
+        width: 40,
+        height: 40,
+        position:'absolute',
+        left:40
+    },
 });
 
 export default styles;

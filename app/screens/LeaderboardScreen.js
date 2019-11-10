@@ -6,74 +6,81 @@ import styles from '../styles/LeaderboardScreenStyles';
 import PatternBG from '../comps/PatternBG';
 import LeaderboardCard from '../comps/leaderboard/LeaderboardCard';
 import LeaderboardUser from '../comps/leaderboard/LeaderboardUser';
-import LeaderboardFriends from '../comps/leaderboard/LeaderboardFriends';
+import FriendsCard from '../comps/leaderboard/FriendsCard';
 
 
 export default function LeaderboardScreen() {
 	// UI
 	return (
-		<View style={{flex: 1, height: '100%'}}>
+		<View style={styles.container}>
 			{/* Fixed Pattern BG */}
 			<PatternBG />
 
 			{/* Scrollable Content - On Top */}
+			<ScrollView>
+				{/* Leaderboard Card */}
+				<LeaderboardCard />
 
-			{/*
-				I'm not sure why you have 2 ScrollViews. I think you can just do one and have it as
+				<View style={styles.cardSection}>
 
-				Scrollview
-				- LeaderboardCard
-				- LeaderboardFriends
-				/Scrollview
+					<FriendsCard
+						type="first"
+						username='jjanicefong'
+						starCount={45}
+						iconPath={require('../assets/imgs/lunchbox-avatar.png')}
+						rankNumber={1}
+					/>
 
-				Do keep in mind that we still need to implement the nav bar, so the bottom portion of the screen will be that. Hence we would need more area to scroll above
-
-				Also what is the purpose of elevation? I thought it was used for dropshadows.
-			 */}
-
-			<View style={{flex: 1, elevation: 100000}}>
-				<ScrollView style={{flex: 1}}>
-					{/* Leaderboard Header Card */}
-					<LeaderboardCard />
-				</ScrollView>
-
-				{/* LeaderBoard Card Section */}
-				<ScrollView style={styles.cardSection}>
-
-          {/* In process of merging FriendsCard*/}
-					<LeaderboardFriends
-						//barBG='#FCDF76'
+					<FriendsCard
+						type="second"
+						username='xAznJay'
+						starCount={35}
 						iconPath={require('../assets/imgs/paper-avatar.png')}
-						rankNumber='1'
-						starAmount='35'
-						type = "first"
+						rankNumber={2}
 					/>
 
-					<LeaderboardFriends
-						//barBG='#ECECEC'
-						iconPath={require('../assets/imgs/lunchbox-avatar.png')}
-						rankNumber='2'
-						starAmount='30'
+					<FriendsCard
+						type="third"
+						username='jujubean'
+						starCount={30}
+						iconPath={require('../assets/imgs/can-avatar.png')}
+						rankNumber={3}
 					/>
 
-					<LeaderboardFriends
-						//barBG='#F6B684'
-						iconPath={require('../assets/imgs/lunchbox-avatar.png')}
-						rankNumber='3'
-						starAmount='25'
-						type = "third"
+					<FriendsCard
+						type="normal"
+						username='ashlynnchen'
+						starCount={25}
+						iconPath={require('../assets/imgs/can-avatar.png')}
+						rankNumber={4}
 					/>
-          <LeaderboardFriends 
-          rankNumber='4'
-          starAmount='20'
-          
-          />
-				</ScrollView>
-			</View>
+
+					<FriendsCard
+						type="normal"
+						username='noob'
+						starCount={10}
+						iconPath={require('../assets/imgs/jug-avatar.png')}
+						rankNumber={5}
+					/>
+
+					<FriendsCard
+						type="normal"
+						username='ramtheram2017'
+						starCount={10}
+						iconPath={require('../assets/imgs/jug-avatar.png')}
+						rankNumber={6}
+					/>
+				</View>
+			</ScrollView>
 
 			<View style={{position: 'absolute', bottom: 0, elevation:1000000}}>
 				{/* Leaderboard User Card */}
-				<LeaderboardUser />
+				<LeaderboardUser
+					username='hardcoreHenry'
+					iconPath={require('../assets/imgs/can-avatar.png')}
+					rankNumber={35}
+					starCount={5}
+				/>
 			</View>
 		</View>
 	);

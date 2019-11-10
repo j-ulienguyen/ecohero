@@ -25,7 +25,7 @@ export default function PrizeCard(props){
 
                 {/* Star Count Requirement */}
                 <View style={styles.starCountContainer}>
-                    <StarCount starCount={props.starCount}/>
+                    <StarCount type="yellow" starCount={props.starCount}/>
                 </View>
 
                 {/* Prize Details */}

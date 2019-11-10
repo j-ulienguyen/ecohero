@@ -24,7 +24,7 @@ export default function PrizeProgress(props){
                         {/* Checkpoint Circle */}
                         <View style={styles.progressCheckpoint}></View>
                         {/* Star Count Requirement */}
-                        <StarCount starCount={5}/>
+                        <StarCount type="yellow" starCount={5}/>
                     </View>
 
                     {/* Checkpoint 10 Stars */}
@@ -32,7 +32,7 @@ export default function PrizeProgress(props){
                         {/* Checkpoint Circle */}
                         <View style={styles.progressCheckpoint}></View>
                         {/* Star Count Requirement */}
-                        <StarCount starCount={10}/>
+                        <StarCount type="yellow" starCount={10}/>
                     </View>
 
                     {/* Checkpoint 20 Stars */}
@@ -40,7 +40,7 @@ export default function PrizeProgress(props){
                         {/* Checkpoint Circle */}
                         <View style={styles.progressCheckpoint}></View>
                         {/* Star Count Requirement */}
-                        <StarCount starCount={20}/>
+                        <StarCount type="yellow" starCount={20}/>
                     </View>
                 </View>
             </View>
