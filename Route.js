@@ -58,7 +58,6 @@ export default function Route(){
                     key = "home"
                     title = "Home Screen"
                     component = {HomeScreen}
-                    //initial = {true}
                 />
                 <Scene
                     key = "missions"

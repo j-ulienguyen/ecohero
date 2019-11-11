@@ -7,7 +7,7 @@ import PatternBG from '../comps/PatternBG';
 import ProfileCard from '../comps/home/ProfileCard';
 import PrizeProgress from '../comps/home/PrizeProgress';
 import PrizeCard from '../comps/home/PrizeCard';
-
+import NavBar from '../comps/NavBar';
 
 
 export default function HomeScreen(){
@@ -60,6 +60,8 @@ export default function HomeScreen(){
 					</View>
 				</View>
 			</ScrollView>
+			{/* Navigation Bar */}
+			<NavBar/>
 		</View>
     )
 }

@@ -6,6 +6,7 @@ import styles from '../styles/MissionsScreenStyles';
 import PatternBG from '../comps/PatternBG';
 import MissionBoardCard from '../comps/missions/MissionBoardCard';
 import MissionCard from '../comps/missions/MissionCard';
+import NavBar from '../comps/NavBar';
 
 
 export default function MissionsScreen(){
@@ -52,6 +53,9 @@ export default function MissionsScreen(){
                     </View>
                 </View>
             </ScrollView>
+
+            {/* Navigation Bar */}
+            <NavBar/>
         </View>
     )
 }

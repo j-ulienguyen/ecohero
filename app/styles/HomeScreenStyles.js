@@ -12,7 +12,7 @@ var styles = StyleSheet.create({
         width: "100%",
 
         marginTop: 35,
-        marginBottom: 20
+        marginBottom: 90
     }
 });
 

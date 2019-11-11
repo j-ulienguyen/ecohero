@@ -9,6 +9,7 @@ import ProfileCard from '../comps/home/ProfileCard';
 import SettingsIcon from '../comps/profile/SettingsIcon';
 import AchievementCard from '../comps/profile/AchievementCard';
 import ProfileBadge from '../comps/profile/ProfileBadge';
+import NavBar from '../comps/NavBar';
 
 
 export default function ProfileScreen(){
@@ -92,6 +93,9 @@ export default function ProfileScreen(){
                     </View>
                 </View>
             </ScrollView>
+
+            {/* Navigation Bar */}
+            <NavBar/>
         </View>
     )
 }

@@ -1,6 +1,11 @@
 import { Actions } from "react-native-router-flux"
 
 
+// How To Use:
+// Navigation
+// import * as navigateTo from 'pathTo/RouteConstants';
+
+
 // Create functions that navigates to screen specified
 export const Signin = ()=>{
     Actions.signin()
@@ -45,10 +50,3 @@ export const Profile = ()=>{
 export const Back = ()=>{
     Actions.pop()
 }
-
-
-
-// How To Use:
-
-// Navigation
-// import * as navigateTo from 'pathTo/RouteConstants';
