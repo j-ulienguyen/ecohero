@@ -11,10 +11,10 @@ import NavBar from '../comps/NavBar';
 // Import data files below
 // import {missions, bonusMissions} from '../data/MissionData';
 import missions from '../data/MissionData';
+// import bonusMissions from '../data/BonusMissionData';
 
 
 export default function MissionsScreen(){
-
 
     // UI
     return (
@@ -34,10 +34,20 @@ export default function MissionsScreen(){
                     <View style={styles.cardSection}>
                         {/* <MissionCard
                             type="bonus"
-                            missionName = "Mission Name 1"
+                            missionName = "Bonus Mission"
+                            description = "Bonus mission details here"
                             iconPath={require('../assets/imgs/recycle-icon.png')}
                             starAmount={5}
                             xpAmount={50}
+                        /> */}
+
+                        {/* <MissionCard
+                            type = "bonus"
+                            missionName = {bonusMissions.name[2]}
+                            description = {bonusMissions.description[2]}
+                            iconPath = {bonusMissions.iconPath[2]}
+                            starAmount = {bonusMissions.starAmount[2]}
+                            xpAmount = {bonusMissions.xpAmount[2]}
                         /> */}
 
                         {/* Populate with Mission Card from MissionData.js */}

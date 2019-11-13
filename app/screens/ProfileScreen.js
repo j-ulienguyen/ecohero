@@ -14,6 +14,9 @@ import NavBar from '../comps/NavBar';
 // Navigation
 import * as navigateTo from '../../RouteConstants';
 
+// Import data files below
+import badges from '../data/BadgeData';
+
 
 export default function ProfileScreen(){
     // UI
@@ -41,7 +44,7 @@ export default function ProfileScreen(){
                     <AchievementCard
                         cardBG = {theme.darkGreen}
                         countBG = "#8AD560"
-                        count = "99"
+                        count = "10"
                         imagePath = {require('../assets/imgs/star-icon.png')}
                         name = "Total Stars"
                         description = "All of the stars that you have earned so far on EcoHero"
@@ -51,7 +54,7 @@ export default function ProfileScreen(){
                     <AchievementCard
                         cardBG = "#7FC6E4"
                         countBG = "#95D5EC"
-                        count = "75"
+                        count = "2"
                         imagePath = {require('../assets/imgs/complete-mission-icon.png')}
                         name = "Completed Missions"
                         description = "All of the missions that you have completed so far on EcoHero"
@@ -65,7 +68,19 @@ export default function ProfileScreen(){
 
                         {/* Badges x 6 */}
                         <View style={styles.badgeContainer}>
-                            <ProfileBadge
+                            {
+                                badges.map((obj, i)=>{
+                                    return <ProfileBadge
+                                        key = {i}
+                                        name = {obj.name}
+                                        description = {obj.description}
+                                        imagePath = {obj.imagePath}
+                                        badgeState = "unlocked"
+                                    />
+                                })
+                            }
+
+                            {/* <ProfileBadge
                                 badgeState = "unlocked"
                                 imagePath = {require('../assets/imgs/eco-badge.png')}
                                 disabled = {false}
@@ -85,13 +100,13 @@ export default function ProfileScreen(){
                                 disabled = {true}
                             />
                             <ProfileBadge
-                                badgeState = "locked"
+                                badgeState = "  locked"
                                 disabled = {true}
                             />
                             <ProfileBadge
                                 badgeState = "locked"
                                 disabled = {true}
-                            />
+                            /> */}
                         </View>
                     </View>
                 </View>
