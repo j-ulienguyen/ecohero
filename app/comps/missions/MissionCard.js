@@ -9,7 +9,7 @@ import GreenButton from '../GreenButton';
 import PurpleButton from '../PurpleButton';
 
 
-export default function MissionCard({type, iconPath, missionName, starAmount, xpAmount}){
+export default function MissionCard({type, iconPath, missionName, starAmount, xpAmount, description}){
 
     const [showDetails, setShowDetails] = useState(false);
 
@@ -20,6 +20,7 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
     var textColor;
     var barBG;
     var bonusRibbon = null;
+    var missionButton;
 
     var toggleIcon = {
         'close': require('../../assets/imgs/close-box.png'),
@@ -60,7 +61,7 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
         // OPEN CARD
         cardDetails = (
             <View>
-                <Text style={[styles.missionDesc, {color: textColor}]}>Create a movement and purpose in taking part of removing litter in our daily community. Let’s help our neighbourhoods feel safe and vibrant again! To fulfill this mission you must pick up two garbage bags of litter.</Text>
+                <Text style={[styles.missionDesc, {color: textColor}]}>{description}</Text>
 
                 {missionButton}
             </View>
