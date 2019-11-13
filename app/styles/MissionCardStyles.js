@@ -35,7 +35,7 @@ var styles = StyleSheet.create({
         left: 20
     },
 
-    expandBtn: {
+    toggleBtn: {
         position: "absolute",
         top: 15,
         right: 15
@@ -52,6 +52,15 @@ var styles = StyleSheet.create({
         color: theme.appBlack,
 
         marginLeft: 10
+    },
+
+    missionDesc: {
+        fontFamily: theme.RobotoRegular,
+        fontSize: 15,
+        lineHeight: 22,
+
+        width: 250, // Max width of content
+        marginTop: 10
     }
 });
 

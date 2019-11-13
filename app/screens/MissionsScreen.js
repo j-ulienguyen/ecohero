@@ -10,6 +10,8 @@ import NavBar from '../comps/NavBar';
 
 
 export default function MissionsScreen(){
+
+
     // UI
     return (
         <View style={styles.container}>
