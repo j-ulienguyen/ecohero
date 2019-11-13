@@ -5,6 +5,8 @@ const missionIcon = {
     'eco': require('../assets/imgs/eco-icon.png')
 }
 
+// =============================================================================================
+
 export const missions = [
     {
         missionName: "Be Green and Clean",
@@ -120,6 +122,7 @@ export const missions = [
     }
 ];
 
+// =============================================================================================
 
 export const bonusMissions = [
     {

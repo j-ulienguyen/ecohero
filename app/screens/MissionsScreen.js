@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 
 // Import comps & styles below
@@ -14,7 +14,19 @@ import {missions, bonusMissions} from '../data/MissionData';
 
 export default function MissionsScreen(){
 
-    // var m = missions.slice(0,2);
+    /*
+    For referece, if we only want to display a certain amount of items from array
+        1. var m = missions.slice(0,#);
+        2. m.map((obj, i)) ...
+    */
+
+
+    // Randomize index number to display one Bonus Mission Card
+    var randomIndex = Math.floor(Math.random() * bonusMissions.length) + 0;
+    var randomBonus = bonusMissions[randomIndex];
+
+    // console.log("Bonus Mission Array Length: ", bonusMissions.length);
+    // console.log("Random index: ", randomIndex);
 
 
     // UI
@@ -33,13 +45,14 @@ export default function MissionsScreen(){
 
                     {/* Mission Card Section */}
                     <View style={styles.cardSection}>
+                        {/* Bonus Mission Card - Randomize */}
                         <MissionCard
                             type = "bonus"
-                            missionName = {bonusMissions[0].missionName}
-                            description = {bonusMissions[0].description}
-                            iconPath = {bonusMissions[0].iconPath}
-                            starAmount = {bonusMissions[0].starAmount}
-                            xpAmount = {bonusMissions[0].xpAmount}
+                            missionName = {randomBonus.missionName}
+                            description = {randomBonus.description}
+                            iconPath = {randomBonus.iconPath}
+                            starAmount = {randomBonus.starAmount}
+                            xpAmount = {randomBonus.xpAmount}
                         />
 
                         {/* Populate with Mission Card from MissionData.js */}
