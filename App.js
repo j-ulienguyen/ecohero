@@ -15,40 +15,15 @@ import SignupScreen from './app/screens/SignupScreen';
 import OnboardingScreen from './app/screens/OnboardingScreen';
 
 
-export default from './storybook';
+// export default from './storybook';
 
-function App(){
+export default function App(){
 	// UI
 	return (
 		<View style={styles.container}>
-			{/* <SigninScreen /> */}
-			{/* <SignupScreen /> */}
-			{/* <OnboardingScreen /> */}
+			<SigninScreen />
 
-			{/* <LeaderboardScreen /> */}
-			{/* <MissionsScreen /> */}
-			{/* <SignupScreen /> */}
-			{/* <SigninScreen/> */}
-
-			{/* <HomeScreen/> */}
-
-			{/* <RewardModal
-				heading = "Woo-hoo!"
-				description = "Thank you for joining EcoHero. Please accept these rewards as a token of appreciation"
-				imagePath = {require('./app/assets/imgs/star-reward.png')}
-				starAmount = {5}
-				xpAmount = {100}
-			/> */}
-
-      		{/* <MissionsScreen/> */}
-			{/* <LevelUpModal level="5"/> */}
-			{/* <ProfileScreen/> */}
-
-			{/* <BadgeModal
-				heading = "Eco-friendly"
-				imagePath = {require('./app/assets/imgs/eco-badge.png')}
-				description = "You've unlocked a badge for completing your first eco mission"
-			/> */}
+      	
 		</View>
 	)
 }

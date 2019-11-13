@@ -12,7 +12,8 @@
   "dependencies": {
     "eslint": "^6.6.0",
     "react": "16.8.1",
-    "react-native": "0.61.2"
+    "react-native": "0.61.2",
+    "react-native-material-tabs": "^4.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.5.0",
