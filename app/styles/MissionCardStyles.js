@@ -9,14 +9,16 @@ var styles = StyleSheet.create({
     },
 
     cardContainer: {
+        flex: 0,
         width: 345,
         height: 105,
 
-        // Adjust dropshadows later using react-native-shadow potentially
         elevation: 4,
-
         borderRadius: 10,
-        backgroundColor: "#FAFAFA"
+        backgroundColor: "#FAFAFA",
+
+        // Extra space on bottom of card
+        paddingBottom: 45
     },
 
     bonusRibbon: {
@@ -60,7 +62,7 @@ var styles = StyleSheet.create({
         lineHeight: 22,
 
         width: 250, // Max width of content
-        marginTop: 10
+        marginTop: 15
     }
 });
 

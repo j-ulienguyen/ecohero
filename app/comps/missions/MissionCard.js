@@ -33,7 +33,7 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
         textColor = theme.white,
         barBG = "#8AD560",
         missionButton = (
-            <PurpleButton title="Start Mission" width={240} height={30}/>
+            <PurpleButton title="Start Mission" width={240} height={30} marginTop={25}/>
         ),
         bonusRibbon = (
             <Image
@@ -49,7 +49,7 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
         textColor = theme.appBlack,
         barBG = "#DFF0D7",
         missionButton = (
-            <GreenButton title="Start Mission" width={240} height={30}/>
+            <GreenButton title="Start Mission" width={240} height={30} marginTop={25}/>
         ),
         bonusRibbon = null
     }
@@ -58,7 +58,6 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
     // Toggle Mission Card Details
     if (showDetails === true){
         // OPEN CARD
-        cardHeight = 300;
         cardDetails = (
             <View>
                 <Text style={[styles.missionDesc, {color: textColor}]}>Create a movement and purpose in taking part of removing litter in our daily community. Let’s help our neighbourhoods feel safe and vibrant again! To fulfill this mission you must pick up two garbage bags of litter.</Text>
@@ -102,8 +101,7 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
                 {/* Mission Details */}
                 <View style={styles.missionDetailContainer}>
                     {/* Mission Name */}
-                    <Text style={[styles.missionName, {color: textColor}]}>
-                    {missionName}</Text>
+                    <Text style={[styles.missionName, {color: textColor}]}>{missionName}</Text>
 
                     {/* Rewards Bar - Star + XP */}
                     <RewardsBar
