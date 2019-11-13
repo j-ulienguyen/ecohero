@@ -1,24 +1,31 @@
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
-import { StyleSheet, SafeAreaView } from 'react-native';
+import {View, Text, Button} from 'react-native';
+import { StyleSheet, SafeAreaView, TouchableOpacity, Image, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 
 // Import comps below
 import TreeBg from '../comps/TreeBg';
 import EcoHeroLogo from '../comps/EcoHeroLogo';
-import SignInEntry from '../comps/SignInEntry';
-import SignUpEntry from '../comps/SignUpEntry';
+
+import SignInEntry from '../comps/signin/SignInEntry';
+import SignUpEntry from '../comps/signup/SignUpEntry';
 import MaterialTabs from 'react-native-material-tabs';
 
 // import styles
-import styles from '../styles/MaterialTabsStyles';
+// import styles from '../styles/MaterialTabsStyles';
+import styles from '../styles/StartPageStyles';
 
 // Subscreen comps
 import ForgotPW from '../comps/ForgotPasswordSubscreen';
 import BackBar from '../comps/BackBar';
 
+var password = '';
+
 
 export default function SigninScreen(){
     const [selectedTab, setSelectedTab] = useState(0);
+    const [txt, setTxt] = useState("");
+    const [error, setError] = useState('');
+    const offset = (Platform.OS === 'android') ? -200 : 0; 
 
     var signin = null;
     if (selectedTab === 0){
@@ -33,12 +40,15 @@ export default function SigninScreen(){
 
     // UI
     return (
+        
         <SafeAreaView style={styles.whiteBg}>
             {/* Fixed Tree BG */}
-            <TreeBg style={{left:-700}}/>
+            <TreeBg/>
             {/* EcoHero Logo */}
             <EcoHeroLogo/>
-            {/* <View style={styles.container}> */}
+
+            <View style={styles.space}></View>
+            
             <View>
                 <MaterialTabs
                     items={['Sign In', 'Sign Up']}
@@ -48,11 +58,60 @@ export default function SigninScreen(){
                     indicatorColor="#74C64D"
                     activeTextColor="#74C64D"
                     inactiveTextColor="#000"
-                />
+                    />
             </View>
+
+            <View style={[styles.container, styles.whiteBg]}>
+       
+                <KeyboardAvoidingView 
+                keyboardVerticalOffset={offset} behavior={"position"}>
+
+
+                {/* Username Field Entry */}
+                <View style={styles.userInput}>
+                    <Image
+                    style={styles.inputIcon}
+                    source={require('../assets/imgs/user-icon.png')}
+                    />
+                    <TextInput
+                    placeholder = "Username"
+                    onChangeText = {(txt)=>{
+                        setTxt(txt);
+                    }}
+                    />
+                </View>
+
+          
+
+                {/* Password Field Entry */}
+                <View style={styles.passInput}>
+                    <Image
+                    style={styles.inputIcon}
+                    source={require('../assets/imgs/lock-icon.png')}
+                    />
+                    <TextInput
+                    placeholder = "Password"
+                    onChangeText = {(txt)=>{
+                        password=(txt);
+                        if (password.length<6){
+                            setError('Your password is too short!')
+                        } else {
+                            setError('Your password is good to go!');
+                        }
+                    }}
+                    secureTextEntry={true}
+                    />
+
+                    <Text style={styles.errorMsg}>{error}</Text>
+
+                </View>
+           </KeyboardAvoidingView>
+            </View>
+                 
 
             {signin}
 
         </SafeAreaView>
+
     );
 };

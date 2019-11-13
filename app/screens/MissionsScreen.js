@@ -4,9 +4,8 @@ import {View, Text, ScrollView} from 'react-native';
 // Import comps below
 import styles from '../styles/MissionsScreenStyles';
 import PatternBG from '../comps/PatternBG';
-import MissionBoardCard from '../comps/MissionBoardCard';
-import MissionCard from '../comps/MissionCard';
-import BonusMissionCard from '../comps/BonusMissionCard';
+import MissionBoardCard from '../comps/missions/MissionBoardCard';
+import MissionCard from '../comps/missions/MissionCard';
 
 
 export default function MissionsScreen(){
@@ -20,14 +19,36 @@ export default function MissionsScreen(){
             <ScrollView>
                 <View>
                     {/* Mission Board Card */}
-                    <MissionBoardCard/>
+                    <MissionBoardCard
+                        missionStatement='“Our mission is to recycle and maintain a clean environment”'
+                    />
 
                     {/* Mission Card Section */}
                     <View style={styles.cardSection}>
-                        <BonusMissionCard/>
-                        <MissionCard/>
-                        <MissionCard/>
-                        <MissionCard/>
+                        <MissionCard
+                            type="bonus"
+                            iconPath={require('../assets/imgs/recycle-icon.png')}
+                            starAmount={5}
+                            xpAmount={50}
+                        />
+                        <MissionCard
+                            type="normal"
+                            iconPath={require('../assets/imgs/reduce-icon.png')}
+                            starAmount={5}
+                            xpAmount={50}
+                        />
+                        <MissionCard
+                            type="normal"
+                            iconPath={require('../assets/imgs/reuse-icon.png')}
+                            starAmount={5}
+                            xpAmount={50}
+                        />
+                        <MissionCard
+                            type="normal"
+                            iconPath={require('../assets/imgs/eco-icon.png')}
+                            starAmount={5}
+                            xpAmount={50}
+                        />
                     </View>
                 </View>
             </ScrollView>
