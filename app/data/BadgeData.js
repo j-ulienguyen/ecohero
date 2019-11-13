@@ -7,38 +7,35 @@ const badgeIcon = {
     'star': require('../assets/imgs/star-badge.png')
 }
 
-var badges = [
+export const badges = [
     {
         name: "New Leaf",
-        description: "You’ve unlocked a badge for completing 5 bonus missions.",
+        description: "You’ve unlocked a badge for completing 5 bonus missions",
         imagePath: badgeIcon['leaf']
     },
     {
         name: "Recycler",
-        description: "You’ve unlocked a badge for completing 20 recycle missions.",
+        description: "You’ve unlocked a badge for completing 20 recycle missions",
         imagePath: badgeIcon['recycle']
     },
     {
         name: "Initiation",
-        description: "Badge awarded upon completing first mission.",
+        description: "Badge awarded upon completing first mission",
         imagePath: badgeIcon['eco']
     },
     {
         name: "Honour Roll",
-        description: "Badge awarded upon ranking first for 3 consecutive months.",
+        description: "Badge awarded upon ranking first for 3 consecutive months",
         imagePath: badgeIcon['crown']
     },
     {
         name: "Grand Star",
-        description: "You’ve unlocked a badge for collecting 50 stars.",
+        description: "You’ve unlocked a badge for collecting 50 stars",
         imagePath: badgeIcon['star']
     },
     {
         name: "10 Missions",
-        description: "You’ve unlocked a badge for collect 10 missions.",
+        description: "You’ve unlocked a badge for collect 10 missions",
         imagePath: badgeIcon['10']
     }
 ];
-
-
-export default badges;

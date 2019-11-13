@@ -59,6 +59,6 @@ export const RewardModal = ()=>{
     Actions.rewardModal()
 }
 
-export const BadgeModal = ()=>{
-    Actions.badgeModal()
+export const BadgeModal = (params)=>{
+    Actions.badgeModal(params)
 }

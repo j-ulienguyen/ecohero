@@ -8,7 +8,7 @@ import styles from '../../styles/ProfileBadgeStyles';
 import * as navigateTo from '../../../RouteConstants';
 
 
-export default function ProfileBadge({badgeState, imagePath, disabled, onPress}){
+export default function ProfileBadge({name, badgeState, imagePath, disabled, onPress, description}){
 
     var badge;
 
@@ -44,7 +44,9 @@ export default function ProfileBadge({badgeState, imagePath, disabled, onPress})
     // UI
     return (
         <View style={styles.container}>
-            <TouchableOpacity disabled={disabled} onPress={navigateTo.BadgeModal}>
+            <TouchableOpacity disabled={disabled} onPress={()=>{
+                navigateTo.BadgeModal({name, description, imagePath});
+            }}>
                 {badge}
             </TouchableOpacity>
         </View>

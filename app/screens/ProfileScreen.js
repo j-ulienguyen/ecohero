@@ -15,7 +15,7 @@ import NavBar from '../comps/NavBar';
 import * as navigateTo from '../../RouteConstants';
 
 // Import data files below
-import badges from '../data/BadgeData';
+import {badges} from '../data/BadgeData';
 
 
 export default function ProfileScreen(){
