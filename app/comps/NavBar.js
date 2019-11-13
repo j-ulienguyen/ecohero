@@ -5,11 +5,11 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 import styles from '../styles/NavBarStyles';
 
 // Navigation
-import * as navigateTo from '../../RouteConstants';
 import { Actions } from 'react-native-router-flux';
+import * as navigateTo from '../../RouteConstants';
 
 
-export default function NavBar(){
+export default function NavBar({initial}){
 
     const [navHome, setNavHome] = useState(true);
     const [navMissions, setNavMissions] = useState(false);
@@ -30,8 +30,6 @@ export default function NavBar(){
         labelActive3,
         labelActive4;
 
-    var navigatePage;
-
     // Path for nav icons
     var navIcons = [
         require('../assets/imgs/home-nav-active.png'),          // [0]
@@ -51,7 +49,6 @@ export default function NavBar(){
     if (navHome === true){
         navIconPath1 = navIcons[0];
         labelActive1 = styles.navLabelActive;
-        // navigatePage = navigateTo.Home
     } else {
         navIconPath1 = navIcons[1];
     }
@@ -60,7 +57,6 @@ export default function NavBar(){
     if (navMissions === true){
         navIconPath2 = navIcons[2];
         labelActive2 = styles.navLabelActive;
-        // navigatePage = navigateTo.Missions
     } else {
         navIconPath2 = navIcons[3];
     }
@@ -69,7 +65,6 @@ export default function NavBar(){
     if (navLeaderboard === true){
         navIconPath3 = navIcons[4];
         labelActive3 = styles.navLabelActive;
-        // navigatePage = navigateTo.Leaderboard
     } else {
         navIconPath3 = navIcons[5];
     }
@@ -78,7 +73,6 @@ export default function NavBar(){
     if (navProfile === true){
         navIconPath4 = navIcons[6];
         labelActive4 = styles.navLabelActive;
-        // navigatePage = navigateTo.Profile
     } else {
         navIconPath4 = navIcons[7];
     }

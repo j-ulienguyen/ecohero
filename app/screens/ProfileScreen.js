@@ -11,6 +11,9 @@ import AchievementCard from '../comps/profile/AchievementCard';
 import ProfileBadge from '../comps/profile/ProfileBadge';
 import NavBar from '../comps/NavBar';
 
+// Navigation
+import * as navigateTo from '../../RouteConstants';
+
 
 export default function ProfileScreen(){
     // UI

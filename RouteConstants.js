@@ -50,3 +50,15 @@ export const Profile = ()=>{
 export const Back = ()=>{
     Actions.pop()
 }
+
+export const LevelupModal = ()=>{
+    Actions.levelupModal()
+}
+
+export const RewardModal = ()=>{
+    Actions.rewardModal()
+}
+
+export const BadgeModal = ()=>{
+    Actions.badgeModal()
+}

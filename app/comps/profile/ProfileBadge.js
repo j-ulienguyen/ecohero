@@ -4,8 +4,11 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 // Import comps & styles below
 import styles from '../../styles/ProfileBadgeStyles';
 
+// Navigation
+import * as navigateTo from '../../../RouteConstants';
 
-export default function ProfileBadge({badgeState, imagePath, disabled}){
+
+export default function ProfileBadge({badgeState, imagePath, disabled, onPress}){
 
     var badge;
 
@@ -41,7 +44,7 @@ export default function ProfileBadge({badgeState, imagePath, disabled}){
     // UI
     return (
         <View style={styles.container}>
-            <TouchableOpacity disabled={disabled}>
+            <TouchableOpacity disabled={disabled} onPress={navigateTo.BadgeModal}>
                 {badge}
             </TouchableOpacity>
         </View>

@@ -6,6 +6,9 @@ import styles from '../../styles/BadgeModalStyles';
 import ScreenOverlay from '../ScreenOverlay';
 import GreenButton from '../GreenButton';
 
+// Navigation
+import * as navigateTo from '../../../RouteConstants';
+
 
 export default function BadgeModal({heading, imagePath, description}){
 	// UI
@@ -29,7 +32,7 @@ export default function BadgeModal({heading, imagePath, description}){
 				<Text style={styles.badgeDesc}>{description}</Text>
 
 				{/* Done Button */}
-				<GreenButton title="Done" width={174} height={43}/>
+				<GreenButton title="Done" width={174} height={43} onPress={navigateTo.Back}/>
 			</View>
 		</View>
 	)

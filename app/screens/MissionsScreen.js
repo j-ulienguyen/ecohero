@@ -28,24 +28,28 @@ export default function MissionsScreen(){
                     <View style={styles.cardSection}>
                         <MissionCard
                             type="bonus"
+                            missionName = "Mission Name 1"
                             iconPath={require('../assets/imgs/recycle-icon.png')}
                             starAmount={5}
                             xpAmount={50}
                         />
                         <MissionCard
                             type="normal"
+                            missionName = "Mission Name 2"
                             iconPath={require('../assets/imgs/reduce-icon.png')}
                             starAmount={5}
                             xpAmount={50}
                         />
                         <MissionCard
                             type="normal"
+                            missionName = "Mission Name 3"
                             iconPath={require('../assets/imgs/reuse-icon.png')}
                             starAmount={5}
                             xpAmount={50}
                         />
                         <MissionCard
                             type="normal"
+                            missionName = "Mission Name 4"
                             iconPath={require('../assets/imgs/eco-icon.png')}
                             starAmount={5}
                             xpAmount={50}

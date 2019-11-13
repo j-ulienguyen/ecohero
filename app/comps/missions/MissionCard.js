@@ -7,7 +7,7 @@ import theme from '../../styles/ThemeStyles';
 import RewardsBar from './RewardsBar';
 
 
-export default function MissionCard({type, iconPath, starAmount, xpAmount}){
+export default function MissionCard({type, iconPath, missionName, starAmount, xpAmount}){
 
     var cardBG;
     var textColor;
@@ -60,7 +60,7 @@ export default function MissionCard({type, iconPath, starAmount, xpAmount}){
 
                 {/* Mission Details */}
                 <View style={styles.missionDetailContainer}>
-                    <Text style={[styles.missionName, {color: textColor}]}>Mission Name</Text>
+                    <Text style={[styles.missionName, {color: textColor}]}>{missionName}</Text>
                     {/* Rewards Bar - Star + XP */}
                     <RewardsBar
                         starAmount={starAmount}
