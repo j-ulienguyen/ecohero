@@ -72,10 +72,10 @@ export default function ProfileScreen(){
                                 badges.map((obj, i)=>{
                                     return <ProfileBadge
                                         key = {i}
-                                        name = {obj.name}
+                                        badgeName = {obj.badgeName}
                                         description = {obj.description}
                                         imagePath = {obj.imagePath}
-                                        badgeState = "unlocked"
+                                        badgeState = {true}
                                     />
                                 })
                             }
@@ -84,24 +84,6 @@ export default function ProfileScreen(){
                                 badgeState = "unlocked"
                                 imagePath = {require('../assets/imgs/eco-badge.png')}
                                 disabled = {false}
-                            />
-                            <ProfileBadge
-                                imagePath = {require('../assets/imgs/crown-badge.png')}
-                                badgeState = "unlocked"
-                                disabled = {false}
-                            />
-                            <ProfileBadge
-                                badgeState = "unlocked"
-                                imagePath = {require('../assets/imgs/10-badge.png')}
-                                disabled = {false}
-                            />
-                            <ProfileBadge
-                                badgeState = "locked"
-                                disabled = {true}
-                            />
-                            <ProfileBadge
-                                badgeState = "  locked"
-                                disabled = {true}
                             />
                             <ProfileBadge
                                 badgeState = "locked"

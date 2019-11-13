@@ -10,9 +10,8 @@ import GreenButton from '../GreenButton';
 import * as navigateTo from '../../../RouteConstants';
 
 
-export default function BadgeModal({name, navigation, imagePath, description}){
+export default function BadgeModal({badgeName, navigation, imagePath, description}){
 	console.log(navigation.state.params);
-	console.log("Name: ", navigation.state.params.name);
 
 	// UI
 	return (
@@ -23,7 +22,7 @@ export default function BadgeModal({name, navigation, imagePath, description}){
 			{/* Badge Modal */}
 			<View style={styles.modal}>
 				{/* Badge Name */}
-				<Text style={styles.modalHeading}>{name}</Text>
+				<Text style={styles.modalHeading}>{badgeName}</Text>
 
 				{/* Badge Icon */}
 				<Image

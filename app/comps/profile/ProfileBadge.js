@@ -8,11 +8,12 @@ import styles from '../../styles/ProfileBadgeStyles';
 import * as navigateTo from '../../../RouteConstants';
 
 
-export default function ProfileBadge({name, badgeState, imagePath, disabled, onPress, description}){
+export default function ProfileBadge({badgeName, badgeState, imagePath, disabled, onPress, description}){
 
     var badge;
 
-    if(badgeState === "unlocked"){
+    // True = Unlocked
+    if(badgeState === true){
         badge = (
             <View style={styles.badgeContainer}>
                 {/* Badge Icon */}
@@ -24,7 +25,8 @@ export default function ProfileBadge({name, badgeState, imagePath, disabled, onP
         )
     }
 
-    if(badgeState === "locked"){
+    // False = Locked
+    if(badgeState === false){
         badge = (
             <View style={styles.badgeContainer}>
                 {/* Badge Icon */}
@@ -45,7 +47,7 @@ export default function ProfileBadge({name, badgeState, imagePath, disabled, onP
     return (
         <View style={styles.container}>
             <TouchableOpacity disabled={disabled} onPress={()=>{
-                navigateTo.BadgeModal({name, description, imagePath});
+                navigateTo.BadgeModal({badgeName, description, imagePath});
             }}>
                 {badge}
             </TouchableOpacity>
