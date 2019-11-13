@@ -14,8 +14,10 @@ import {missions, bonusMissions} from '../data/MissionData';
 
 export default function MissionsScreen(){
 
+    // var m = missions.slice(0,2);
+
+
     // UI
-    var m = missions.slice(0,2);
     return (
         <View style={styles.container}>
             {/* Fixed Pattern BG */}
@@ -33,7 +35,7 @@ export default function MissionsScreen(){
                     <View style={styles.cardSection}>
                         <MissionCard
                             type = "bonus"
-                            missionName = {bonusMissions[0].name}
+                            missionName = {bonusMissions[0].missionName}
                             description = {bonusMissions[0].description}
                             iconPath = {bonusMissions[0].iconPath}
                             starAmount = {bonusMissions[0].starAmount}
@@ -42,11 +44,11 @@ export default function MissionsScreen(){
 
                         {/* Populate with Mission Card from MissionData.js */}
                         {
-                            m.map((obj, i)=>{
+                            missions.map((obj, i)=>{
                                 return <MissionCard
                                     key = {i}
                                     type = "normal"
-                                    missionName = {obj.name}
+                                    missionName = {obj.missionName}
                                     description = {obj.description}
                                     iconPath = {obj.iconPath}
                                     starAmount = {obj.starAmount}

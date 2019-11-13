@@ -68,6 +68,7 @@ export default function Route(){
                     key = "missions"
                     title = "Missions Screen"
                     component = {MissionsScreen}
+                    initial = {true}
                 />
                 <Scene
                     key = "leaderboard"
@@ -78,7 +79,6 @@ export default function Route(){
                     key = "profile"
                     title = "Profile Screen"
                     component = {ProfileScreen}
-                    initial = {true}
                 />
                 {/* ============================= */}
                 <Scene

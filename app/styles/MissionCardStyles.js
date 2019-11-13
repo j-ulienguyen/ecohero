@@ -61,8 +61,14 @@ var styles = StyleSheet.create({
         fontSize: 15,
         lineHeight: 22,
 
-        width: 250, // Max width of content
-        marginTop: 15
+        width: 300, // Max width of content
+        marginTop: 20,
+    },
+
+    cardDetailsContainer: {
+        width: "100%",
+        alignItems: "center",
+        left: -80 // Manually center content inside card
     }
 });
 

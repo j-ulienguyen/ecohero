@@ -34,7 +34,9 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
         textColor = theme.white,
         barBG = "#8AD560",
         missionButton = (
-            <PurpleButton title="Start Mission" width={240} height={30} marginTop={25}/>
+            <View style={{left: -5}}>
+                <PurpleButton title="Start Mission" width={240} height={30} marginTop={20}/>
+            </View>
         ),
         bonusRibbon = (
             <Image
@@ -50,7 +52,9 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
         textColor = theme.appBlack,
         barBG = "#DFF0D7",
         missionButton = (
-            <GreenButton title="Start Mission" width={240} height={30} marginTop={25}/>
+            <View style={{left: -5}}>
+                <GreenButton title="Start Mission" width={240} height={30} marginTop={20}/>
+            </View>
         ),
         bonusRibbon = null
     }
@@ -60,9 +64,8 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
     if (showDetails === true){
         // OPEN CARD
         cardDetails = (
-            <View>
+            <View style={styles.cardDetailsContainer}>
                 <Text style={[styles.missionDesc, {color: textColor}]}>{description}</Text>
-
                 {missionButton}
             </View>
         );
