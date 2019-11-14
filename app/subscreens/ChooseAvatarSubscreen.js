@@ -4,7 +4,6 @@ import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
 // Import comps & styles below
 import styles from '../styles/ChooseAvatarSubscreenStyles';
 import GreenButton from '../comps/GreenButton';
-import TreeBg from '../comps/TreeBg';
 import BackBar from '../comps/BackBar';
 import StepProgressBar from '../comps/signup/StepProgressBar';
 
@@ -81,7 +80,7 @@ export default function ChooseAvatar(){
 
          {/* Continue Button */}
          <View style={{alignItems: "center", width: "100%", marginTop: 260}}>
-            <GreenButton width={309} height={43} title="Continue" onPress={navigateTo.Home}/>
+            <GreenButton width={309} height={43} title="Continue" onPress={navigateTo.GetStarted}/>
          </View>
       </View>
    );

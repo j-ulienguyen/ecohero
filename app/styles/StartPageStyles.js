@@ -8,6 +8,10 @@ var styles = StyleSheet.create({
       alignItems: 'center'
    },
 
+   whiteBg: {
+      backgroundColor: theme.white
+   },
+
    space: {
       marginTop:60,
    },
@@ -41,16 +45,12 @@ var styles = StyleSheet.create({
       top: 15
    },
 
-   whiteBg: {
-      backgroundColor: "#fff"
-   },
-
    errorMsg: {
       flex:1,
       position:"absolute",
       top:60,
       right:70,
-      color: theme.purple
+      color: theme.purple,
    }
 });
 

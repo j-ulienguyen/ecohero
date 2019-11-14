@@ -13,6 +13,7 @@ import ProfileScreen from './app/screens/ProfileScreen';
 import BasicProfile from './app/subscreens/BasicProfileSubscreen';
 import ChooseAvatar from './app/subscreens/ChooseAvatarSubscreen';
 import ForgotPW from './app/subscreens/ForgotPWSubscreen';
+import GetStarted from './app/comps/onboard/GetStarted';
 import Code from './app/subscreens/Verification_4Digit';
 import QRCode from './app/subscreens/Verification_QR';
 
@@ -60,6 +61,11 @@ export default function Route(){
                     key = "onboard"
                     title = "Onboarding Screen"
                     component = {OnboardingScreen}
+                />
+                <Scene
+                    key = "getStarted"
+                    title = "Get Started Screen"
+                    component = {GetStarted}
                 />
                 {/* ============================= */}
                 <Scene

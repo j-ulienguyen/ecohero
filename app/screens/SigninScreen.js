@@ -90,7 +90,7 @@ export default function SigninScreen(){
                             secureTextEntry={true}
                         />
                         {/* Input Error Message */}
-                        <Text style={styles.errorMsg}>{error}</Text>
+                        <Text style={[styles.errorMsg, styles.whiteBg]}>{error}</Text>
                     </View>
                 </KeyboardAvoidingView>
             </View>

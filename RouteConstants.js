@@ -27,6 +27,10 @@ export const Onboard = ()=>{
     Actions.onboard()
 }
 
+export const GetStarted = ()=>{
+    Actions.getStarted()
+}
+
 export const Home = ()=>{
     Actions.home()
 }
