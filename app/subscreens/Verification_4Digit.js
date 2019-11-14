@@ -5,6 +5,7 @@ import styles from '../styles/VerificationStyles';
 import PatternBG from '../comps/PatternBG'
 import GreenButton from '../comps/GreenButton'
 import BackBar from '../comps/BackBar'
+import theme from '../styles/ThemeStyles'
 
 
 // Navigation
@@ -48,7 +49,12 @@ export default function Code() {
           onFulfill={handlerOnFulfill}
           codeLength={4}
           blurOnSubmit={true}
-          maskSymbol='🥵'
+          variant='border-circle'
+          size={60}
+          cellBorderWidth={4}
+          activeColor={theme.darkGreen}
+          inactiveColor={theme.darkGreen}
+          inputPosition='full-width'
         />
         </View >
 
