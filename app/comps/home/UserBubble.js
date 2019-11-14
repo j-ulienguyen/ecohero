@@ -33,6 +33,7 @@ export default function UserBubble({username, missionAvailable}){
                     {/* View Mission Button */}
                     <TouchableOpacity
                         style = {styles.blueBtn}
+                        activeOpacity = {0.75}
                         onPress = {navigateTo.Missions}
                     >
                         <Text style={styles.btnText}>View Missions</Text>
