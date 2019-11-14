@@ -7,6 +7,7 @@ import PatternBG from '../comps/PatternBG';
 import LeaderboardCard from '../comps/leaderboard/LeaderboardCard';
 import LeaderboardUser from '../comps/leaderboard/LeaderboardUser';
 import FriendsCard from '../comps/leaderboard/FriendsCard';
+import NavBar from '../comps/NavBar';
 
 
 export default function LeaderboardScreen() {
@@ -74,8 +75,11 @@ export default function LeaderboardScreen() {
 				</View>
 			</ScrollView>
 
-			<View style={{position: 'absolute', bottom: 0}}>
-				{/* Leaderboard User Card */}
+			{/* Navigation Bar */}
+			<NavBar currentScreen="LeaderboardScreen"/>
+
+			{/* Leaderboard User Card */}
+			<View style={{position: 'absolute', bottom: 55}}>
 				<LeaderboardUser
 					username='hardcoreHenry'
 					iconPath={require('../assets/imgs/can-avatar.png')}

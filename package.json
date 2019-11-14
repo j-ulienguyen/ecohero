@@ -11,9 +11,16 @@
   },
   "dependencies": {
     "eslint": "^6.6.0",
+<<<<<<< HEAD
     "react": "16.8.1",
     "react-native": "0.61.2",
     "react-native-confirmation-code-field": "^4.1.0"
+=======
+    "react": "16.9.0",
+    "react-native": "0.61.3",
+    "react-native-router-flux": "^4.0.6",
+    "react-native-material-tabs": "^4.1.2"
+>>>>>>> 8e137a04c035ee1b32c12c2b99d34be7730a6bca
   },
   "devDependencies": {
     "@babel/core": "^7.5.0",

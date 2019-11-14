@@ -1,19 +1,15 @@
 import React, {useState} from 'react';
 import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
-
-// Import comps & styles below
 import styles from '../styles/ForgotPWSubscreenStyles';
-import GreenButton from '../comps/GreenButton';
-
-// Navigation
-import * as navigateTo from '../../RouteConstants';
-
+import TreeBg from '../comps/TreeBg';
+import BackBar from '../comps/BackBar';
 
 export default function ForgotPW(){
    const [txt, setTxt] = useState("");
 
    return (
       <View>
+         <BackBar />
 
          {/* Forgot PW Image */}
          <View style={styles.container}>
@@ -32,7 +28,7 @@ export default function ForgotPW(){
                style={styles.inputIcon}
                source={require('../assets/imgs/email-icon.png')}
             />
-            <TextInput
+            <TextInput 
                placeholder = "Email Address"
                onChangeText = {(text)=>{
                   setTxt(text);
@@ -40,15 +36,20 @@ export default function ForgotPW(){
             />
          </View>
 
-         <View style={{alignItems: "center", width: "100%", marginTop: 430}}>
-            {/* Send Email Button */}
-            <GreenButton width={309} height={43} title="Send Email" onPress={navigateTo.Home}/>
-
-            {/* Don't have an account */}
-            <TouchableOpacity onPress={navigateTo.Signup}>
-               <Text style={styles.btmText}>Don't have an account?</Text>
+         {/* Send Email Button */}
+         <View style={styles.container}>
+         <TouchableOpacity
+            style={styles.greenBtn}>
+               <Text style={styles.btnText}>Send Email</Text>
             </TouchableOpacity>
-         </View>
+
+         {/* Don't have an account */}
+         <TouchableOpacity>
+             <Text style={styles.btmText}>Don't have an account?</Text>
+         </TouchableOpacity>
+         </View> 
+
+         <TreeBg />
       </View>
    );
-};
+}; 

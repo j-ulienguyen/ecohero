@@ -9,14 +9,16 @@ var styles = StyleSheet.create({
     },
 
     cardContainer: {
+        flex: 0,
         width: 345,
         height: 105,
 
-        // Adjust dropshadows later using react-native-shadow potentially
         elevation: 4,
-
         borderRadius: 10,
-        backgroundColor: "#FAFAFA"
+        backgroundColor: "#FAFAFA",
+
+        // Extra space on bottom of card
+        paddingBottom: 45
     },
 
     bonusRibbon: {
@@ -35,7 +37,7 @@ var styles = StyleSheet.create({
         left: 20
     },
 
-    expandBtn: {
+    toggleBtn: {
         position: "absolute",
         top: 15,
         right: 15
@@ -52,6 +54,21 @@ var styles = StyleSheet.create({
         color: theme.appBlack,
 
         marginLeft: 10
+    },
+
+    missionDesc: {
+        fontFamily: theme.RobotoRegular,
+        fontSize: 15,
+        lineHeight: 22,
+
+        width: 300, // Max width of content
+        marginTop: 20,
+    },
+
+    cardDetailsContainer: {
+        width: "100%",
+        alignItems: "center",
+        left: -80 // Manually center content inside card
     }
 });
 

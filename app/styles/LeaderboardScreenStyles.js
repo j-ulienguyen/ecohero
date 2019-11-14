@@ -3,11 +3,12 @@ import theme from './ThemeStyles';
 
 var styles = StyleSheet.create({
     container: {
-        // Currently no code needed
+        backgroundColor: theme.white
     },
 
     cardSection: {
         marginVertical:25,
+        marginBottom: 140
     }
 });
 

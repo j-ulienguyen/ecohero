@@ -37,25 +37,6 @@ var styles = StyleSheet.create({
       borderBottomColor: theme.lightGray
    },
 
-   greenBtn: {
-      width: 309,
-      height: 43,
-      borderRadius: 30,
-      backgroundColor: theme.darkGreen,
-      position: "relative",
-      top: 90,
-      justifyContent: "center",
-      alignItems: "center"
-   },
-
-   btnText: {
-      fontFamily: theme.PoppinsBold,
-      fontSize: 12,
-      textTransform: "uppercase",
-      letterSpacing: 2,
-      color: theme.white
-   },
-
    btmText: {
       textAlign:'center',
       top: 240

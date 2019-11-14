@@ -21,8 +21,8 @@ export default function OnboardingScreen(){
                 <GetStarted />
 
             {/* Onboarding Steps 1-3 */}
-            {/* <BackBar />
-            <OnboardSteps /> */}
+            <BackBar />
+            <OnboardSteps />
         </View>
     )
 }
