@@ -60,5 +60,6 @@ export const RewardModal = ()=>{
 }
 
 export const BadgeModal = (params)=>{
+    // Ability to pass props
     Actions.badgeModal(params)
 }
