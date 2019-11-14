@@ -9,81 +9,57 @@ import { Actions } from 'react-native-router-flux';
 import * as navigateTo from '../../RouteConstants';
 
 
-export default function NavBar({initial}){
+export default function NavBar({currentScreen}){
 
-    const [navHome, setNavHome] = useState(true);
-    const [navMissions, setNavMissions] = useState(false);
-    const [navLeaderboard, setNavLeaderboard] = useState(false);
-    const [navProfile, setNavProfile] = useState(false);
+    // Path for navIcons
+    const navIcons = {
+        'home': require('../assets/imgs/home-nav.png'),
+        'home-active': require('../assets/imgs/home-nav-active.png'),
 
-    // Default navLabel styling
-    const navLabel = styles.navLabel;
+        'missions': require('../assets/imgs/mission-nav.png'),
+        'missions-active':require('../assets/imgs/mission-nav-active.png'),
+
+        'leaderboard': require('../assets/imgs/leaderboard-nav.png'),
+        'leaderboard-active': require('../assets/imgs/leaderboard-nav-active.png'),
+
+        'profile': require('../assets/imgs/profile-nav.png'),
+        'profile-active': require('../assets/imgs/profile-nav-active.png')
+    }
+
+    // Default navIcons
+    var navIconPath1 = navIcons['home'],
+        navIconPath2 = navIcons['missions'],
+        navIconPath3 = navIcons['leaderboard'],
+        navIconPath4 = navIcons['profile'];
 
     // Init vars
-    var navIconPath1,
-        navIconPath2,
-        navIconPath3,
-        navIconPath4;
-
     var labelActive1,
         labelActive2,
         labelActive3,
         labelActive4;
 
-    // Path for nav icons
-    var navIcons = [
-        require('../assets/imgs/home-nav-active.png'),          // [0]
-        require('../assets/imgs/home-nav.png'),                 // [1]
 
-        require('../assets/imgs/mission-nav-active.png'),       // [2]
-        require('../assets/imgs/mission-nav.png'),              // [3]
-
-        require('../assets/imgs/leaderboard-nav-active.png'),   // [4]
-        require('../assets/imgs/leaderboard-nav.png'),          // [5]
-
-        require('../assets/imgs/profile-nav-active.png'),       // [6]
-        require('../assets/imgs/profile-nav.png')               // [7]
-    ];
-
-    // Home Nav Button
-    if (navHome === true){
-        navIconPath1 = navIcons[0];
+    // Change navIcon and navLabel state to active according to the current screen
+    if (currentScreen === "HomeScreen"){
+        navIconPath1 = navIcons['home-active'];
         labelActive1 = styles.navLabelActive;
-    } else {
-        navIconPath1 = navIcons[1];
     }
 
-    // Missions Nav Button
-    if (navMissions === true){
-        navIconPath2 = navIcons[2];
+    if (currentScreen === "MissionsScreen"){
+        navIconPath2 = navIcons['missions-active'];
         labelActive2 = styles.navLabelActive;
-    } else {
-        navIconPath2 = navIcons[3];
     }
 
-    // Leaderboard Nav Button
-    if (navLeaderboard === true){
-        navIconPath3 = navIcons[4];
+    if (currentScreen === "LeaderboardScreen"){
+        navIconPath3 = navIcons['leaderboard-active'];
         labelActive3 = styles.navLabelActive;
-    } else {
-        navIconPath3 = navIcons[5];
     }
 
-    // Profile Nav Button
-    if (navProfile === true){
-        navIconPath4 = navIcons[6];
+    if (currentScreen === "ProfileScreen"){
+        navIconPath4 = navIcons['profile-active'];
         labelActive4 = styles.navLabelActive;
-    } else {
-        navIconPath4 = navIcons[7];
     }
 
-
-    function AllFalse(){
-        setNavHome(false);
-        setNavMissions(false);
-        setNavLeaderboard(false);
-        setNavProfile(false);
-    }
 
 
     // UI
@@ -91,10 +67,9 @@ export default function NavBar({initial}){
         <View style={styles.container}>
             {/* Home Nav Button */}
             <TouchableOpacity
-                style={styles.navBtn}
+                style = {styles.navBtn}
+                activeOpacity = {1}
                 onPress={()=>{
-                    AllFalse();
-                    setNavHome(!navHome);
                     Actions.reset('home');
                 }}
             >
@@ -103,15 +78,14 @@ export default function NavBar({initial}){
                     resizeMode = "contain"
                     source = {navIconPath1}
                 />
-                <Text style={[navLabel, labelActive1]}>Home</Text>
+                <Text style={[styles.navLabel, labelActive1]}>Home</Text>
             </TouchableOpacity>
 
             {/* Missions Nav Button */}
             <TouchableOpacity
-                style={[styles.navBtn, {left: 5}]}
+                style = {[styles.navBtn, {left: 5}]}
+                activeOpacity = {1}
                 onPress={()=>{
-                    AllFalse();
-                    setNavMissions(!navMissions);
                     Actions.reset('missions');
                 }}
             >
@@ -120,15 +94,14 @@ export default function NavBar({initial}){
                     resizeMode = "contain"
                     source = {navIconPath2}
                 />
-                <Text style={[navLabel, labelActive2]}>Missions</Text>
+                <Text style={[styles.navLabel, labelActive2]}>Missions</Text>
             </TouchableOpacity>
 
             {/* Leaderboard Nav Button */}
             <TouchableOpacity
-                style={styles.navBtn}
+                style = {styles.navBtn}
+                activeOpacity = {1}
                 onPress={()=>{
-                    AllFalse();
-                    setNavLeaderboard(!navLeaderboard);
                     Actions.reset('leaderboard');
                 }}
             >
@@ -137,24 +110,23 @@ export default function NavBar({initial}){
                     resizeMode = "contain"
                     source = {navIconPath3}
                 />
-                <Text style={[navLabel, labelActive3]}>Leaderboard</Text>
+                <Text style={[styles.navLabel, labelActive3]}>Leaderboard</Text>
             </TouchableOpacity>
 
             {/* Profile Nav Button */}
             <TouchableOpacity
-                style={styles.navBtn}
-                    onPress={()=>{
-                        AllFalse();
-                        setNavProfile(!navProfile);
-                        Actions.reset('profile');
-                    }}
+                style = {styles.navBtn}
+                activeOpacity = {1}
+                onPress={()=>{
+                    Actions.reset('profile');
+                }}
             >
                 <Image
                     style = {styles.navIcon}
                     resizeMode = "contain"
                     source = {navIconPath4}
                 />
-                <Text style={[navLabel, labelActive4]}>Profile</Text>
+                <Text style={[styles.navLabel, labelActive4]}>Profile</Text>
             </TouchableOpacity>
         </View>
     )

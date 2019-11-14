@@ -10,6 +10,7 @@ export default function PurpleButton({width, height, marginTop, title, onPress})
     return (
         <TouchableOpacity
             style={[styles.purpleBtn, {width: width, height: height, marginTop: marginTop}]}
+            activeOpacity = {0.75}
             onPress = {onPress}
         >
             <Text style={styles.btnText}>{title}</Text>

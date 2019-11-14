@@ -76,7 +76,7 @@ export default function LeaderboardScreen() {
 			</ScrollView>
 
 			{/* Navigation Bar */}
-			<NavBar/>
+			<NavBar currentScreen="LeaderboardScreen"/>
 
 			{/* Leaderboard User Card */}
 			<View style={{position: 'absolute', bottom: 55}}>

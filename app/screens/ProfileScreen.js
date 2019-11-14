@@ -95,7 +95,7 @@ export default function ProfileScreen(){
             </ScrollView>
 
             {/* Navigation Bar */}
-            <NavBar/>
+            <NavBar currentScreen="ProfileScreen"/>
         </View>
     )
 }

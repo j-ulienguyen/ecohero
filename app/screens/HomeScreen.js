@@ -60,8 +60,9 @@ export default function HomeScreen(){
 					</View>
 				</View>
 			</ScrollView>
+
 			{/* Navigation Bar */}
-			<NavBar/>
+			<NavBar currentScreen="HomeScreen"/>
 		</View>
     )
 }
