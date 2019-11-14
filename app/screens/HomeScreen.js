@@ -9,6 +9,9 @@ import PrizeProgress from '../comps/home/PrizeProgress';
 import PrizeCard from '../comps/home/PrizeCard';
 import NavBar from '../comps/NavBar';
 
+// Import data files below
+import {prizeCards} from '../data/PrizeCardData';
+
 
 export default function HomeScreen(){
     // UI
@@ -36,27 +39,19 @@ export default function HomeScreen(){
 
 					{/* Prize Card Section */}
 					<View style={styles.prizeSection}>
-						<PrizeCard
-							starCount = {5}
-							imagePath = {require('../assets/imgs/bronze-prize.png')}
-							prizeName = "Bronze Prize"
-							description = "Awesome! You get to redeem an extra 5 minutes in recess."
-							lockIcon = {null}
-						/>
-						<PrizeCard
-							starCount = {10}
-							imagePath = {require('../assets/imgs/locked-prize.png')}
-							prizeName = "Silver Prize"
-							description = "Great job! You earned an EcoHero bracelet. Wear it to show your success in helping the community."
-							lockIcon = {require('../assets/imgs/lock-icon.png')}
-						/>
-						<PrizeCard
-							starCount = {20}
-							imagePath = {require('../assets/imgs/locked-prize.png')}
-							prizeName = "Gold Prize"
-							description = "Wow! You made it to this month’s mysterious prize draw. Stay tuned to see if you win. "
-							lockIcon = {require('../assets/imgs/lock-icon.png')}
-						/>
+						{/* Populate with Prize Card from PrizeCardData.js */}
+						{
+							prizeCards.map((obj,i)=>{
+								return <PrizeCard
+									key = {i}
+									prizeName = {obj.prizeName}
+									description = {obj.description}
+									imagePath = {obj.imagePath}
+									starCount = {obj.starCount}
+									lockIconPath = {obj.lockIconPath}
+								/>
+							})
+						}
 					</View>
 				</View>
 			</ScrollView>

@@ -1,16 +1,12 @@
 import React from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image} from 'react-native';
 
 // Import comps & styles below
 import styles from '../../styles/BadgeModalStyles';
 import GreenButton from '../GreenButton';
 
-// Navigation
-import * as navigateTo from '../../../RouteConstants';
-
 
 export default function BadgeModal({badgeName, imagePath, description, onPress}){
-	
 
 	// UI
 	return (
@@ -30,8 +26,8 @@ export default function BadgeModal({badgeName, imagePath, description, onPress})
 				<Text style={styles.badgeDesc}>{description}</Text>
 
 				{/* Done Button */}
+				{/* Function to close modal is inside ProfileBadge.js */}
 				<GreenButton title="Done" width={174} height={43} onPress={onPress}/>
-				{/* <GreenButton title="Done" width={174} height={43} onPress={navigateTo.Back}/> */}
 			</View>
 		</View>
 	)

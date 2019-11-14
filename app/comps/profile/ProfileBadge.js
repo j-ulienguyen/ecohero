@@ -76,7 +76,6 @@ export default function ProfileBadge({badgeName, badgeState, imagePath, disabled
                 disabled={disabled}
                 activeOpacity = {0.5}
                 onPress={()=>{
-                    //navigateTo.BadgeModal({badgeName, description, imagePath});
                     setToggleModal(!toggleModal);
                 }}
             >
