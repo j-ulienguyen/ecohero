@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, ScrollView} from 'react-native';
+import Modal from 'react-native-modal';
 
 // Import comps & styles below
 import styles from '../styles/HomeScreenStyles';
@@ -8,12 +9,36 @@ import ProfileCard from '../comps/home/ProfileCard';
 import PrizeProgress from '../comps/home/PrizeProgress';
 import PrizeCard from '../comps/home/PrizeCard';
 import NavBar from '../comps/NavBar';
+import LevelUpModal from '../comps/home/LevelUpModal';
+import GreenButton from '../comps/GreenButton';
 
 // Import data files below
 import {prizeCards} from '../data/PrizeCardData';
 
 
 export default function HomeScreen(){
+
+	// const [toggleModal, setToggleModal] = useState(false);
+
+	// var levelupModal;
+
+	// // Toggle Modal
+	// if (toggleModal === true){
+	// 	levelupModal = (
+	// 		<Modal isVisible={toggleModal}>
+	// 			<LevelUpModal
+	// 				level = {5}
+	// 				onPress = {()=>{
+	// 					setToggleModal(false); // Close modal
+	// 				}}
+	// 			/>
+	// 		</Modal>
+	// 	)
+	// } else {
+	// 	levelupModal = null;
+	// }
+
+
     // UI
     return (
 		<View style={styles.container}>
@@ -54,7 +79,12 @@ export default function HomeScreen(){
 						}
 					</View>
 				</View>
+
+
 			</ScrollView>
+
+			{/* Level Up Modal */}
+			{/* {levelupModal} */}
 
 			{/* Navigation Bar */}
 			<NavBar currentScreen="HomeScreen"/>

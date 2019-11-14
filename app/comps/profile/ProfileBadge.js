@@ -6,9 +6,6 @@ import Modal from 'react-native-modal';
 import styles from '../../styles/ProfileBadgeStyles';
 import BadgeModal from '../profile/BadgeModal';
 
-// Navigation
-import * as navigateTo from '../../../RouteConstants';
-
 
 export default function ProfileBadge({badgeName, badgeState, imagePath, disabled, description}){
 
