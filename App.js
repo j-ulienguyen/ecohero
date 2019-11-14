@@ -8,7 +8,9 @@ import styles from './app/styles/AppStyles';
 import Route from './Route';
 
 
-function App(){
+// export default from './storybook';
+
+export default function App(){
 	// UI
 	return (
 		<View style={styles.container}>
@@ -16,10 +18,3 @@ function App(){
 		</View>
 	)
 }
-
-
-// To view App -> Uncomment below
-export default App;
-
-// To view Storybook -> Uncomment below
-// export default from './storybook';
