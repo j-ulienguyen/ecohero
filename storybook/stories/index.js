@@ -14,6 +14,8 @@ import OnboardSteps from '../../app/subscreens/OnboardSteps';
 import BasicProfile from '../../app/subscreens/BasicProfileSubscreen';
 import ChooseAvatar from '../../app/subscreens/ChooseAvatarSubscreen';
 import ForgotPW from '../../app/subscreens/ForgotPWSubscreen';
+import Code from '../../app/subscreens/Verification_4Digit';
+import QRCode from '../../app/subscreens/Verification_QR';
 
 
 // Import General comps
@@ -82,6 +84,8 @@ storiesOf('Subscreens', module)
   .add('Basic Profile Subscreen', () => <BasicProfile/>)
   .add('Forgot Password Subscreen', () => <ForgotPW/>)
   .add('Choose Avatar Subscreen', () => <ChooseAvatar/>)
+  .add('Verification QR', () => <QRCode/>)
+  .add('Verification 4Digit', () => <Code/>)
 
 
 // General Components
