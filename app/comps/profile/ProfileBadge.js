@@ -46,9 +46,12 @@ export default function ProfileBadge({badgeName, badgeState, imagePath, disabled
     // UI
     return (
         <View style={styles.container}>
-            <TouchableOpacity disabled={disabled} onPress={()=>{
-                navigateTo.BadgeModal({badgeName, description, imagePath});
-            }}>
+            <TouchableOpacity
+                disabled={disabled}
+                activeOpacity = {0.5}
+                onPress={()=>{
+                    navigateTo.BadgeModal({badgeName, description, imagePath});
+                }}>
                 {badge}
             </TouchableOpacity>
         </View>
