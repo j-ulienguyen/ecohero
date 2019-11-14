@@ -17,6 +17,7 @@ import ForgotPW from '../../app/subscreens/ForgotPWSubscreen';
 
 
 // Import General comps
+import NavBar from '../../app/comps/NavBar';
 import AvatarLevel from '../../app/comps/AvatarLevel';
 import BackBar from '../../app/comps/BackBar';
 import EcoHeroLogo from '../../app/comps/EcoHeroLogo';
@@ -85,6 +86,7 @@ storiesOf('Subscreens', module)
 
 // General Components
 storiesOf('General', module)
+  .add('Nav Bar', () => <NavBar/>)
   .add('Avatar Level', () => <AvatarLevel/>)
   .add('Back Bar', () => <BackBar/>)
   .add('EcoHero Logo', () => <EcoHeroLogo/>)

@@ -5,11 +5,11 @@ import {Text, TouchableOpacity, StyleSheet} from 'react-native';
 import theme from '../styles/ThemeStyles';
 
 
-export default function GreenButton({width, height, marginTop, title, onPress}){
+export default function PurpleButton({width, height, marginTop, title, onPress}){
     // UI
     return (
         <TouchableOpacity
-            style={[styles.greenBtn, {width: width, height: height, marginTop: marginTop}]}
+            style={[styles.purpleBtn, {width: width, height: height, marginTop: marginTop}]}
             onPress = {onPress}
         >
             <Text style={styles.btnText}>{title}</Text>
@@ -20,9 +20,9 @@ export default function GreenButton({width, height, marginTop, title, onPress}){
 
 // COMPONENT STYLING
 var styles = StyleSheet.create({
-    greenBtn: {
+    purpleBtn: {
         borderRadius: 30,
-        backgroundColor: theme.darkGreen,
+        backgroundColor: "#8853DD",
         justifyContent: "center",
         alignItems: "center"
     },

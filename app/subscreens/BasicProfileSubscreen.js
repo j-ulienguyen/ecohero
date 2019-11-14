@@ -1,6 +1,13 @@
 import React, {useState} from 'react';
 import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
+
+// Import comps & styles below
 import styles from '../styles/BasicProfileSubscreenStyles';
+import GreenButton from '../comps/GreenButton';
+
+// Navigation
+import * as navigateTo from '../../RouteConstants';
+
 
 export default function BasicProfile(){
    const [txt, setTxt] = useState("");
@@ -9,8 +16,7 @@ export default function BasicProfile(){
       <View>
 
          <View style={styles.container}>
-         
-         {/* EcoHero Profile Text */}
+            {/* EcoHero Profile Text */}
             <Text style={styles.headTxt}>EcoHero Profile</Text>
             <Text style={styles.subTxt}>Join our community</Text>
          </View>
@@ -19,18 +25,16 @@ export default function BasicProfile(){
          <View style={styles.entryCont}>
             {/* First Name */}
                <View style={styles.fieldInput}>
-                 
-                  <TextInput 
+                  <TextInput
                      placeholder = "First Name"
-                     onChangeText = {(text)=>{ 
+                     onChangeText = {(text)=>{
                         setTxt(text);
                      }}
                   />
                </View>
             {/* Last Name */}
                <View style={styles.fieldInput}>
-                 
-                  <TextInput 
+                  <TextInput
                      placeholder = "Last Name"
                      onChangeText = {(text)=>{
                         setTxt(text);
@@ -39,8 +43,7 @@ export default function BasicProfile(){
                </View>
             {/* Email Address */}
                <View style={styles.fieldInput}>
-                 
-                  <TextInput 
+                  <TextInput
                      placeholder = "Email Address"
                      onChangeText = {(text)=>{
                         setTxt(text);
@@ -50,13 +53,9 @@ export default function BasicProfile(){
          </View>
 
          {/* Continue Button */}
-         <View style={styles.container}>
-         <TouchableOpacity
-            style={styles.greenBtn}>
-               <Text style={styles.btnText}>Continue</Text>
-            </TouchableOpacity>
-         </View> 
-
+         <View style={{alignItems: "center", width: "100%", marginTop: 240}}>
+            <GreenButton width={309} height={43} title="Continue" onPress={navigateTo.ChooseAvatar}/>
+         </View>
       </View>
    );
 };
