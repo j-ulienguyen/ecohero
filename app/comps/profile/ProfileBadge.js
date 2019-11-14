@@ -5,23 +5,23 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 import styles from '../../styles/ProfileBadgeStyles';
 
 
-export default function ProfileBadge(props){
+export default function ProfileBadge({badgeState, imagePath, disabled}){
 
     var badge;
 
-    if(props.badgeState === "unlocked"){
+    if(badgeState === "unlocked"){
         badge = (
             <View style={styles.badgeContainer}>
                 {/* Badge Icon */}
                 <Image
                     style = {styles.badge}
-                    source = {props.imagePath}
+                    source = {imagePath}
                 />
             </View>
         )
     }
 
-    if(props.badgeState === "locked"){
+    if(badgeState === "locked"){
         badge = (
             <View style={styles.badgeContainer}>
                 {/* Badge Icon */}
@@ -41,7 +41,7 @@ export default function ProfileBadge(props){
     // UI
     return (
         <View style={styles.container}>
-            <TouchableOpacity disabled={props.disabled}>
+            <TouchableOpacity disabled={disabled}>
                 {badge}
             </TouchableOpacity>
         </View>

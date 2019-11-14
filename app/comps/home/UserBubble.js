@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity, Image} from 'react-native';
 import styles from '../../styles/UserBubbleStyles';
 
 
-export default function UserBubble(props){
+export default function UserBubble({username, missionAvailable}){
     // UI
     return (
         <View style={styles.container}>
@@ -24,8 +24,8 @@ export default function UserBubble(props){
                 {/* Content inside Speech Bubble*/}
                 <View style={styles.bubbleContent}>
                     {/* Username can only be MAX 14 char */}
-                    <Text style={styles.heyUser}>Hey, {props.username}!</Text>
-                    <Text style={styles.missionText}>You have <Text style={styles.missionNumber}>{props.missionAvailable}</Text> available missions</Text>
+                    <Text style={styles.heyUser}>Hey, {username}!</Text>
+                    <Text style={styles.missionText}>You have <Text style={styles.missionNumber}>{missionAvailable}</Text> available missions</Text>
 
                     {/* View Mission Button */}
                     <TouchableOpacity

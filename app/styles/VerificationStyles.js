@@ -2,73 +2,70 @@ import {StyleSheet} from 'react-native';
 import theme from './ThemeStyles';
 
 var styles = StyleSheet.create({
-    
-    container: {
-        alignItems: "center",
-        flex:1,
-        elevation: 100000,
-    },
 
-    codeInputContainer: {
-        height:100,
-        width:100,
-        backgroundColor:"black",
-        flex:1,
-    },
-    heading : {
-        justifyContent: 'center',
-        fontFamily: theme.PoppinsBold,
-        fontSize: 24,
-        top: 175,
-    
-    },
-    headingQR : {
-        justifyContent: 'center',
-        fontFamily: theme.PoppinsBold,
-        fontSize: 24,
-        top: 100,
-    
-    },
-    body : {
-        fontFamily: theme.PoppinsRegular,
-        fontSize: 16,
-        top: 200,
-        textAlign:'center',
-        width:'70%',
-    },
-    bodyQR : {
-        fontFamily: theme.PoppinsRegular,
-        fontSize: 16,
-        top: 115,
-        textAlign:'center',
-        width:'70%',
-    },
-    enterCode : {
-        justifyContent: 'center',
-        fontFamily: theme.PoppinsBold,
-        fontSize: 18,
-        top: 275,
-    
-    },
-    codeScan : {
-        position:'absolute',
-        top: 230,
-    },
-    codeInput : {
-        position:'absolute',
-        bottom:10,
-    },
-    verifyBut : {
-        position:'absolute',
-        bottom:0,
-        height:200,
-        width:'50%',
-        // height:100,
-        // width:200,
-    }
+    // 4 Digit Code Styles
 
+  container: {
+    alignItems: 'center',
+    top: 150,
+  },
+  codeInputContainer: {
+    height: 75,
+    width: '80%',
+    backgroundColor: 'red',
+    marginBottom: 100,
+  },
+  heading: {
+    justifyContent: 'center',
+    fontFamily: theme.PoppinsBold,
+    fontSize: 24,
+  },
+  body: {
+    fontFamily: theme.PoppinsRegular,
+    fontSize: 16,
+    textAlign: 'center',
+    width: '70%',
+    marginTop: 10,
+    marginBottom: 50,
+  },
+  enterCode: {
+    justifyContent: 'center',
+    fontFamily: theme.PoppinsBold,
+    fontSize: 18,
+  },
 
+    // QR Code Styles
+  containerQR: {
+    alignItems:'center',
+    marginTop:100,
+  },
+  headingQR: {
+    justifyContent: 'center',
+    fontFamily: theme.PoppinsBold,
+    fontSize: 24,
+  },
+  bodyQR: {
+    fontFamily: theme.PoppinsRegular,
+    fontSize: 16,
+    textAlign: 'center',
+    width: '70%',
+  },
+  codeScan: {
+      marginTop:20,
+  },
 
-    
-    });
+    //   Shared Styles
+
+  verifyBut: {
+    marginTop:50,
+    alignItems:'center',
+  },
+  redirect: {
+    fontFamily: theme.RobotoRegular,
+    fontSize: 14,
+    color: theme.appBlack,
+    textTransform: 'uppercase',
+    marginTop: 15,
+  },
+});
 export default styles;

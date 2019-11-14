@@ -1,9 +1,10 @@
 import React, { useCallback } from 'react';
-import CodeInput from 'react-native-confirmation-code-field';
-import {View, Text, ScrollView, StyleSheet} from 'react-native';
+// import CodeInput from 'react-native-confirmation-code-field';
+import {View, Text, ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
 import styles from '../styles/VerificationStyles';
 import PatternBG from '../comps/PatternBG'
 import GreenButton from '../comps/GreenButton'
+import BackBar from '../comps/BackBar'
 
 
 // 
@@ -27,37 +28,37 @@ export default function Code() {
   return (
       
     <View>
-
       {/* Background Pattern */}
       <PatternBG />
-      <GreenButton style={styles.verifyBut} />
-
+      <BackBar />
 
       <View style={styles.container}>
 
+      {/* Headings */}
+        <Text style={styles.heading}>Verification Code</Text>
+        <Text style={styles.body}>Please enter the code given to you for completing mission</Text>
+        <Text style={styles.enterCode}>Enter Code</Text>
 
-      <Text style={styles.heading}>Verification Code</Text>
+        {/* Code Input container */}
+        <View style={styles.codeInputContainer}> 
+        {/* <CodeInput
+          onFulfill={handlerOnFulfill}
+          codeLength={4}
+          blurOnSubmit={true}
+          maskSymbol='9'
+        /> */}
+        </View >
+        
+        {/* Verify Button */}
+        <View style={styles.verifyBut}>
 
-      <Text style={styles.body}>
-        Please enter the code given to you for completing mission
-      </Text>
+          <GreenButton title='Verify' width={309} height={43} />
+          <TouchableOpacity>
+            <Text style={styles.redirect}>Scan QR Code</Text>
+          </TouchableOpacity>
 
-      <Text style={styles.enterCode}>Enter Code</Text>
-
-      {/* Code Input container */}
-      <View style={styles.codeInputContainer}> 
-      <CodeInput style={styles.codeInput}
-        onFulfill={handlerOnFulfill}
-        codeLength={4}
-        blurOnSubmit={true}
-        maskSymbol='9'
-      />
-
-      
-      </View >
-
-
-    </View>
+        </View>
+      </View>
     </View>
   );
 }

@@ -1,18 +1,18 @@
 import React from 'react';
-import {View, Text, Image, Animated} from 'react-native';
+import {View, Text} from 'react-native';
 
 // Import comps & styles below
-import styles from '../styles/StepProgressBarStyles';
+import styles from '../../styles/StepProgressBarStyles';
 
 
 export default function StepProgressBar(){
     // UI
     return (
         <View style={styles.container}>
-         
+
             {/* Step Progress Bar */}
             <View style={styles.progressBar}>
-               
+
                 {/* Progress Bar Steps */}
                 <View style={styles.checkpointContainer}>
                     {/* Step 1 */}
@@ -36,7 +36,6 @@ export default function StepProgressBar(){
                         <View style={[styles.stepContainer, {left: 60}]}>
                             {/* Step 2 */}
                             <Text style={styles.stepText}>Step 2</Text>
-                
                         </View>
                     </View>
 
@@ -48,13 +47,12 @@ export default function StepProgressBar(){
                         <View style={[styles.stepContainer, {left: 130}]}>
                             {/* Step 3 */}
                             <Text style={styles.stepText}>Step 3</Text>
-               
                         </View>
                     </View>
                 </View>
             </View>
 
-         
+
         </View>
     )
 }

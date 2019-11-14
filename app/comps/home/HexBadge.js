@@ -5,16 +5,16 @@ import {View, Text, Image} from 'react-native';
 import styles from '../../styles/HexBadgeStyles';
 
 
-export default function HexBadge(props){
+export default function HexBadge({type, badgePath, label, count}){
 
     var badgeLabel;
 
-    if(props.type === "image"){
-        badgeLabel = (<Image source = {props.badgePath}/>)
+    if(type === "image"){
+        badgeLabel = (<Image source = {badgePath}/>)
     }
 
-    if(props.type === "text"){
-        badgeLabel = (<Text style={styles.missionLabel}>{props.label}</Text>)
+    if(type === "text"){
+        badgeLabel = (<Text style={styles.missionLabel}>{label}</Text>)
     }
 
 
@@ -26,7 +26,7 @@ export default function HexBadge(props){
                 source = {require('../../assets/imgs/hex-badge.png')}
             />
             <View style={styles.hexBadgeContent}>
-                <Text style={styles.countText}>{props.count}</Text>
+                <Text style={styles.countText}>{count}</Text>
                 {badgeLabel}
             </View>
         </View>

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
-import styles from '../styles/BasicProfileStyles';
+import styles from '../styles/BasicProfileSubscreenStyles';
 
 export default function BasicProfile(){
    const [txt, setTxt] = useState("");
@@ -22,7 +22,7 @@ export default function BasicProfile(){
                  
                   <TextInput 
                      placeholder = "First Name"
-                     onChangeText = {(text)=>{
+                     onChangeText = {(text)=>{ 
                         setTxt(text);
                      }}
                   />

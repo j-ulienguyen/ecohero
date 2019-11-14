@@ -6,7 +6,7 @@ import styles from '../../styles/PrizeProgressStyles';
 import StarCount from '../StarCount';
 
 
-export default function PrizeProgress(props){
+export default function PrizeProgress({starRemainder, prizeName}){
     // UI
     return (
         <View style={styles.container}>
@@ -24,7 +24,7 @@ export default function PrizeProgress(props){
                         {/* Checkpoint Circle */}
                         <View style={styles.progressCheckpoint}></View>
                         {/* Star Count Requirement */}
-                        <StarCount starCount={5}/>
+                        <StarCount type="yellow" starCount={5}/>
                     </View>
 
                     {/* Checkpoint 10 Stars */}
@@ -32,7 +32,7 @@ export default function PrizeProgress(props){
                         {/* Checkpoint Circle */}
                         <View style={styles.progressCheckpoint}></View>
                         {/* Star Count Requirement */}
-                        <StarCount starCount={10}/>
+                        <StarCount type="yellow" starCount={10}/>
                     </View>
 
                     {/* Checkpoint 20 Stars */}
@@ -40,13 +40,13 @@ export default function PrizeProgress(props){
                         {/* Checkpoint Circle */}
                         <View style={styles.progressCheckpoint}></View>
                         {/* Star Count Requirement */}
-                        <StarCount starCount={20}/>
+                        <StarCount type="yellow" starCount={20}/>
                     </View>
                 </View>
             </View>
 
             {/* Star Progress Text */}
-            <Text style={styles.progressText}>You’re <Text style={styles.boldText}>{props.starRemainder}</Text> away from unlocking the {props.prizeName}!</Text>
+            <Text style={styles.progressText}>You’re <Text style={styles.boldText}>{starRemainder}</Text> away from unlocking the {prizeName}!</Text>
 
             {/* Progress Text Statements */}
             {/* <Text style={styles.progressText}>{props.progressText}</Text> */}

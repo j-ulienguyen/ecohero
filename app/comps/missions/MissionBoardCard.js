@@ -7,19 +7,18 @@ import MotivationCard from './MotivationCard';
 import FilterTabMenu from '../FilterTabMenu';
 
 
-export default function MissionBoardCard(props){
+export default function MissionBoardCard({missionStatement}){
     // UI
     return (
         <View style={styles.container}>
             {/* Blue BG Card */}
-            <Image source={require('../../assets/imgs/mission-card-bg.png')}
-            />
+            <Image source={require('../../assets/imgs/mission-card-bg.png')}/>
 
             {/* Mission Board Heading */}
             <Text style={styles.mainHeading}>Mission Board</Text>
 
             {/* Mission Statement Subheading */}
-            <Text style={styles.missionStatement}>{props.missionStatement}</Text>
+            <Text style={styles.missionStatement}>{missionStatement}</Text>
 
             {/* Motivation Card */}
             <View style={styles.cardContainer}>

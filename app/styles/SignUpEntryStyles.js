@@ -19,16 +19,16 @@ var styles = StyleSheet.create({
    },
 
    lineLeft: {
-      width: 125, 
-      height: 3, 
+      width: 125,
+      height: 3,
       backgroundColor: theme.lightGreen,position: "absolute",
       left: -40,
       top: 28
    },
 
    rightLeft: {
-      width: 125, 
-      height: 3, 
+      width: 125,
+      height: 3,
       backgroundColor: theme.lightGreen,position: "absolute",
       right: -40,
       top: 28
@@ -68,31 +68,6 @@ var styles = StyleSheet.create({
       borderBottomWidth: 1,
       width: 309,
       borderBottomColor: theme.lightGray
-   },
-
-   greenBtn: {
-      width: 309,
-      height: 43,
-      borderRadius: 30,
-      backgroundColor: theme.darkGreen,
-      justifyContent: "center",
-      alignItems: "center",
-      top: 70
-   },
-
-   btnText: {
-      fontFamily: theme.PoppinsBold,
-      fontSize: 12,
-      textTransform: "uppercase",
-      letterSpacing: 2,
-      color: theme.white
-   },
-
-   btmText: {
-      textAlign:'center',
-      fontFamily: theme.RobotoLight,
-      fontSize: 14,
-      top: 85
    }
 });
 

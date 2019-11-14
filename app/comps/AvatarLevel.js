@@ -5,7 +5,7 @@ import {View, Text, Image} from 'react-native';
 import styles from '../styles/AvatarLevelStyles';
 
 
-export default function AvatarLevel(props){
+export default function AvatarLevel({avatarPath, level}){
     // UI
     return (
         <View style={styles.avatar}>
@@ -13,7 +13,7 @@ export default function AvatarLevel(props){
             <Image
                 style = {styles.avatarIcon}
                 resizeMode = "contain"
-                source = {props.avatarPath}
+                source = {avatarPath}
             />
 
             <View style={styles.levelContainer}>
@@ -23,7 +23,7 @@ export default function AvatarLevel(props){
                     source = {require('../assets/imgs/level-badge.png')}
                 />
                 {/* Level # */}
-                <Text style={styles.levelText}>{props.level}</Text>
+                <Text style={styles.levelText}>{level}</Text>
             </View>
         </View>
     )

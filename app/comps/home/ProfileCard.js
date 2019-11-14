@@ -9,28 +9,28 @@ import AvatarLevel from '../AvatarLevel';
 import UsernameLabel from '../UsernameLabel';
 
 
-export default function ProfileCard(props){
+export default function ProfileCard({type, avatarPath, level, username, missionAvailable, starCount, missionCount}){
 
     var userBubble;
     var badges;
 
-    if(props.type === "compact"){
+    if(type === "compact"){
         userBubble = null,
         badges = (
             <View style={styles.badgesContainer}>
                 {/* Avatar Level Badge */}
                 <AvatarLevel
-                    avatarPath={props.avatarPath}
-                    level={props.level}
+                    avatarPath={avatarPath}
+                    level={level}
                 />
             </View>
         )
     }
 
-    if(props.type === "full"){
+    if(type === "full"){
         userBubble = (
             <View style={styles.userBubbleContainer}>
-                <UserBubble username={props.username} missionAvailable={props.missionAvailable}/>
+                <UserBubble username={username} missionAvailable={missionAvailable}/>
             </View>
         ),
         badges = (
@@ -38,20 +38,20 @@ export default function ProfileCard(props){
                 {/* Star Count Badge */}
                 <HexBadge
                     type="image"
-                    count={props.starCount} // Star Count #
+                    count={starCount} // Star Count #
                     badgePath={require('../../assets/imgs/star-icon.png')}
                 />
 
                 {/* Avatar Level Badge */}
                 <AvatarLevel
-                    avatarPath={props.avatarPath}
-                    level={props.level} // Current Level
+                    avatarPath={avatarPath}
+                    level={level} // Current Level
                 />
 
                 {/* Mission Count Badge */}
                 <HexBadge
                     type="text"
-                    count={props.missionCount} // Missions Available Count #
+                    count={missionCount} // Missions Available Count #
                     label="Missions"
                 />
             </View>
@@ -68,7 +68,7 @@ export default function ProfileCard(props){
             {badges}
 
             {/* Username */}
-            <UsernameLabel username={props.username}/>
+            <UsernameLabel username={username}/>
         </View>
     )
 }

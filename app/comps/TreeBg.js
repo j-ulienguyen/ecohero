@@ -1,9 +1,12 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
+
+// Import comps & styles below
 import styles from '../styles/TreeBgStyles';
- 
+
+
 export default function TreeBg(){
-  
+   // UI
    return (
       <View style={styles.container}>
          {/* Tree Background */}
@@ -12,8 +15,6 @@ export default function TreeBg(){
             // resizeMode="contain"
             source={require('../assets/imgs/tree-bg.png')}
          />
-         
       </View>
    );
- 
 };

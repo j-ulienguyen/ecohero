@@ -7,7 +7,7 @@ import theme from '../../styles/ThemeStyles';
 import RewardsBar from './RewardsBar';
 
 
-export default function MissionCard(props){
+export default function MissionCard({type, iconPath, starAmount, xpAmount}){
 
     var cardBG;
     var textColor;
@@ -15,7 +15,7 @@ export default function MissionCard(props){
     var bonusRibbon = null;
 
     // Bonus Mission Card
-    if(props.type === "bonus"){
+    if(type === "bonus"){
         cardBG = theme.darkGreen,
         textColor = theme.white,
         barBG = "#8AD560",
@@ -28,7 +28,7 @@ export default function MissionCard(props){
     }
 
     // Normal Mission Card
-    if(props.type === "normal"){
+    if(type === "normal"){
         cardBG = "#FAFAFA",
         textColor = theme.appBlack,
         barBG = "#DFF0D7",
@@ -47,7 +47,7 @@ export default function MissionCard(props){
                 {/* Mission Icon */}
                 <Image
                     style = {styles.missionIcon}
-                    source = {props.iconPath}
+                    source = {iconPath}
                 />
 
                 {/* Expand/Close Button */}
@@ -63,8 +63,8 @@ export default function MissionCard(props){
                     <Text style={[styles.missionName, {color: textColor}]}>Mission Name</Text>
                     {/* Rewards Bar - Star + XP */}
                     <RewardsBar
-                        starAmount={props.starAmount}
-                        xpAmount={props.xpAmount}
+                        starAmount={starAmount}
+                        xpAmount={xpAmount}
                         barBG={barBG}
                         textColor={textColor}
                     />
