@@ -3,7 +3,6 @@ import {Router, Stack, Scene, Lightbox} from 'react-native-router-flux';
 
 // Import Screens comps below
 import SigninScreen from './app/screens/SigninScreen';
-import SignupScreen from './app/screens/SignupScreen';
 import OnboardingScreen from './app/screens/OnboardingScreen';
 import HomeScreen from './app/screens/HomeScreen';
 import MissionsScreen from './app/screens/MissionsScreen';
@@ -24,7 +23,7 @@ import BadgeModal from './app/comps/profile/BadgeModal';
 export default function Route(){
     return (
         <Router>
-            <Stack key="root" hideNavBar={true} >
+            <Stack key="root" hideNavBar={true}>
                 {/* ============================= */}
                 <Scene
                     key = "signin"
@@ -35,9 +34,9 @@ export default function Route(){
                     animationEnabled={false}
                 />
                 <Scene
-                    key = "signup"
-                    title = "Signup Screen"
-                    component = {SignupScreen}
+                    key = "forgotPW"
+                    title = "Forgot Password"
+                    component = {ForgotPW}
                     swipeEnabled={false}
                     animationEnabled={false}
                 />
@@ -55,14 +54,6 @@ export default function Route(){
                     swipeEnabled={false}
                     animationEnabled={false}
                 />
-                <Scene
-                    key = "forgotPW"
-                    title = "Forgot Password"
-                    component = {ForgotPW}
-                    swipeEnabled={false}
-                    animationEnabled={false}
-                />
-                {/* ============================= */}
                 <Scene
                     key = "onboard"
                     title = "Onboarding Screen"
