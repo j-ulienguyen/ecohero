@@ -24,6 +24,8 @@ export default function QRCode() {
         
         {/* Verify Button */}
         <View style={styles.verifyBut}>
+
+          {/* 4 Digit Code Redirect */}
         <TouchableOpacity>
             <Text style={styles.redirect}>Can't Scan?</Text>
           </TouchableOpacity>

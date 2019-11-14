@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-// import CodeInput from 'react-native-confirmation-code-field';
+import CodeInput from 'react-native-confirmation-code-field';
 import {View, Text, ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
 import styles from '../styles/VerificationStyles';
 import PatternBG from '../comps/PatternBG'
@@ -12,15 +12,18 @@ import * as navigateTo from '../../RouteConstants';
 
 
 // export const App = () => {
-//   const handlerOnFulfill = useCallback(code => console.log(code), []);
+
+//   <View>
+
+//    const handlerOnFulfill = useCallback(code => console.log(code), []);
 
 //   return <CodeInput
 //             onFulfill={handlerOnFulfill}
 //             codeLength={4}
 //             blurOnSubmit={true}
 //             maskSymbol=''
-
-//   />;
+//             />;
+//             </View>
 // };
 
 export default function Code() {
@@ -41,18 +44,20 @@ export default function Code() {
 
         {/* Code Input container */}
         <View style={styles.codeInputContainer}>
-        {/* <CodeInput
+        <CodeInput
           onFulfill={handlerOnFulfill}
           codeLength={4}
           blurOnSubmit={true}
-          maskSymbol='9'
-        /> */}
+          maskSymbol='🥵'
+        />
         </View >
 
         {/* Verify Button */}
         <View style={styles.verifyBut}>
 
           <GreenButton title='Verify' width={309} height={43} onPress={navigateTo.RewardModal}/>
+
+          {/* QR Code Redirect */}
           <TouchableOpacity onPress={navigateTo.VerifyQR}>
             <Text style={styles.redirect}>Scan QR Code</Text>
           </TouchableOpacity>
