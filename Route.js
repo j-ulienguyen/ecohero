@@ -3,7 +3,6 @@ import {Router, Stack, Scene, Lightbox} from 'react-native-router-flux';
 
 // Import Screens comps below
 import SigninScreen from './app/screens/SigninScreen';
-import SignupScreen from './app/screens/SignupScreen';
 import OnboardingScreen from './app/screens/OnboardingScreen';
 import HomeScreen from './app/screens/HomeScreen';
 import MissionsScreen from './app/screens/MissionsScreen';
@@ -31,13 +30,6 @@ export default function Route(){
                     title = "Signin Screen"
                     component = {SigninScreen}
                     initial = {true} // App will start with this screen
-                    swipeEnabled={false}
-                    animationEnabled={false}
-                />
-                <Scene
-                    key = "signup"
-                    title = "Signup Screen"
-                    component = {SignupScreen}
                     swipeEnabled={false}
                     animationEnabled={false}
                 />

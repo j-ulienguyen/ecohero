@@ -16,7 +16,7 @@ export default function ChooseAvatar(){
    const [txt, setTxt] = useState("");
 
    return (
-      <View>
+      <View style={styles.whiteBg}>
          <BackBar />
          <StepProgressBar />
 

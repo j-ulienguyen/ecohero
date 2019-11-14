@@ -16,7 +16,8 @@ export default function BasicProfile(){
    const [txt, setTxt] = useState("");
 
    return (
-      <View>
+      <View style={styles.whiteBg}>
+         <TreeBg />
          <BackBar />
          <StepProgressBar />
 
@@ -24,7 +25,7 @@ export default function BasicProfile(){
             {/* EcoHero Profile Text */}
             <Text style={styles.headTxt}>EcoHero Profile</Text>
             <Text style={styles.subTxt}>Join our community</Text>
-         </View>
+  
 
          {/* Field Entry */}
          <View style={styles.entryCont}>
@@ -35,7 +36,7 @@ export default function BasicProfile(){
                      onChangeText = {(text)=>{
                         setTxt(text);
                      }}
-                  />
+                     />
                </View>
             {/* Last Name */}
                <View style={styles.fieldInput}>
@@ -44,7 +45,7 @@ export default function BasicProfile(){
                      onChangeText = {(text)=>{
                         setTxt(text);
                      }}
-                  />
+                     />
                </View>
             {/* Email Address */}
                <View style={styles.fieldInput}>
@@ -53,12 +54,12 @@ export default function BasicProfile(){
                      onChangeText = {(text)=>{
                         setTxt(text);
                      }}
-                  />
+                     />
                </View>
+            </View>
          </View>
-
          {/* Continue Button */}
-         <View style={{alignItems: "center", width: "100%", marginTop: 240}}>
+         <View style={{alignItems: "center", width: "100%", marginTop: 200}}>
             <GreenButton width={309} height={43} title="Continue" onPress={navigateTo.ChooseAvatar}/>
          </View>
 

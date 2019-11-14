@@ -8,6 +8,10 @@ var styles = StyleSheet.create({
       alignItems: "center",
       top: 170
    },
+   
+   whiteBg: {
+      backgroundColor: theme.white
+   },
 
    headTxt: {
       top: 0,
@@ -16,10 +20,10 @@ var styles = StyleSheet.create({
    },
 
    subTxt: {
-      top: 10,
+      // top: 0,
       fontSize: 16,
-      fontFamily: theme.PoppinsRegular,
       textAlign: "center",
+      fontFamily: theme.PoppinsRegular,
    },
 
    midCont: {
@@ -31,8 +35,8 @@ var styles = StyleSheet.create({
       position: "relative",
       top: 220,
       borderRadius: 80,
-      width: 130,
-      height: 130,
+      width: 110,
+      height: 110,
       backgroundColor: theme.lightGray
    },
 
@@ -40,8 +44,8 @@ var styles = StyleSheet.create({
       position: "absolute",
       top: 0,
       borderRadius: 80,
-      width: 130,
-      height: 130,
+      width: 110,
+      height: 110,
    },
    
    avatarCont: {
@@ -54,8 +58,8 @@ var styles = StyleSheet.create({
    },
    
    smIcon: {
-      width: 70,
-      height: 70,
+      width: 65,
+      height: 65,
       margin: 10,
       justifyContent: "center",
       alignItems: "center"
