@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
 import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
 import styles from '../styles/ForgotPWSubscreenStyles';
+import TreeBg from '../comps/TreeBg';
+import BackBar from '../comps/BackBar';
 
 export default function ForgotPW(){
    const [txt, setTxt] = useState("");
 
    return (
       <View>
+         <BackBar />
 
          {/* Forgot PW Image */}
          <View style={styles.container}>
@@ -45,6 +48,8 @@ export default function ForgotPW(){
              <Text style={styles.btmText}>Don't have an account?</Text>
          </TouchableOpacity>
          </View> 
+
+         <TreeBg />
       </View>
    );
 }; 

@@ -4,6 +4,9 @@ import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
 // Import comps & styles below
 import styles from '../styles/BasicProfileSubscreenStyles';
 import GreenButton from '../comps/GreenButton';
+import TreeBg from '../comps/TreeBg';
+import BackBar from '../comps/BackBar';
+import StepProgressBar from '../comps/signup/StepProgressBar';
 
 // Navigation
 import * as navigateTo from '../../RouteConstants';
@@ -14,6 +17,8 @@ export default function BasicProfile(){
 
    return (
       <View>
+         <BackBar />
+         <StepProgressBar />
 
          <View style={styles.container}>
             {/* EcoHero Profile Text */}
@@ -56,6 +61,8 @@ export default function BasicProfile(){
          <View style={{alignItems: "center", width: "100%", marginTop: 240}}>
             <GreenButton width={309} height={43} title="Continue" onPress={navigateTo.ChooseAvatar}/>
          </View>
+
+         <TreeBg />
       </View>
    );
 };
