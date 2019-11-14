@@ -16,7 +16,8 @@ export default function BasicProfile(){
    const [txt, setTxt] = useState("");
 
    return (
-      <View>
+      <View style={{backgroundColor: "white"}}>
+         <TreeBg />
          <BackBar />
          <StepProgressBar />
 
@@ -62,7 +63,7 @@ export default function BasicProfile(){
             <GreenButton width={309} height={43} title="Continue" onPress={navigateTo.ChooseAvatar}/>
          </View>
 
-         <TreeBg />
+         
       </View>
    );
 };

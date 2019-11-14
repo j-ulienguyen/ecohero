@@ -16,7 +16,7 @@ export default function ChooseAvatar(){
    const [txt, setTxt] = useState("");
 
    return (
-      <View>
+      <View style={{backgroundColor: "white"}}>
          <BackBar />
          <StepProgressBar />
 
@@ -82,8 +82,6 @@ export default function ChooseAvatar(){
          <View style={{alignItems: "center", width: "100%", marginTop: 260}}>
             <GreenButton width={309} height={43} title="Continue" onPress={navigateTo.Home}/>
          </View>
-         
-         <TreeBg />
       </View>
    );
 };
