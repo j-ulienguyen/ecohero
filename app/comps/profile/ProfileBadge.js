@@ -1,16 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
+import Modal from 'react-native-modal';
 
 // Import comps & styles below
 import styles from '../../styles/ProfileBadgeStyles';
-
-// Navigation
-import * as navigateTo from '../../../RouteConstants';
+import BadgeModal from '../profile/BadgeModal';
 
 
-export default function ProfileBadge({badgeName, badgeState, imagePath, disabled, onPress, description}){
+export default function ProfileBadge({badgeName, badgeState, imagePath, disabled, description}){
+
+    const [toggleModal, setToggleModal] = useState(false);
 
     var badge;
+    var badgeModal;
+
+
+    // Toggle Modal - Click on badge to display
+    if (toggleModal === true){
+        badgeModal = (
+            <Modal isVisible={toggleModal}>
+                <BadgeModal
+                    badgeName = {badgeName}
+                    imagePath = {imagePath}
+                    description = {description}
+                    onPress = {()=>{
+                        setToggleModal(false); // Close modal
+                    }}
+                />
+            </Modal>
+        )
+    } else {
+        badgeModal = null;
+    }
+
 
     // True = Unlocked
     if(badgeState === true){
@@ -43,6 +65,7 @@ export default function ProfileBadge({badgeName, badgeState, imagePath, disabled
         )
     }
 
+
     // UI
     return (
         <View style={styles.container}>
@@ -50,9 +73,11 @@ export default function ProfileBadge({badgeName, badgeState, imagePath, disabled
                 disabled={disabled}
                 activeOpacity = {0.5}
                 onPress={()=>{
-                    navigateTo.BadgeModal({badgeName, description, imagePath});
-                }}>
+                    setToggleModal(!toggleModal);
+                }}
+            >
                 {badge}
+                {badgeModal}
             </TouchableOpacity>
         </View>
     );

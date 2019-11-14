@@ -2,17 +2,13 @@ import { Actions } from "react-native-router-flux"
 
 
 // How To Use:
-// Navigation
-// import * as navigateTo from 'pathTo/RouteConstants';
+// 1. import * as navigateTo from 'pathTo/RouteConstants';
+// 2. onPress={navigateTo.[SCREEN]}
 
 
 // Create functions that navigates to screen specified
 export const Signin = ()=>{
     Actions.signin()
-}
-
-export const Signup = ()=>{
-    Actions.signup()
 }
 
 export const ForgotPW = ()=>{
@@ -45,6 +41,14 @@ export const Leaderboard = ()=>{
 
 export const Profile = ()=>{
     Actions.profile()
+}
+
+export const VerifyCode = ()=>{
+    Actions.verifyCode()
+}
+
+export const VerifyQR = ()=>{
+    Actions.verifyQR()
 }
 
 export const Back = ()=>{
