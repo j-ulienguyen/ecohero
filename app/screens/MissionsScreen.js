@@ -74,7 +74,7 @@ export default function MissionsScreen(){
             </ScrollView>
 
             {/* Navigation Bar */}
-            <NavBar/>
+            <NavBar currentScreen="MissionsScreen"/>
         </View>
     )
 }

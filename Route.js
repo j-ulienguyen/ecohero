@@ -24,33 +24,43 @@ import BadgeModal from './app/comps/profile/BadgeModal';
 export default function Route(){
     return (
         <Router>
-            <Stack key="root" hideNavBar={true}>
+            <Stack key="root" hideNavBar={true} >
                 {/* ============================= */}
                 <Scene
                     key = "signin"
                     title = "Signin Screen"
                     component = {SigninScreen}
                     initial = {true} // App will start with this screen
+                    swipeEnabled={false}
+                    animationEnabled={false}
                 />
                 <Scene
                     key = "signup"
                     title = "Signup Screen"
                     component = {SignupScreen}
+                    swipeEnabled={false}
+                    animationEnabled={false}
                 />
                 <Scene
                     key = "basicProfile"
                     title = "Basic Profile"
                     component = {BasicProfile}
+                    swipeEnabled={false}
+                    animationEnabled={false}
                 />
                 <Scene
                     key = "chooseAvatar"
                     title = "Choose Avatar"
                     component = {ChooseAvatar}
+                    swipeEnabled={false}
+                    animationEnabled={false}
                 />
                 <Scene
                     key = "forgotPW"
                     title = "Forgot Password"
                     component = {ForgotPW}
+                    swipeEnabled={false}
+                    animationEnabled={false}
                 />
                 {/* ============================= */}
                 <Scene
@@ -63,21 +73,29 @@ export default function Route(){
                     key = "home"
                     title = "Home Screen"
                     component = {HomeScreen}
+                    swipeEnabled={false}
+                    animationEnabled={false}
                 />
                 <Scene
                     key = "missions"
                     title = "Missions Screen"
                     component = {MissionsScreen}
+                    swipeEnabled={false}
+                    animationEnabled={false}
                 />
                 <Scene
                     key = "leaderboard"
                     title = "Leaderboard Screen"
                     component = {LeaderboardScreen}
+                    swipeEnabled={false}
+                    animationEnabled={false}
                 />
                 <Scene
                     key = "profile"
                     title = "Profile Screen"
                     component = {ProfileScreen}
+                    swipeEnabled={false}
+                    animationEnabled={false}
                 />
                 {/* ============================= */}
                 <Scene

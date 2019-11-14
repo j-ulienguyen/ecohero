@@ -9,7 +9,8 @@ export default function GreenButton({width, height, marginTop, title, onPress}){
     // UI
     return (
         <TouchableOpacity
-            style={[styles.greenBtn, {width: width, height: height, marginTop: marginTop}]}
+            style = {[styles.greenBtn, {width: width, height: height, marginTop: marginTop}]}
+            activeOpacity = {0.75}
             onPress = {onPress}
         >
             <Text style={styles.btnText}>{title}</Text>
