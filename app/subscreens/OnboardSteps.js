@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
 import styles from '../styles/OnboardStepsStyles';
+import GreenButton from '../comps/GreenButton';
+
+import * as navigateTo from '../../RouteConstants';
 
 export default function OnboardSteps(){
    const [txt, setTxt] = useState("");
@@ -46,8 +49,9 @@ export default function OnboardSteps(){
          <View style={styles.navContainer}>
 
             {/* Skip Button */}
-            <TouchableOpacity>
-               <Text style={styles.btmText}>Skip</Text>
+            <TouchableOpacity 
+               onPress={navigateTo.Home}>
+               <Text style={styles.btmText}>Next</Text>
             </TouchableOpacity>
             
             {/* Page Navigation */}
@@ -62,6 +66,15 @@ export default function OnboardSteps(){
                style={styles.greenBtn}>
                   <Text style={styles.btnText}>Next</Text>
             </TouchableOpacity>
+
+            	{/* Start Button */}
+			<GreenButton width={309} height={43} marginTop={40}title="Get Started" onPress={navigateTo.Onboard}/>
+
+{/* Skip Button */}
+<TouchableOpacity 
+   onPress={navigateTo.Home}>
+   <Text style={styles.btmText}>Skip</Text>
+</TouchableOpacity>
             
          </View> 
       </View>

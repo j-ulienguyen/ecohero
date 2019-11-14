@@ -16,6 +16,7 @@ import ForgotPW from './app/subscreens/ForgotPWSubscreen';
 import GetStarted from './app/comps/onboard/GetStarted';
 import Code from './app/subscreens/Verification_4Digit';
 import QRCode from './app/subscreens/Verification_QR';
+import OnboardSteps from './app/subscreens/OnboardSteps';
 
 // Import Modals
 import LevelUpModal from './app/comps/home/LevelUpModal';
@@ -65,6 +66,11 @@ export default function Route(){
                 <Scene
                     key = "getStarted"
                     title = "Get Started Screen"
+                    component = {GetStarted}
+                />
+                 <Scene
+                    key = "onboardSteps"
+                    title = "Onboard Steps Screen"
                     component = {GetStarted}
                 />
                 {/* ============================= */}

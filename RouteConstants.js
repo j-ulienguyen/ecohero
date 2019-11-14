@@ -27,6 +27,10 @@ export const Onboard = ()=>{
     Actions.onboard()
 }
 
+export const OnboardSteps = ()=>{
+    Actions.onboardSteps()
+}
+
 export const GetStarted = ()=>{
     Actions.getStarted()
 }

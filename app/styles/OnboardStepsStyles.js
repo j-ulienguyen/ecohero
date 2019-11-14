@@ -6,17 +6,17 @@ var styles = StyleSheet.create({
       flex: 1,
       justifyContent: "center",
       alignItems: "center",
-      top: 170
+      marginTop: 200
    },
 
    headTxt: {
-      top: 250,
+      // marginTop: 230,
       fontSize: 24,
       fontFamily: theme.PoppinsBold
    },
 
    subTxt: {
-      top: 260,
+      // marginTop: 20,
       width: "70%",
       fontSize: 16,
       fontFamily: theme.PoppinsRegular,
@@ -29,7 +29,7 @@ var styles = StyleSheet.create({
    },
 
    navContainer: {
-      bottom: -580,
+      // bottom: -580,
       width: "90%",
       alignItems: "center",
       flexDirection: "row",
