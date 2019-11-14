@@ -14,7 +14,7 @@ export default function SignInEntry(){
    return (
       <View style={styles.container}>
          {/* Continue Button */}
-         <GreenButton width={309} height={43} title="Continue" marginTop={60}/>
+         <GreenButton width={309} height={43} title="Continue" marginTop={60} onPress={navigateTo.Home}/>
 
          {/* Forgot Pw Text Button */}
          <TouchableOpacity onPress={navigateTo.ForgotPW}>
