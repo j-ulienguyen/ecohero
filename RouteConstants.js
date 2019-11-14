@@ -43,6 +43,14 @@ export const Profile = ()=>{
     Actions.profile()
 }
 
+export const VerifyCode = ()=>{
+    Actions.verifyCode()
+}
+
+export const VerifyQR = ()=>{
+    Actions.verifyQR()
+}
+
 export const Back = ()=>{
     Actions.pop()
 }

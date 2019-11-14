@@ -5,6 +5,10 @@ import {View, Text} from 'react-native';
 import styles from './app/styles/AppStyles';
 import RewardModal from './app/comps/RewardModal';
 
+import Code from './app/subscreens/Verification_4Digit'
+import QRCode from './app/subscreens/Verification_QR'
+
+
 // Navigation
 import Route from './Route';
 

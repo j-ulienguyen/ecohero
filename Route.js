@@ -13,6 +13,8 @@ import ProfileScreen from './app/screens/ProfileScreen';
 import BasicProfile from './app/subscreens/BasicProfileSubscreen';
 import ChooseAvatar from './app/subscreens/ChooseAvatarSubscreen';
 import ForgotPW from './app/subscreens/ForgotPWSubscreen';
+import Code from './app/subscreens/Verification_4Digit';
+import QRCode from './app/subscreens/Verification_QR';
 
 // Import Modals
 import LevelUpModal from './app/comps/home/LevelUpModal';
@@ -85,6 +87,21 @@ export default function Route(){
                     key = "profile"
                     title = "Profile Screen"
                     component = {ProfileScreen}
+                    swipeEnabled={false}
+                    animationEnabled={false}
+                />
+                {/* ============================= */}
+                <Scene
+                    key = "verifyCode"
+                    title = "Verification Digit Code Screen"
+                    component = {Code}
+                    swipeEnabled={false}
+                    animationEnabled={false}
+                />
+                <Scene
+                    key = "verifyQR"
+                    title = "Verification QR Code Screen"
+                    component = {QRCode}
                     swipeEnabled={false}
                     animationEnabled={false}
                 />
