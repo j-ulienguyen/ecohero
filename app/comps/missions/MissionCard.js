@@ -8,6 +8,9 @@ import RewardsBar from './RewardsBar';
 import GreenButton from '../GreenButton';
 import PurpleButton from '../PurpleButton';
 
+// Navigation
+import * as navigateTo from '../../../RouteConstants';
+
 
 export default function MissionCard({type, iconPath, missionName, starAmount, xpAmount, description}){
 
@@ -35,7 +38,7 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
         barBG = "#8AD560",
         missionButton = (
             <View style={{left: -5}}>
-                <PurpleButton title="Start Mission" width={240} height={30} marginTop={20}/>
+                <PurpleButton title="Start Mission" width={240} height={30} marginTop={20} onPress={navigateTo.VerifyCode}/>
             </View>
         ),
         bonusRibbon = (
@@ -53,7 +56,7 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
         barBG = "#DFF0D7",
         missionButton = (
             <View style={{left: -5}}>
-                <GreenButton title="Start Mission" width={240} height={30} marginTop={20}/>
+                <GreenButton title="Start Mission" width={240} height={30} marginTop={20} onPress={navigateTo.VerifyCode}/>
             </View>
         ),
         bonusRibbon = null

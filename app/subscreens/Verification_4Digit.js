@@ -7,14 +7,14 @@ import GreenButton from '../comps/GreenButton'
 import BackBar from '../comps/BackBar'
 
 
-// 
+// Navigation
+import * as navigateTo from '../../RouteConstants';
 
 
 // export const App = () => {
 //   const handlerOnFulfill = useCallback(code => console.log(code), []);
-  
- 
-//   return <CodeInput 
+
+//   return <CodeInput
 //             onFulfill={handlerOnFulfill}
 //             codeLength={4}
 //             blurOnSubmit={true}
@@ -26,7 +26,7 @@ import BackBar from '../comps/BackBar'
 export default function Code() {
   const handlerOnFulfill = useCallback(code => console.log(code), []);
   return (
-      
+
     <View>
       {/* Background Pattern */}
       <PatternBG />
@@ -40,7 +40,7 @@ export default function Code() {
         <Text style={styles.enterCode}>Enter Code</Text>
 
         {/* Code Input container */}
-        <View style={styles.codeInputContainer}> 
+        <View style={styles.codeInputContainer}>
         {/* <CodeInput
           onFulfill={handlerOnFulfill}
           codeLength={4}
@@ -48,12 +48,12 @@ export default function Code() {
           maskSymbol='9'
         /> */}
         </View >
-        
+
         {/* Verify Button */}
         <View style={styles.verifyBut}>
 
-          <GreenButton title='Verify' width={309} height={43} />
-          <TouchableOpacity>
+          <GreenButton title='Verify' width={309} height={43} onPress={navigateTo.RewardModal}/>
+          <TouchableOpacity onPress={navigateTo.VerifyQR}>
             <Text style={styles.redirect}>Scan QR Code</Text>
           </TouchableOpacity>
 

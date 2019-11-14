@@ -7,6 +7,9 @@ import RewardsBar from './missions/RewardsBar';
 import GreenButton from '../comps/GreenButton';
 import theme from '../styles/ThemeStyles';
 
+// Navigation
+import * as navigateTo from '../../RouteConstants';
+
 
 export default function RewardModal({heading, description, imagePath, starAmount, xpAmount}){
     // UI
@@ -30,7 +33,7 @@ export default function RewardModal({heading, description, imagePath, starAmount
             />
 
             {/* Redeem Button */}
-            <GreenButton title="Done" width={309} height={43} marginTop={50}/>
+            <GreenButton title="Done" width={309} height={43} marginTop={50} onPress={navigateTo.Home}/>
         </View>
     )
 }
