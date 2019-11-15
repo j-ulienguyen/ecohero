@@ -7,14 +7,15 @@ const missionIcon = {
 
 // =============================================================================================
 
-export const missions = [
+export var missions = [
     {
         missionName: "Be Green and Clean",
         description: "Invest and use green, non-toxic cleaning products. A lot of cleaning products have harmful chemicals in them that are not environmentally friendly to dispose of. Green cleaning products use more natural and organic method of cleaning. When buying cleaning products, look for eco-friendly labels such as: Recyclable or biodegradable material, natural and organic formula etc.",
         iconPath: missionIcon['eco'],
         starAmount: 2,
         xpAmount: 20,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     },
     {
         missionName: "LEED Spotting",
@@ -22,7 +23,8 @@ export const missions = [
         iconPath: missionIcon['eco'],
         starAmount: 1,
         xpAmount: 10,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     },
     {
         missionName: "Nah to the Straw",
@@ -30,7 +32,8 @@ export const missions = [
         iconPath: missionIcon['reduce'],
         starAmount: 1,
         xpAmount: 10,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     },
     {
         missionName: "Reuse, Reuse, Reuse",
@@ -38,7 +41,8 @@ export const missions = [
         iconPath: missionIcon['reuse'],
         starAmount: 1,
         xpAmount: 10,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     },
     {
         missionName: "Bring Your Cup",
@@ -46,7 +50,8 @@ export const missions = [
         iconPath: missionIcon['reduce'],
         starAmount: 1,
         xpAmount: 10,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     },
     {
         missionName: "Page Turner",
@@ -54,7 +59,8 @@ export const missions = [
         iconPath: missionIcon['reduce'],
         starAmount: 1,
         xpAmount: 10,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     },
     {
         missionName: "One Less Bottle",
@@ -62,7 +68,8 @@ export const missions = [
         iconPath: missionIcon['reduce'],
         starAmount: 1,
         xpAmount: 10,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     },
     {
         missionName: "Got Lunch?",
@@ -70,7 +77,8 @@ export const missions = [
         iconPath: missionIcon['reduce'],
         starAmount: 1,
         xpAmount: 10,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     },
     {
         missionName: "Transform Them",
@@ -78,7 +86,8 @@ export const missions = [
         iconPath: missionIcon['recycle'],
         starAmount: 2,
         xpAmount: 20,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     },
     {
         missionName: "Bring Your Own!",
@@ -86,7 +95,8 @@ export const missions = [
         iconPath: missionIcon['reduce'],
         starAmount: 1,
         xpAmount: 10,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     },
     {
         missionName: "Fix It Up",
@@ -94,7 +104,8 @@ export const missions = [
         iconPath: missionIcon['reuse'],
         starAmount: 2,
         xpAmount: 20,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     },
     {
         missionName: "Donate Your Clothes",
@@ -102,7 +113,8 @@ export const missions = [
         iconPath: missionIcon['recycle'],
         starAmount: 2,
         xpAmount: 20,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     },
     {
         missionName: "Donate Your Books",
@@ -110,7 +122,8 @@ export const missions = [
         iconPath: missionIcon['recycle'],
         starAmount: 2,
         xpAmount: 20,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     },
     {
         missionName: "Let's Recycle!",
@@ -118,7 +131,8 @@ export const missions = [
         iconPath: missionIcon['recycle'],
         starAmount: 2,
         xpAmount: 20,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     }
 ];
 
@@ -131,7 +145,8 @@ export const bonusMissions = [
         iconPath: missionIcon['reduce'],
         starAmount: 5,
         xpAmount: 50,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     },
     {
         missionName: "Swap the Bulbs",
@@ -139,7 +154,8 @@ export const bonusMissions = [
         iconPath: missionIcon['reduce'],
         starAmount: 5,
         xpAmount: 50,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     },
     {
         missionName: "No More Phantom Load",
@@ -147,7 +163,8 @@ export const bonusMissions = [
         iconPath: missionIcon['reduce'],
         starAmount: 5,
         xpAmount: 50,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     },
     {
         missionName: "Soapy DIY",
@@ -155,7 +172,8 @@ export const bonusMissions = [
         iconPath: missionIcon['eco'],
         starAmount: 5,
         xpAmount: 50,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     },
     {
         missionName: "Picker Upper",
@@ -163,6 +181,7 @@ export const bonusMissions = [
         iconPath: missionIcon['eco'],
         starAmount: 5,
         xpAmount: 50,
-        code: "ABCD"
+        code: "ABCD",
+        status: 1
     }
 ];
