@@ -138,7 +138,7 @@ export var missions = [
 
 // =============================================================================================
 
-export const bonusMissions = [
+export var bonusMissions = [
     {
         missionName: "Save Big",
         description: "Reduce energy consumption by purchasing electronic or appliances that are energy-efficient. Items with “Energy Star” labels on them promotes energy efficiency, so does LED lights. Not only will you help save energy consumption, you are also investing in lower electricity bill!",

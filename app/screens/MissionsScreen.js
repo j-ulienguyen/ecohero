@@ -22,8 +22,8 @@ export default function MissionsScreen(){
 
 
     // Randomize index number to display one Bonus Mission Card
-    var randomIndex = Math.floor(Math.random() * bonusMissions.length) + 0;
-    var randomBonus = bonusMissions[randomIndex];
+    // var randomIndex = Math.floor(Math.random() * bonusMissions.length) + 0;
+    // var randomBonus = bonusMissions[randomIndex];
     // console.log("Bonus Mission Array Length: ", bonusMissions.length);
     // console.log("Random index: ", randomIndex);
 
@@ -45,17 +45,17 @@ export default function MissionsScreen(){
 
     if (activeTab === "Available"){
         filterMissions = allMissions.filter(mission => mission.status === 1);
-        filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status === 1);
+        // filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status === 1);
     }
 
     if (activeTab === "In Progress"){
         filterMissions = allMissions.filter(mission => mission.status ===2);
-        filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status ===2);
+        // filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status ===2);
     }
 
     if (activeTab === "Completed"){
         filterMissions = allMissions.filter(mission => mission.status === 3);
-        filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status === 3);
+        // filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status === 3);
     }
 
 
@@ -82,13 +82,21 @@ export default function MissionsScreen(){
                     {/* Mission Card Section */}
                     <View style={styles.cardSection}>
                         {/* Bonus Mission Card - Randomize */}
-                        <MissionCard
+                        {/* <MissionCard
                             type = "bonus"
                             missionName = {randomBonus.missionName}
                             description = {randomBonus.description}
                             iconPath = {randomBonus.iconPath}
                             starAmount = {randomBonus.starAmount}
                             xpAmount = {randomBonus.xpAmount}
+                        /> */}
+                        <MissionCard
+                            type = "bonus"
+                            missionName = {bonusMissions[0].missionName}
+                            description = {bonusMissions[0].description}
+                            iconPath = {bonusMissions[0].iconPath}
+                            starAmount = {bonusMissions[0].starAmount}
+                            xpAmount = {bonusMissions[0].xpAmount}
                         />
 
                         {/* Populate with Mission Card from MissionData.js */}
@@ -102,6 +110,7 @@ export default function MissionsScreen(){
                                     iconPath = {obj.iconPath}
                                     starAmount = {obj.starAmount}
                                     xpAmount = {obj.xpAmount}
+                                    //setMissions = {setMissions}
                                 />
                             })
                         }
