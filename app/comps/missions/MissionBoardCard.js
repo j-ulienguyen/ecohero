@@ -7,7 +7,7 @@ import MotivationCard from './MotivationCard';
 import FilterTabMenu from '../FilterTabMenu';
 
 
-export default function MissionBoardCard({missionStatement}){
+export default function MissionBoardCard({missionStatement, tab1, tab2, tab3, setActiveTab}){
     // UI
     return (
         <View style={styles.container}>
@@ -27,9 +27,10 @@ export default function MissionBoardCard({missionStatement}){
 
             {/* Filter Tab Menu */}
             <FilterTabMenu
-                tab1 = "Available"
-                tab2 = "In Progress"
-                tab3 = "Completed"
+                tab1 = {tab1}
+                tab2 = {tab2}
+                tab3 = {tab3}
+                setActiveTab = {setActiveTab}
             />
         </View>
     )

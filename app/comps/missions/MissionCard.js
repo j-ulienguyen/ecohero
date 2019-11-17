@@ -9,10 +9,11 @@ import GreenButton from '../GreenButton';
 import PurpleButton from '../PurpleButton';
 
 // Navigation
+import { Actions } from 'react-native-router-flux';
 import * as navigateTo from '../../../RouteConstants';
 
 
-export default function MissionCard({type, iconPath, missionName, starAmount, xpAmount, description}){
+export default function MissionCard({type, iconPath, missionName, starAmount, xpAmount, description, setMissions}){
 
     const [showDetails, setShowDetails] = useState(false);
 
@@ -38,7 +39,14 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
         barBG = "#8AD560",
         missionButton = (
             <View style={{left: -5}}>
-                <PurpleButton title="Start Mission" width={240} height={30} marginTop={20} onPress={navigateTo.VerifyCode}/>
+                <PurpleButton
+                    title="Start Mission"
+                    width={240} height={30} marginTop={20}
+                    onPress={()=>{
+                        {/* navigateTo.VerifyCode */}
+                        Actions.verifyCode();
+                    }}
+                />
             </View>
         ),
         bonusRibbon = (
@@ -56,7 +64,13 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
         barBG = "#DFF0D7",
         missionButton = (
             <View style={{left: -5}}>
-                <GreenButton title="Start Mission" width={240} height={30} marginTop={20} onPress={navigateTo.VerifyCode}/>
+                <GreenButton
+                    title="Start Mission"
+                    width={240} height={30} marginTop={20}
+                    onPress={()=>{
+                        //navigateTo.VerifyCode;
+                        Actions.verifyCode();
+                    }}/>
             </View>
         ),
         bonusRibbon = null

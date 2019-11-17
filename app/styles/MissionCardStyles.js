@@ -40,7 +40,10 @@ var styles = StyleSheet.create({
     toggleBtn: {
         position: "absolute",
         top: 15,
-        right: 15
+        right: 15,
+
+        width: 25,
+        height: 25
     },
 
     missionDetailContainer: {

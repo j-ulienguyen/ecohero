@@ -2,8 +2,8 @@ import { Actions } from "react-native-router-flux"
 
 
 // How To Use:
-// Navigation
-// import * as navigateTo from 'pathTo/RouteConstants';
+// 1. import * as navigateTo from 'pathTo/RouteConstants';
+// 2. onPress={navigateTo.[SCREEN]}
 
 
 // Create functions that navigates to screen specified

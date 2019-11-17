@@ -1,24 +1,16 @@
 import React from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image} from 'react-native';
 
 // Import comps & styles below
 import styles from '../../styles/BadgeModalStyles';
-import ScreenOverlay from '../ScreenOverlay';
 import GreenButton from '../GreenButton';
 
-// Navigation
-import * as navigateTo from '../../../RouteConstants';
 
-
-export default function BadgeModal({badgeName, navigation, imagePath, description}){
-	console.log(navigation.state.params);
+export default function BadgeModal({badgeName, imagePath, description, onPress}){
 
 	// UI
 	return (
 		<View style={styles.container}>
-			{/* Screen Overlay - Semi Transparent */}
-			<ScreenOverlay/>
-
 			{/* Badge Modal */}
 			<View style={styles.modal}>
 				{/* Badge Name */}
@@ -34,7 +26,8 @@ export default function BadgeModal({badgeName, navigation, imagePath, descriptio
 				<Text style={styles.badgeDesc}>{description}</Text>
 
 				{/* Done Button */}
-				<GreenButton title="Done" width={174} height={43} onPress={navigateTo.Back}/>
+				{/* Function to close modal is inside ProfileBadge.js */}
+				<GreenButton title="Done" width={174} height={43} onPress={onPress}/>
 			</View>
 		</View>
 	)

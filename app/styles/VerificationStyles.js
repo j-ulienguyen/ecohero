@@ -12,7 +12,7 @@ var styles = StyleSheet.create({
   codeInputContainer: {
     height: 75,
     width: '80%',
-    backgroundColor: 'red',
+    backgroundColor: 'lightgray',
     marginBottom: 100,
   },
   heading: {
