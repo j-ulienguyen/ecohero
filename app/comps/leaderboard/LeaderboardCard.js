@@ -6,7 +6,7 @@ import styles from '../../styles/LeaderboardCardStyles';
 import FilterTabMenu from '../FilterTabMenu';
 
 
-export default function LeaderboardCard() {
+export default function LeaderboardCard({tab1, tab2, tab3, setActiveTab}) {
 
 	// UI
 	return (
@@ -30,9 +30,10 @@ export default function LeaderboardCard() {
 
 			{/* Filter Tab Menu */}
 			<FilterTabMenu
-				tab1 = "Weekly"
-				tab2 = "Monthly"
-				tab3 = "All-time"
+				tab1 = {tab1}
+                tab2 = {tab2}
+                tab3 = {tab3}
+                setActiveTab = {setActiveTab}
 			/>
 		</View>
 	);
