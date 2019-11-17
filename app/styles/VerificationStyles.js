@@ -7,25 +7,27 @@ var styles = StyleSheet.create({
 
   container: {
     alignItems: 'center',
-    top: 150,
+    top: 130,
   },
   codeInputContainer: {
     height: 75,
-    width: '80%',
-    backgroundColor: 'lightgray',
-    marginBottom: 100,
+    width: '70%',
+    marginBottom: 40,
+    marginTop: 25
   },
   heading: {
     justifyContent: 'center',
     fontFamily: theme.PoppinsBold,
     fontSize: 24,
+    marginTop: 20
+
   },
   body: {
     fontFamily: theme.PoppinsRegular,
     fontSize: 16,
     textAlign: 'center',
     width: '70%',
-    marginTop: 10,
+    marginTop: 15,
     marginBottom: 50,
   },
   enterCode: {
@@ -57,7 +59,7 @@ var styles = StyleSheet.create({
     //   Shared Styles
 
   verifyBut: {
-    marginTop:50,
+    marginTop:20,
     alignItems:'center',
   },
   redirect: {
