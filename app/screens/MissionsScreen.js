@@ -37,25 +37,33 @@ export default function MissionsScreen(){
     */
 
     const [activeTab, setActiveTab] = useState("Available");
+
+    // Normal Missions
     const [allMissions, setMissions] = useState(missions);
+
+    // Bonus Missions
     const [allBonusMissions, setBonusMissions] = useState(bonusMissions);
 
     var filterMissions = [];
     var filterBonusMissions = [];
 
+    // Only display 1 bonus mission
+    // var bonusMission = allBonusMissions.slice(0,1);
+
+
     if (activeTab === "Available"){
         filterMissions = allMissions.filter(mission => mission.status === 1);
-        // filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status === 1);
+        filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status === 1);
     }
 
     if (activeTab === "In Progress"){
         filterMissions = allMissions.filter(mission => mission.status ===2);
-        // filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status ===2);
+        filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status ===2);
     }
 
     if (activeTab === "Completed"){
         filterMissions = allMissions.filter(mission => mission.status === 3);
-        // filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status === 3);
+        filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status === 3);
     }
 
 
@@ -81,6 +89,7 @@ export default function MissionsScreen(){
 
                     {/* Mission Card Section */}
                     <View style={styles.cardSection}>
+
                         {/* Bonus Mission Card - Randomize */}
                         {/* <MissionCard
                             type = "bonus"
@@ -90,14 +99,30 @@ export default function MissionsScreen(){
                             starAmount = {randomBonus.starAmount}
                             xpAmount = {randomBonus.xpAmount}
                         /> */}
-                        <MissionCard
+
+                        {/* <MissionCard
                             type = "bonus"
                             missionName = {bonusMissions[0].missionName}
                             description = {bonusMissions[0].description}
                             iconPath = {bonusMissions[0].iconPath}
                             starAmount = {bonusMissions[0].starAmount}
                             xpAmount = {bonusMissions[0].xpAmount}
-                        />
+                            status = {bonusMissions[0].status}
+                        /> */}
+
+                        {
+                            filterBonusMissions.map((obj, i)=>{
+                                return <MissionCard
+                                    key = {i}
+                                    type = "bonus"
+                                    missionName = {obj.missionName}
+                                    description = {obj.description}
+                                    iconPath = {obj.iconPath}
+                                    starAmount = {obj.starAmount}
+                                    xpAmount = {obj.xpAmount}
+                                />
+                            })
+                        }
 
                         {/* Populate with Mission Card from MissionData.js */}
                         {

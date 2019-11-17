@@ -11,7 +11,6 @@ import NavBar from '../comps/NavBar';
 
 // Import data files below
 import {friends} from '../data/FriendsData';
-import { tsObjectKeyword } from '@babel/types';
 
 
 export default function LeaderboardScreen() {
