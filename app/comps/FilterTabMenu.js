@@ -5,50 +5,73 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 import styles from '../styles/MissionBoardCardStyles';
 
 
-export default function FilterTabMenu({tab1, tab2, tab3}){
+export default function FilterTabMenu({tab1, tab2, tab3, setActiveTab}){
 
-    const [toggleTab1, setToggleTab1] = useState(true);
+    const [toggleTab1, setToggleTab1] = useState(true);     // Initial Tab
     const [toggleTab2, setToggleTab2] = useState(false);
     const [toggleTab3, setToggleTab3] = useState(false);
 
-    if(toggleTab1 === true){
-        activeFilter = styles.filterBtnActive
+    // Init vars - Default tabs are not active
+    var activeFilter1 = null,
+        activeFilter2 = null,
+        activeFilter3 = null;
 
-        setToggleTab2(!toggleTab2);
-        setToggleTab3(!toggleTab3);
+
+    if(toggleTab1 === true){
+        activeFilter1 = styles.filterBtnActive
     }
 
     if(toggleTab2 === true){
-        setToggleTab1(!toggleTab1);
-        setToggleTab3(!toggleTab3);
+        activeFilter2 = styles.filterBtnActive
     }
 
     if(toggleTab3 === true){
-        setToggleTab1(!toggleTab1);
-        setToggleTab2(!toggleTab2);
+        activeFilter3 = styles.filterBtnActive
     }
 
 
-    function FilterButton({activeFilter, title}){
-        return (
-            <TouchableOpacity>
-                <Text style={[styles.filterBtnText, activeFilter]}>{title}</Text>
-            </TouchableOpacity>
-        )
+    function AllFalse(){
+        setToggleTab1(false);
+        setToggleTab2(false);
+        setToggleTab3(false);
     }
+
 
     // UI
     return (
         <View style={styles.filterContainer}>
-            <FilterButton
-                title={tab1}
-                activeFilter={styles.filterBtnActive}
-                //onPress={()=>{
-                  //  setToggleTab1(!toggleTab1);
-                //}}
-            />
-            <FilterButton title={tab2} activeFilter={null}/>
-            <FilterButton title={tab3} activeFilter={null}/>
+            {/* Tab 1 */}
+            <TouchableOpacity
+                onPress={()=>{
+                    AllFalse();
+                    setToggleTab1(true)
+                    setActiveTab(tab1)
+                }}
+            >
+                <Text style={[styles.filterBtnText, activeFilter1]}>{tab1}</Text>
+            </TouchableOpacity>
+
+            {/* Tab 2 */}
+            <TouchableOpacity
+                onPress={()=>{
+                    AllFalse();
+                    setToggleTab2(true)
+                    setActiveTab(tab2)
+                }}
+            >
+                <Text style={[styles.filterBtnText, activeFilter2]}>{tab2}</Text>
+            </TouchableOpacity>
+
+            {/* Tab 3 */}
+            <TouchableOpacity
+                onPress={()=>{
+                    AllFalse();
+                    setToggleTab3(true)
+                    setActiveTab(tab3)
+                }}
+            >
+                <Text style={[styles.filterBtnText, activeFilter3]}>{tab3}</Text>
+            </TouchableOpacity>
         </View>
     )
 }

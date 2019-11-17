@@ -25,13 +25,20 @@ import BadgeModal from './app/comps/profile/BadgeModal';
 export default function Route(){
     return (
         <Router>
-            <Stack key="root" hideNavBar={true} >
+            <Stack key="root" hideNavBar={true}>
                 {/* ============================= */}
                 <Scene
                     key = "signin"
                     title = "Signin Screen"
                     component = {SigninScreen}
                     initial = {true} // App will start with this screen
+                    swipeEnabled={false}
+                    animationEnabled={false}
+                />
+                <Scene
+                    key = "forgotPW"
+                    title = "Forgot Password"
+                    component = {ForgotPW}
                     swipeEnabled={false}
                     animationEnabled={false}
                 />
@@ -49,14 +56,6 @@ export default function Route(){
                     swipeEnabled={false}
                     animationEnabled={false}
                 />
-                <Scene
-                    key = "forgotPW"
-                    title = "Forgot Password"
-                    component = {ForgotPW}
-                    swipeEnabled={false}
-                    animationEnabled={false}
-                />
-                {/* ============================= */}
                 <Scene
                     key = "onboard"
                     title = "Onboarding Screen"

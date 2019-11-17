@@ -14,7 +14,6 @@ export default function ForgotPW(){
 
    return (
       <View>
-
          {/* Forgot PW Image */}
          <View style={styles.container}>
             <Image
@@ -45,7 +44,7 @@ export default function ForgotPW(){
             <GreenButton width={309} height={43} title="Send Email" onPress={navigateTo.Home}/>
 
             {/* Don't have an account */}
-            <TouchableOpacity onPress={navigateTo.Signup}>
+            <TouchableOpacity onPress={navigateTo.Signin}>
                <Text style={styles.btmText}>Don't have an account?</Text>
             </TouchableOpacity>
          </View>

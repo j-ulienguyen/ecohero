@@ -6,7 +6,8 @@ import styles from '../../styles/PrizeCardStyles';
 import StarCount from '../StarCount';
 
 
-export default function PrizeCard({imagePath, lockIcon, starCount, prizeName, description}){
+export default function PrizeCard({imagePath, lockIconPath, starCount, prizeName, description}){
+
     // UI
     return (
         <View style={styles.container}>
@@ -20,7 +21,7 @@ export default function PrizeCard({imagePath, lockIcon, starCount, prizeName, de
                 {/* Lock Icon */}
                 <Image
                     style = {styles.lockIcon}
-                    source = {lockIcon}
+                    source = {lockIconPath}
                 />
 
                 {/* Star Count Requirement */}
