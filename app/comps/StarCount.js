@@ -27,6 +27,15 @@ export default function StarCount({type, textColor, starCount}){
         )
     }
 
+    if (type === "gray"){
+        starIcon = (
+            <Image
+                style = {styles.starIcon}
+                source = {require('../assets/imgs/gray-star-icon.png')}
+            />
+        )
+    }
+
 
     // UI
     return (
