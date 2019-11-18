@@ -3,7 +3,7 @@ import theme from './ThemeStyles';
 
 var styles = StyleSheet.create({
    container: {
-      top: 20,
+      marginTop: 25,
       justifyContent: "center",
       alignItems: 'center'
    },

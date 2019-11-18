@@ -1,82 +1,87 @@
 import React, {useState} from 'react';
 import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
 import styles from '../styles/OnboardStepsStyles';
-import GreenButton from '../comps/GreenButton';
+import theme from '../styles/ThemeStyles';
 
 import * as navigateTo from '../../RouteConstants';
 
-export default function OnboardSteps(){
-   const [txt, setTxt] = useState("");
+import AppIntroSlider from 'react-native-app-intro-slider';
+
+// export default function OnboardSteps(){
+
+   const onboarding = [
+      {
+        key: 'step1',
+        title: 'Missions',
+        text: 'Missions are updated monthly and each mission will reflect a certain number of stars and XP.',
+        image: require('../assets/imgs/mission-onboard.png'),
+      },
+      {
+       key: 'step2',
+       title: 'Proof of Mission',
+       text: 'To verify that you completed your mission, you must either enter or scan a special code given to you.',
+       image: require('../assets/imgs/proof-onboard.png'),
+      },
+      {
+       key: 'step3',
+       title: 'Rewards',
+       text: 'Complete missions to receive rewards and badges. The more stars you collect the better the prize!',
+       image: require('../assets/imgs/rewards-onboard.png'),
+      },
+    ];
+   export default function OnboardSteps(){
+
+    const _renderNextButton = () => {
+         return (
+            <View style={styles.greenBtn}>
+               <Text style={styles.btnText}>Next</Text>
+          </View>
+         );
+       };
+
+     const _renderSkipButton = () => {
+         return (
+            <View>
+               <Text style={styles.skipTxt}>SKIP</Text>
+            </View>
+         )
+     };
+
+     const _renderDoneButton = () => {
+      return (
+         <View>
+            <Text style={styles.doneTxt}>DONE</Text>
+         </View>
+      )
+   };
+
+   const _renderItem = ({item}) => {
+      console.log(item);
+      return (
+         <View style={styles.container}>
+            <Image
+               style = {styles.stepImg}
+               source = {item.image}
+               />
+            <Text style={styles.headTxt}>{item.title}</Text>
+            <Text style={styles.subTxt}>{item.text}</Text>
+         </View>
+      );
+   }
 
    return (
-      <View>
-
-         <View style={styles.container}>
-
-         {/* Step 1 */}
-         <View> 
-            <Image
-            style = {styles.stepImg}
-            source = {require('../assets/imgs/mission-onboard.png')}
-            />
-         </View>
-            <Text style={styles.headTxt}>Missions</Text>
-            <Text style={styles.subTxt}>Missions are updated monthly and each mission will reflect a certain number of stars and XP. </Text>
-     
-         
-         {/* Step 2 */}
-         {/* <View> 
-            <Image
-            style = {styles.stepImg}
-            source = {require('../assets/imgs/proof-onboard.png')}
-            />
-         </View>
-            <Text style={styles.headTxt}>Proof of Mission</Text>
-            <Text style={styles.subTxt}>To verify that you completed your mission, you must either enter or scan a special code given to you. </Text> */}
-
-         {/* Step 3 */}
-         {/* <View> 
-            <Image
-            style = {styles.stepImg}
-            source = {require('../assets/imgs/rewards-onboard.png')}
-            />
-         </View>
-            <Text style={styles.headTxt}>s</Text>
-            <Text style={styles.subTxt}>Keep on completing missions to receive rewards and badges. The more stars you collect the better the prize! </Text> */}
-         </View>
-         
-         {/* Bottom Page Nav */}
-         <View style={styles.navContainer}>
-
-            {/* Skip Button */}
-            <TouchableOpacity 
-               onPress={navigateTo.Home}>
-               <Text style={styles.btmText}>Next</Text>
-            </TouchableOpacity>
-            
-            {/* Page Navigation */}
-            <View style={styles.pageDots}>
-               <View style={[styles.regDot, styles.activeDot]}></View>
-               <View style={styles.regDot}></View>
-               <View style={styles.regDot}></View>
-            </View>
-
-            {/* Next Button */}
-            <TouchableOpacity
-               style={styles.greenBtn}>
-                  <Text style={styles.btnText}>Next</Text>
-            </TouchableOpacity>
-
-            	{/* Start Button */}
-			<GreenButton width={309} height={43} marginTop={40}title="Get Started" onPress={navigateTo.Onboard}/>
-
-{/* Skip Button */}
-<TouchableOpacity 
-   onPress={navigateTo.Home}>
-   <Text style={styles.btmText}>Skip</Text>
-</TouchableOpacity>
-            
-         </View> 
+      <View style={{flex:1}}>
+         <AppIntroSlider 
+            renderItem={_renderItem} 
+            slides={onboarding} 
+            showSkipButton={true}
+            onDone={navigateTo.RewardModal}
+            renderNextButton={_renderNextButton}
+            renderSkipButton={_renderSkipButton}
+            renderDoneButton={_renderDoneButton}
+            activeDotStyle={{backgroundColor:theme.darkGreen}}
+         />
       </View>
-   );
+   )
 };
+  

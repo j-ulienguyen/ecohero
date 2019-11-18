@@ -71,7 +71,7 @@ export default function Route(){
                  <Scene
                     key = "onboardSteps"
                     title = "Onboard Steps Screen"
-                    component = {GetStarted}
+                    component = {OnboardSteps}
                 />
                 {/* ============================= */}
                 <Scene

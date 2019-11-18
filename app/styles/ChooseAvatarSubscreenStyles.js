@@ -54,7 +54,8 @@ var styles = StyleSheet.create({
       top: 240,
       width: "70%",
       justifyContent: "center",
-      alignItems: "center"
+      alignItems: "center",
+      marginBottom: 100
    },
    
    smIcon: {
@@ -62,7 +63,7 @@ var styles = StyleSheet.create({
       height: 65,
       margin: 10,
       justifyContent: "center",
-      alignItems: "center"
+      alignItems: "center",
    },
 
    activeRing: {

@@ -18,7 +18,7 @@ export default function BasicProfile(){
    return (
 
       <View style={styles.whiteBg}>
-         <TreeBg />
+         {/* <TreeBg /> */}
          <BackBar />
          <StepProgressBar />
 
@@ -57,10 +57,19 @@ export default function BasicProfile(){
                      }}
                      />
                </View>
+            {/* Classroom Code */}
+            <View style={styles.fieldInput}>
+               <TextInput
+                  placeholder = "Classroom Code"
+                  onChangeText = {(text)=>{
+                     setTxt(text);
+                  }}
+                  />
+            </View>
             </View>
          </View>
          {/* Continue Button */}
-         <View style={{alignItems: "center", width: "100%", marginTop: 200}}>
+         <View style={{alignItems: "center", width: "100%", marginTop: 200, marginBottom:200}}>
             <GreenButton width={309} height={43} title="Continue" onPress={navigateTo.ChooseAvatar}/>
          </View>
 

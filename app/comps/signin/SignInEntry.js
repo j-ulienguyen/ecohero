@@ -14,12 +14,14 @@ export default function SignInEntry(){
    return (
       <View style={styles.container}>
          {/* Continue Button */}
-         <GreenButton width={309} height={43} title="Continue" marginTop={60} onPress={navigateTo.Home}/>
+         <GreenButton width={309} height={43} title="Continue" marginTop={25} onPress={navigateTo.Home}/>
 
          {/* Forgot Pw Text Button */}
-         <TouchableOpacity onPress={navigateTo.ForgotPW}>
-            <Text style={styles.btmText}>Forgot Password?</Text>
-         </TouchableOpacity>
+         <TouchableOpacity 
+				onPress={navigateTo.ForgotPW}>
+				<Text style={styles.btmText}>Forgot Password?</Text>
+			</TouchableOpacity>
+
       </View>
    );
 

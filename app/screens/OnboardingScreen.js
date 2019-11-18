@@ -11,7 +11,7 @@ import OnboardSteps from '../subscreens/OnboardSteps'
 export default function OnboardingScreen(){
     // UI
     return (
-        <View>
+        <View style={{flex:1}}>
 
             {/* Onboarding Steps 1-3 */}
             <BackBar />
