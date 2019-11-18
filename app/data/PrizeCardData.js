@@ -15,7 +15,8 @@ export const prizeCards = [
         description: "Awesome! You get to redeem an extra 5 minutes in recess.",
         imagePath: prizeIcon['bronze'],
         starCount: 5,
-        lockIconPath: null
+        lockIconPath: null,
+        status: true
         // lockIconPath: lockIcon
     },
     {
@@ -23,7 +24,8 @@ export const prizeCards = [
         description: "Great job! You earned an EcoHero bracelet. Wear it to show your success in helping the community.",
         imagePath: prizeIcon['silver'],
         starCount: 10,
-        lockIconPath: null
+        lockIconPath: null,
+        status: false
         // lockIconPath: lockIcon
     },
     {
@@ -31,7 +33,8 @@ export const prizeCards = [
         description: "Wow! You made it to this month’s mysterious prize draw. Stay tuned to see if you win.",
         imagePath: prizeIcon['gold'],
         starCount: 20,
-        lockIconPath: null
+        lockIconPath: null,
+        status: false
         // lockIconPath: lockIcon
     }
 ];

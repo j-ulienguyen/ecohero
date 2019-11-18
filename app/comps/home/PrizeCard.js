@@ -6,7 +6,11 @@ import styles from '../../styles/PrizeCardStyles';
 import StarCount from '../StarCount';
 
 
-export default function PrizeCard({imagePath, lockIconPath, starCount, prizeName, description}){
+export default function PrizeCard({imagePath, lockIconPath, starCount, prizeName, description, status}){
+
+    if(status === true){
+
+    }
 
     // UI
     return (
