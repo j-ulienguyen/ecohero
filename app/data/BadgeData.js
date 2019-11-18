@@ -9,33 +9,39 @@ const badgeIcon = {
 
 export const badges = [
     {
+        badgeName: "Initiation Badge",
+        description: "Badge awarded upon completing first mission",
+        imagePath: badgeIcon['eco'],
+        status: true
+    },
+    {
         badgeName: "New Leaf Badge",
         description: "You’ve unlocked a badge for completing 5 bonus missions",
-        imagePath: badgeIcon['leaf']
+        imagePath: badgeIcon['leaf'],
+        status: true
     },
     {
         badgeName: "Recycler Badge",
         description: "You’ve unlocked a badge for completing 20 recycle missions",
-        imagePath: badgeIcon['recycle']
-    },
-    {
-        badgeName: "Initiation Badge",
-        description: "Badge awarded upon completing first mission",
-        imagePath: badgeIcon['eco']
+        imagePath: badgeIcon['recycle'],
+        status: true
     },
     {
         badgeName: "Honour Roll Badge",
         description: "Badge awarded upon ranking first for 3 consecutive months",
-        imagePath: badgeIcon['crown']
+        imagePath: badgeIcon['crown'],
+        status: false
     },
     {
         badgeName: "Grand Star Badge",
         description: "You’ve unlocked a badge for collecting 50 stars",
-        imagePath: badgeIcon['star']
+        imagePath: badgeIcon['star'],
+        status: false
     },
     {
         badgeName: "10 Missions Badge",
         description: "You’ve unlocked a badge for collect 10 missions",
-        imagePath: badgeIcon['10']
+        imagePath: badgeIcon['10'],
+        status: false
     }
 ];
