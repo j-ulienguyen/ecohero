@@ -11,8 +11,9 @@ import MaterialTabs from 'react-native-material-tabs';
 // import styles from '../styles/MaterialTabsStyles';
 import styles from '../styles/StartPageStyles';
 
-// Database
+// Database & Storage
 import {ax} from '../services/axios';
+import AsyncStorage from '@react-native-community/async-storage';
 
 
 var username = "";
@@ -21,9 +22,12 @@ var password = "";
 
 export default function SigninScreen(){
 
+    // Material Tabs
     const [selectedTab, setSelectedTab] = useState(0);
+
+    // Username + Password Entry
     const [txt, setTxt] = useState("");
-    const [error, setError] = useState('');
+    const [error, setError] = useState("");
 
 
     const CreateAccount = async()=>{

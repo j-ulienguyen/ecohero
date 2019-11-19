@@ -13,6 +13,7 @@ export async function ax(key, data){
 
     var resp = await axios.post(url, obj)
     var yourData = JSON.parse(resp.data.body);
+
     if(yourData.status){
         yourData = yourData.data
     } else {
@@ -20,4 +21,4 @@ export async function ax(key, data){
     }
 
     return yourData;
-}
+};
