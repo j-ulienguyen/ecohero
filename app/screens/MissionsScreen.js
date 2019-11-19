@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useState} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 
 // Import comps & styles below
@@ -22,11 +22,50 @@ export default function MissionsScreen(){
 
 
     // Randomize index number to display one Bonus Mission Card
-    var randomIndex = Math.floor(Math.random() * bonusMissions.length) + 0;
-    var randomBonus = bonusMissions[randomIndex];
-
+    // var randomIndex = Math.floor(Math.random() * bonusMissions.length) + 0;
+    // var randomBonus = bonusMissions[randomIndex];
     // console.log("Bonus Mission Array Length: ", bonusMissions.length);
     // console.log("Random index: ", randomIndex);
+
+
+    // Filtering Mission Cards based on its current status
+    /*
+        Reference to MissionData.js
+        status: 1 = Available
+        status: 2 = In Progress
+        status: 3 = Completed
+    */
+
+    const [activeTab, setActiveTab] = useState("Available");
+
+    // Normal Missions
+    const [allMissions, setMissions] = useState(missions);
+
+    // Bonus Missions
+    const [allBonusMissions, setBonusMissions] = useState(bonusMissions);
+
+    var filterMissions = [];
+    var filterBonusMissions = [];
+
+    // Only display 1 bonus mission
+    // var bonusMission = allBonusMissions.slice(0,1);
+
+
+    if (activeTab === "Available"){
+        filterMissions = allMissions.filter(mission => mission.status === 1);
+        filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status === 1);
+    }
+
+    if (activeTab === "In Progress"){
+        filterMissions = allMissions.filter(mission => mission.status ===2);
+        filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status ===2);
+    }
+
+    if (activeTab === "Completed"){
+        filterMissions = allMissions.filter(mission => mission.status === 3);
+        filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status === 3);
+    }
+
 
 
     // UI
@@ -41,23 +80,53 @@ export default function MissionsScreen(){
                     {/* Mission Board Card */}
                     <MissionBoardCard
                         missionStatement='“Our mission is to recycle and maintain a clean environment”'
+                        // Filter Tab Menu
+                        tab1 = "Available"
+                        tab2 = "In Progress"
+                        tab3 = "Completed"
+                        setActiveTab = {setActiveTab}
                     />
 
                     {/* Mission Card Section */}
                     <View style={styles.cardSection}>
+
                         {/* Bonus Mission Card - Randomize */}
-                        <MissionCard
+                        {/* <MissionCard
                             type = "bonus"
                             missionName = {randomBonus.missionName}
                             description = {randomBonus.description}
                             iconPath = {randomBonus.iconPath}
                             starAmount = {randomBonus.starAmount}
                             xpAmount = {randomBonus.xpAmount}
-                        />
+                        /> */}
+
+                        {/* <MissionCard
+                            type = "bonus"
+                            missionName = {bonusMissions[0].missionName}
+                            description = {bonusMissions[0].description}
+                            iconPath = {bonusMissions[0].iconPath}
+                            starAmount = {bonusMissions[0].starAmount}
+                            xpAmount = {bonusMissions[0].xpAmount}
+                            status = {bonusMissions[0].status}
+                        /> */}
+
+                        {
+                            filterBonusMissions.map((obj, i)=>{
+                                return <MissionCard
+                                    key = {i}
+                                    type = "bonus"
+                                    missionName = {obj.missionName}
+                                    description = {obj.description}
+                                    iconPath = {obj.iconPath}
+                                    starAmount = {obj.starAmount}
+                                    xpAmount = {obj.xpAmount}
+                                />
+                            })
+                        }
 
                         {/* Populate with Mission Card from MissionData.js */}
                         {
-                            missions.map((obj, i)=>{
+                            filterMissions.map((obj, i)=>{
                                 return <MissionCard
                                     key = {i}
                                     type = "normal"
@@ -66,6 +135,7 @@ export default function MissionsScreen(){
                                     iconPath = {obj.iconPath}
                                     starAmount = {obj.starAmount}
                                     xpAmount = {obj.xpAmount}
+                                    //setMissions = {setMissions}
                                 />
                             })
                         }

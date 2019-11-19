@@ -5,7 +5,7 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 import styles from '../styles/MissionBoardCardStyles';
 
 
-export default function FilterTabMenu({tab1, tab2, tab3}){
+export default function FilterTabMenu({tab1, tab2, tab3, setActiveTab}){
 
     const [toggleTab1, setToggleTab1] = useState(true);     // Initial Tab
     const [toggleTab2, setToggleTab2] = useState(false);
@@ -45,6 +45,7 @@ export default function FilterTabMenu({tab1, tab2, tab3}){
                 onPress={()=>{
                     AllFalse();
                     setToggleTab1(true)
+                    setActiveTab(tab1)
                 }}
             >
                 <Text style={[styles.filterBtnText, activeFilter1]}>{tab1}</Text>
@@ -55,6 +56,7 @@ export default function FilterTabMenu({tab1, tab2, tab3}){
                 onPress={()=>{
                     AllFalse();
                     setToggleTab2(true)
+                    setActiveTab(tab2)
                 }}
             >
                 <Text style={[styles.filterBtnText, activeFilter2]}>{tab2}</Text>
@@ -65,6 +67,7 @@ export default function FilterTabMenu({tab1, tab2, tab3}){
                 onPress={()=>{
                     AllFalse();
                     setToggleTab3(true)
+                    setActiveTab(tab3)
                 }}
             >
                 <Text style={[styles.filterBtnText, activeFilter3]}>{tab3}</Text>

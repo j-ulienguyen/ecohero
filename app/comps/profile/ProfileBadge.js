@@ -7,7 +7,7 @@ import styles from '../../styles/ProfileBadgeStyles';
 import BadgeModal from '../profile/BadgeModal';
 
 
-export default function ProfileBadge({badgeName, badgeState, imagePath, disabled, description}){
+export default function ProfileBadge({badgeName, status, imagePath, disabled, description}){
 
     const [toggleModal, setToggleModal] = useState(false);
 
@@ -35,7 +35,7 @@ export default function ProfileBadge({badgeName, badgeState, imagePath, disabled
 
 
     // True = Unlocked
-    if(badgeState === true){
+    if(status === true){
         badge = (
             <View style={styles.badgeContainer}>
                 {/* Badge Icon */}
@@ -45,10 +45,11 @@ export default function ProfileBadge({badgeName, badgeState, imagePath, disabled
                 />
             </View>
         )
+        disabled = false;
     }
 
     // False = Locked
-    if(badgeState === false){
+    if(status === false){
         badge = (
             <View style={styles.badgeContainer}>
                 {/* Badge Icon */}
@@ -63,6 +64,7 @@ export default function ProfileBadge({badgeName, badgeState, imagePath, disabled
                 />
             </View>
         )
+        disabled = true;
     }
 
 

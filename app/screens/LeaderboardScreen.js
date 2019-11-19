@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 
 // Import comps below
@@ -9,8 +9,26 @@ import LeaderboardUser from '../comps/leaderboard/LeaderboardUser';
 import FriendsCard from '../comps/leaderboard/FriendsCard';
 import NavBar from '../comps/NavBar';
 
+// Import data files below
+import {friends} from '../data/FriendsData';
+
 
 export default function LeaderboardScreen() {
+	const [activeTab, setActiveTab] = useState("Weekly");
+
+	if (activeTab === "Weekly"){
+		console.log("tab1")
+	}
+
+	if (activeTab === "Monthly"){
+		console.log("tab2")
+	}
+
+	if (activeTab === "All-time"){
+		console.log("tab3")
+	}
+
+
 	// UI
 	return (
 		<View style={styles.container}>
@@ -20,58 +38,29 @@ export default function LeaderboardScreen() {
 			{/* Scrollable Content - On Top */}
 			<ScrollView>
 				{/* Leaderboard Card */}
-				<LeaderboardCard />
+				<LeaderboardCard
+					// Filter Tab Menu
+					tab1 = "Weekly"
+					tab2 = "Monthly"
+					tab3 = "All-time"
+					setActiveTab = {setActiveTab}
+				/>
 
 				{/* Leaderboard Friends Card Section*/}
 				<View style={styles.cardSection}>
-
-					<FriendsCard
-						type="first"
-						username='jjanicefong'
-						starCount={45}
-						iconPath={require('../assets/imgs/lunchbox-avatar.png')}
-						rankNumber={1}
-					/>
-
-					<FriendsCard
-						type="second"
-						username='xAznJay'
-						starCount={35}
-						iconPath={require('../assets/imgs/paper-avatar.png')}
-						rankNumber={2}
-					/>
-
-					<FriendsCard
-						type="third"
-						username='jujubean'
-						starCount={30}
-						iconPath={require('../assets/imgs/can-avatar.png')}
-						rankNumber={3}
-					/>
-
-					<FriendsCard
-						type="normal"
-						username='ashlynnchen'
-						starCount={25}
-						iconPath={require('../assets/imgs/can-avatar.png')}
-						rankNumber={4}
-					/>
-
-					<FriendsCard
-						type="normal"
-						username='noob'
-						starCount={10}
-						iconPath={require('../assets/imgs/jug-avatar.png')}
-						rankNumber={5}
-					/>
-
-					<FriendsCard
-						type="normal"
-						username='ramtheram2017'
-						starCount={10}
-						iconPath={require('../assets/imgs/jug-avatar.png')}
-						rankNumber={6}
-					/>
+					{/* Populate with Friends Card from FriendsData.js */}
+					{
+						friends.map((obj, i)=>{
+							return <FriendsCard
+								key = {i}
+								type = {obj.type}
+								username = {obj.username}
+								starCount = {obj.starCount}
+								iconPath = {obj.iconPath}
+								rankNumber = {obj.rankNumber}
+							/>
+						})
+					}
 				</View>
 			</ScrollView>
 

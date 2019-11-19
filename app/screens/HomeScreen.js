@@ -73,7 +73,7 @@ export default function HomeScreen(){
 									description = {obj.description}
 									imagePath = {obj.imagePath}
 									starCount = {obj.starCount}
-									lockIconPath = {obj.lockIconPath}
+									status = {obj.status}
 								/>
 							})
 						}

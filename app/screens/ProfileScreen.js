@@ -39,22 +39,13 @@ export default function ProfileScreen(){
                 <View style={styles.achievementSection}>
                     {/* Total Stars Card */}
                     <AchievementCard
-                        cardBG = {theme.darkGreen}
-                        countBG = "#8AD560"
-                        count = "10"
-                        imagePath = {require('../assets/imgs/star-icon.png')}
-                        name = "Total Stars"
-                        description = "All of the stars that you have earned so far on EcoHero"
+                        type = "totalStars"
+                        count = {10}
                     />
-
                     {/* Completed Missions Card */}
                     <AchievementCard
-                        cardBG = "#7FC6E4"
-                        countBG = "#95D5EC"
-                        count = "2"
-                        imagePath = {require('../assets/imgs/complete-mission-icon.png')}
-                        name = "Completed Missions"
-                        description = "All of the missions that you have completed so far on EcoHero"
+                        type = "completedMissions"
+                        count = {5}
                     />
                 </View>
 
@@ -72,20 +63,10 @@ export default function ProfileScreen(){
                                         badgeName = {obj.badgeName}
                                         description = {obj.description}
                                         imagePath = {obj.imagePath}
-                                        badgeState = {true}
+                                        status = {obj.status}
                                     />
                                 })
                             }
-
-                            {/* <ProfileBadge
-                                badgeState = "unlocked"
-                                imagePath = {require('../assets/imgs/eco-badge.png')}
-                                disabled = {false}
-                            />
-                            <ProfileBadge
-                                badgeState = "locked"
-                                disabled = {true}
-                            /> */}
                         </View>
                     </View>
                 </View>
