@@ -9,12 +9,16 @@ import GreenButton from '../../comps/GreenButton';
 import * as navigateTo from '../../../RouteConstants';
 
 
-export default function SignUpEntry(){
+export default function SignUpEntry({CreateAccount}){
    // UI
    return (
       <View style={styles.container}>
          {/* Create Account Button */}
-         <GreenButton width={309} height={43} title="Create Account" marginTop={60} onPress={navigateTo.BasicProfile}/>
+         <GreenButton width={309} height={43} title="Create Account" marginTop={60}
+            onPress={async()=>{
+               await CreateAccount();
+               navigateTo.BasicProfile();
+            }}/>
       </View>
    );
 };

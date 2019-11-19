@@ -9,7 +9,6 @@ import GreenButton from '../GreenButton';
 import PurpleButton from '../PurpleButton';
 
 // Navigation
-import { Actions } from 'react-native-router-flux';
 import * as navigateTo from '../../../RouteConstants';
 
 
@@ -43,8 +42,7 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
                     title="Start Mission"
                     width={240} height={30} marginTop={20}
                     onPress={()=>{
-                        {/* navigateTo.VerifyCode */}
-                        Actions.verifyCode();
+                        navigateTo.VerifyCode();
                     }}
                 />
             </View>
@@ -68,8 +66,7 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
                     title="Start Mission"
                     width={240} height={30} marginTop={20}
                     onPress={()=>{
-                        //navigateTo.VerifyCode;
-                        Actions.verifyCode();
+                        navigateTo.VerifyCode();
                     }}/>
             </View>
         ),

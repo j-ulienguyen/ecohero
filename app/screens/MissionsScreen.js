@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 
 // Import comps & styles below
@@ -10,6 +10,7 @@ import NavBar from '../comps/NavBar';
 
 // Import data files below
 import {missions, bonusMissions} from '../data/MissionData';
+import {ax} from '../services/axios';
 
 
 export default function MissionsScreen(){
@@ -39,32 +40,44 @@ export default function MissionsScreen(){
     const [activeTab, setActiveTab] = useState("Available");
 
     // Normal Missions
-    const [allMissions, setMissions] = useState(missions);
+    // const [allMissions, setMissions] = useState(missions);
+    const [allMissions, setMissions] = useState([]);
 
     // Bonus Missions
-    const [allBonusMissions, setBonusMissions] = useState(bonusMissions);
-
-    var filterMissions = [];
-    var filterBonusMissions = [];
+    // const [allBonusMissions, setBonusMissions] = useState(bonusMissions);
+    // var filterMissions = [];
+    // var filterBonusMissions = [];
 
     // Only display 1 bonus mission
     // var bonusMission = allBonusMissions.slice(0,1);
 
 
-    if (activeTab === "Available"){
-        filterMissions = allMissions.filter(mission => mission.status === 1);
-        filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status === 1);
+    const GetMissions = async()=>{
+        var missions = await ax("missions_read", {});
+        setMissions(missions);
     }
 
-    if (activeTab === "In Progress"){
-        filterMissions = allMissions.filter(mission => mission.status ===2);
-        filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status ===2);
-    }
+    useEffect(()=>{
+        GetMissions();
+    }, [])
 
-    if (activeTab === "Completed"){
-        filterMissions = allMissions.filter(mission => mission.status === 3);
-        filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status === 3);
-    }
+
+    // filterMissions = allMissions;
+
+    // if (activeTab === "Available"){
+    //     filterMissions = allMissions.filter(mission => mission.status === 1);
+    //     filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status === 1);
+    // }
+
+    // if (activeTab === "In Progress"){
+    //     filterMissions = allMissions.filter(mission => mission.status ===2);
+    //     filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status ===2);
+    // }
+
+    // if (activeTab === "Completed"){
+    //     filterMissions = allMissions.filter(mission => mission.status === 3);
+    //     filterBonusMissions = allBonusMissions.filter(bonusMission => bonusMission.status === 3);
+    // }
 
 
 
@@ -126,15 +139,15 @@ export default function MissionsScreen(){
 
                         {/* Populate with Mission Card from MissionData.js */}
                         {
-                            filterMissions.map((obj, i)=>{
+                            allMissions.map((obj, i)=>{
                                 return <MissionCard
                                     key = {i}
                                     type = "normal"
-                                    missionName = {obj.missionName}
-                                    description = {obj.description}
-                                    iconPath = {obj.iconPath}
-                                    starAmount = {obj.starAmount}
-                                    xpAmount = {obj.xpAmount}
+                                    missionName = {obj.mission_name}
+                                    description = {obj.mission_description}
+                                    iconPath = {missions[0].iconPath}
+                                    starAmount = {obj.mission_star}
+                                    xpAmount = {obj.mission_xp}
                                     //setMissions = {setMissions}
                                 />
                             })
