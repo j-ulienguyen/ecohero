@@ -14,7 +14,7 @@ export default function SignUpEntry(){
    return (
       <View style={styles.container}>
          {/* Create Account Button */}
-         <GreenButton width={309} height={43} title="Create Account" marginTop={60} onPress={navigateTo.BasicProfile}/>
+         <GreenButton width={309} height={43} title="Create Account" marginTop={25} onPress={navigateTo.BasicProfile}/>
       </View>
    );
 };

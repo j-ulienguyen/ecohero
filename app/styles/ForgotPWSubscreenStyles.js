@@ -3,10 +3,14 @@ import theme from '../styles/ThemeStyles';
 
 var styles = StyleSheet.create({
    container: {
-      flex: 1,
+      // flex: 1,
       justifyContent: "center",
       alignItems: "center",
-      top: 210
+      top: 130,
+   },
+   
+   whiteBg: {
+      backgroundColor: theme.white
    },
 
    headTxt: {
@@ -23,7 +27,9 @@ var styles = StyleSheet.create({
    },
 
    emailInput: {
-      top: 390,
+     
+      position: "relative",
+      marginTop: 200,
       left: 50,
       width: 309,
       flexDirection: 'row',

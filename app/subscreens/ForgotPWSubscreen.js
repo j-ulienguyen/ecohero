@@ -4,6 +4,7 @@ import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
 // Import comps & styles below
 import styles from '../styles/ForgotPWSubscreenStyles';
 import GreenButton from '../comps/GreenButton';
+import BackBar from '../comps/BackBar';
 
 // Navigation
 import * as navigateTo from '../../RouteConstants';
@@ -13,7 +14,9 @@ export default function ForgotPW(){
    const [txt, setTxt] = useState("");
 
    return (
-      <View>
+      <View style={styles.whiteBg}>
+
+         <BackBar />
          {/* Forgot PW Image */}
          <View style={styles.container}>
             <Image
@@ -39,7 +42,7 @@ export default function ForgotPW(){
             />
          </View>
 
-         <View style={{alignItems: "center", width: "100%", marginTop: 430}}>
+         <View style={{alignItems: "center", width: "100%", marginTop: 30, marginBottom: 100}}>
             {/* Send Email Button */}
             <GreenButton width={309} height={43} title="Send Email" onPress={navigateTo.Home}/>
 
