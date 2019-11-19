@@ -7,7 +7,7 @@ var styles = StyleSheet.create({
         alignItems: "center",
         width: "100%",
 
-        marginTop: 35
+        marginTop: 20
     },
 
     progressBar: {

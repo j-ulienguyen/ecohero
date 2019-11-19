@@ -3,9 +3,13 @@ import theme from './ThemeStyles';
 
 var styles = StyleSheet.create({
    container: {
-      top: 20,
+      marginTop: 25,
       justifyContent: "center",
       alignItems: 'center'
+   },
+
+   whiteBg: {
+      backgroundColor: theme.white
    },
 
    space: {
@@ -41,16 +45,12 @@ var styles = StyleSheet.create({
       top: 15
    },
 
-   whiteBg: {
-      backgroundColor: "#fff"
-   },
-
    errorMsg: {
       flex:1,
       position:"absolute",
       top:60,
       right:70,
-      color: theme.purple
+      color: theme.purple,
    }
 });
 

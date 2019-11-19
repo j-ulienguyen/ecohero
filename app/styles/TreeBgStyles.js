@@ -8,7 +8,8 @@ var styles = StyleSheet.create({
 
    treebg: {
       position: "absolute",
-      bottom: -665
+      bottom: -665,
+      backgroundColor: theme.white
     }
 });
 
