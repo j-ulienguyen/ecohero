@@ -18,7 +18,7 @@ export default function SignUpEntry({CreateAccount}){
             title="Create Account"
             width={309}
             height={43}
-            marginTop={60}
+            marginTop={25}
             onPress={async()=>{
                await CreateAccount();
                navigateTo.BasicProfile();

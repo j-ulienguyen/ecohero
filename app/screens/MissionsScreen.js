@@ -13,7 +13,7 @@ import {missions} from '../data/MissionData';
 
 // Database & Storage
 import {ax} from '../services/axios';
-import AsyncStorage from '@react-native-community/async-storage';
+// import AsyncStorage from '@react-native-community/async-storage';
 
 
 export default function MissionsScreen(){

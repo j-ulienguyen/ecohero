@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text} from 'react-native';
 import { SafeAreaView, Image, TextInput } from 'react-native';
 
@@ -31,9 +31,28 @@ export default function SigninScreen(){
 
 
     const CreateAccount = async()=>{
-        var account = await ax("users_create", {username, password});
-        console.log("User ID: ", account[0].id);
+        var userAccount = await ax("users_create", {username, password});
+        console.log("User ID: ", userAccount[0].id);
+
+        // Store account details
+        StoreUserID();
+        //await AsyncStorage.setItem("user_id", JSON.stringify(userAccount[0].id));
     }
+
+
+    var StoreUserID = async()=>{
+        await AsyncStorage.setItem("user_id", userAccount.id);
+    }
+
+    var GetUserID = async()=>{
+        var getID = await AsyncStorage.getItem("user_id");
+        console.log("Get User ID: ", getID);
+    }
+
+
+    useEffect(()=>{
+        GetUserID();
+    }, [])
 
 
     var signin = null;
