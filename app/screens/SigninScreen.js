@@ -33,44 +33,57 @@ export default function SigninScreen(){
     const [error, setError] = useState("");
 
 
+    // Store User ID
     var StoreUserID = async(id)=>{
         try {
             await AsyncStorage.setItem("user_id", JSON.stringify(id));
-            console.log("Store User ID: ", id)
+            console.log("Store UserID: ", id)
         } catch (error){
             console.log("Error saving data");
         }
-        console.log("StoreUserID Done");
+        console.log("End of StoreUserID");
     }
 
+    // Get User ID
     var GetUserID = async()=>{
         try {
             var getID = await AsyncStorage.getItem("user_id");
-            console.log("Get User ID: ", getID);
+            console.log("Get UserID: ", getID);
         } catch (error){
             console.log("Error getting data");
         }
 
-        console.log("GetUserID Done");
+        console.log("End of GetUserID");
     }
 
+    // Create Account
     const CreateAccount = async()=>{
-        var userAccount = await ax("users_create", {username, password});
-        console.log("Create User ID: ", userAccount[0].id);
+        try {
+            var userAccount = await ax("users_create", {username, password});
+            console.log("Create UserID: ", userAccount[0].id);
 
-        StoreUserID(userAccount[0].id);
+            StoreUserID(userAccount[0].id);
+        } catch (error){
+            console.log("Error CreateAccount");
+        }
+        console.log("End of CreateAccount");
     }
 
+    // Login Account
     const LoginAccount = async()=>{
-        var userAccount = await ax("users_auth", {username, password});
-        console.log("Auth User ID: ", userAccount[0].id);
-        await StoreUserID(userAccount[0].id);
-        navigateTo.Home();
+        try {
+            var userAccount = await ax("users_auth", {username, password});
+            console.log("Auth UserID: ", userAccount[0].id);
+
+            await StoreUserID(userAccount[0].id);
+            navigateTo.Home();
+        } catch (error){
+            console.log("Error LoginAccount");
+        }
+        console.log("End of LoginAccount");
     }
 
-
-
-
+    // Load once
     useEffect(()=>{
         GetUserID();
     }, [])
@@ -86,7 +99,7 @@ export default function SigninScreen(){
     } else if (selectedTab === 1){
         signin = (
             <SignUpEntry
-                CreateAccount={CreateAccount}
+                CreateAccount = {CreateAccount}
             />
         )
     }
@@ -102,17 +115,16 @@ export default function SigninScreen(){
 
             <View style={styles.space}></View>
 
-            <View>
-                <MaterialTabs
-                    items={['Sign In', 'Sign Up']}
-                    selectedIndex={selectedTab}
-                    onChange={setSelectedTab}
-                    barColor="#fff"
-                    indicatorColor="#74C64D"
-                    activeTextColor="#74C64D"
-                    inactiveTextColor="#000"
-                />
-            </View>
+            {/* Sign In / Sign Up Tabs */}
+            <MaterialTabs
+                items={['Sign In', 'Sign Up']}
+                selectedIndex={selectedTab}
+                onChange={setSelectedTab}
+                barColor="#fff"
+                indicatorColor="#74C64D"
+                activeTextColor="#74C64D"
+                inactiveTextColor="#000"
+            />
 
             <View style={[styles.container, styles.whiteBg]}>
                 {/* Username Field Entry */}

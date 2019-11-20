@@ -22,19 +22,20 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 export default function HomeScreen(){
 
-	const [username, setUsername] = useState({});
+	const [userData, setUserData] = useState({});
 
-	const GetUser = async()=>{
+	// Get User Data - Specific to user_id
+	const GetUserData = async()=>{
 		var user_id = await AsyncStorage.getItem("user_id");
-
-		var r = await ax("users_read", {id:user_id});
-		setUsername(r[0]);
+		var data = await ax("users_read", {id:user_id});
+		setUserData(data[0]);
 	}
 
-
+	// Load once
     useEffect(()=>{
-        GetUser();
-    }, [])
+        GetUserData();
+	}, [])
+
 
 	// const [toggleModal, setToggleModal] = useState(false);
 
@@ -57,16 +58,6 @@ export default function HomeScreen(){
 	// }
 
 
-	// IDK WHAT THIS IS ********TEMP IGNORE
-	// const Test = async()=>{
-	// 	var user_id = await AsyncStorage.getItem("user_id");
-	// 	console.log(user_id);
-	// 	console.log(user_id.username);
-	// }
-
-	// Test();
-
-
     // UI
     return (
 		<View style={styles.container}>
@@ -78,13 +69,13 @@ export default function HomeScreen(){
 				<View>
 					{/* Profile Card - Full Version */}
 					<ProfileCard
-						type="full"
-						avatarPath={require('../assets/imgs/can-avatar.png')}
-						username={username.username || ""}
-						missionAvailable={30}
-						level={5}
-						starCount={5}
-						missionCount={0}
+						type = "full"
+						avatarPath = {require('../assets/imgs/can-avatar.png')}
+						username = {userData.username || ""}
+						missionAvailable = {30}
+						level = {userData.level}
+						starCount = {userData.star_count}
+						missionCount = {0}
 					/>
 
 					{/* Star Prizes - Progress Bar */}

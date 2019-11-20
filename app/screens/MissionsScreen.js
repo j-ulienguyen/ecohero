@@ -13,7 +13,7 @@ import {missions} from '../data/MissionData';
 
 // Database & Storage
 import {ax} from '../services/axios';
-// import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 
 
 export default function MissionsScreen(){
@@ -29,28 +29,27 @@ export default function MissionsScreen(){
     const GetMissions = async()=>{
         //var user_id = asyncsto
         var missions = await ax("missions_read", {user_id:15});
-
-        
         setMissions(missions);
     }
-    
-var missions = allMissions;
+
+    // Reassign to new var -> Can't use const allMissions
+    var missions = allMissions;
 
     if (activeTab === "Available"){
-        missions = allMissions.filter((o, i)=>{
-            return !o.status || o.status === 1;
+        missions = allMissions.filter((obj, i)=>{
+            return !obj.status || obj.status === 1;
         });
     }
 
     if (activeTab === "In Progress"){
-        missions = allMissions.filter((o, i)=>{
-            return o.status && o.status === 2;
+        missions = allMissions.filter((obj, i)=>{
+            return obj.status && obj.status === 2;
         });
     }
 
     if (activeTab === "Completed"){
-        missions = allMissions.filter((o, i)=>{
-            return o.status && o.status === 3;
+        missions = allMissions.filter((obj, i)=>{
+            return obj.status && obj.status === 3;
         });
     }
 
@@ -87,8 +86,8 @@ var missions = allMissions;
                                     key = {i}
                                     type = "normal"
                                     id = {obj.id}
-                                    cl_id = {obj.cl_id || null}
-                                    status = {obj.status || 1}
+                                    cl_id = {obj.cl_id || null} // If no cl_id, default to null
+                                    status = {obj.status || 1} // If no status, default to 1
                                     missionName = {obj.mission_name}
                                     description = {obj.mission_description}
                                     iconPath = {missions[0].iconPath}

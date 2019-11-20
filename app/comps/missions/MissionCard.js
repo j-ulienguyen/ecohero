@@ -58,6 +58,8 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
         console.log("UpdateMission Done");
         await GetMissions();
     }
+
+
     // Bonus Mission Card
     if(type === "bonus"){
         cardBG = theme.darkGreen,
@@ -93,12 +95,14 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                     title={status===1?"Start Mission":"Complete"}
                     width={240} height={30} marginTop={20}
                     onPress={()=>{
-                        //navigateTo.VerifyCode();
+                        if(status === 1){
+                            StartMission();
+                        }
                         if(status === 2){
                             UpdateMission();
                         }
-                        if(status === 1){
-                            StartMission();
+                        if(status === 3){
+                            // Function
                         }
 
                     }}/>

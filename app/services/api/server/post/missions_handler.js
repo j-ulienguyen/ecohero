@@ -30,14 +30,14 @@ module.exports = {
 				} else {
 					o.status = 1;
 				}
-				
+
 				return o;
 			});
 
 			r.data = missions;
 			return r;
 		}
-		
+
 		return r;
 	},
 	missions_update:async (posts)=>{
