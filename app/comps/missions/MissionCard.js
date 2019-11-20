@@ -34,6 +34,19 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
         'expand': require('../../assets/imgs/expand-box.png')
     }
 
+
+    // Store Mission ID
+    var StoreMissionID = async(id)=>{
+        try {
+            await AsyncStorage.setItem("mission_id", JSON.stringify(id));
+            console.log("Store MissionID: ", id)
+        } catch (error){
+            console.log("Error saving data");
+        }
+        console.log("End of StoreMissionID");
+    }
+
+    // Start Mission -> Change status to 'In Progress'
     const StartMission = async()=>{
         // Get user_id from AsyncStorage
         var user_id = await AsyncStorage.getItem("user_id");
@@ -49,6 +62,7 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
         await GetMissions();
     }
 
+    // Update Mission -> Change status to 'Completed'
     const UpdateMission = async()=>{
         if(!cl_id){
             return false;
@@ -65,7 +79,17 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
     }
 
 
+    // const ReadMissionRewards = async()=>{
+    //     try {
+    //         var reward = await ax("missions_read", {id, mission_star, mission_xp});
+    //         console.log("ReadMissionRewards: ", reward)
+    //     } catch (error){
+    //         console.log("Error ReadMissionRewards");
+    //     }
 
+    //     console.log("ReadMissionRewards Done");
+    //     await GetMissions();
+    // }
 
 
     // Bonus Mission Card
@@ -86,6 +110,7 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                             // In Progress Tab
                             if(status === 2){
                                 UpdateMission();
+                                navigateTo.VerifyCode();
                             }
                         }}/>
                     />
@@ -125,6 +150,7 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                             // In Progress Tab
                             if(status === 2){
                                 UpdateMission();
+                                navigateTo.VerifyCode();
                             }
                         }}/>
                 </View>

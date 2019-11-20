@@ -36,7 +36,6 @@ export const GetStarted = ()=>{
 }
 
 export const Home = ()=>{
-    console.log("test");
     Actions.home()
 }
 

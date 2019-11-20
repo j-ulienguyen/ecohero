@@ -84,9 +84,9 @@ export default function SigninScreen(){
     }
 
     // Load once
-    useEffect(()=>{
-        GetUserID();
-    }, [])
+    // useEffect(()=>{
+    //     GetUserID();
+    // }, [])
 
 
     var signin = null;
