@@ -26,10 +26,17 @@ export default function HomeScreen(){
 
 	// Get User Data - Specific to user_id
 	const GetUserData = async()=>{
-		var user_id = await AsyncStorage.getItem("user_id");
-		var data = await ax("users_read", {id:user_id});
-		setUserData(data[0]);
+		try {
+			var user_id = await AsyncStorage.getItem("user_id");
+			var data = await ax("users_read", {id:user_id});
+			setUserData(data[0]);
+		} catch (error){
+			console.log("Error GetUserData")
+		}
 	}
+
+	// HOW TO USE
+	// ... = {userData.KEY || Default value}
 
 	// Load once
     useEffect(()=>{

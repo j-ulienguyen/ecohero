@@ -13,8 +13,10 @@ import * as navigateTo from '../../../RouteConstants';
 
 // Database & Storage
 import {ax} from '../../services/axios';
+import AsyncStorage from '@react-native-community/async-storage';
 
-export default function MissionCard({id, cl_id, status, type, iconPath, missionName, starAmount, xpAmount, description,GetMissions}){
+
+export default function MissionCard({id, cl_id, status, type, iconPath, missionName, starAmount, xpAmount, description, GetMissions}){
 
     const [showDetails, setShowDetails] = useState(false);
 
@@ -33,14 +35,16 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
     }
 
     const StartMission = async()=>{
-        // getitem userid
+        // Get user_id from AsyncStorage
+        var user_id = await AsyncStorage.getItem("user_id");
 
         try {
-            var start = await ax("completion_list_create", {mission_id:id, user_id:15, status:2});
+            var start = await ax("completion_list_create", {mission_id:id, user_id:user_id, status:2});
             console.log("Start Mission: ", start)
         } catch (error){
             console.log("Error StartMission");
         }
+
         console.log("StartMission Done");
         await GetMissions();
     }
@@ -50,32 +54,51 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
             return false;
         }
         try {
-            var start = await ax("completion_list_update", {id:cl_id, status:3});
-            console.log("Update Mission: ", start)
+            var update = await ax("completion_list_update", {id:cl_id, status:3});
+            console.log("Update Mission: ", update)
         } catch (error){
             console.log("Error UpdateMission");
         }
+
         console.log("UpdateMission Done");
         await GetMissions();
     }
 
 
+
+
+
     // Bonus Mission Card
-    if(type === "bonus"){
+    // if(type === "bonus"){
+    if(type === 2){
+        // Available + In Progress Tab will display button
+        if(status != 3){
+            missionButton = (
+                <View style={{left: -5}}>
+                    <PurpleButton
+                        title={status === 1 ? "Start Mission" : "Complete Mission"}
+                        width={240} height={30} marginTop={20}
+                        onPress={()=>{
+                            // Available Tab
+                            if(status === 1){
+                                StartMission();
+                            }
+                            // In Progress Tab
+                            if(status === 2){
+                                UpdateMission();
+                            }
+                        }}/>
+                    />
+                </View>
+            )
+        } else {
+            // Completed Tab will not display button
+            missionButton = null;
+        }
+
         cardBG = theme.darkGreen,
         textColor = theme.white,
         barBG = "#8AD560",
-        missionButton = (
-            <View style={{left: -5}}>
-                <PurpleButton
-                    title="Start Mission"
-                    width={240} height={30} marginTop={20}
-                    onPress={()=>{
-                        navigateTo.VerifyCode();
-                    }}
-                />
-            </View>
-        ),
         bonusRibbon = (
             <Image
                 style = {styles.bonusRibbon}
@@ -85,30 +108,36 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
     }
 
     // Normal Mission Card
-    if(type === "normal"){
+    // if(type === "normal"){
+    if(type === 1){
+        // Available + In Progress Tab will display button
+        if(status != 3){
+            missionButton = (
+                <View style={{left: -5}}>
+                    <GreenButton
+                        title={status === 1 ? "Start Mission" : "Complete Mission"}
+                        width={240} height={30} marginTop={20}
+                        onPress={()=>{
+                            // Available Tab
+                            if(status === 1){
+                                StartMission();
+                            }
+                            // In Progress Tab
+                            if(status === 2){
+                                UpdateMission();
+                            }
+                        }}/>
+                </View>
+            )
+        } else {
+            // Completed Tab will not display button
+            missionButton = null;
+        };
+
         cardBG = "#FAFAFA",
         textColor = theme.appBlack,
         barBG = "#DFF0D7",
-        missionButton = (
-            <View style={{left: -5}}>
-                <GreenButton
-                    title={status===1?"Start Mission":"Complete"}
-                    width={240} height={30} marginTop={20}
-                    onPress={()=>{
-                        if(status === 1){
-                            StartMission();
-                        }
-                        if(status === 2){
-                            UpdateMission();
-                        }
-                        if(status === 3){
-                            // Function
-                        }
-
-                    }}/>
-            </View>
-        ),
-        bonusRibbon = null
+        bonusRibbon = null;
     }
 
 
@@ -157,7 +186,7 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                 {/* Mission Details */}
                 <View style={styles.missionDetailContainer}>
                     {/* Mission Name */}
-                    <Text style={[styles.missionName, {color: textColor}]}>{missionName} {status}</Text>
+                    <Text style={[styles.missionName, {color: textColor}]}>{missionName}</Text>
 
                     {/* Rewards Bar - Star + XP */}
                     <RewardsBar

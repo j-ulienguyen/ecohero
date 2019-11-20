@@ -52,7 +52,7 @@ VALUES ('Donate Your Books', 'Go through your bookshelf and look for any books y
 
 INSERT INTO missions
 (mission_name, mission_description, mission_star, mission_xp, mission_month, mission_type)
-VALUES ('Let's Recycle!', 'Collect a bag of bottles and cans and bring them to the nearest recycling depot! Help recycle AND get your money back.', 2, 20, 'December', 1);
+VALUES ('Let Us Recycle!', 'Collect a bag of bottles and cans and bring them to the nearest recycling depot! Help recycle AND get your money back.', 2, 20, 'December', 1);
 
 INSERT INTO missions
 (mission_name, mission_description, mission_star, mission_xp, mission_month, mission_type)
