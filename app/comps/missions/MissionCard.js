@@ -11,8 +11,10 @@ import PurpleButton from '../PurpleButton';
 // Navigation
 import * as navigateTo from '../../../RouteConstants';
 
+// Database & Storage
+import {ax} from '../../services/axios';
 
-export default function MissionCard({type, iconPath, missionName, starAmount, xpAmount, description, setMissions}){
+export default function MissionCard({id, cl_id, status, type, iconPath, missionName, starAmount, xpAmount, description,GetMissions}){
 
     const [showDetails, setShowDetails] = useState(false);
 
@@ -30,7 +32,32 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
         'expand': require('../../assets/imgs/expand-box.png')
     }
 
+    const StartMission = async()=>{
+        // getitem userid
 
+        try {
+            var start = await ax("completion_list_create", {mission_id:id, user_id:15, status:2});
+            console.log("Start Mission: ", start)
+        } catch (error){
+            console.log("Error StartMission");
+        }
+        console.log("StartMission Done");
+        await GetMissions();
+    }
+
+    const UpdateMission = async()=>{
+        if(!cl_id){
+            return false;
+        }
+        try {
+            var start = await ax("completion_list_update", {id:cl_id, status:3});
+            console.log("Update Mission: ", start)
+        } catch (error){
+            console.log("Error UpdateMission");
+        }
+        console.log("UpdateMission Done");
+        await GetMissions();
+    }
     // Bonus Mission Card
     if(type === "bonus"){
         cardBG = theme.darkGreen,
@@ -63,10 +90,17 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
         missionButton = (
             <View style={{left: -5}}>
                 <GreenButton
-                    title="Start Mission"
+                    title={status===1?"Start Mission":"Complete"}
                     width={240} height={30} marginTop={20}
                     onPress={()=>{
-                        navigateTo.VerifyCode();
+                        //navigateTo.VerifyCode();
+                        if(status === 2){
+                            UpdateMission();
+                        }
+                        if(status === 1){
+                            StartMission();
+                        }
+
                     }}/>
             </View>
         ),
@@ -119,7 +153,7 @@ export default function MissionCard({type, iconPath, missionName, starAmount, xp
                 {/* Mission Details */}
                 <View style={styles.missionDetailContainer}>
                     {/* Mission Name */}
-                    <Text style={[styles.missionName, {color: textColor}]}>{missionName}</Text>
+                    <Text style={[styles.missionName, {color: textColor}]}>{missionName} {status}</Text>
 
                     {/* Rewards Bar - Star + XP */}
                     <RewardsBar

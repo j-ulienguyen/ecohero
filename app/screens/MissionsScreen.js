@@ -27,8 +27,31 @@ export default function MissionsScreen(){
 
     // Load all missions from db
     const GetMissions = async()=>{
-        var missions = await ax("missions_read", {});
+        //var user_id = asyncsto
+        var missions = await ax("missions_read", {user_id:15});
+
+        
         setMissions(missions);
+    }
+    
+var missions = allMissions;
+
+    if (activeTab === "Available"){
+        missions = allMissions.filter((o, i)=>{
+            return !o.status || o.status === 1;
+        });
+    }
+
+    if (activeTab === "In Progress"){
+        missions = allMissions.filter((o, i)=>{
+            return o.status && o.status === 2;
+        });
+    }
+
+    if (activeTab === "Completed"){
+        missions = allMissions.filter((o, i)=>{
+            return o.status && o.status === 3;
+        });
     }
 
     useEffect(()=>{
@@ -59,16 +82,20 @@ export default function MissionsScreen(){
                     <View style={styles.cardSection}>
                         {/* Populate with Mission Card from MissionData.js */}
                         {
-                            allMissions.map((obj, i)=>{
+                            missions.map((obj, i)=>{
                                 return <MissionCard
                                     key = {i}
                                     type = "normal"
+                                    id = {obj.id}
+                                    cl_id = {obj.cl_id || null}
+                                    status = {obj.status || 1}
                                     missionName = {obj.mission_name}
                                     description = {obj.mission_description}
                                     iconPath = {missions[0].iconPath}
                                     starAmount = {obj.mission_star}
                                     xpAmount = {obj.mission_xp}
-                                    //setMissions = {setMissions}
+
+                                    GetMissions = {GetMissions}
                                 />
                             })
                         }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import Modal from 'react-native-modal';
 
@@ -15,8 +15,26 @@ import GreenButton from '../comps/GreenButton';
 // Import data files below
 import {prizeCards} from '../data/PrizeCardData';
 
+// Database & Storage
+import {ax} from '../services/axios';
+import AsyncStorage from '@react-native-community/async-storage';
+
 
 export default function HomeScreen(){
+
+	const [username, setUsername] = useState({});
+
+	const GetUser = async()=>{
+		var user_id = await AsyncStorage.getItem("user_id");
+
+		var r = await ax("users_read", {id:user_id});
+		setUsername(r[0]);
+	}
+
+
+    useEffect(()=>{
+        GetUser();
+    }, [])
 
 	// const [toggleModal, setToggleModal] = useState(false);
 
@@ -39,6 +57,16 @@ export default function HomeScreen(){
 	// }
 
 
+	// IDK WHAT THIS IS ********TEMP IGNORE
+	// const Test = async()=>{
+	// 	var user_id = await AsyncStorage.getItem("user_id");
+	// 	console.log(user_id);
+	// 	console.log(user_id.username);
+	// }
+
+	// Test();
+
+
     // UI
     return (
 		<View style={styles.container}>
@@ -52,7 +80,7 @@ export default function HomeScreen(){
 					<ProfileCard
 						type="full"
 						avatarPath={require('../assets/imgs/can-avatar.png')}
-						username="hardcoreHenry"
+						username={username.username || ""}
 						missionAvailable={30}
 						level={5}
 						starCount={5}

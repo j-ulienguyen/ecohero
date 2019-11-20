@@ -9,15 +9,20 @@ import GreenButton from '../../comps/GreenButton';
 import * as navigateTo from '../../../RouteConstants';
 
 
-export default function SignInEntry(){
+export default function SignInEntry({LoginAccount}){
    // UI
    return (
       <View style={styles.container}>
          {/* Continue Button */}
-         <GreenButton width={309} height={43} title="Continue" marginTop={25} onPress={navigateTo.Home}/>
+         <GreenButton
+            title="Continue"
+            width={309} height={43} marginTop={25}
+            onPress={()=>{
+               LoginAccount();
+         }}/>
 
          {/* Forgot Pw Text Button */}
-         <TouchableOpacity 
+         <TouchableOpacity
 				onPress={navigateTo.ForgotPW}>
 				<Text style={styles.btmText}>Forgot Password?</Text>
 			</TouchableOpacity>

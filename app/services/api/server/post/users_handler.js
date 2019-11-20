@@ -25,5 +25,16 @@ module.exports = {
 		//write your logic here for your crud
 		//you can do var result = await crud(...); and return it if needed
 		return await crud.delete({model:'users', data:posts, returns:['*'], config:null});
+	},
+	users_auth:async (posts)=>{
+		var r = await crud.read({model:'users', data:{username:posts.username}, returns:['*'], config:null});
+		if(r.status && r.data && r.data.length > 0){
+			var match = await types.encryptCompare(posts.password, r.data[0].password);
+			if(match){
+				return r;
+			}
+		}
+		return {status:false, msg:"not authenticated"};
+
 	}
 };
