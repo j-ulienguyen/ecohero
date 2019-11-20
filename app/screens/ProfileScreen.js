@@ -48,8 +48,8 @@ export default function ProfileScreen(){
                     <ProfileCard
                         type = "compact"
                         avatarPath = {require('../assets/imgs/can-avatar.png')}
-						username = {userData.username}
-						level = {userData.level}
+						username = {userData.username || ""}
+						level = {userData.level || 1}
                     />
                 </View>
 
@@ -60,12 +60,12 @@ export default function ProfileScreen(){
                     {/* Total Stars Card */}
                     <AchievementCard
                         type = "totalStars"
-                        count = {userData.star_count}
+                        count = {userData.star_count || 0}
                     />
                     {/* Completed Missions Card */}
                     <AchievementCard
                         type = "completedMissions"
-                        count = {5}
+                        count = {userData.mission_count || 0}
                     />
                 </View>
 

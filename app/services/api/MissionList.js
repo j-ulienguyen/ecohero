@@ -73,5 +73,3 @@ VALUES ('Soapy DIY', 'Be green and make your own natural, non-toxic, environment
 INSERT INTO missions
 (mission_name, mission_description, mission_star, mission_xp, mission_month, mission_type)
 VALUES ('Picker Upper', 'Help clean up the community by cleaning up after yourself and others. Take a walk around the neighbourhood, and bring a bag with you. Pick up any plastic or garbage you see on the ground. Remember to wear gloves and be safe!', 5, 50, 'December', 2);
-
-

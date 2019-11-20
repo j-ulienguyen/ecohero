@@ -5,7 +5,7 @@ const DB = require(types.DB_PATH);
 
 module.exports = class usersDB extends DB {
   constructor(data){
-    super("users", ["id","username","password","email","star_count","first_name","last_name","level","avatar"]);
+    super("users", ["id","username","password","email","star_count","first_name","last_name","level","avatar","mission_count"]);
     this.data = data;
     this.returns = ["*"];
     this.config = {};

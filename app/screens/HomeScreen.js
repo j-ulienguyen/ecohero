@@ -73,9 +73,9 @@ export default function HomeScreen(){
 						avatarPath = {require('../assets/imgs/can-avatar.png')}
 						username = {userData.username || ""}
 						missionAvailable = {30}
-						level = {userData.level}
-						starCount = {userData.star_count}
-						missionCount = {0}
+						level = {userData.level || 1}
+						starCount = {userData.star_count || 0}
+						missionCount = {userData.mission_count || 0}
 					/>
 
 					{/* Star Prizes - Progress Bar */}
