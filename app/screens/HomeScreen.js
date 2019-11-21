@@ -36,8 +36,8 @@ export default function HomeScreen({starAmount}){
 			var mission = await ax("completion_list_read", {id:user_id, status:3});
 			setUserData(data[0]);
 
-			var stars =0;
-			var xp =0;
+			var stars = 0;
+			var xp = 0;
 			// length of mission
 			// for loop xp + stars
 

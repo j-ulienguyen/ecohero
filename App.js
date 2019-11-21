@@ -16,6 +16,8 @@ import Route from './Route';
 // export default from './storybook';
 
 export default function App(){
+	console.disableYellowBox = true; //goodbye
+
 	// UI
 	return (
 		<View style={styles.container}>
