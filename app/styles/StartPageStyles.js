@@ -47,11 +47,18 @@ var styles = StyleSheet.create({
 
    errorMsg: {
       flex:1,
-      position:"absolute",
-      top:60,
-      right:70,
-      color: theme.purple,
-   }
+      position:"absolute", 
+      top:55,
+      left:30,
+      color: "red",
+   },
+    validMsg: {
+       flex: 1,
+       position: "absolute",
+       top: 55,
+       left: 80,
+       color: theme.darkGreen
+    }
 });
 
 export default styles;

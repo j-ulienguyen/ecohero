@@ -23,7 +23,8 @@ import * as navigateTo from '../../RouteConstants';
 //             </View>
 // };
 
-export default function Code({xpAmount, starAmount, UpdateMission}) {
+
+export default function Code({xpAmount, starAmount, UpdateMission, disabled}) {
 
   console.log("Star Amount + XP: ", starAmount, xpAmount);
 
@@ -63,7 +64,6 @@ export default function Code({xpAmount, starAmount, UpdateMission}) {
 
         {/* Verify Button */}
         <View style={styles.verifyBut}>
-
           <GreenButton
             title='Verify'
             width={309} height={43}
