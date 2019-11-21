@@ -1,0 +1,21 @@
+[
+  {
+    "model":"users",
+    "cols":["id", "username", "password", "email", "star_count", "first_name", "last_name", "level", "avatar", "mission_count"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "TEXT", "TEXT", "INTEGER", "TEXT", "TEXT", "INTEGER", "TEXT", "INTEGER"],
+    "order":["id"],
+    "encrypt":["password"]
+  },
+  {
+    "model":"missions",
+    "cols":["id", "mission_name", "mission_description", "mission_star", "mission_xp", "mission_month", "mission_type", "mission_icon"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "TEXT", "INTEGER", "INTEGER", "TEXT", "INTEGER", "TEXT"],
+    "order":["id"]
+  },
+  {
+    "model":"completion_list",
+    "cols":["id", "mission_id", "user_id", "status"],
+    "colstype":["SERIAL PRIMARY KEY", "INTEGER REFERENCES missions(id) ON DELETE CASCADE", "INTEGER REFERENCES users(id) ON DELETE CASCADE", "INTEGER"],
+    "order":["id"]
+  }
+]
