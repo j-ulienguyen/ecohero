@@ -23,7 +23,7 @@ var username = "";
 var password = "";
 
 
-export default function SigninScreen(){
+export default function SigninScreen({disabled}){
 
     // Material Tabs
     const [selectedTab, setSelectedTab] = useState(0);
@@ -31,6 +31,8 @@ export default function SigninScreen(){
     // Username + Password Entry
     const [txt, setTxt] = useState("");
     const [error, setError] = useState("");
+    const [valid, setValid] = useState("");
+    const [disabled2, setDisabled2] = useState(false);
 
 
     // Store User ID
@@ -99,11 +101,11 @@ export default function SigninScreen(){
     } else if (selectedTab === 1){
         signin = (
             <SignUpEntry
-                CreateAccount = {CreateAccount}
+                CreateAccount={CreateAccount}
+                disabled2={disabled2}
             />
         )
     }
-
 
     // UI
     return (
@@ -135,9 +137,16 @@ export default function SigninScreen(){
                     />
                     <TextInput
                         placeholder = "Username"
+                        // require = ""
                         onChangeText = {(txt)=>{
                             username = txt;
                             //setTxt(txt);
+                            if (username === '' || password === ''){
+                                setDisabled2(false);
+                                // alert('empty.');
+                            } else {
+                                setDisabled2(true);
+                            }
                         }}
                     />
                 </View>
@@ -153,16 +162,24 @@ export default function SigninScreen(){
                         onChangeText = {(txt)=>{
                             password = txt;
 
-                            if (password.length < 6){
-                                setError('Your password is too short!')
+                            if (username === '' || password === '' || password.length < 6){
+                                setDisabled2(false);
+                                setError('Password must be atleast 6 characters.');
+                            } 
+                            if (password.length >= 6) {
+                                setValid('Password is good to go.');
+                                setError("");
                             } else {
-                                setError('Your password is good to go!');
+                                setDisabled2(true);
                             }
                         }}
+
                         secureTextEntry={true}
                     />
                     {/* Input Error Message */}
                     <Text style={styles.errorMsg}>{error}</Text>
+                    {/* Input Valid Message */}
+                    <Text style={styles.validMsg}>{valid}</Text>
                 </View>
             </View>
 
