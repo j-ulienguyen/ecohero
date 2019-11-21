@@ -17,6 +17,8 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 export default function RewardModal({heading, description, imagePath, starAmount, xpAmount}){
 
+    //const {starAmount, xpAmount} = navigation.state.params;
+    console.log(starAmount, xpAmount);
 
     // UI
     return (

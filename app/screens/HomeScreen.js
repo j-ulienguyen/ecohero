@@ -23,16 +23,27 @@ import AsyncStorage from '@react-native-community/async-storage';
 export default function HomeScreen(){
 
 	const [userData, setUserData] = useState({});
+	// xp
+	// star
+	// mission const
 
 	// Get User Data - Specific to user_id
 	const GetUserData = async()=>{
 		try {
 			var user_id = await AsyncStorage.getItem("user_id");
 			var data = await ax("users_read", {id:user_id});
+
+			var mission = await ax("completion_list_read", {id:user_id, status:3});
 			setUserData(data[0]);
+			var stars =0;
+			var xp =0;
+			// length of mission
+			// for loop xp + stars
+			console.log(mission)
 		} catch (error){
 			console.log("Error GetUserData")
 		}
+		console.log("getuserdata");
 	}
 
 	// HOW TO USE

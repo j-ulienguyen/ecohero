@@ -27,7 +27,9 @@ import * as navigateTo from '../../RouteConstants';
 //             </View>
 // };
 
-export default function Code() {
+export default function Code({xpAmount, starAmount}) {
+
+  console.log(starAmount, xpAmount);
   const handlerOnFulfill = useCallback(code => console.log(code), []);
   return (
 
@@ -61,7 +63,9 @@ export default function Code() {
         {/* Verify Button */}
         <View style={styles.verifyBut}>
 
-          <GreenButton title='Verify' width={309} height={43} onPress={navigateTo.RewardModal}/>
+          <GreenButton title='Verify' width={309} height={43} onPress={()=>{
+            navigateTo.RewardModal({xpAmount, starAmount})
+          }}/>
 
           {/* QR Code Redirect */}
           <TouchableOpacity onPress={navigateTo.VerifyQR}>

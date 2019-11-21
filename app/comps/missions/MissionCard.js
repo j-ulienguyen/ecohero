@@ -109,8 +109,9 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                             }
                             // In Progress Tab
                             if(status === 2){
-                                UpdateMission();
-                                navigateTo.VerifyCode();
+                                //UpdateMission();
+                                console.log(starAmount, xpAmount);
+                                navigateTo.VerifyCode({starAmount, xpAmount});
                             }
                         }}/>
                     />
@@ -149,8 +150,9 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                             }
                             // In Progress Tab
                             if(status === 2){
-                                UpdateMission();
-                                navigateTo.VerifyCode();
+                                //UpdateMission();
+                                console.log(starAmount, xpAmount);
+                                navigateTo.VerifyCode({starAmount, xpAmount});
                             }
                         }}/>
                 </View>

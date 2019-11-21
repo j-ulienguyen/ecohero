@@ -51,8 +51,9 @@ export const Profile = ()=>{
     Actions.profile()
 }
 
-export const VerifyCode = ()=>{
-    Actions.verifyCode()
+export const VerifyCode = (d)=>{
+    console.log("verify", d);
+    Actions.verifyCode(d)
 }
 
 export const VerifyQR = ()=>{
@@ -63,12 +64,13 @@ export const Back = ()=>{
     Actions.pop()
 }
 
-export const LevelupModal = ()=>{
-    Actions.levelupModal()
+export const LevelupModal = (d)=>{
+    Actions.levelupModal(d)
 }
 
-export const RewardModal = ()=>{
-    Actions.rewardModal()
+export const RewardModal = (d)=>{
+    console.log("reward",d);
+    Actions.rewardModal(d)
 }
 
 export const BadgeModal = (params)=>{

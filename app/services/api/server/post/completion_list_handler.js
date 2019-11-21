@@ -14,7 +14,16 @@ module.exports = {
 	completion_list_read:async (posts)=>{
 		//write your logic here for your crud
 		//you can do var result = await crud(...); and return it if needed
-		return await crud.read({model:'completion_list', data:posts, returns:['*'], config:null});
+		return await crud.read({model:'completion_list', data:posts, returns:['*'], config:{join:[
+			{
+				model:"missions",
+				data:[
+					{col:"mission_xp", as:"xp"},
+					{col:"mission_star", as:"stars"}
+				],
+				join_stmt:"completion_list.mission_id = missions.id"
+			}
+		]}});
 	},
 	completion_list_update:async (posts)=>{
 		//write your logic here for your crud

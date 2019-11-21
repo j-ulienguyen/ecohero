@@ -115,6 +115,7 @@ export default function MissionsScreen(){
                                     missionName = {obj.mission_name}
                                     description = {obj.mission_description}
                                     iconPath = {obj.mission_icon}
+                                    // missionIcon[obj...]
                                     starAmount = {obj.mission_star}
                                     xpAmount = {obj.mission_xp}
 
