@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 
 // Import comps below
@@ -16,17 +16,26 @@ import {friends} from '../data/FriendsData';
 export default function LeaderboardScreen() {
 	const [activeTab, setActiveTab] = useState("Weekly");
 
-	if (activeTab === "Weekly"){
-		console.log("tab1")
+    const [userData, setUserData] = useState({});
+
+	// Get User Data - Specific to user_id
+	const GetUserData = async()=>{
+		try {
+			var user_id = await AsyncStorage.getItem("user_id");
+			var data = await ax("users_read", {id:user_id});
+			setUserData(data[0]);
+		} catch (error){
+			console.log("Error GetUserData")
+		}
 	}
 
-	if (activeTab === "Monthly"){
-		console.log("tab2")
-	}
+	// HOW TO USE
+	// ... = {userData.KEY || Default value}
 
-	if (activeTab === "All-time"){
-		console.log("tab3")
-	}
+	// Load once
+    useEffect(()=>{
+        GetUserData();
+	}, [])
 
 
 	// UI
@@ -70,10 +79,10 @@ export default function LeaderboardScreen() {
 			{/* Leaderboard User Card */}
 			<View style={{position: 'absolute', bottom: 55}}>
 				<LeaderboardUser
-					username='hardcoreHenry'
+					username={userData.username}
 					iconPath={require('../assets/imgs/can-avatar.png')}
 					rankNumber={35}
-					starCount={5}
+					starCount={2}
 				/>
 			</View>
 		</View>
