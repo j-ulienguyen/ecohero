@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 
 // Import comps & styles below
@@ -14,8 +14,35 @@ import NavBar from '../comps/NavBar';
 // Import data files below
 import {badges} from '../data/BadgeData';
 
+// Database & Storage
+import {ax} from '../services/axios';
+import AsyncStorage from '@react-native-community/async-storage';
+
 
 export default function ProfileScreen(){
+
+    const [userData, setUserData] = useState({});
+
+	// Get User Data - Specific to user_id
+	const GetUserData = async()=>{
+		try {
+			var user_id = await AsyncStorage.getItem("user_id");
+			var data = await ax("users_read", {id:user_id});
+			setUserData(data[0]);
+		} catch (error){
+			console.log("Error GetUserData")
+		}
+	}
+
+	// HOW TO USE
+	// ... = {userData.KEY || Default value}
+
+	// Load once
+    useEffect(()=>{
+        GetUserData();
+	}, [])
+
+
     // UI
     return (
         <View style={styles.container}>
@@ -26,10 +53,10 @@ export default function ProfileScreen(){
                 {/* Profile Card - Compact Version */}
                 <View style={{marginTop: -150}}>
                     <ProfileCard
-                        type="compact"
-                        avatarPath={require('../assets/imgs/can-avatar.png')}
-						username="hardcoreHenry"
-						level={5}
+                        type = "compact"
+                        avatarPath = {require('../assets/imgs/can-avatar.png')}
+						username = {userData.username || ""}
+						level = {userData.level || 1}
                     />
                 </View>
 
@@ -40,12 +67,12 @@ export default function ProfileScreen(){
                     {/* Total Stars Card */}
                     <AchievementCard
                         type = "totalStars"
-                        count = {10}
+                        count = {userData.star_count || 0}
                     />
                     {/* Completed Missions Card */}
                     <AchievementCard
                         type = "completedMissions"
-                        count = {5}
+                        count = {userData.mission_count || 0}
                     />
                 </View>
 

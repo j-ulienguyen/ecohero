@@ -10,8 +10,14 @@ import theme from '../styles/ThemeStyles';
 // Navigation
 import * as navigateTo from '../../RouteConstants';
 
+// Database & Storage
+import {ax} from '../services/axios';
+import AsyncStorage from '@react-native-community/async-storage';
+
 
 export default function RewardModal({heading, description, imagePath, starAmount, xpAmount}){
+
+
     // UI
     return (
         <View style={styles.container}>

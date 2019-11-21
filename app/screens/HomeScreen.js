@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import Modal from 'react-native-modal';
 
@@ -15,8 +15,34 @@ import GreenButton from '../comps/GreenButton';
 // Import data files below
 import {prizeCards} from '../data/PrizeCardData';
 
+// Database & Storage
+import {ax} from '../services/axios';
+import AsyncStorage from '@react-native-community/async-storage';
+
 
 export default function HomeScreen(){
+
+	const [userData, setUserData] = useState({});
+
+	// Get User Data - Specific to user_id
+	const GetUserData = async()=>{
+		try {
+			var user_id = await AsyncStorage.getItem("user_id");
+			var data = await ax("users_read", {id:user_id});
+			setUserData(data[0]);
+		} catch (error){
+			console.log("Error GetUserData")
+		}
+	}
+
+	// HOW TO USE
+	// ... = {userData.KEY || Default value}
+
+	// Load once
+    useEffect(()=>{
+        GetUserData();
+	}, [])
+
 
 	// const [toggleModal, setToggleModal] = useState(false);
 
@@ -50,13 +76,13 @@ export default function HomeScreen(){
 				<View>
 					{/* Profile Card - Full Version */}
 					<ProfileCard
-						type="full"
-						avatarPath={require('../assets/imgs/can-avatar.png')}
-						username="hardcoreHenry"
-						missionAvailable={30}
-						level={5}
-						starCount={5}
-						missionCount={0}
+						type = "full"
+						avatarPath = {require('../assets/imgs/can-avatar.png')}
+						username = {userData.username || ""}
+						missionAvailable = {30}
+						level = {userData.level || 1}
+						starCount = {userData.star_count || 0}
+						missionCount = {userData.mission_count || 0}
 					/>
 
 					{/* Star Prizes - Progress Bar */}

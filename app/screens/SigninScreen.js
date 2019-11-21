@@ -15,6 +15,9 @@ import styles from '../styles/StartPageStyles';
 import {ax} from '../services/axios';
 import AsyncStorage from '@react-native-community/async-storage';
 
+// Navigation
+import * as navigateTo from '../../RouteConstants';
+
 
 var username = "";
 var password = "";
@@ -32,35 +35,68 @@ export default function SigninScreen({disabled}){
     const [disabled2, setDisabled2] = useState(false);
 
 
-    const CreateAccount = async()=>{
-        var userAccount = await ax("users_create", {username, password});
-        console.log("User ID: ", userAccount[0].id);
-
-        // Store account details
-        StoreUserID();
-        //await AsyncStorage.setItem("user_id", JSON.stringify(userAccount[0].id));
+    // Store User ID
+    var StoreUserID = async(id)=>{
+        try {
+            await AsyncStorage.setItem("user_id", JSON.stringify(id));
+            console.log("Store UserID: ", id)
+        } catch (error){
+            console.log("Error saving data");
+        }
+        console.log("End of StoreUserID");
     }
 
-
-    var StoreUserID = async()=>{
-        await AsyncStorage.setItem("user_id", userAccount.id);
-    }
-
+    // Get User ID
     var GetUserID = async()=>{
-        var getID = await AsyncStorage.getItem("user_id");
-        console.log("Get User ID: ", getID);
+        try {
+            var getID = await AsyncStorage.getItem("user_id");
+            console.log("Get UserID: ", getID);
+        } catch (error){
+            console.log("Error getting data");
+        }
+
+        console.log("End of GetUserID");
     }
 
+    // Create Account
+    const CreateAccount = async()=>{
+        try {
+            var userAccount = await ax("users_create", {username, password});
+            console.log("Create UserID: ", userAccount[0].id);
 
-    useEffect(()=>{
-        GetUserID();
-    }, [])
+            StoreUserID(userAccount[0].id);
+        } catch (error){
+            console.log("Error CreateAccount");
+        }
+        console.log("End of CreateAccount");
+    }
+
+    // Login Account
+    const LoginAccount = async()=>{
+        try {
+            var userAccount = await ax("users_auth", {username, password});
+            console.log("Auth UserID: ", userAccount[0].id);
+
+            await StoreUserID(userAccount[0].id);
+            navigateTo.Home();
+        } catch (error){
+            console.log("Error LoginAccount");
+        }
+        console.log("End of LoginAccount");
+    }
+
+    // Load once
+    // useEffect(()=>{
+    //     GetUserID();
+    // }, [])
 
 
     var signin = null;
     if (selectedTab === 0){
         signin = (
-            <SignInEntry/>
+            <SignInEntry
+                LoginAccount = {LoginAccount}
+            />
         )
     } else if (selectedTab === 1){
         signin = (
@@ -81,17 +117,16 @@ export default function SigninScreen({disabled}){
 
             <View style={styles.space}></View>
 
-            <View>
-                <MaterialTabs
-                    items={['Sign In', 'Sign Up']}
-                    selectedIndex={selectedTab}
-                    onChange={setSelectedTab}
-                    barColor="#fff"
-                    indicatorColor="#74C64D"
-                    activeTextColor="#74C64D"
-                    inactiveTextColor="#000"
-                />
-            </View>
+            {/* Sign In / Sign Up Tabs */}
+            <MaterialTabs
+                items={['Sign In', 'Sign Up']}
+                selectedIndex={selectedTab}
+                onChange={setSelectedTab}
+                barColor="#fff"
+                indicatorColor="#74C64D"
+                activeTextColor="#74C64D"
+                inactiveTextColor="#000"
+            />
 
             <View style={[styles.container, styles.whiteBg]}>
                 {/* Username Field Entry */}

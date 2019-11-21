@@ -9,10 +9,9 @@ var styles = StyleSheet.create({
     },
 
     friendsCardContainer: {
-        width: 345,
+        width: 347,
         height: 70,
         borderRadius: 10,
-        elevation:4,
 
         flexDirection: "row",
         alignItems: "center",

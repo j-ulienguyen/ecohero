@@ -1,15 +1,15 @@
 [
   {
     "model":"users",
-    "cols":["id", "username", "password", "email", "star_count", "first_name", "last_name", "level", "avatar"],
-    "colstype":["SERIAL PRIMARY KEY", "TEXT", "TEXT", "TEXT", "INTEGER", "TEXT", "TEXT", "INTEGER", "TEXT"],
+    "cols":["id", "username", "password", "email", "star_count", "first_name", "last_name", "level", "avatar", "mission_count"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "TEXT", "TEXT", "INTEGER", "TEXT", "TEXT", "INTEGER", "TEXT", "INTEGER"],
     "order":["id"],
     "encrypt":["password"]
   },
   {
     "model":"missions",
-    "cols":["id", "mission_name", "mission_description", "mission_star", "mission_xp", "mission_month", "mission_type"],
-    "colstype":["SERIAL PRIMARY KEY", "TEXT", "TEXT", "INTEGER", "INTEGER", "TEXT", "INTEGER"],
+    "cols":["id", "mission_name", "mission_description", "mission_star", "mission_xp", "mission_month", "mission_type", "mission_icon"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "TEXT", "INTEGER", "INTEGER", "TEXT", "INTEGER", "TEXT"],
     "order":["id"]
   },
   {

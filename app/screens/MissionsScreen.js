@@ -13,7 +13,7 @@ import {missions} from '../data/MissionData';
 
 // Database & Storage
 import {ax} from '../services/axios';
-// import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 
 
 export default function MissionsScreen(){
@@ -27,10 +27,39 @@ export default function MissionsScreen(){
 
     // Load all missions from db
     const GetMissions = async()=>{
-        var missions = await ax("missions_read", {});
+        // Get user_id from AsyncStorage
+        var user_id = await AsyncStorage.getItem("user_id");
+
+        var missions = await ax("missions_read", {user_id:user_id});
         setMissions(missions);
     }
 
+
+    // Reassign to new var -> Can't use const allMissions
+    var missions = allMissions;
+
+    if (activeTab === "Available"){
+        missions = allMissions.filter((obj, i)=>{
+            // Null or Status=1
+            return !obj.status || obj.status === 1;
+        });
+    }
+
+    if (activeTab === "In Progress"){
+        missions = allMissions.filter((obj, i)=>{
+            // Exists + Status=2
+            return obj.status && obj.status === 2;
+        });
+    }
+
+    if (activeTab === "Completed"){
+        missions = allMissions.filter((obj, i)=>{
+            // Exists + Status=3
+            return obj.status && obj.status === 3;
+        });
+    }
+
+    // Load once
     useEffect(()=>{
         GetMissions();
     }, [])
@@ -59,16 +88,37 @@ export default function MissionsScreen(){
                     <View style={styles.cardSection}>
                         {/* Populate with Mission Card from MissionData.js */}
                         {
-                            allMissions.map((obj, i)=>{
+                            missions.map((obj, i)=>{
+                                // Path for Mission Icons
+                                if (obj.mission_icon){
+                                    if(obj.mission_icon === "reduce"){
+                                        obj.mission_icon = require('../assets/imgs/reduce-icon.png');
+                                    }
+                                    if(obj.mission_icon === "reuse"){
+                                        obj.mission_icon = require('../assets/imgs/reuse-icon.png');
+                                    }
+                                    if(obj.mission_icon === "recycle"){
+                                        obj.mission_icon = require('../assets/imgs/recycle-icon.png');
+                                    }
+                                    if(obj.mission_icon === "eco"){
+                                        obj.mission_icon = require('../assets/imgs/eco-icon.png');
+                                    }
+                                }
+
                                 return <MissionCard
                                     key = {i}
-                                    type = "normal"
+                                    //type = "normal"
+                                    type = {obj.mission_type}
+                                    id = {obj.id}
+                                    cl_id = {obj.cl_id || null}
+                                    status = {obj.status || 1}
                                     missionName = {obj.mission_name}
                                     description = {obj.mission_description}
-                                    iconPath = {missions[0].iconPath}
+                                    iconPath = {obj.mission_icon}
                                     starAmount = {obj.mission_star}
                                     xpAmount = {obj.mission_xp}
-                                    //setMissions = {setMissions}
+
+                                    GetMissions = {GetMissions}
                                 />
                             })
                         }
