@@ -5,11 +5,11 @@ import {View, Text} from 'react-native';
 
 
 
-export default function OnboardingScreen(){
+export default function SignupScreen(){
     // UI
     return (
         <View>
-            <Text>Onboarding</Text>
+            <Text>Sign Up</Text>
         </View>
     )
 }

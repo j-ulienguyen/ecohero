@@ -62,7 +62,3 @@ typings/
 
 # next.js build output
 .next
-
-# .DS_Store files - Mac finder index 
-.DS_Store
-
