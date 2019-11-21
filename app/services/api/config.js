@@ -13,7 +13,7 @@ const config = {
   */
   db:{
     user:"postgres",
-    password:"admin",
+    password:"",
     host:"localhost",
     port:"5432",
     database:"ecohero"
