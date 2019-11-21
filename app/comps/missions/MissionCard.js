@@ -36,15 +36,15 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
 
 
     // Store Mission ID
-    var StoreMissionID = async(id)=>{
-        try {
-            await AsyncStorage.setItem("mission_id", JSON.stringify(id));
-            console.log("Store MissionID: ", id)
-        } catch (error){
-            console.log("Error saving data");
-        }
-        console.log("End of StoreMissionID");
-    }
+    // var StoreMissionID = async(id)=>{
+    //     try {
+    //         await AsyncStorage.setItem("mission_id", JSON.stringify(id));
+    //         console.log("Store MissionID: ", id)
+    //     } catch (error){
+    //         console.log("Error saving data");
+    //     }
+    //     console.log("End of StoreMissionID");
+    // }
 
     // Start Mission -> Change status to 'In Progress'
     const StartMission = async()=>{
@@ -109,11 +109,15 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                             }
                             // In Progress Tab
                             if(status === 2){
-                                UpdateMission();
-                                navigateTo.VerifyCode();
+                                console.log("Star Amount + XP: ", starAmount, xpAmount);
+                                // Pass over following values
+                                navigateTo.VerifyCode({
+                                    starAmount,
+                                    xpAmount,
+                                    UpdateMission
+                                });
                             }
                         }}/>
-                    />
                 </View>
             )
         } else {
@@ -149,8 +153,13 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                             }
                             // In Progress Tab
                             if(status === 2){
-                                UpdateMission();
-                                navigateTo.VerifyCode();
+                                console.log("Star Amount + XP: ", starAmount, xpAmount);
+                                // Pass over following values
+                                navigateTo.VerifyCode({
+                                    starAmount,
+                                    xpAmount,
+                                    UpdateMission
+                                });
                             }
                         }}/>
                 </View>

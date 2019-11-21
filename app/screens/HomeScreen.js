@@ -20,19 +20,32 @@ import {ax} from '../services/axios';
 import AsyncStorage from '@react-native-community/async-storage';
 
 
-export default function HomeScreen(){
+export default function HomeScreen({starAmount}){
 
 	const [userData, setUserData] = useState({});
+	const [userStars, setUserStars] = useState(0);
+	const [userXP, setUserXP] = useState(0);
+	// const [userMissions, setUserMissions] = useState(0);
 
 	// Get User Data - Specific to user_id
 	const GetUserData = async()=>{
 		try {
 			var user_id = await AsyncStorage.getItem("user_id");
 			var data = await ax("users_read", {id:user_id});
+
+			var mission = await ax("completion_list_read", {id:user_id, status:3});
 			setUserData(data[0]);
+
+			var stars = 0;
+			var xp = 0;
+			// length of mission
+			// for loop xp + stars
+
+			console.log(mission)
 		} catch (error){
 			console.log("Error GetUserData")
 		}
+		console.log("End of GetUserData");
 	}
 
 	// HOW TO USE
@@ -79,9 +92,9 @@ export default function HomeScreen(){
 						type = "full"
 						avatarPath = {require('../assets/imgs/can-avatar.png')}
 						username = {userData.username || ""}
-						missionAvailable = {30}
+						missionAvailable = {16}
 						level = {userData.level || 1}
-						starCount = {userData.star_count || 0}
+						starCount = {userData.star_count || starAmount}
 						missionCount = {userData.mission_count || 0}
 					/>
 
