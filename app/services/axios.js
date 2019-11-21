@@ -3,7 +3,7 @@ import axios from 'axios';
 // Change to your IP Address
 // cmd -> ipconfig
 // Terminal -> ifconfig
-const url = "http://142.232.159.68:3001/post";
+const url = "http://142.232.129.43:3001/post";
 
 export async function ax(key, data){
     var obj = {
