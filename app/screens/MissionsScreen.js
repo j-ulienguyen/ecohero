@@ -8,9 +8,6 @@ import MissionBoardCard from '../comps/missions/MissionBoardCard';
 import MissionCard from '../comps/missions/MissionCard';
 import NavBar from '../comps/NavBar';
 
-// Import data files below ***TEMPORARY***
-import {missions} from '../data/MissionData';
-
 // Database & Storage
 import {ax} from '../services/axios';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -24,6 +21,13 @@ export default function MissionsScreen(){
     // Normal Missions
     const [allMissions, setMissions] = useState([]);
 
+    // Mission Card Icons
+    const missionIcon = {
+        'reduce': require('../assets/imgs/reduce-icon.png'),
+        'reuse': require('../assets/imgs/reuse-icon.png'),
+        'recycle': require('../assets/imgs/recycle-icon.png'),
+        'eco': require('../assets/imgs/eco-icon.png')
+    }
 
     // Load all missions from db
     const GetMissions = async()=>{
@@ -86,25 +90,8 @@ export default function MissionsScreen(){
 
                     {/* Mission Card Section */}
                     <View style={styles.cardSection}>
-                        {/* Populate with Mission Card from MissionData.js */}
                         {
                             missions.map((obj, i)=>{
-                                // Path for Mission Icons
-                                if (obj.mission_icon){
-                                    if(obj.mission_icon === "reduce"){
-                                        obj.mission_icon = require('../assets/imgs/reduce-icon.png');
-                                    }
-                                    if(obj.mission_icon === "reuse"){
-                                        obj.mission_icon = require('../assets/imgs/reuse-icon.png');
-                                    }
-                                    if(obj.mission_icon === "recycle"){
-                                        obj.mission_icon = require('../assets/imgs/recycle-icon.png');
-                                    }
-                                    if(obj.mission_icon === "eco"){
-                                        obj.mission_icon = require('../assets/imgs/eco-icon.png');
-                                    }
-                                }
-
                                 return <MissionCard
                                     key = {i}
                                     //type = "normal"
@@ -114,8 +101,7 @@ export default function MissionsScreen(){
                                     status = {obj.status || 1}
                                     missionName = {obj.mission_name}
                                     description = {obj.mission_description}
-                                    iconPath = {obj.mission_icon}
-                                    // missionIcon[obj...]
+                                    iconPath = {missionIcon[obj.mission_icon]}
                                     starAmount = {obj.mission_star}
                                     xpAmount = {obj.mission_xp}
 

@@ -5,9 +5,15 @@ import AppIntroSlider from 'react-native-app-intro-slider';
 // Import comps & styles below
 import styles from '../styles/OnboardStepsStyles';
 import theme from '../styles/ThemeStyles';
+import RewardModal from '../comps/RewardModal';
 
 // Navigation
 import * as navigateTo from '../../RouteConstants';
+import { navigate } from '@reach/router';
+
+
+// Reward Star Image
+const starReward = require('../assets/imgs/star-reward.png');
 
 
 // Onboarding Steps
@@ -80,9 +86,23 @@ export default function OnboardSteps(){
             slides={onboarding}
 
             showSkipButton={true}
-            onSkip={navigateTo.Home}
-            onDone={navigateTo.RewardModal}
-
+            onSkip={()=>{
+               navigateTo.Home({
+                  // Pass over following values
+                  starAmount: 0,
+                  xpAmount: 0
+               })
+            }}
+            onDone={()=>{
+               navigateTo.RewardModal({
+                  // Pass over following values
+                  starAmount: 2,
+                  xpAmount: 20,
+                  heading: "Woo-hoo!",
+                  description: "Thank you for joining EcoHero. Please accept these rewards as a token of appreciation",
+                  imagePath: starReward
+               })
+            }}
             renderNextButton={_renderNextButton}
             renderSkipButton={_renderSkipButton}
             renderDoneButton={_renderDoneButton}

@@ -16,7 +16,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 
 export default function RewardModal({heading, description, imagePath, starAmount, xpAmount}){
-
     //const {starAmount, xpAmount} = navigation.state.params;
     console.log(starAmount, xpAmount);
 
@@ -41,7 +40,13 @@ export default function RewardModal({heading, description, imagePath, starAmount
             />
 
             {/* Redeem Button */}
-            <GreenButton title="Done" width={309} height={43} marginTop={50} onPress={navigateTo.Home}/>
+            <GreenButton
+                title="Done"
+                width={309} height={43} marginTop={50}
+                onPress={()=>{
+                    navigateTo.Home({starAmount, xpAmount})
+                }}
+            />
         </View>
     )
 }

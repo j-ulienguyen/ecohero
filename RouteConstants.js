@@ -35,8 +35,9 @@ export const GetStarted = ()=>{
     Actions.getStarted()
 }
 
-export const Home = ()=>{
-    Actions.home()
+export const Home = (d)=>{
+    console.log("Home", d)
+    Actions.home(d)
 }
 
 export const Missions = ()=>{
@@ -52,7 +53,7 @@ export const Profile = ()=>{
 }
 
 export const VerifyCode = (d)=>{
-    console.log("verify", d);
+    console.log("Verify", d);
     Actions.verifyCode(d)
 }
 
@@ -69,11 +70,11 @@ export const LevelupModal = (d)=>{
 }
 
 export const RewardModal = (d)=>{
-    console.log("reward",d);
+    console.log("Reward", d);
     Actions.rewardModal(d)
 }
 
-export const BadgeModal = (params)=>{
+export const BadgeModal = (d)=>{
     // Ability to pass props
-    Actions.badgeModal(params)
+    Actions.badgeModal(d)
 }
