@@ -19,7 +19,6 @@ export default function FriendsCard({type, rankNumber, username, starCount, icon
 		textColor = theme.appBlack,
 		starIcon = "black";
 		cardBG = require('../../assets/imgs/leaderboard-gold.png');
-		
 	}
 
 	// 2nd Silver Leaderboard Card
@@ -27,7 +26,6 @@ export default function FriendsCard({type, rankNumber, username, starCount, icon
 		textColor = theme.appBlack,
 		starIcon = "black";
 		cardBG = require('../../assets/imgs/leaderboard-silver.png');
-
 	}
 
 	// 3rd Bronze Leaderboard Card
@@ -35,7 +33,6 @@ export default function FriendsCard({type, rankNumber, username, starCount, icon
 		textColor = theme.appBlack,
 		starIcon = "black";
 		cardBG = require('../../assets/imgs/leaderboard-bronze.png');
-
 	}
 
 	// Normal Leaderboard Card
@@ -45,16 +42,14 @@ export default function FriendsCard({type, rankNumber, username, starCount, icon
 		starIcon = "yellow";
 		cardBG = null;
 		shadow = 4;
-
-
 	}
 
 	// UI
 	return (
 	<View style={styles.container}>
 		<Image
+			style = {{position:'absolute', top: 0}}
 			source = {cardBG}
-			style = {{position:'absolute'}}
 		/>
 		<View style={[styles.friendsCardContainer, {backgroundColor: barBG}, {elevation: shadow}]}>
 
