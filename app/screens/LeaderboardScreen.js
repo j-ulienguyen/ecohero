@@ -12,16 +12,30 @@ import NavBar from '../comps/NavBar';
 // Import data files below
 import {friends} from '../data/FriendsData';
 
+// Database & Storage
+import {ax} from '../services/axios';
+import AsyncStorage from '@react-native-community/async-storage';
+
 
 export default function LeaderboardScreen() {
 	const [activeTab, setActiveTab] = useState("Weekly");
 
     const [userData, setUserData] = useState({});
 
+	const avatarIcon = {
+		'jug': require('../assets/imgs/jug-avatar.png'),
+		'tote': require('../assets/imgs/tote-avatar.png'),
+		'bottle': require('../assets/imgs/bottle-avatar.png'),
+		'can': require('../assets/imgs/can-avatar.png'),
+		'paper': require('../assets/imgs/paper-avatar.png'),
+		'lunchbox': require('../assets/imgs/lunchbox-avatar.png')
+	}
+
 	// Get User Data - Specific to user_id
 	const GetUserData = async()=>{
+        var user_id = await AsyncStorage.getItem("user_id");
+
 		try {
-			var user_id = await AsyncStorage.getItem("user_id");
 			var data = await ax("users_read", {id:user_id});
 			setUserData(data[0]);
 		} catch (error){
@@ -29,12 +43,9 @@ export default function LeaderboardScreen() {
 		}
 	}
 
-	// HOW TO USE
-	// ... = {userData.KEY || Default value}
-
 	// Load once
     useEffect(()=>{
-        GetUserData();
+		GetUserData();
 	}, [])
 
 
@@ -79,10 +90,11 @@ export default function LeaderboardScreen() {
 			{/* Leaderboard User Card */}
 			<View style={{position: 'absolute', bottom: 55}}>
 				<LeaderboardUser
-					username={userData.username}
-					iconPath={require('../assets/imgs/can-avatar.png')}
-					rankNumber={35}
-					starCount={2}
+					username = {userData.username}
+					//iconPath={require('../assets/imgs/can-avatar.png')}
+					iconPath = {avatarIcon[userData.avatar]}
+					rankNumber = {35}
+					starCount = {userData.star_count}
 				/>
 			</View>
 		</View>

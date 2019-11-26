@@ -61,7 +61,12 @@ export default function SigninScreen(){
     // Create Account
     const CreateAccount = async()=>{
         try {
-            var userAccount = await ax("users_create", {username, password});
+            var userAccount = await ax("users_create", {
+                username,
+                password,
+                level:1,
+                mission_count:0,
+                star_count:0});
             console.log("Create UserID: ", userAccount[0].id);
 
             StoreUserID(userAccount[0].id);

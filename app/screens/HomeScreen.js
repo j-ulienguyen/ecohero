@@ -38,8 +38,9 @@ export default function HomeScreen({starAmount}){
 
 	// Get User Data - Specific to user_id
 	const GetUserData = async()=>{
+		var user_id = await AsyncStorage.getItem("user_id");
+
 		try {
-			var user_id = await AsyncStorage.getItem("user_id");
 			var data = await ax("users_read", {id:user_id});
 
 			var mission = await ax("completion_list_read", {id:user_id, status:3});
@@ -102,10 +103,10 @@ export default function HomeScreen({starAmount}){
 						type = "full"
 						avatarPath = {avatarIcon[userData.avatar]}
 						username = {userData.username || ""}
-						missionAvailable = {16}
-						level = {userData.level || 1}
-						starCount = {userData.star_count || starAmount}
-						missionCount = {userData.mission_count || 0}
+						missionAvailable = {15}
+						level = {userData.level}
+						starCount = {userData.star_count}
+						missionCount = {userData.mission_count}
 					/>
 
 					{/* Star Prizes - Progress Bar */}

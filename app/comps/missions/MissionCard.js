@@ -79,19 +79,6 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
     }
 
 
-    // const ReadMissionRewards = async()=>{
-    //     try {
-    //         var reward = await ax("missions_read", {id, mission_star, mission_xp});
-    //         console.log("ReadMissionRewards: ", reward)
-    //     } catch (error){
-    //         console.log("Error ReadMissionRewards");
-    //     }
-
-    //     console.log("ReadMissionRewards Done");
-    //     await GetMissions();
-    // }
-
-
     // Bonus Mission Card
     // if(type === "bonus"){
     if(type === 2){

@@ -34,8 +34,9 @@ export default function ProfileScreen(){
 
 	// Get User Data - Specific to user_id
 	const GetUserData = async()=>{
+        var user_id = await AsyncStorage.getItem("user_id");
+
 		try {
-			var user_id = await AsyncStorage.getItem("user_id");
 			var data = await ax("users_read", {id:user_id});
 			setUserData(data[0]);
 		} catch (error){
@@ -65,7 +66,7 @@ export default function ProfileScreen(){
                         type = "compact"
                         avatarPath = {avatarIcon[userData.avatar]}
 						username = {userData.username || ""}
-						level = {userData.level || 1}
+						level = {userData.level}
                     />
                 </View>
 
@@ -76,12 +77,12 @@ export default function ProfileScreen(){
                     {/* Total Stars Card */}
                     <AchievementCard
                         type = "totalStars"
-                        count = {userData.star_count || 0}
+                        count = {userData.star_count}
                     />
                     {/* Completed Missions Card */}
                     <AchievementCard
                         type = "completedMissions"
-                        count = {userData.mission_count || 0}
+                        count = {userData.mission_count}
                     />
                 </View>
 
