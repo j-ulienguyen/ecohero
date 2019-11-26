@@ -103,7 +103,6 @@ export default function SigninScreen(){
             <SignUpEntry
                 CreateAccount = {CreateAccount}
                 disabled2 = {disabled2}
-                StoreUserID = {StoreUserID}
             />
         )
     }

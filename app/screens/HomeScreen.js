@@ -27,6 +27,15 @@ export default function HomeScreen({starAmount}){
 	const [userXP, setUserXP] = useState(0);
 	// const [userMissions, setUserMissions] = useState(0);
 
+	const avatarIcon = {
+		'jug': require('../assets/imgs/jug-avatar.png'),
+		'tote': require('../assets/imgs/tote-avatar.png'),
+		'bottle': require('../assets/imgs/bottle-avatar.png'),
+		'can': require('../assets/imgs/can-avatar.png'),
+		'paper': require('../assets/imgs/paper-avatar.png'),
+		'lunchbox': require('../assets/imgs/lunchbox-avatar.png')
+	}
+
 	// Get User Data - Specific to user_id
 	const GetUserData = async()=>{
 		try {
@@ -38,6 +47,7 @@ export default function HomeScreen({starAmount}){
 
 			var stars = 0;
 			var xp = 0;
+
 			// length of mission
 			// for loop xp + stars
 
@@ -90,7 +100,7 @@ export default function HomeScreen({starAmount}){
 					{/* Profile Card - Full Version */}
 					<ProfileCard
 						type = "full"
-						avatarPath = {require('../assets/imgs/can-avatar.png')}
+						avatarPath = {avatarIcon[userData.avatar]}
 						username = {userData.username || ""}
 						missionAvailable = {16}
 						level = {userData.level || 1}
