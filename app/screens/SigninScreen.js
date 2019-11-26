@@ -23,7 +23,7 @@ var username = "";
 var password = "";
 
 
-export default function SigninScreen({disabled}){
+export default function SigninScreen(){
 
     // Material Tabs
     const [selectedTab, setSelectedTab] = useState(0);
@@ -86,9 +86,9 @@ export default function SigninScreen({disabled}){
     }
 
     // Load once
-    // useEffect(()=>{
-    //     GetUserID();
-    // }, [])
+    useEffect(()=>{
+        GetUserID();
+    }, [])
 
 
     var signin = null;
@@ -101,8 +101,9 @@ export default function SigninScreen({disabled}){
     } else if (selectedTab === 1){
         signin = (
             <SignUpEntry
-                CreateAccount={CreateAccount}
-                disabled2={disabled2}
+                CreateAccount = {CreateAccount}
+                disabled2 = {disabled2}
+                StoreUserID = {StoreUserID}
             />
         )
     }
@@ -165,7 +166,7 @@ export default function SigninScreen({disabled}){
                             if (username === '' || password === '' || password.length < 6){
                                 setDisabled2(false);
                                 setError('Password must be atleast 6 characters.');
-                            } 
+                            }
                             if (password.length >= 6) {
                                 setValid('Password is good to go.');
                                 setError("");

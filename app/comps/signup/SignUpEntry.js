@@ -9,7 +9,7 @@ import GreenButton from '../../comps/GreenButton';
 import * as navigateTo from '../../../RouteConstants';
 
 
-export default function SignUpEntry({CreateAccount, disabled2}){
+export default function SignUpEntry({CreateAccount, disabled2, StoreUserID}){
    // UI
    return (
       <View style={styles.container}>
@@ -23,7 +23,7 @@ export default function SignUpEntry({CreateAccount, disabled2}){
             onPress={async()=>{
                (disabled2)?
                (await CreateAccount(),
-               navigateTo.BasicProfile()):
+               navigateTo.BasicProfile({StoreUserID})):
                alert('Please fill out all required fields.');
             }}/>
       </View>

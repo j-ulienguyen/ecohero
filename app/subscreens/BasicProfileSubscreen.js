@@ -21,30 +21,37 @@ var email = "";
 var classroom_code = "";
 
 
-export default function BasicProfile(){
+export default function BasicProfile({StoreUserID}){
 
    const [txt, setTxt] = useState("");
 
-   // Get User ID
-   // console.log("Get user_id after click: ", user_id);
+   // Read Profile
+   const ReadProfile = async()=>{
+      var user_id = await AsyncStorage.getItem("user_id");
 
+      var userProfile = await ax("users_read", {id:user_id});
+      console.log("ReadProfile: ", userProfile);
+   }
 
    // Create Profile
    const CreateProfile = async()=>{
       var user_id = await AsyncStorage.getItem("user_id");
 
       try {
-         var userProfile = await ax("users_update", {id:user_id, first_name, last_name, email});
+         var userProfile = await ax("users_update", {id:user_id});
          console.log("CreateProfile: ", userProfile[0].id);
+
+         StoreUserID(userProfile[0].id)
      } catch (error){
          console.log("Error CreateProfile");
      }
      console.log("End of CreateProfile");
    }
 
-   // useEffect(()=>{
+   useEffect(()=>{
+      ReadProfile();
+   }, [])
 
-   // }, [])
 
    return (
       <View style={styles.whiteBg}>
