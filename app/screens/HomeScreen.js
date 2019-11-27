@@ -20,12 +20,9 @@ import {ax} from '../services/axios';
 import AsyncStorage from '@react-native-community/async-storage';
 
 
-export default function HomeScreen({starAmount}){
+export default function HomeScreen(){
 
 	const [userData, setUserData] = useState({});
-	const [userStars, setUserStars] = useState(0);
-	const [userXP, setUserXP] = useState(0);
-	// const [userMissions, setUserMissions] = useState(0);
 
 	const avatarIcon = {
 		'jug': require('../assets/imgs/jug-avatar.png'),
@@ -39,43 +36,81 @@ export default function HomeScreen({starAmount}){
 	// Get User Data - Specific to user_id
 	const GetUserData = async()=>{
 		var user_id = await AsyncStorage.getItem("user_id");
+		user_id = parseInt(user_id);
+
+		var availableMissions;
 
 		try {
-			var data = await ax("users_read", {id:user_id});
+			var user = await ax("users_read", {id:user_id});
 
-			var mission = await ax("completion_list_read", {user_id:user_id, status:[3,4]});
+			var missions = await ax("missions_read", {user_id:user_id});
 
+			// Filter all missions to only get active bonus and normal missions
+			// Type > 0 will ignore missions in the table that is mission_type=-1
+			availableMissions = missions.filter((obj, i)=>{
+				return obj.mission_type >= 0;
+			});
+
+			// Store length of available missions at the start
+			availableMissions = availableMissions.length;
+
+			// Read table from following data
+			// Status = 3 -> Completed Missions
+			// Status = 4 -> Onboarding Reward Mission (mission_id: 39)
+			var completedMissions = await ax("completion_list_read", {user_id:user_id, status:[3,4]});
+
+			// Init starting values
 			var stars = 0;
 			var xp = 0;
 
-			// length of mission
-			// for loop xp + stars
-			for(i=0; i < mission.length; i++){
-				stars += mission[i].stars || 0;
-				xp += mission[i].xp || 0;
+			// Loop through list of completed missions
+			// Add up star + xp amount
+			for(i = 0; i < completedMissions.length; i++){
+				stars += completedMissions[i].stars || 0;
+				xp += completedMissions[i].xp || 0;
 			}
 
-			data[0].stars = stars;
-			data[0].xp = xp;
+			// Set the amount for the user
+			// Current amount of stars + xp
+			user[0].star_count = stars;
+			user[0].xp_amount = xp;
 
-			ecomission = mission.filter((obj, i)=>{
+			// Filter through the completed missions to reference only those with status=3
+			// This will ignore counting the Onboarding Reward mission
+			completedMissions = completedMissions.filter((obj, i)=>{
 				return obj.status === 3;
 			});
 
-			data[0].mission_count = ecomission.length || 0;
+			// Store length of completed missions
+			completedMissions = completedMissions.length;
 
-			console.log("Home mission");
-			console.log(mission)
+			// Set the amount for the user
+			// Current amount of completed missions and available missions
+			user[0].mission_count = completedMissions || 0;
+			user[0].mission_available = availableMissions - completedMissions;
 
-			setUserData(data[0]);
+
+			// Show the current amount of XP user has
+			// console.log("Current User XP: ", user[0].xp);
+
+			// Show the amount of available missions
+			// console.log("# of Available Missions: ", availableMissions);
+
+			// Show list of completed missions
+			// console.log("List of Completed Missions: ", completedMissions);
+			// console.log("# of Completed Missions: ", completedMissions);
+
+			// Show current amount of available missions for the user
+			// console.log("Current # of Available Missions: ", user[0].mission_available);
+
+
+			// Set User Data
+			setUserData(user[0]);
 		} catch (error){
 			console.log("Error GetUserData")
 		}
-		console.log("End of GetUserData");
+		// console.log("End of GetUserData");
 	}
-
-	// HOW TO USE
-	// ... = {userData.KEY || Default value}
 
 	// Load once
     useEffect(()=>{
@@ -118,9 +153,9 @@ export default function HomeScreen({starAmount}){
 						type = "full"
 						avatarPath = {avatarIcon[userData.avatar]}
 						username = {userData.username || ""}
-						missionAvailable = {15}
+						missionAvailable = {userData.mission_available}
 						level = {userData.level}
-						starCount = {userData.stars || 0}
+						starCount = {userData.star_count || 0}
 						missionCount = {userData.mission_count}
 					/>
 

@@ -30,7 +30,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 export default function Code({xpAmount, starAmount, UpdateMission, disabled}) {
 
-  console.log("Star Amount + XP: ", starAmount, xpAmount);
+  //console.log("Star Amount + XP: ", starAmount, xpAmount);
 
   const handlerOnFulfill = useCallback(code => console.log(code), []);
 
