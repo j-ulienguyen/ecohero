@@ -8,6 +8,8 @@ import RewardModal from './app/comps/RewardModal';
 import Code from './app/subscreens/Verification_4Digit'
 import QRCode from './app/subscreens/Verification_QR'
 
+import GetStarted from './app/comps/onboard/GetStarted';
+
 
 // Navigation
 import Route from './Route';
@@ -22,6 +24,7 @@ export default function App(){
 	return (
 		<View style={styles.container}>
 			<Route/>
+			{/* <GetStarted /> */}
 
 			{/* <RewardModal
 				heading = "Heading"
