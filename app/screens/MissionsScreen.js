@@ -35,17 +35,29 @@ export default function MissionsScreen(){
         var user_id = await AsyncStorage.getItem("user_id");
 
         var missions = await ax("missions_read", {user_id:user_id});
+        // var missions = await ax("missions_read", {user_id:user_id active: 1});
+        // Relates to bonus mission
+
+        console.log("missions", missions);
         setMissions(missions);
     }
 
 
     // Reassign to new var -> Can't use const allMissions
+    // var missions = allMissions.filter((obj, i)=>{
+    //     return obj.mission_type === 1;
+    // });
+
     var missions = allMissions;
+
+    var bonus = allMissions.filter((obj, i)=>{
+        return obj.mission_type === 2;
+    })
 
     if (activeTab === "Available"){
         missions = allMissions.filter((obj, i)=>{
             // Null or Status=1
-            return !obj.status || obj.status === 1;
+            return (!obj.status || obj.status === 1) && obj.mission_type >= 0;
         });
     }
 
@@ -62,6 +74,12 @@ export default function MissionsScreen(){
             return obj.status && obj.status === 3;
         });
     }
+
+    // Filter again to only show type 1
+    missions = missions.filter((obj, i)=>{
+        return obj.mission_type === 1;
+    });
+
 
     // Load once
     useEffect(()=>{
@@ -90,6 +108,25 @@ export default function MissionsScreen(){
 
                     {/* Mission Card Section */}
                     <View style={styles.cardSection}>
+                    {/* Map out bonus here */}
+                        {
+                            bonus.map((obj, i)=>{
+                                return <MissionCard
+                                    key = {i}
+                                    type = {obj.mission_type}
+                                    id = {obj.id}
+                                    cl_id = {obj.cl_id || null}
+                                    status = {obj.status || 1}
+                                    missionName = {obj.mission_name}
+                                    description = {obj.mission_description}
+                                    iconPath = {missionIcon[obj.mission_icon]}
+                                    starAmount = {obj.mission_star}
+                                    xpAmount = {obj.mission_xp}
+
+                                    GetMissions = {GetMissions}
+                                />
+                            })
+                        }
                         {
                             missions.map((obj, i)=>{
                                 return <MissionCard

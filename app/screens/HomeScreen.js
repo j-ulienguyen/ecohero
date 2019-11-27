@@ -43,16 +43,31 @@ export default function HomeScreen({starAmount}){
 		try {
 			var data = await ax("users_read", {id:user_id});
 
-			var mission = await ax("completion_list_read", {id:user_id, status:3});
-			setUserData(data[0]);
+			var mission = await ax("completion_list_read", {user_id:user_id, status:[3,4]});
 
 			var stars = 0;
 			var xp = 0;
 
 			// length of mission
 			// for loop xp + stars
+			for(i=0; i < mission.length; i++){
+				stars += mission[i].stars || 0;
+				xp += mission[i].xp || 0;
+			}
 
+			data[0].stars = stars;
+			data[0].xp = xp;
+
+			ecomission = mission.filter((obj, i)=>{
+				return obj.status === 3;
+			});
+
+			data[0].mission_count = ecomission.length || 0;
+
+			console.log("Home mission");
 			console.log(mission)
+
+			setUserData(data[0]);
 		} catch (error){
 			console.log("Error GetUserData")
 		}
@@ -105,7 +120,7 @@ export default function HomeScreen({starAmount}){
 						username = {userData.username || ""}
 						missionAvailable = {15}
 						level = {userData.level}
-						starCount = {userData.star_count}
+						starCount = {userData.stars || 0}
 						missionCount = {userData.mission_count}
 					/>
 
