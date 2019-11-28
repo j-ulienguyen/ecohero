@@ -46,9 +46,10 @@ export default function OnboardSteps(){
 
    const DoneOnboard = async()=>{
       var user_id = await AsyncStorage.getItem("user_id");
+      user_id = parseInt(user_id);
 
-      // Onboarding Reward Mission
-      var resp = await ax("completion_list_create", {mission_id:39, user_id:user_id, status:4})
+      // Onboarding Reward Mission (id:1)
+      var resp = await ax("completion_list_create", {mission_id:1, user_id:user_id, status:4})
       console.log("DoneOnboard: ", resp);
    }
 

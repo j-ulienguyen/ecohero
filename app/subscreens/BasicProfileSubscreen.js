@@ -34,7 +34,7 @@ export default function BasicProfile(){
       user_id = parseInt(user_id);
 
       try {
-         var userProfile = await ax("users_update", {id:user_id, first_name:first_name, last_name:last_name, email:email});
+         var userProfile = await ax("users_update", {id:user_id, first_name:first_name, last_name:last_name, email:email, classroom_code:classroom_code});
          console.log("UpdateProfile: ", userProfile);
       } catch (error){
          console.log("Error UpdateProfile");

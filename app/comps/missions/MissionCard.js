@@ -52,7 +52,7 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
             console.log("Error StartMission");
         }
 
-        console.log("StartMission Done");
+        // console.log("StartMission Done");
         await GetMissions();
     }
 
@@ -70,7 +70,7 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
             console.log("Error UpdateMission");
         }
 
-        console.log("UpdateMission Done");
+        // console.log("UpdateMission Done");
         await GetMissions();
     }
 

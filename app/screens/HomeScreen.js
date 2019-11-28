@@ -22,8 +22,15 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 export default function HomeScreen(){
 
+	// User Data
 	const [userData, setUserData] = useState({});
 
+	// Level Up Modal
+	const [toggleModal, setToggleModal] = useState(false);
+
+
+	// Avatar Icons
+	// avatarIcon['name']
 	const avatarIcon = {
 		'jug': require('../assets/imgs/jug-avatar.png'),
 		'tote': require('../assets/imgs/tote-avatar.png'),
@@ -57,7 +64,7 @@ export default function HomeScreen(){
 
 			// Read table from following data
 			// Status = 3 -> Completed Missions
-			// Status = 4 -> Onboarding Reward Mission (mission_id: 39)
+			// Status = 4 -> Onboarding Reward Mission (mission_id: 1)
 			var completedMissions = await ax("completion_list_read", {user_id:user_id, status:[3,4]});
 
 			// Init starting values
@@ -90,10 +97,6 @@ export default function HomeScreen(){
 			user[0].mission_count = completedMissions || 0;
 			user[0].mission_available = availableMissions - completedMissions;
 
-
-			// Show the current amount of XP user has
-			// console.log("Current User XP: ", user[0].xp);
-
 			// Show the amount of available missions
 			// console.log("# of Available Missions: ", availableMissions);
 
@@ -115,13 +118,17 @@ export default function HomeScreen(){
 
 	// Load once
     useEffect(()=>{
-        GetUserData();
+		GetUserData();
 	}, [])
 
 
+	var username = userData.username;
+	var userAvatar = userData.avatar;
 	var userStarCount = userData.star_count;
 	var userMissionCount = userData.mission_count;
+	var userMissionAvailable = userData.mission_available;
 	var userLevel = userData.level;
+	var userXP = userData.xp_amount;
 
 
 	// Update User Data
@@ -130,7 +137,7 @@ export default function HomeScreen(){
 		user_id = parseInt(user_id);
 
 		try {
-			var user_data = await ax("users_update", {id: user_id, star_count:userStarCount, mission_count:userMissionCount});
+			var user_data = await ax("users_update", {id: user_id, star_count:userStarCount, mission_count:userMissionCount, xp_amount:userXP, level:userLevel});
 
 			console.log("UpdateUserData: ", user_data);
 		} catch (error){
@@ -147,7 +154,8 @@ export default function HomeScreen(){
 	// User will unlock prizes if they reach the required star amount
 	// Star Prizes has max star amount of 20
 
-	var prizeStatus; // Init var to be used later inside prizeCards.map
+	// Init vars
+	var prizeStatus; // To be used later inside prizeCards.map
 	var progressText;
 	var congratsText;
 
@@ -163,29 +171,28 @@ export default function HomeScreen(){
 		if (userStarCount < 5){
 			prizeName = "Bronze Prize";
 			prizeStarCount = 5;
-			starRemainder = (prizeStarCount - userStarCount) + ' stars';
 		}
 
 		// Silver Prize Card - Star Req: 10
 		else if (userStarCount < 10){
 			prizeName = "Silver Prize";
 			prizeStarCount = 10;
-			starRemainder = (prizeStarCount - userStarCount) + ' stars';
 		}
 
 		// Gold Prize Card - Star Req: 20
 		else if (userStarCount < 20){
 			prizeName = "Gold Prize";
 			prizeStarCount = 20;
-			starRemainder = (prizeStarCount - userStarCount) + ' stars';
-
 		}
 
+		// Calculate stars remaining to reach next prize
+		starRemainder = (prizeStarCount - userStarCount) + ' stars';
+		// console.log("Star Remainder: ", starRemainder);
+
+		// Set progress text
 		var progressText = (
 			<Text>You’re <Text style={styles.boldText}>{starRemainder}</Text> away from unlocking the {prizeName}!</Text>
 		);
-
-		// console.log("Star Remainder: ", starRemainder);
 	}
 
 	// User has 20+ stars
@@ -196,6 +203,81 @@ export default function HomeScreen(){
 			<Text>You’ve unlocked all of the prizes. <Text style={styles.boldText}>Congratulations!</Text></Text>
 		);
 	}
+
+
+	// User Level Up
+	// Level 1: 0
+	// Level 2: 50
+	// Level 3: 150
+	// Level 4: 250
+	// Level 5: 350
+	// Level 6: 450
+
+	console.log("Current XP: ", userXP);
+
+
+	// function UserLevelUp(currentXP){
+	// 	var xp_required = [0, 50, 150, 250, 350, 450]; // Level: 1, 2, 3, 4, 5, 6
+	// 	var maxLevel = xp_required.length;
+
+	// 	for(var level = 0; level < maxLevel; level++){
+	// 		if (xp_required[level] > currentXP){
+	// 			return level;
+	// 		}
+	// 	}
+
+	// 	return maxLevel;
+	// }
+
+	//UserLevelUp(userXP);
+
+
+	function GetUserLevel(currentXP, currentLevel){
+		// This is the amount of XP required for each level
+		// Level:XP
+		var xp_required = {
+			1: 0,
+			2: 50,
+			3: 150,
+			4: 250,
+			5: 350,
+			6: 450
+		}
+
+		// Loop through to determine user's current level
+		for (var level in xp_required){
+			if (currentXP >= xp_required[level]){
+				currentLevel = level;
+				console.log("Current Level: ", currentLevel);
+			}
+		}
+	}
+
+	GetUserLevel(userXP, userLevel);
+
+
+	// if (userXP == 50){
+	// 	userLevel = 2;
+	// }
+
+	// else if (userXP == 150){
+	// 	userLevel = 3;
+	// }
+
+	// else if (userXP == 250){
+	// 	userLevel = 4
+	// }
+
+	// else if (userXP == 350){
+	// 	userLevel = 5
+	// }
+
+	// else if (userXP == 450){
+	// 	userLevel = 6
+	// }
+
+	//setToggleModal(true);
+
 
 
     // UI
@@ -210,12 +292,12 @@ export default function HomeScreen(){
 					{/* Profile Card - Full Version */}
 					<ProfileCard
 						type = "full"
-						avatarPath = {avatarIcon[userData.avatar]}
-						username = {userData.username || ""}
-						missionAvailable = {userData.mission_available}
-						level = {userData.level}
-						starCount = {userData.star_count || 0}
-						missionCount = {userData.mission_count}
+						avatarPath = {avatarIcon[userAvatar]}
+						username = {username || ""}
+						missionAvailable = {userMissionAvailable}
+						level = {userLevel}
+						starCount = {userStarCount || 0}
+						missionCount = {userMissionCount}
 					/>
 
 					{/* Star Prizes - Progress Bar */}
@@ -260,12 +342,19 @@ export default function HomeScreen(){
 						}
 					</View>
 				</View>
-
-
 			</ScrollView>
 
 			{/* Level Up Modal */}
-			{/* {levelupModal} */}
+			<Modal isVisible={toggleModal}>
+				<LevelUpModal
+					level = {userLevel}
+					onPress = {()=>{
+						setToggleModal(false); // Close modal
+						userXP = userXP + 1;
+					}}
+				/>
+			</Modal>
+
 
 			{/* Navigation Bar */}
 			<NavBar currentScreen="HomeScreen"/>

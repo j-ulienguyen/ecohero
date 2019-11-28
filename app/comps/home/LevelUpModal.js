@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
-import Modal from 'react-native-modal';
+//import Modal from 'react-native-modal';
 
 // Import comps & styles below
 import styles from '../../styles/LevelUpModalStyles';
@@ -12,7 +12,7 @@ export default function LevelUpModal({level, onPress}){
 
 	// UI
 	return (
-		<Modal isVisible={toggleModal}>
+		//<Modal isVisible={toggleModal}>
 			<View style={styles.container}>
 				{/* Screen Overlay - Semi Transparent */}
 				{/* <ScreenOverlay/> */}
@@ -35,6 +35,6 @@ export default function LevelUpModal({level, onPress}){
 					<GreenButton title="Done" width={174} height={43} marginTop={50} onPress={onPress}/>
 				</View>
 			</View>
-		</Modal>
+		//</Modal>
 	)
 }
