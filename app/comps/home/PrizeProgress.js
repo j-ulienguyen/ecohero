@@ -15,7 +15,6 @@ export default function PrizeProgress({starRemainder, prizeName, progressText, c
 
             {/* Star Progress Bar */}
             <View style={styles.progressBar}>
-                {/* TBD - Figure out how to animate the progress bar following tutorial */}
 
                 {/* Progress Bar Checkpoints */}
                 <View style={styles.checkpointContainer}>

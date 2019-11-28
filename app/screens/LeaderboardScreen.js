@@ -33,11 +33,32 @@ export default function LeaderboardScreen() {
 
 	// Get User Data - Specific to user_id
 	const GetUserData = async()=>{
-        var user_id = await AsyncStorage.getItem("user_id");
+		var user_id = await AsyncStorage.getItem("user_id");
+		user_id = parseInt(user_id);
 
 		try {
-			var data = await ax("users_read", {id:user_id});
-			setUserData(data[0]);
+			var user = await ax("users_read", {id:user_id});
+
+			// Read table from following data
+			// Status = 3 -> Completed Missions
+			// Status = 4 -> Onboarding Reward Mission (mission_id: 39)
+			var completedMissions = await ax("completion_list_read", {user_id:user_id, status:[3,4]});
+
+			// Init starting values
+			var stars = 0;
+
+			// Loop through list of completed missions
+			// Add up star amount
+			for(i = 0; i < completedMissions.length; i++){
+				stars += completedMissions[i].stars || 0;
+			}
+
+			// Set the amount for the user
+			// Current amount of stars
+			user[0].star_count = stars;
+
+			// Set User Data
+			setUserData(user[0]);
 		} catch (error){
 			console.log("Error GetUserData")
 		}
@@ -91,7 +112,6 @@ export default function LeaderboardScreen() {
 			<View style={{position: 'absolute', bottom: 55}}>
 				<LeaderboardUser
 					username = {userData.username}
-					//iconPath={require('../assets/imgs/can-avatar.png')}
 					iconPath = {avatarIcon[userData.avatar]}
 					rankNumber = {35}
 					starCount = {userData.star_count}
