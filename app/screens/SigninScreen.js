@@ -34,6 +34,10 @@ export default function SigninScreen(){
     const [valid, setValid] = useState("");
     const [disabled2, setDisabled2] = useState(false);
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // Store User ID
     var StoreUserID = async(id)=>{
@@ -41,9 +45,9 @@ export default function SigninScreen(){
             await AsyncStorage.setItem("user_id", JSON.stringify(id));
             console.log("Store UserID: ", id)
         } catch (error){
-            console.log("Error saving data");
+            console.log("Error saving data", error.message);
         }
-        console.log("End of StoreUserID");
+        // console.log("End of StoreUserID");
     }
 
     // Get User ID
@@ -52,11 +56,16 @@ export default function SigninScreen(){
             var getID = await AsyncStorage.getItem("user_id");
             console.log("Get UserID: ", getID);
         } catch (error){
-            console.log("Error getting data");
+            console.log("Error getting data", error.message);
         }
 
-        console.log("End of GetUserID");
+        // console.log("End of GetUserID");
     }
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // Create Account
     const CreateAccount = async()=>{
@@ -71,10 +80,15 @@ export default function SigninScreen(){
 
             StoreUserID(userAccount[0].id);
         } catch (error){
-            console.log("Error CreateAccount");
+            console.log("Error CreateAccount", error.message);
         }
-        console.log("End of CreateAccount");
+        // console.log("End of CreateAccount");
     }
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // Login Account
     const LoginAccount = async()=>{
@@ -85,16 +99,25 @@ export default function SigninScreen(){
             await StoreUserID(userAccount[0].id);
             navigateTo.Home();
         } catch (error){
-            console.log("Error LoginAccount");
+            console.log("Error LoginAccount", error.message);
         }
         console.log("End of LoginAccount");
     }
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // Load once
     useEffect(()=>{
         GetUserID();
     }, [])
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     var signin = null;
     if (selectedTab === 0){
@@ -111,6 +134,11 @@ export default function SigninScreen(){
             />
         )
     }
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // UI
     return (

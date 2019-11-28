@@ -35,16 +35,21 @@ export default function ProfileScreen(){
 	}
 
 	// Get User Data - Specific to user_id
-	const GetUserData = async()=>{
+    const GetUserData = async()=>{
 		var user_id = await AsyncStorage.getItem("user_id");
 		user_id = parseInt(user_id);
 
 		try {
 			var user = await ax("users_read", {id:user_id});
 
+            /*
+             *****************************************************************
+             *****************************************************************
+            */
+
 			// Read table from following data
 			// Status = 3 -> Completed Missions
-			// Status = 4 -> Onboarding Reward Mission (mission_id: 39)
+			// Status = 4 -> Onboarding Reward Mission (mission_id: 1)
 			var completedMissions = await ax("completion_list_read", {user_id:user_id, status:[3,4]});
 
 			// Init starting values
@@ -69,26 +74,82 @@ export default function ProfileScreen(){
 				return obj.status === 3;
 			});
 
-            // Store length of completed missions
-            completedMissions = completedMissions.length;
+			// Store length of completed missions
+			completedMissions = completedMissions.length;
 
 			// Set the amount for the user
-			// Current amount of completed missions
+			// Current amount of completed missions and available missions
 			user[0].mission_count = completedMissions || 0;
 
-            // Set User Data
+            /*
+             *****************************************************************
+             *****************************************************************
+            */
+
+			// User Level Up
+			// This is the amount of XP required for each level -> Level:XP
+			var xp_required = {
+				1: 0,
+				2: 50,
+				3: 150,
+				4: 250,
+				5: 350,
+				6: 450
+			}
+
+			var currentLevel;
+
+			// Loop through to determine user's current level
+			for (var level in xp_required){
+				if (user[0].xp_amount >= xp_required[level]){
+					currentLevel = parseInt(level);
+					console.log("Loop -> Current Level: ", currentLevel);
+				}
+			}
+
+			// Set user level
+			user[0].level = currentLevel;
+
+            /*
+             *****************************************************************
+             *****************************************************************
+            */
+
+			// Set User Data
 			setUserData(user[0]);
 		} catch (error){
-			console.log("Error GetUserData")
+			console.log("Error GetUserData", error.message);
 		}
 		// console.log("End of GetUserData");
 	}
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
+
+    // Reassign vars
+	var userName = userData.username;
+	var userAvatar = userData.avatar;
+	var userStarCount = userData.star_count;
+	var userMissionCount = userData.mission_count;
+	var userLevel = userData.level;
+	var userXP = userData.xp_amount;
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
 	// Load once
     useEffect(()=>{
         GetUserData();
 	}, [])
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // UI
     return (
@@ -101,9 +162,9 @@ export default function ProfileScreen(){
                 <View style={{marginTop: -150}}>
                     <ProfileCard
                         type = "compact"
-                        avatarPath = {avatarIcon[userData.avatar]}
-						username = {userData.username || ""}
-						level = {userData.level}
+                        avatarPath = {avatarIcon[userAvatar]}
+						username = {userName || ""}
+						level = {userLevel}
                     />
                 </View>
 
@@ -114,12 +175,12 @@ export default function ProfileScreen(){
                     {/* Total Stars Card */}
                     <AchievementCard
                         type = "totalStars"
-                        count = {userData.star_count}
+                        count = {userStarCount}
                     />
                     {/* Completed Missions Card */}
                     <AchievementCard
                         type = "completedMissions"
-                        count = {userData.mission_count}
+                        count = {userMissionCount}
                     />
                 </View>
 

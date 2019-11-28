@@ -30,6 +30,11 @@ export default function MissionsScreen(){
         'eco': require('../assets/imgs/eco-icon.png')
     }
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
+
     // Load all missions from db
     const GetMissions = async()=>{
         var user_id = await AsyncStorage.getItem("user_id");
@@ -44,6 +49,10 @@ export default function MissionsScreen(){
         setMissions(missions);
     }
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // Mission_type = 1 -> Normal
     // Mission_type = 2 -> Bonus
@@ -95,12 +104,20 @@ export default function MissionsScreen(){
         return obj.mission_type === 1;
     });
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // Load once
     useEffect(()=>{
         GetMissions();
     }, [])
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // UI
     return (

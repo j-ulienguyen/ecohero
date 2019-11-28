@@ -28,7 +28,6 @@ export default function HomeScreen(){
 	// Level Up Modal
 	const [toggleModal, setToggleModal] = useState(false);
 
-
 	// Avatar Icons
 	// avatarIcon['name']
 	const avatarIcon = {
@@ -49,6 +48,11 @@ export default function HomeScreen(){
 		try {
 			var user = await ax("users_read", {id:user_id});
 			var missions = await ax("missions_read", {user_id:user_id});
+
+            /*
+             *****************************************************************
+             *****************************************************************
+            */
 
 			var availableMissions;
 			// Filter all missions to only get active bonus and normal missions
@@ -95,6 +99,7 @@ export default function HomeScreen(){
 			user[0].mission_count = completedMissions || 0;
 			user[0].mission_available = availableMissions - completedMissions;
 
+
 			// Show the amount of available missions
 			// console.log("# of Available Missions: ", availableMissions);
 
@@ -105,6 +110,10 @@ export default function HomeScreen(){
 			// Show current amount of available missions for the user
 			// console.log("Current # of Available Missions: ", user[0].mission_available);
 
+            /*
+             *****************************************************************
+             *****************************************************************
+            */
 
 			// User Level Up
 			// This is the amount of XP required for each level -> Level:XP
@@ -122,7 +131,7 @@ export default function HomeScreen(){
 			// Loop through to determine user's current level
 			for (var level in xp_required){
 				if (user[0].xp_amount >= xp_required[level]){
-					currentLevel = level;
+					currentLevel = parseInt(level);
 					console.log("Loop -> Current Level: ", currentLevel);
 				}
 			}
@@ -132,6 +141,19 @@ export default function HomeScreen(){
 			console.log("User Level: ", user[0].level);
 			console.log("Current XP: ", user[0].xp_amount);
 
+			// Toggle Level Up Modal
+			// When userXP reaches required XP needed to level up
+			if (user[0].xp_amount == 120){
+				setToggleModal(true);
+				user[0].xp_amount = user[0].xp_amount + 5;
+			} else {
+				setToggleModal(false);
+			}
+
+            /*
+             *****************************************************************
+             *****************************************************************
+            */
 
 			// Set User Data
 			setUserData(user[0]);
@@ -141,8 +163,13 @@ export default function HomeScreen(){
 		// console.log("End of GetUserData");
 	}
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
-	var username = userData.username;
+	// Reassign vars
+	var userName = userData.username;
 	var userAvatar = userData.avatar;
 	var userStarCount = userData.star_count;
 	var userMissionCount = userData.mission_count;
@@ -150,6 +177,10 @@ export default function HomeScreen(){
 	var userLevel = userData.level;
 	var userXP = userData.xp_amount;
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
 	// Update User Data
 	const UpdateUserData = async()=>{
@@ -166,38 +197,10 @@ export default function HomeScreen(){
 		// console.log("End of UpdateUserData");
 	}
 
-
-
-	// // User Level Up
-	// function GetUserLevel(currentXP, currentLevel){
-	// 	// This is the amount of XP required for each level -> Level:XP
-	// 	var xp_required = {
-	// 		1: 0,
-	// 		2: 50,
-	// 		3: 150,
-	// 		4: 250,
-	// 		5: 350,
-	// 		6: 450
-	// 	}
-
-	// 	// Loop through to determine user's current level
-	// 	for (var level in xp_required){
-	// 		if (currentXP >= xp_required[level]){
-	// 			currentLevel = level;
-	// 			console.log("Loop -> Current Level: ", currentLevel);
-	// 		}
-	// 	}
-
-	// 	// Set user level
-	// 	// userLevel was stated outside of function -> userData.level
-	// 	userLevel = currentLevel;
-	// 	console.log("User Level: ", userLevel);
-	// 	console.log("Current XP: ", userXP);
-	// }
-
-	// GetUserLevel(userXP, userLevel);
-
-
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
 	// User Star Count and Prize Cards
 	// User will unlock prizes if they reach the required star amount
@@ -253,16 +256,23 @@ export default function HomeScreen(){
 		);
 	}
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
 	// Load once
     useEffect(()=>{
 		GetUserData();
 	}, [])
 
-
 	// Call function to update user data inside db
 	UpdateUserData();
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // UI
     return (
@@ -277,7 +287,7 @@ export default function HomeScreen(){
 					<ProfileCard
 						type = "full"
 						avatarPath = {avatarIcon[userAvatar]}
-						username = {username || ""}
+						username = {userName || ""}
 						missionAvailable = {userMissionAvailable}
 						level = {userLevel}
 						starCount = {userStarCount || 0}

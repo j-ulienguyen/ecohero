@@ -34,6 +34,10 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
         'expand': require('../../assets/imgs/expand-box.png')
     }
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+    */
 
     // Status = 1 -> Available
     // Status = 2 -> In Progress
@@ -49,7 +53,7 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
             var start = await ax("completion_list_create", {mission_id:id, user_id:user_id, status:2});
             console.log("Start Mission: ", start)
         } catch (error){
-            console.log("Error StartMission");
+            console.log("Error StartMission", error.message);
         }
 
         // console.log("StartMission Done");
@@ -67,13 +71,17 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
             var update = await ax("completion_list_update", {id:cl_id, status:3});
             console.log("Update Mission: ", update)
         } catch (error){
-            console.log("Error UpdateMission");
+            console.log("Error UpdateMission", error.message);
         }
 
         // console.log("UpdateMission Done");
         await GetMissions();
     }
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+    */
 
     // Bonus Mission Card
     if(type === 2){
@@ -160,6 +168,10 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
         bonusRibbon = null;
     }
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+    */
 
     // Toggle Mission Card Details
     if (showDetails === true){
@@ -178,6 +190,10 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
         toggleIcon = toggleIcon['expand'];
     }
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+    */
 
     // UI
     return (

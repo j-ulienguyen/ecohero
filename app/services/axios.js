@@ -5,7 +5,7 @@ import axios from 'axios';
 // Terminal -> ifconfig
 // http://YourIP:3001/post
 
-var IP_ADDRESS = "192.168.1.242";
+var IP_ADDRESS = "142.232.145.32";
 
 const url = "http://"+IP_ADDRESS+":3001/post";
 
