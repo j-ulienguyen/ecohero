@@ -118,25 +118,61 @@ export default function HomeScreen(){
 	}, [])
 
 
-	// const [toggleModal, setToggleModal] = useState(false);
+	var userStarCount = userData.star_count;
+	var progressText;
+	var congratsText;
+	var prizeStatus; // Init var to be used later inside prizeCards.map
 
-	// var levelupModal;
+	// User Star Count and Prize Cards
+	// User will unlock prizes if they reach the required star amount
+	// Star Prizes has max star amount of 20
 
-	// // Toggle Modal
-	// if (toggleModal === true){
-	// 	levelupModal = (
-	// 		<Modal isVisible={toggleModal}>
-	// 			<LevelUpModal
-	// 				level = {5}
-	// 				onPress = {()=>{
-	// 					setToggleModal(false); // Close modal
-	// 				}}
-	// 			/>
-	// 		</Modal>
-	// 	)
-	// } else {
-	// 	levelupModal = null;
-	// }
+	// User has less than 20 stars
+	if (userStarCount <= 20){
+		console.log("Current Stars: ", userData.star_count);
+
+		var prizeStarCount;
+		var starRemainder;
+		var prizeName;
+
+
+		// Bronze Prize Card - Star Req: 5
+		if (userStarCount < 5){
+			prizeName = "Bronze Prize";
+			prizeStarCount = 5;
+			starRemainder = (prizeStarCount - userStarCount) + ' stars';
+		}
+
+		// Silver Prize Card - Star Req: 10
+		else if (userStarCount < 10){
+			prizeName = "Silver Prize";
+			prizeStarCount = 10;
+			starRemainder = (prizeStarCount - userStarCount) + ' stars';
+		}
+
+		// Gold Prize Card - Star Req: 20
+		else if (userStarCount < 20){
+			prizeName = "Gold Prize";
+			prizeStarCount = 20;
+			starRemainder = (prizeStarCount - userStarCount) + ' stars';
+
+		}
+
+		var progressText = (
+			<Text>You’re <Text style={styles.boldText}>{starRemainder}</Text> away from unlocking the {prizeName}!</Text>
+		);
+
+		// console.log("Star Remainder: ", starRemainder);
+	}
+
+	// User has 20+ stars
+	// User has unlocked all prizes
+	if (userStarCount >= 20){
+		progressText = null;
+		congratsText = (
+			<Text>You’ve unlocked all of the prizes. <Text style={styles.boldText}>Congratulations!</Text></Text>
+		);
+	}
 
 
     // UI
@@ -160,20 +196,43 @@ export default function HomeScreen(){
 					/>
 
 					{/* Star Prizes - Progress Bar */}
-					<PrizeProgress starRemainder={5+' stars'} prizeName="Silver Prize"/>
+					<PrizeProgress
+						// starRemainder = {starRemainder}
+						// prizeName = {prizeName}
+						progressText = {progressText}
+						congratsText = {congratsText}
+					/>
 
 					{/* Prize Card Section */}
 					<View style={styles.prizeSection}>
 						{/* Populate with Prize Card from PrizeCardData.js */}
 						{
 							prizeCards.map((obj,i)=>{
+								prizeStatus = false;
+
+								// Bronze Prize
+								if (i == 0 && userStarCount >= 5){
+									prizeStatus = true;
+								}
+
+								// Silver Prize
+								if (i == 1 && userStarCount >= 10){
+									prizeStatus = true;
+								}
+
+								// Gold Prize
+								if (i == 2 && userStarCount >= 20){
+									prizeStatus = true;
+								}
+
 								return <PrizeCard
 									key = {i}
 									prizeName = {obj.prizeName}
 									description = {obj.description}
 									imagePath = {obj.imagePath}
 									starCount = {obj.starCount}
-									status = {obj.status}
+									//status = {obj.status}
+									status = {prizeStatus}
 								/>
 							})
 						}
