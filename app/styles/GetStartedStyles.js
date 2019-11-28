@@ -12,19 +12,15 @@ var styles = StyleSheet.create({
       backgroundColor: theme.white
    },
 
-   logo: {
-      position: "relative",
-      marginTop: 0
-   },
-
    headTxt: {
-      marginTop: 80,
+      position: "relative",
+      marginTop: 40,
       fontSize: 24,
       fontFamily: theme.PoppinsBold
    },
 
    subTxt: {
-      marginTop: 10,
+      marginTop: 5,
       width: "80%",
       fontSize: 16,
       fontFamily: theme.PoppinsRegular,
