@@ -55,7 +55,12 @@ var styles = StyleSheet.create({
         left: 0,
         right: 0,
         top: 0,
-        bottom: 0
+        bottom: 0,
+
+        height: 8,
+        // width is determined by a function on the screen
+        borderRadius: 20,
+        backgroundColor: theme.lightGreen
     },
 
     progressText: {

@@ -4,9 +4,10 @@ import {View, Text, Image, Animated} from 'react-native';
 // Import comps & styles below
 import styles from '../../styles/PrizeProgressStyles';
 import StarCount from '../StarCount';
+import theme from '../../styles/ThemeStyles';
 
 
-export default function PrizeProgress({starRemainder, prizeName, progressText, congratsText}){
+export default function PrizeProgress({starRemainder, prizeName, progressText, congratsText, progressWidth, checkpoint5, checkpoint10, checkpoint20}){
     // UI
     return (
         <View style={styles.container}>
@@ -16,12 +17,15 @@ export default function PrizeProgress({starRemainder, prizeName, progressText, c
             {/* Star Progress Bar */}
             <View style={styles.progressBar}>
 
+                {/* Progress Bar Fill */}
+                <View style={[styles.progressFill, {width: progressWidth}]}></View>
+
                 {/* Progress Bar Checkpoints */}
                 <View style={styles.checkpointContainer}>
                     {/* Checkpoint 5 Stars */}
                     <View style={[styles.checkpoint, styles.checkpoint5]}>
                         {/* Checkpoint Circle */}
-                        <View style={styles.progressCheckpoint}></View>
+                        <View style={[styles.progressCheckpoint, {backgroundColor: checkpoint5}]}></View>
                         {/* Star Count Requirement */}
                         <StarCount type="yellow" starCount={5}/>
                     </View>
@@ -29,7 +33,7 @@ export default function PrizeProgress({starRemainder, prizeName, progressText, c
                     {/* Checkpoint 10 Stars */}
                     <View style={[styles.checkpoint, styles.checkpoint10]}>
                         {/* Checkpoint Circle */}
-                        <View style={styles.progressCheckpoint}></View>
+                        <View style={[styles.progressCheckpoint, {backgroundColor: checkpoint10}]}></View>
                         {/* Star Count Requirement */}
                         <StarCount type="yellow" starCount={10}/>
                     </View>
@@ -37,7 +41,7 @@ export default function PrizeProgress({starRemainder, prizeName, progressText, c
                     {/* Checkpoint 20 Stars */}
                     <View style={[styles.checkpoint, styles.checkpoint20]}>
                         {/* Checkpoint Circle */}
-                        <View style={styles.progressCheckpoint}></View>
+                        <View style={[styles.progressCheckpoint, {backgroundColor: checkpoint20}]}></View>
                         {/* Star Count Requirement */}
                         <StarCount type="yellow" starCount={20}/>
                     </View>

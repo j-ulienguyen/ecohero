@@ -4,13 +4,13 @@ import Modal from 'react-native-modal';
 
 // Import comps & styles below
 import styles from '../styles/HomeScreenStyles';
+import theme from '../styles/ThemeStyles';
 import PatternBG from '../comps/PatternBG';
 import ProfileCard from '../comps/home/ProfileCard';
 import PrizeProgress from '../comps/home/PrizeProgress';
 import PrizeCard from '../comps/home/PrizeCard';
 import NavBar from '../comps/NavBar';
 import LevelUpModal from '../comps/home/LevelUpModal';
-import GreenButton from '../comps/GreenButton';
 
 // Import data files below
 import {prizeCards} from '../data/PrizeCardData';
@@ -143,7 +143,7 @@ export default function HomeScreen(){
 
 			// Toggle Level Up Modal
 			// When userXP reaches required XP needed to level up
-			if (user[0].xp_amount == 120){
+			if ( user[0].xp_amount == 50 || user[0].xp_amount == 150){
 				setToggleModal(true);
 				user[0].xp_amount = user[0].xp_amount + 5;
 			} else {
@@ -210,6 +210,11 @@ export default function HomeScreen(){
 	var prizeStatus; // To be used later inside prizeCards.map
 	var progressText;
 	var congratsText;
+
+	var progressWidth = 315;
+	var checkpoint5;
+	var checkpoint10;
+	var checkpoint20;
 
 	// User has less than 20 stars
 	if (userStarCount <= 20){
@@ -298,6 +303,11 @@ export default function HomeScreen(){
 					<PrizeProgress
 						progressText = {progressText}
 						congratsText = {congratsText}
+
+						progressWidth = {progressWidth}
+						checkpoint5 = {checkpoint5}
+						checkpoint10 = {checkpoint10}
+						checkpoint20 = {checkpoint20}
 					/>
 
 					{/* Prize Card Section */}
