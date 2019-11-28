@@ -13,6 +13,10 @@ var styles = StyleSheet.create({
 
         marginTop: 35,
         marginBottom: 90
+    },
+
+    boldText: {
+        fontFamily: theme.PoppinsBold
     }
 });
 

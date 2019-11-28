@@ -15,6 +15,7 @@ import * as navigateTo from '../../RouteConstants';
 import {ax} from '../services/axios';
 import AsyncStorage from '@react-native-community/async-storage';
 
+
 var first_name = "";
 var last_name = "";
 var email = "";
@@ -25,26 +26,22 @@ export default function BasicProfile(){
 
    const [txt, setTxt] = useState("");
 
-   // Get User ID
-   // console.log("Get user_id after click: ", user_id);
 
-
-   // Create Profile
-   const CreateProfile = async()=>{
+   // Update Profile
+   const UpdateProfile = async()=>{
+      // As the id in users table is an integer, must convert the stored user_id from string to int
       var user_id = await AsyncStorage.getItem("user_id");
+      user_id = parseInt(user_id);
 
       try {
-         var userProfile = await ax("users_update", {id:user_id, first_name, last_name, email});
-         console.log("CreateProfile: ", userProfile[0].id);
-     } catch (error){
-         console.log("Error CreateProfile");
-     }
-     console.log("End of CreateProfile");
+         var userProfile = await ax("users_update", {id:user_id, first_name:first_name, last_name:last_name, email:email});
+         console.log("UpdateProfile: ", userProfile);
+      } catch (error){
+         console.log("Error UpdateProfile");
+      }
+         console.log("End of UpdateProfile");
    }
 
-   // useEffect(()=>{
-
-   // }, [])
 
    return (
       <View style={styles.whiteBg}>
@@ -107,7 +104,7 @@ export default function BasicProfile(){
                title="Continue"
                width={309} height={43}
                onPress= {async()=>{
-                  CreateProfile();
+                  await UpdateProfile();
                   navigateTo.ChooseAvatar();
                }}
             />

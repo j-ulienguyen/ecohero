@@ -22,6 +22,7 @@ export default function MissionsScreen(){
     const [allMissions, setMissions] = useState([]);
 
     // Mission Card Icons
+    // missionIcon['name']
     const missionIcon = {
         'reduce': require('../assets/imgs/reduce-icon.png'),
         'reuse': require('../assets/imgs/reuse-icon.png'),
@@ -31,37 +32,69 @@ export default function MissionsScreen(){
 
     // Load all missions from db
     const GetMissions = async()=>{
-        // Get user_id from AsyncStorage
         var user_id = await AsyncStorage.getItem("user_id");
+        user_id = parseInt(user_id);
 
         var missions = await ax("missions_read", {user_id:user_id});
+
+        // Show entire mission list inside console
+        // console.log("Missions List", missions);
+        //console.log("Mission List length ", missions.length);
+
         setMissions(missions);
     }
 
 
-    // Reassign to new var -> Can't use const allMissions
-    var missions = allMissions;
+    // Mission_type = 1 -> Normal
+    // Mission_type = 2 -> Bonus
 
+    var normalMission = allMissions;
+    var bonusMission = allMissions;
+
+    // Filter missions according to the active tab
     if (activeTab === "Available"){
-        missions = allMissions.filter((obj, i)=>{
-            // Null or Status=1
-            return !obj.status || obj.status === 1;
+        // (Null or Status=1) and Mission_type=2
+        bonusMission = allMissions.filter((obj, i)=>{
+            return (!obj.status || obj.status === 1) && obj.mission_type == 2;
+        });
+
+        // (Null or Status=1) and Type > 0
+        // Type > 0 will ignore missions in the table that is mission_type=-1
+        normalMission = allMissions.filter((obj, i)=>{
+            return (!obj.status || obj.status === 1) && obj.mission_type >= 0;
         });
     }
 
     if (activeTab === "In Progress"){
-        missions = allMissions.filter((obj, i)=>{
-            // Exists + Status=2
-            return obj.status && obj.status === 2;
+        // Exists + Status=2
+
+        bonusMission = allMissions.filter((obj, i)=>{
+            return (obj.status && obj.status === 2) && obj.mission_type == 2;
+        });
+
+        normalMission = allMissions.filter((obj, i)=>{
+            return (obj.status && obj.status === 2) && obj.mission_type == 1;
         });
     }
 
     if (activeTab === "Completed"){
-        missions = allMissions.filter((obj, i)=>{
-            // Exists + Status=3
-            return obj.status && obj.status === 3;
+        // Exists + Status=3
+
+        bonusMission = allMissions.filter((obj, i)=>{
+            return (obj.status && obj.status === 3) && obj.mission_type == 2;
+        });
+
+        normalMission = allMissions.filter((obj, i)=>{
+            return (obj.status && obj.status === 3) && obj.mission_type == 1;
         });
     }
+
+    // Filter normal missions again to only show mission_type = 1
+    // This will get rid of the extra bonus missions that appear
+    normalMission = normalMission.filter((obj, i)=>{
+        return obj.mission_type === 1;
+    });
+
 
     // Load once
     useEffect(()=>{
@@ -90,8 +123,28 @@ export default function MissionsScreen(){
 
                     {/* Mission Card Section */}
                     <View style={styles.cardSection}>
+                        {/* Populate with 1 Bonus Mission */}
                         {
-                            missions.map((obj, i)=>{
+                            bonusMission.map((obj, i)=>{
+                                return <MissionCard
+                                    key = {i}
+                                    type = {obj.mission_type}
+                                    id = {obj.id}
+                                    cl_id = {obj.cl_id || null}
+                                    status = {obj.status || 1}
+                                    missionName = {obj.mission_name}
+                                    description = {obj.mission_description}
+                                    iconPath = {missionIcon[obj.mission_icon]}
+                                    starAmount = {obj.mission_star}
+                                    xpAmount = {obj.mission_xp}
+
+                                    GetMissions = {GetMissions}
+                                />
+                            })
+                        }
+                        {/* Populate with Normal Missions */}
+                        {
+                            normalMission.map((obj, i)=>{
                                 return <MissionCard
                                     key = {i}
                                     //type = "normal"

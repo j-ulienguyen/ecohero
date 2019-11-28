@@ -10,16 +10,22 @@ import StepProgressBar from '../comps/signup/StepProgressBar';
 // Navigation
 import * as navigateTo from '../../RouteConstants';
 
+// Database & Storage
+import {ax} from '../services/axios';
+import AsyncStorage from '@react-native-community/async-storage';
 
-export default function ChooseAvatar({icon1, icon2, icon3, icon4, icon5, icon6}){
 
-   // Initial Avatar Icon Selections 
+export default function ChooseAvatar(){
+
+   // Initial Avatar Icon Selections
    const [selectIcon1, setSelectIcon1] = useState(false);
    const [selectIcon2, setSelectIcon2] = useState(false);
    const [selectIcon3, setSelectIcon3] = useState(false);
    const [selectIcon4, setSelectIcon4] = useState(false);
    const [selectIcon5, setSelectIcon5] = useState(false);
    const [selectIcon6, setSelectIcon6] = useState(false);
+
+   var chosenAvatarName;
 
    const avatarIcon = {
       'jug': require('../assets/imgs/jug-avatar.png'),
@@ -48,31 +54,37 @@ export default function ChooseAvatar({icon1, icon2, icon3, icon4, icon5, icon6})
    if(selectIcon1 === true){
       activeRing1 = styles.activeRing;
       chosenAvatarIcon = avatarIcon1;
+      chosenAvatarName = "jug";
    }
 
    if(selectIcon2 === true){
       activeRing2 = styles.activeRing;
       chosenAvatarIcon = avatarIcon2;
+      chosenAvatarName = "tote";
    }
 
    if(selectIcon3 === true){
       activeRing3 = styles.activeRing;
       chosenAvatarIcon = avatarIcon3;
+      chosenAvatarName = "bottle";
    }
 
    if(selectIcon4 === true){
       activeRing4 = styles.activeRing;
       chosenAvatarIcon = avatarIcon4;
+      chosenAvatarName = "can";
    }
 
    if(selectIcon5 === true){
       activeRing5 = styles.activeRing;
       chosenAvatarIcon = avatarIcon5;
+      chosenAvatarName = "paper";
    }
 
    if(selectIcon6 === true){
       activeRing6 = styles.activeRing;
       chosenAvatarIcon = avatarIcon6;
+      chosenAvatarName = "lunchbox";
    }
 
    function AllFalse(){
@@ -83,6 +95,24 @@ export default function ChooseAvatar({icon1, icon2, icon3, icon4, icon5, icon6})
       setSelectIcon5(false);
       setSelectIcon6(false);
    }
+
+
+   // Update Avatar
+   const UpdateAvatar = async()=>{
+      // As the id in users table is an integer, must convert the stored user_id from string to int
+      var user_id = await AsyncStorage.getItem("user_id");
+      user_id = parseInt(user_id);
+
+      try {
+         var userAvatar = await ax("users_update", {id:user_id, avatar:chosenAvatarName});
+         console.log("UpdateAvatar: ", userAvatar);
+
+      } catch (error){
+         console.log("Error UpdateAvatar", error.message);
+      }
+         console.log("End of UpdateAvatar");
+   }
+
 
    return (
 
@@ -122,12 +152,12 @@ export default function ChooseAvatar({icon1, icon2, icon3, icon4, icon5, icon6})
                         setSelectIcon1(true)
                      }}
                   >
-                     <Image 
+                     <Image
                         style={[styles.smIcon, activeRing1]}
-                        source = {avatarIcon1}   
+                        source = {avatarIcon1}
                      />
                   </TouchableOpacity>
-                  
+
                   {/* Icon Two */}
                   <TouchableOpacity
                      onPress={()=>{
@@ -135,9 +165,9 @@ export default function ChooseAvatar({icon1, icon2, icon3, icon4, icon5, icon6})
                         setSelectIcon2(true)
                      }}
                   >
-                     <Image 
+                     <Image
                         style={[styles.smIcon, activeRing2]}
-                        source = {avatarIcon2}   
+                        source = {avatarIcon2}
                      />
                   </TouchableOpacity>
 
@@ -148,9 +178,9 @@ export default function ChooseAvatar({icon1, icon2, icon3, icon4, icon5, icon6})
                         setSelectIcon3(true)
                      }}
                   >
-                     <Image 
+                     <Image
                         style={[styles.smIcon, activeRing3]}
-                        source = {avatarIcon3}   
+                        source = {avatarIcon3}
                      />
                   </TouchableOpacity>
 
@@ -161,9 +191,9 @@ export default function ChooseAvatar({icon1, icon2, icon3, icon4, icon5, icon6})
                         setSelectIcon4(true)
                      }}
                   >
-                     <Image 
+                     <Image
                         style={[styles.smIcon, activeRing4]}
-                        source = {avatarIcon4}   
+                        source = {avatarIcon4}
                      />
                   </TouchableOpacity>
 
@@ -174,9 +204,9 @@ export default function ChooseAvatar({icon1, icon2, icon3, icon4, icon5, icon6})
                         setSelectIcon5(true)
                      }}
                   >
-                     <Image 
+                     <Image
                         style={[styles.smIcon, activeRing5]}
-                        source = {avatarIcon5}   
+                        source = {avatarIcon5}
                      />
                   </TouchableOpacity>
 
@@ -187,20 +217,26 @@ export default function ChooseAvatar({icon1, icon2, icon3, icon4, icon5, icon6})
                         setSelectIcon6(true)
                      }}
                   >
-                     <Image 
+                     <Image
                         style={[styles.smIcon, activeRing6]}
-                        source = {avatarIcon6}   
+                        source = {avatarIcon6}
                      />
                   </TouchableOpacity>
 
-                
+
                </View>
             </View>
          </View>
 
          {/* Continue Button */}
          <View style={{alignItems: "center", width: "100%", marginTop: 160, marginBottom: 50}}>
-            <GreenButton width={309} height={43} title="Continue" onPress={navigateTo.GetStarted}/>
+            <GreenButton
+               width={309} height={43}
+               title="Continue"
+               onPress={async()=>{
+                  await UpdateAvatar();
+                  navigateTo.GetStarted()
+               }}/>
          </View>
       </View>
    );

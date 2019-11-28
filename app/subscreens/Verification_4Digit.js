@@ -12,6 +12,10 @@ import theme from '../styles/ThemeStyles'
 // Navigation
 import * as navigateTo from '../../RouteConstants';
 
+// Database & Storage
+import {ax} from '../services/axios';
+import AsyncStorage from '@react-native-community/async-storage';
+
 
 //   const handlerOnFulfill = useCallback(code => console.log(code), []);
 //   return <CodeInput
@@ -26,7 +30,7 @@ import * as navigateTo from '../../RouteConstants';
 
 export default function Code({xpAmount, starAmount, UpdateMission, disabled}) {
 
-  console.log("Star Amount + XP: ", starAmount, xpAmount);
+  //console.log("Star Amount + XP: ", starAmount, xpAmount);
 
   const handlerOnFulfill = useCallback(code => console.log(code), []);
 

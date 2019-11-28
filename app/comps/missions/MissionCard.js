@@ -35,21 +35,15 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
     }
 
 
-    // Store Mission ID
-    // var StoreMissionID = async(id)=>{
-    //     try {
-    //         await AsyncStorage.setItem("mission_id", JSON.stringify(id));
-    //         console.log("Store MissionID: ", id)
-    //     } catch (error){
-    //         console.log("Error saving data");
-    //     }
-    //     console.log("End of StoreMissionID");
-    // }
+    // Status = 1 -> Available
+    // Status = 2 -> In Progress
+    // Status = 3 -> Completed
 
     // Start Mission -> Change status to 'In Progress'
+    // From 1 to 2
     const StartMission = async()=>{
-        // Get user_id from AsyncStorage
         var user_id = await AsyncStorage.getItem("user_id");
+        user_id = parseInt(user_id);
 
         try {
             var start = await ax("completion_list_create", {mission_id:id, user_id:user_id, status:2});
@@ -63,10 +57,12 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
     }
 
     // Update Mission -> Change status to 'Completed'
+    // From 2 to 3
     const UpdateMission = async()=>{
         if(!cl_id){
             return false;
         }
+
         try {
             var update = await ax("completion_list_update", {id:cl_id, status:3});
             console.log("Update Mission: ", update)
@@ -79,21 +75,7 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
     }
 
 
-    // const ReadMissionRewards = async()=>{
-    //     try {
-    //         var reward = await ax("missions_read", {id, mission_star, mission_xp});
-    //         console.log("ReadMissionRewards: ", reward)
-    //     } catch (error){
-    //         console.log("Error ReadMissionRewards");
-    //     }
-
-    //     console.log("ReadMissionRewards Done");
-    //     await GetMissions();
-    // }
-
-
     // Bonus Mission Card
-    // if(type === "bonus"){
     if(type === 2){
         // Available + In Progress Tab will display button
         if(status != 3){
@@ -109,7 +91,9 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                             }
                             // In Progress Tab
                             if(status === 2){
-                                console.log("Star Amount + XP: ", starAmount, xpAmount);
+                                console.log("Mission In Progress");
+                                //console.log("Star Amount + XP: ", starAmount, xpAmount);
+
                                 // Pass over following values
                                 navigateTo.VerifyCode({
                                     starAmount,
@@ -137,7 +121,6 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
     }
 
     // Normal Mission Card
-    // if(type === "normal"){
     if(type === 1){
         // Available + In Progress Tab will display button
         if(status != 3){
@@ -153,7 +136,9 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                             }
                             // In Progress Tab
                             if(status === 2){
-                                console.log("Star Amount + XP: ", starAmount, xpAmount);
+                                console.log("Mission In Progress");
+                                //console.log("Star Amount + XP: ", starAmount, xpAmount);
+
                                 // Pass over following values
                                 navigateTo.VerifyCode({
                                     starAmount,

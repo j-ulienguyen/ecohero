@@ -11,6 +11,9 @@ import RewardModal from '../comps/RewardModal';
 import * as navigateTo from '../../RouteConstants';
 import { navigate } from '@reach/router';
 
+// Database & Storage
+import {ax} from '../services/axios';
+import AsyncStorage from '@react-native-community/async-storage';
 
 // Reward Star Image
 const starReward = require('../assets/imgs/star-reward.png');
@@ -40,6 +43,14 @@ const onboarding = [
 
 
 export default function OnboardSteps(){
+
+   const DoneOnboard = async()=>{
+      var user_id = await AsyncStorage.getItem("user_id");
+
+      // Onboarding Reward Mission
+      var resp = await ax("completion_list_create", {mission_id:39, user_id:user_id, status:4})
+      console.log("DoneOnboard: ", resp);
+   }
 
     const _renderNextButton = () => {
          return (
@@ -93,7 +104,8 @@ export default function OnboardSteps(){
                   xpAmount: 0
                })
             }}
-            onDone={()=>{
+            onDone={async()=>{
+               await DoneOnboard();
                navigateTo.RewardModal({
                   // Pass over following values
                   starAmount: 2,
