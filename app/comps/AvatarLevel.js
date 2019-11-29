@@ -1,20 +1,25 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 
 // Import comps & styles below
 import styles from '../styles/AvatarLevelStyles';
 
+// Navigation
+import * as navigateTo from '../../RouteConstants';
 
-export default function AvatarLevel({avatarPath, level}){
+
+export default function AvatarLevel({avatarPath, level, onPress, disabled}){
     // UI
     return (
         <View style={styles.avatar}>
             {/* Avatar Image */}
-            <Image
-                style = {styles.avatarIcon}
-                resizeMode = "contain"
-                source = {avatarPath}
-            />
+            <TouchableOpacity activeOpacity={0.8} onPress={onPress} disabled={disabled}>
+                <Image
+                    style = {styles.avatarIcon}
+                    resizeMode = "contain"
+                    source = {avatarPath}
+                />
+            </TouchableOpacity>
 
             <View style={styles.levelContainer}>
                 {/* Level Badge */}
