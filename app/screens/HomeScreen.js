@@ -39,6 +39,10 @@ export default function HomeScreen(){
 		'lunchbox': require('../assets/imgs/lunchbox-avatar.png')
 	}
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
 	// Get User Data - Specific to user_id
 	const GetUserData = async()=>{
@@ -143,12 +147,12 @@ export default function HomeScreen(){
 
 			// Toggle Level Up Modal
 			// When userXP reaches required XP needed to level up
-			if ( user[0].xp_amount == 50 || user[0].xp_amount == 150){
-				setToggleModal(true);
-				user[0].xp_amount = user[0].xp_amount + 5;
-			} else {
-				setToggleModal(false);
-			}
+			// if ( user[0].xp_amount == 50 || user[0].xp_amount == 150){
+			// 	setToggleModal(true);
+			// 	user[0].xp_amount = user[0].xp_amount + 5;
+			// } else {
+			// 	setToggleModal(false);
+			// }
 
             /*
              *****************************************************************
@@ -182,26 +186,6 @@ export default function HomeScreen(){
 	 *****************************************************************
 	*/
 
-	// Update User Data
-	const UpdateUserData = async()=>{
-		var user_id = await AsyncStorage.getItem("user_id");
-		user_id = parseInt(user_id);
-
-		try {
-			var user_data = await ax("users_update", {id: user_id, star_count:userStarCount, mission_count:userMissionCount, xp_amount:userXP, level:userLevel});
-
-			console.log("UpdateUserData: ", user_data);
-		} catch (error){
-			console.log("Error UpdateUserData", error.message);
-		}
-		// console.log("End of UpdateUserData");
-	}
-
-	/*
-	 *****************************************************************
-	 *****************************************************************
-	*/
-
 	// User Star Count and Prize Cards
 	// User will unlock prizes if they reach the required star amount
 	// Star Prizes has max star amount of 20
@@ -212,9 +196,9 @@ export default function HomeScreen(){
 	var congratsText;
 
 	var progressWidth = 315;
-	var checkpoint5;
-	var checkpoint10;
-	var checkpoint20;
+	var checkpoint5 = theme.lightGray;
+	var checkpoint10 = theme.lightGray;
+	var checkpoint20 = theme.lightGray;
 
 	// User has less than 20 stars
 	if (userStarCount <= 20){
@@ -270,9 +254,6 @@ export default function HomeScreen(){
     useEffect(()=>{
 		GetUserData();
 	}, [])
-
-	// Call function to update user data inside db
-	UpdateUserData();
 
 	/*
 	 *****************************************************************

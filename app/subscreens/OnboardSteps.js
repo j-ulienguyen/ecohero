@@ -44,6 +44,11 @@ const onboarding = [
 
 export default function OnboardSteps(){
 
+   /*
+      *****************************************************************
+      *****************************************************************
+   */
+
    const DoneOnboard = async()=>{
       var user_id = await AsyncStorage.getItem("user_id");
       user_id = parseInt(user_id);
@@ -52,6 +57,11 @@ export default function OnboardSteps(){
       var resp = await ax("completion_list_create", {mission_id:1, user_id:user_id, status:4})
       console.log("DoneOnboard: ", resp);
    }
+
+   /*
+      *****************************************************************
+      *****************************************************************
+   */
 
     const _renderNextButton = () => {
          return (
@@ -78,7 +88,7 @@ export default function OnboardSteps(){
    };
 
    const _renderItem = ({item}) => {
-      console.log(item);
+      // console.log(item);
       return (
          <View style={styles.container}>
             <Image
@@ -91,6 +101,11 @@ export default function OnboardSteps(){
       );
    }
 
+   /*
+      *****************************************************************
+      *****************************************************************
+   */
+
    return (
       <View style={{flex:1}}>
          <AppIntroSlider
@@ -101,8 +116,8 @@ export default function OnboardSteps(){
             onSkip={()=>{
                navigateTo.Home({
                   // Pass over following values
-                  starAmount: 0,
-                  xpAmount: 0
+                  //starAmount: 0,
+                  //xpAmount: 0
                })
             }}
             onDone={async()=>{

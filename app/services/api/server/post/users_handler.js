@@ -16,6 +16,11 @@ module.exports = {
 		//you can do var result = await crud(...); and return it if needed
 		return await crud.read({model:'users', data:posts, returns:['*'], config:null});
 	},
+	users_read_stars:async (posts)=>{
+		//write your logic here for your crud
+		//you can do var result = await crud(...); and return it if needed
+		return await crud.read({model:'users', data:posts, returns:['*'], config:{order:["star_count"]}});
+	},
 	users_update:async (posts)=>{
 		//write your logic here for your crud
 		//you can do var result = await crud(...); and return it if needed
@@ -35,6 +40,5 @@ module.exports = {
 			}
 		}
 		return {status:false, msg:"not authenticated"};
-
 	}
 };
