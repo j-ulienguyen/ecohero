@@ -1,8 +1,8 @@
 [
   {
     "model":"users",
-    "cols":["id", "username", "password", "email", "star_count", "first_name", "last_name", "level", "avatar", "mission_count"],
-    "colstype":["SERIAL PRIMARY KEY", "TEXT", "TEXT", "TEXT", "INTEGER", "TEXT", "TEXT", "INTEGER", "TEXT", "INTEGER"],
+    "cols":["id", "username", "password", "email", "first_name", "last_name", "classroom_code", "avatar", "level", "star_count", "xp_amount", "mission_count"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "INTEGER", "INTEGER", "INTEGER", "INTEGER"],
     "order":["id"],
     "encrypt":["password"]
   },

@@ -3,19 +3,10 @@ import theme from './ThemeStyles';
 
 var styles = StyleSheet.create({
     container: {
-        position: "absolute",
-        top: 0,
-        left: 0,
-
-        width: "100%",
-        height: "100%"
+        alignItems: "center"
     },
 
     modal: {
-        // Position to middle of screen
-        top: 150,
-        left: 55,
-
         width: 300,
         height: 350,
         borderRadius: 20,

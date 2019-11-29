@@ -44,13 +44,24 @@ const onboarding = [
 
 export default function OnboardSteps(){
 
+   /*
+      *****************************************************************
+      *****************************************************************
+   */
+
    const DoneOnboard = async()=>{
       var user_id = await AsyncStorage.getItem("user_id");
+      user_id = parseInt(user_id);
 
-      // Onboarding Reward Mission
-      var resp = await ax("completion_list_create", {mission_id:39, user_id:user_id, status:4})
+      // Onboarding Reward Mission (id:1)
+      var resp = await ax("completion_list_create", {mission_id:1, user_id:user_id, status:4})
       console.log("DoneOnboard: ", resp);
    }
+
+   /*
+      *****************************************************************
+      *****************************************************************
+   */
 
     const _renderNextButton = () => {
          return (
@@ -77,7 +88,7 @@ export default function OnboardSteps(){
    };
 
    const _renderItem = ({item}) => {
-      console.log(item);
+      // console.log(item);
       return (
          <View style={styles.container}>
             <Image
@@ -90,6 +101,11 @@ export default function OnboardSteps(){
       );
    }
 
+   /*
+      *****************************************************************
+      *****************************************************************
+   */
+
    return (
       <View style={{flex:1}}>
          <AppIntroSlider
@@ -97,15 +113,18 @@ export default function OnboardSteps(){
             slides={onboarding}
 
             showSkipButton={true}
-            onSkip={()=>{
-               navigateTo.Home({
-                  // Pass over following values
-                  starAmount: 0,
-                  xpAmount: 0
-               })
+            onSkip={async()=>{
+               // Clear storage for key: "level"
+               await AsyncStorage.removeItem("level");
+               // Navigate to Home Screen
+               navigateTo.Home()
             }}
             onDone={async()=>{
+               // Will set onboarding mission to complete
                await DoneOnboard();
+               // Clear storage for key: "level"
+               await AsyncStorage.removeItem("level");
+               // Navigate to Reward Modal
                navigateTo.RewardModal({
                   // Pass over following values
                   starAmount: 2,

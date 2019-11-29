@@ -34,6 +34,10 @@ export default function SigninScreen(){
     const [valid, setValid] = useState("");
     const [disabled2, setDisabled2] = useState(false);
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // Store User ID
     var StoreUserID = async(id)=>{
@@ -41,9 +45,20 @@ export default function SigninScreen(){
             await AsyncStorage.setItem("user_id", JSON.stringify(id));
             console.log("Store UserID: ", id)
         } catch (error){
-            console.log("Error saving data");
+            console.log("Error saving data", error.message);
         }
-        console.log("End of StoreUserID");
+        // console.log("End of StoreUserID");
+    }
+
+    // Store Username
+    var StoreUsername = async(username)=>{
+        try {
+            await AsyncStorage.setItem("username", username);
+            console.log("StoreUsername: ", username)
+        } catch (error){
+            console.log("Error saving data", error.message);
+        }
+        // console.log("End of StoreUsername");
     }
 
     // Get User ID
@@ -52,29 +67,35 @@ export default function SigninScreen(){
             var getID = await AsyncStorage.getItem("user_id");
             console.log("Get UserID: ", getID);
         } catch (error){
-            console.log("Error getting data");
+            console.log("Error getting data", error.message);
         }
-
-        console.log("End of GetUserID");
+        // console.log("End of GetUserID");
     }
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // Create Account
     const CreateAccount = async()=>{
         try {
-            var userAccount = await ax("users_create", {
-                username,
-                password,
-                level:1,
-                mission_count:0,
-                star_count:0});
+            var userAccount = await ax("users_create", {username, password, level:1, mission_count:0,star_count:0, xp_amount:0});
             console.log("Create UserID: ", userAccount[0].id);
+
+            console.log("CreateAccount: ", userAccount);
 
             StoreUserID(userAccount[0].id);
         } catch (error){
-            console.log("Error CreateAccount");
+            console.log("Error CreateAccount", error.message);
         }
-        console.log("End of CreateAccount");
+        // console.log("End of CreateAccount");
     }
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // Login Account
     const LoginAccount = async()=>{
@@ -82,19 +103,32 @@ export default function SigninScreen(){
             var userAccount = await ax("users_auth", {username, password});
             console.log("Auth UserID: ", userAccount[0].id);
 
+            console.log("CreateAccount: ", userAccount);
+
             await StoreUserID(userAccount[0].id);
+            await StoreUsername(userAccount[0].username);
+
             navigateTo.Home();
         } catch (error){
-            console.log("Error LoginAccount");
+            console.log("Error LoginAccount", error.message);
         }
         console.log("End of LoginAccount");
     }
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // Load once
     useEffect(()=>{
         GetUserID();
     }, [])
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     var signin = null;
     if (selectedTab === 0){
@@ -111,6 +145,11 @@ export default function SigninScreen(){
             />
         )
     }
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // UI
     return (

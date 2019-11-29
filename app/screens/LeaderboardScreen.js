@@ -31,6 +31,11 @@ export default function LeaderboardScreen() {
 		'lunchbox': require('../assets/imgs/lunchbox-avatar.png')
 	}
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
+
 	// Get User Data - Specific to user_id
 	const GetUserData = async()=>{
 		var user_id = await AsyncStorage.getItem("user_id");
@@ -60,15 +65,24 @@ export default function LeaderboardScreen() {
 			// Set User Data
 			setUserData(user[0]);
 		} catch (error){
-			console.log("Error GetUserData")
+			console.log("Error GetUserData", error.message)
 		}
 	}
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
 	// Load once
     useEffect(()=>{
 		GetUserData();
 	}, [])
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
 	// UI
 	return (

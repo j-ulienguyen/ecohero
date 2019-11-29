@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, ScrollView} from 'react-native';
+import Modal from 'react-native-modal';
 
 // Import comps & styles below
 import styles from '../styles/MissionsScreenStyles';
 import PatternBG from '../comps/PatternBG';
 import MissionBoardCard from '../comps/missions/MissionBoardCard';
 import MissionCard from '../comps/missions/MissionCard';
+import BadgeModal from '../comps/profile/BadgeModal';
 import NavBar from '../comps/NavBar';
 
 // Database & Storage
@@ -21,6 +23,9 @@ export default function MissionsScreen(){
     // Normal Missions
     const [allMissions, setMissions] = useState([]);
 
+    // Mission In Progress Modal
+    const [toggleModal, setToggleModal] = useState(false);
+
     // Mission Card Icons
     // missionIcon['name']
     const missionIcon = {
@@ -29,6 +34,11 @@ export default function MissionsScreen(){
         'recycle': require('../assets/imgs/recycle-icon.png'),
         'eco': require('../assets/imgs/eco-icon.png')
     }
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // Load all missions from db
     const GetMissions = async()=>{
@@ -44,6 +54,10 @@ export default function MissionsScreen(){
         setMissions(missions);
     }
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // Mission_type = 1 -> Normal
     // Mission_type = 2 -> Bonus
@@ -95,12 +109,20 @@ export default function MissionsScreen(){
         return obj.mission_type === 1;
     });
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // Load once
     useEffect(()=>{
         GetMissions();
     }, [])
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // UI
     return (
@@ -147,7 +169,6 @@ export default function MissionsScreen(){
                             normalMission.map((obj, i)=>{
                                 return <MissionCard
                                     key = {i}
-                                    //type = "normal"
                                     type = {obj.mission_type}
                                     id = {obj.id}
                                     cl_id = {obj.cl_id || null}
@@ -159,10 +180,25 @@ export default function MissionsScreen(){
                                     xpAmount = {obj.mission_xp}
 
                                     GetMissions = {GetMissions}
+                                    setToggleModal = {setToggleModal}
                                 />
                             })
                         }
                     </View>
+
+
+                    {/* Mission In Progress Modal */}
+                    <Modal isVisible={toggleModal}>
+                        <BadgeModal
+                            badgeName = "Mission Started!"
+                            imagePath = {require('../assets/imgs/mission-onboard-small.png')}
+                            description = "You may check the progress of your mission in the 'In Progress' tab"
+                            onPress = {()=>{
+                                setToggleModal(false); // Close modal
+                            }}
+                        />
+                    </Modal>
+
                 </View>
             </ScrollView>
 

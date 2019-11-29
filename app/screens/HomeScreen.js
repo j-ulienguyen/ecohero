@@ -4,13 +4,13 @@ import Modal from 'react-native-modal';
 
 // Import comps & styles below
 import styles from '../styles/HomeScreenStyles';
+import theme from '../styles/ThemeStyles';
 import PatternBG from '../comps/PatternBG';
 import ProfileCard from '../comps/home/ProfileCard';
 import PrizeProgress from '../comps/home/PrizeProgress';
 import PrizeCard from '../comps/home/PrizeCard';
 import NavBar from '../comps/NavBar';
 import LevelUpModal from '../comps/home/LevelUpModal';
-import GreenButton from '../comps/GreenButton';
 
 // Import data files below
 import {prizeCards} from '../data/PrizeCardData';
@@ -22,8 +22,14 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 export default function HomeScreen(){
 
+	// User Data
 	const [userData, setUserData] = useState({});
 
+	// Level Up Modal
+	const [toggleModal, setToggleModal] = useState(false);
+
+	// Avatar Icons
+	// avatarIcon['name']
 	const avatarIcon = {
 		'jug': require('../assets/imgs/jug-avatar.png'),
 		'tote': require('../assets/imgs/tote-avatar.png'),
@@ -33,19 +39,26 @@ export default function HomeScreen(){
 		'lunchbox': require('../assets/imgs/lunchbox-avatar.png')
 	}
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
 	// Get User Data - Specific to user_id
 	const GetUserData = async()=>{
 		var user_id = await AsyncStorage.getItem("user_id");
 		user_id = parseInt(user_id);
 
-		var availableMissions;
-
 		try {
 			var user = await ax("users_read", {id:user_id});
-
 			var missions = await ax("missions_read", {user_id:user_id});
 
+            /*
+             *****************************************************************
+             *****************************************************************
+            */
+
+			var availableMissions;
 			// Filter all missions to only get active bonus and normal missions
 			// Type > 0 will ignore missions in the table that is mission_type=-1
 			availableMissions = missions.filter((obj, i)=>{
@@ -57,7 +70,7 @@ export default function HomeScreen(){
 
 			// Read table from following data
 			// Status = 3 -> Completed Missions
-			// Status = 4 -> Onboarding Reward Mission (mission_id: 39)
+			// Status = 4 -> Onboarding Reward Mission (mission_id: 1)
 			var completedMissions = await ax("completion_list_read", {user_id:user_id, status:[3,4]});
 
 			// Init starting values
@@ -91,9 +104,6 @@ export default function HomeScreen(){
 			user[0].mission_available = availableMissions - completedMissions;
 
 
-			// Show the current amount of XP user has
-			// console.log("Current User XP: ", user[0].xp);
-
 			// Show the amount of available missions
 			// console.log("# of Available Missions: ", availableMissions);
 
@@ -104,52 +114,173 @@ export default function HomeScreen(){
 			// Show current amount of available missions for the user
 			// console.log("Current # of Available Missions: ", user[0].mission_available);
 
+            /*
+             *****************************************************************
+             *****************************************************************
+            */
+
+			// User Level Up
+			// This is the amount of XP required for each level -> Level:XP
+			var xp_required = {
+				1: 0,
+				2: 50,
+				3: 150,
+				4: 250,
+				5: 350,
+				6: 450
+			}
+
+			var currentLevel;
+
+			// Loop through to determine user's current level
+			for (var level in xp_required){
+				if (user[0].xp_amount >= xp_required[level]){
+					currentLevel = parseInt(level);
+					console.log("Loop -> Current Level: ", currentLevel);
+				}
+			}
+
+			// Set user level
+			user[0].level = currentLevel;
+			console.log("User Level: ", user[0].level);
+			console.log("Current XP: ", user[0].xp_amount);
+
+			// Check User Level + Stored Username
+			var storedUsername = await AsyncStorage.getItem("username");
+			var currentUsername = user[0].username;
+			console.log("Stored Username: ", storedUsername);
+			console.log("Current Username: ", currentUsername);
+
+			if (storedUsername){
+				if(storedUsername == currentUsername){
+					// Compare user level with device storage level
+					// Determine whether to show LevelUpModal
+					CheckLevel(user[0].level);
+				} else {
+					StoreUsername(user[0].username);
+				}
+			}
+
+            /*
+             *****************************************************************
+             *****************************************************************
+            */
+
 			// Set User Data
 			setUserData(user[0]);
 		} catch (error){
-			console.log("Error GetUserData")
+			console.log("Error GetUserData", error.message);
 		}
 		// console.log("End of GetUserData");
 	}
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
-	// Load once
-    useEffect(()=>{
-        GetUserData();
-	}, [])
-
-
-	var userStarCount = userData.star_count;
-	var userMissionCount = userData.mission_count;
-	var userLevel = userData.level;
-
-
-	// Update User Data
-	const UpdateUserData = async()=>{
-		var user_id = await AsyncStorage.getItem("user_id");
-		user_id = parseInt(user_id);
-
+	// Store Username
+	var StoreUsername = async(username)=>{
 		try {
-			var user_data = await ax("users_update", {id: user_id, star_count:userStarCount, mission_count:userMissionCount});
-
-			console.log("UpdateUserData: ", user_data);
+			await AsyncStorage.setItem("username", username);
+			console.log("StoreUsername: ", username)
 		} catch (error){
-			console.log("Error UpdateUserData", error.message);
+			console.log("Error saving data", error.message);
 		}
-		// console.log("End of UpdateUserData");
+		// console.log("End of StoreUsername");
 	}
 
-	// Call function to update user data inside db
-	UpdateUserData();
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
+	const CheckLevel = async(userLevel)=>{
+		var level = await AsyncStorage.getItem("level");
+
+		level = parseInt(level);
+		userLevel = parseInt(userLevel);
+
+		// If there is a reference from device storage for level
+		// Check to see whether LevelUpModal shows
+
+		// Don't show modal
+		// Prevent modal from repeatedly showing up after navigating away
+		if (userLevel == level){
+			console.log("ul = level");
+			setToggleModal(false);
+		}
+
+		// Show modal because there is a reference
+		// User level is higher than the reference level -> User completed enough missions to raise their level
+		else if (level && userLevel > level){
+			AsyncStorage.setItem("level", JSON.stringify(userLevel));
+			setToggleModal(true);
+
+			console.log("level && ul > level");
+		}
+
+		// Show modal because user leveled up and there's no reference
+		else if (userLevel > 1){
+			AsyncStorage.setItem("level", JSON.stringify(userLevel));
+			setToggleModal(true);
+
+			console.log("ul > 1");
+		}
+
+		// Don't show modal
+		// There is no reference
+		else if (!level){
+			AsyncStorage.setItem("level", JSON.stringify(1));
+			console.log("!level");
+		}
+
+		// Does nothing otherwise
+
+		console.log("CheckLevel Device: ", level);
+		console.log("CheckLevel User: ", userLevel);
+	}
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
+
+	// Reassign vars
+	var userName = userData.username;
+	var userAvatar = userData.avatar;
+	var userStarCount = userData.star_count;
+	var userMissionCount = userData.mission_count;
+	var userMissionAvailable = userData.mission_available;
+	var userLevel = userData.level;
+	var userXP = userData.xp_amount;
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
 	// User Star Count and Prize Cards
 	// User will unlock prizes if they reach the required star amount
 	// Star Prizes has max star amount of 20
 
-	var prizeStatus; // Init var to be used later inside prizeCards.map
+	// Init vars
+	var prizeStatus; // To be used later inside prizeCards.map
 	var progressText;
 	var congratsText;
+
+	var progressWidth = 0;
+	var checkpoint5 = theme.xlightGray;
+	var checkpoint10 = theme.xlightGray;
+	var checkpoint20 = theme.xlightGray;
+
+	// 315 width / 20 stars
+	// 15.75 = 1 star
+	// 78.75 = 5 stars
+
+	const fullProgressBar = 315;
+	const starIncrement = 15.75;
+
 
 	// User has less than 20 stars
 	if (userStarCount <= 20){
@@ -163,40 +294,78 @@ export default function HomeScreen(){
 		if (userStarCount < 5){
 			prizeName = "Bronze Prize";
 			prizeStarCount = 5;
-			starRemainder = (prizeStarCount - userStarCount) + ' stars';
 		}
 
 		// Silver Prize Card - Star Req: 10
 		else if (userStarCount < 10){
 			prizeName = "Silver Prize";
 			prizeStarCount = 10;
-			starRemainder = (prizeStarCount - userStarCount) + ' stars';
 		}
 
 		// Gold Prize Card - Star Req: 20
 		else if (userStarCount < 20){
 			prizeName = "Gold Prize";
 			prizeStarCount = 20;
-			starRemainder = (prizeStarCount - userStarCount) + ' stars';
-
 		}
 
+		// Calculate stars remaining to reach next prize
+		starRemainder = (prizeStarCount - userStarCount) + ' stars';
+		// console.log("Star Remainder: ", starRemainder);
+
+		// Calculate the fill for progress bar
+		progressWidth = (userStarCount * starIncrement);
+
+		// 5 Star - Checkpoint
+		if (userStarCount >= 5){
+			checkpoint5 = theme.lightGreen;
+		}
+
+		// 10 Star - Checkpoint
+		if (userStarCount >= 10){
+			checkpoint10 = theme.lightGreen;
+		}
+
+		// 20 Star - Checkpoint
+		if (userStarCount >= 20){
+			checkpoint20 = theme.lightGreen;
+		}
+
+		// Set progress text
 		var progressText = (
 			<Text>You’re <Text style={styles.boldText}>{starRemainder}</Text> away from unlocking the {prizeName}!</Text>
 		);
-
-		// console.log("Star Remainder: ", starRemainder);
 	}
 
 	// User has 20+ stars
 	// User has unlocked all prizes
 	if (userStarCount >= 20){
+
+		// Full Progress Bar
+		progressWidth = fullProgressBar;
+		checkpoint5 = theme.lightGreen;
+		checkpoint10 = theme.lightGreen;
+		checkpoint20 = theme.lightGreen;
+
 		progressText = null;
 		congratsText = (
 			<Text>You’ve unlocked all of the prizes. <Text style={styles.boldText}>Congratulations!</Text></Text>
 		);
 	}
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
+
+	// Load once
+    useEffect(()=>{
+		GetUserData();
+	}, [])
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
     // UI
     return (
@@ -210,18 +379,23 @@ export default function HomeScreen(){
 					{/* Profile Card - Full Version */}
 					<ProfileCard
 						type = "full"
-						avatarPath = {avatarIcon[userData.avatar]}
-						username = {userData.username || ""}
-						missionAvailable = {userData.mission_available}
-						level = {userData.level}
-						starCount = {userData.star_count || 0}
-						missionCount = {userData.mission_count}
+						avatarPath = {avatarIcon[userAvatar]}
+						username = {userName || ""}
+						missionAvailable = {userMissionAvailable}
+						level = {userLevel}
+						starCount = {userStarCount || 0}
+						missionCount = {userMissionCount}
 					/>
 
 					{/* Star Prizes - Progress Bar */}
 					<PrizeProgress
 						progressText = {progressText}
 						congratsText = {congratsText}
+
+						progressWidth = {progressWidth}
+						checkpoint5 = {checkpoint5}
+						checkpoint10 = {checkpoint10}
+						checkpoint20 = {checkpoint20}
 					/>
 
 					{/* Prize Card Section */}
@@ -260,12 +434,18 @@ export default function HomeScreen(){
 						}
 					</View>
 				</View>
-
-
 			</ScrollView>
 
 			{/* Level Up Modal */}
-			{/* {levelupModal} */}
+			<Modal isVisible={toggleModal}>
+				<LevelUpModal
+					level = {userLevel}
+					onPress = {()=>{
+						setToggleModal(false); // Close modal
+					}}
+				/>
+			</Modal>
+
 
 			{/* Navigation Bar */}
 			<NavBar currentScreen="HomeScreen"/>

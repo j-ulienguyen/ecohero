@@ -21,7 +21,7 @@ var styles = StyleSheet.create({
         height: 8,
         borderRadius: 10,
 
-        backgroundColor: theme.lightGray,
+        backgroundColor: theme.xlightGray,
 
         marginTop: 25,
         marginBottom: 50
@@ -40,7 +40,8 @@ var styles = StyleSheet.create({
         width: 20,
         height: 20,
         borderRadius: 20,
-        backgroundColor: theme.lightGray,
+        // backgroundColor: theme.lightGray,
+
 
         bottom: 6
     },
@@ -55,7 +56,12 @@ var styles = StyleSheet.create({
         left: 0,
         right: 0,
         top: 0,
-        bottom: 0
+        bottom: 0,
+
+        height: 8,
+        // width is determined by a function on the screen
+        borderRadius: 20,
+        backgroundColor: theme.lightGreen
     },
 
     progressText: {
