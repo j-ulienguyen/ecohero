@@ -73,6 +73,9 @@ export default function SigninScreen(){
             var userAccount = await ax("users_create", {username, password, level:1, mission_count:0,star_count:0, xp_amount:0});
             console.log("Create UserID: ", userAccount[0].id);
 
+            // Clear storage for key: "level"
+            await AsyncStorage.removeItem("level");
+
             StoreUserID(userAccount[0].id);
         } catch (error){
             console.log("Error CreateAccount", error.message);
@@ -90,6 +93,9 @@ export default function SigninScreen(){
         try {
             var userAccount = await ax("users_auth", {username, password});
             console.log("Auth UserID: ", userAccount[0].id);
+
+            // Clear storage for key: "level"
+            await AsyncStorage.removeItem("level");
 
             await StoreUserID(userAccount[0].id);
             navigateTo.Home();

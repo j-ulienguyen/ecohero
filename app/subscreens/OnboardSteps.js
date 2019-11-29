@@ -114,11 +114,7 @@ export default function OnboardSteps(){
 
             showSkipButton={true}
             onSkip={()=>{
-               navigateTo.Home({
-                  // Pass over following values
-                  //starAmount: 0,
-                  //xpAmount: 0
-               })
+               navigateTo.Home()
             }}
             onDone={async()=>{
                await DoneOnboard();

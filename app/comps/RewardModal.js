@@ -85,6 +85,42 @@ export default function RewardModal({heading, description, imagePath, starAmount
 			// Current amount of completed missions and available missions
 			user[0].mission_count = completedMissions || 0;
 
+            /*
+             *****************************************************************
+             *****************************************************************
+            */
+
+			// User Level Up
+			// This is the amount of XP required for each level -> Level:XP
+			var xp_required = {
+				1: 0,
+				2: 50,
+				3: 150,
+				4: 250,
+				5: 350,
+				6: 450
+			}
+
+			var currentLevel;
+
+			// Loop through to determine user's current level
+			for (var level in xp_required){
+				if (user[0].xp_amount >= xp_required[level]){
+					currentLevel = parseInt(level);
+					console.log("Loop -> Current Level: ", currentLevel);
+				}
+			}
+
+            /*
+             *****************************************************************
+             *****************************************************************
+            */
+
+			// Set user level
+			user[0].level = currentLevel;
+			console.log("User Level: ", user[0].level);
+            console.log("Current XP: ", user[0].xp_amount);
+
             // Set User Data
             setUserData(user[0]);
         } catch (error){
@@ -170,7 +206,6 @@ export default function RewardModal({heading, description, imagePath, starAmount
                 width={309} height={43} marginTop={50}
                 onPress={()=>{
                     UpdateUserData();
-                    // navigateTo.Home({starAmount, xpAmount})
                 }}
             />
         </View>

@@ -145,14 +145,9 @@ export default function HomeScreen(){
 			console.log("User Level: ", user[0].level);
 			console.log("Current XP: ", user[0].xp_amount);
 
-			// Toggle Level Up Modal
-			// When userXP reaches required XP needed to level up
-			// if ( user[0].xp_amount == 50 || user[0].xp_amount == 150){
-			// 	setToggleModal(true);
-			// 	user[0].xp_amount = user[0].xp_amount + 5;
-			// } else {
-			// 	setToggleModal(false);
-			// }
+			// Compare user level with device storage level
+			// Determine whether to show LevelUpModal
+			CheckLevel(user[0].level);
 
             /*
              *****************************************************************
@@ -165,6 +160,63 @@ export default function HomeScreen(){
 			console.log("Error GetUserData", error.message);
 		}
 		// console.log("End of GetUserData");
+	}
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
+
+	const CheckLevel = async(userLevel)=>{
+		var level = await AsyncStorage.getItem("level");
+
+		level = parseInt(level);
+		userLevel = parseInt(userLevel);
+
+		// If there is a reference from device storage for level
+		// Check to see whether LevelUpModal shows
+
+
+		// if (!level){
+		// 	AsyncStorage.setItem("level", JSON.stringify(1));
+		// 	console.log("!level");
+		// }
+
+		// Don't show modal
+		// Prevent modal from repeatedly showing up after navigating away
+		if (userLevel == level){
+			console.log("ul = level");
+			setToggleModal(false);
+		}
+
+		// Show modal because there is a reference
+		// User level is higher than the reference level -> User completed enough missions to raise their level
+		else if (level && userLevel > level){
+			AsyncStorage.setItem("level", JSON.stringify(userLevel));
+			setToggleModal(true);
+
+			console.log("level && ul > level");
+		}
+
+		// Show modal because user leveled up and there's no reference
+		else if (userLevel > 1){
+			AsyncStorage.setItem("level", JSON.stringify(userLevel));
+			setToggleModal(true);
+
+			console.log("ul > 1");
+		}
+
+		// Don't show modal
+		// There is no reference
+		else if (!level){
+			AsyncStorage.setItem("level", JSON.stringify(1));
+			console.log("!level");
+		}
+
+		// Does nothing otherwise
+
+		console.log("CheckLevel Device: ", level);
+		console.log("CheckLevel User: ", userLevel);
 	}
 
 	/*
