@@ -50,6 +50,17 @@ export default function SigninScreen(){
         // console.log("End of StoreUserID");
     }
 
+    // Store Username
+    var StoreUsername = async(username)=>{
+        try {
+            await AsyncStorage.setItem("username", username);
+            console.log("StoreUsername: ", username)
+        } catch (error){
+            console.log("Error saving data", error.message);
+        }
+        // console.log("End of StoreUsername");
+    }
+
     // Get User ID
     var GetUserID = async()=>{
         try {
@@ -58,7 +69,6 @@ export default function SigninScreen(){
         } catch (error){
             console.log("Error getting data", error.message);
         }
-
         // console.log("End of GetUserID");
     }
 
@@ -73,8 +83,7 @@ export default function SigninScreen(){
             var userAccount = await ax("users_create", {username, password, level:1, mission_count:0,star_count:0, xp_amount:0});
             console.log("Create UserID: ", userAccount[0].id);
 
-            // Clear storage for key: "level"
-            await AsyncStorage.removeItem("level");
+            console.log("CreateAccount: ", userAccount);
 
             StoreUserID(userAccount[0].id);
         } catch (error){
@@ -94,10 +103,11 @@ export default function SigninScreen(){
             var userAccount = await ax("users_auth", {username, password});
             console.log("Auth UserID: ", userAccount[0].id);
 
-            // Clear storage for key: "level"
-            await AsyncStorage.removeItem("level");
+            console.log("CreateAccount: ", userAccount);
 
             await StoreUserID(userAccount[0].id);
+            await StoreUsername(userAccount[0].username);
+
             navigateTo.Home();
         } catch (error){
             console.log("Error LoginAccount", error.message);

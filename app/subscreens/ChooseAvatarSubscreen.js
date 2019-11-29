@@ -96,6 +96,10 @@ export default function ChooseAvatar(){
       setSelectIcon6(false);
    }
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
    // Update Avatar
    const UpdateAvatar = async()=>{
@@ -113,6 +117,10 @@ export default function ChooseAvatar(){
          console.log("End of UpdateAvatar");
    }
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
    return (
 

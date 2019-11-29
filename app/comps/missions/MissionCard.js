@@ -16,7 +16,7 @@ import {ax} from '../../services/axios';
 import AsyncStorage from '@react-native-community/async-storage';
 
 
-export default function MissionCard({id, cl_id, status, type, iconPath, missionName, starAmount, xpAmount, description, GetMissions}){
+export default function MissionCard({id, cl_id, status, type, iconPath, missionName, starAmount, xpAmount, description, GetMissions, setToggleModal}){
 
     const [showDetails, setShowDetails] = useState(false);
 
@@ -141,6 +141,7 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                             // Available Tab
                             if(status === 1){
                                 StartMission();
+                                setToggleModal(true);
                             }
                             // In Progress Tab
                             if(status === 2){

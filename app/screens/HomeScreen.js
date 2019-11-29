@@ -145,9 +145,21 @@ export default function HomeScreen(){
 			console.log("User Level: ", user[0].level);
 			console.log("Current XP: ", user[0].xp_amount);
 
-			// Compare user level with device storage level
-			// Determine whether to show LevelUpModal
-			CheckLevel(user[0].level);
+			// Check User Level + Stored Username
+			var storedUsername = await AsyncStorage.getItem("username");
+			var currentUsername = user[0].username;
+			console.log("Stored Username: ", storedUsername);
+			console.log("Current Username: ", currentUsername);
+
+			if (storedUsername){
+				if(storedUsername == currentUsername){
+					// Compare user level with device storage level
+					// Determine whether to show LevelUpModal
+					CheckLevel(user[0].level);
+				} else {
+					StoreUsername(user[0].username);
+				}
+			}
 
             /*
              *****************************************************************
@@ -160,6 +172,22 @@ export default function HomeScreen(){
 			console.log("Error GetUserData", error.message);
 		}
 		// console.log("End of GetUserData");
+	}
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
+
+	// Store Username
+	var StoreUsername = async(username)=>{
+		try {
+			await AsyncStorage.setItem("username", username);
+			console.log("StoreUsername: ", username)
+		} catch (error){
+			console.log("Error saving data", error.message);
+		}
+		// console.log("End of StoreUsername");
 	}
 
 	/*
