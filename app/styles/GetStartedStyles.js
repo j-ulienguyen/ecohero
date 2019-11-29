@@ -32,7 +32,7 @@ var styles = StyleSheet.create({
       marginTop: 10,
       textTransform: "uppercase",
       fontFamily: theme.RobotoRegular,
-      fontSize: 14
+      fontSize: 12
    }
 });
 

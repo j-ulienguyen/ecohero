@@ -161,7 +161,7 @@ export default function ChooseAvatar(){
                      }}
                   >
                      <Image
-                        style={[styles.smIcon, activeRing1]}
+                        style={[styles.smIcon, activeRing1, styles.ring]}
                         source = {avatarIcon1}
                      />
                   </TouchableOpacity>
@@ -174,7 +174,7 @@ export default function ChooseAvatar(){
                      }}
                   >
                      <Image
-                        style={[styles.smIcon, activeRing2]}
+                        style={[styles.smIcon, activeRing2, styles.ring]}
                         source = {avatarIcon2}
                      />
                   </TouchableOpacity>
@@ -187,7 +187,7 @@ export default function ChooseAvatar(){
                      }}
                   >
                      <Image
-                        style={[styles.smIcon, activeRing3]}
+                        style={[styles.smIcon, activeRing3, styles.ring]}
                         source = {avatarIcon3}
                      />
                   </TouchableOpacity>
@@ -200,7 +200,7 @@ export default function ChooseAvatar(){
                      }}
                   >
                      <Image
-                        style={[styles.smIcon, activeRing4]}
+                        style={[styles.smIcon, activeRing4, styles.ring]}
                         source = {avatarIcon4}
                      />
                   </TouchableOpacity>
@@ -213,7 +213,7 @@ export default function ChooseAvatar(){
                      }}
                   >
                      <Image
-                        style={[styles.smIcon, activeRing5]}
+                        style={[styles.smIcon, activeRing5, styles.ring]}
                         source = {avatarIcon5}
                      />
                   </TouchableOpacity>
@@ -226,7 +226,7 @@ export default function ChooseAvatar(){
                      }}
                   >
                      <Image
-                        style={[styles.smIcon, activeRing6]}
+                        style={[styles.smIcon, activeRing6, styles.ring]}
                         source = {avatarIcon6}
                      />
                   </TouchableOpacity>

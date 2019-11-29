@@ -8,6 +8,9 @@ import HexBadge from './HexBadge';
 import AvatarLevel from '../AvatarLevel';
 import UsernameLabel from '../UsernameLabel';
 
+// Navigation
+import * as navigateTo from '../../../RouteConstants';
+
 
 export default function ProfileCard({type, avatarPath, level, username, missionAvailable, starCount, missionCount}){
 
@@ -22,6 +25,7 @@ export default function ProfileCard({type, avatarPath, level, username, missionA
                 <AvatarLevel
                     avatarPath={avatarPath}
                     level={level}
+                    disabled={true}
                 />
             </View>
         )
@@ -40,12 +44,14 @@ export default function ProfileCard({type, avatarPath, level, username, missionA
                     type="image"
                     count={starCount} // Star Count #
                     badgePath={require('../../assets/imgs/star-icon.png')}
+                    onPress={navigateTo.Leaderboard}
                 />
 
                 {/* Avatar Level Badge */}
                 <AvatarLevel
                     avatarPath={avatarPath}
                     level={level} // Current Level
+                    onPress={navigateTo.Profile}
                 />
 
                 {/* Mission Count Badge */}
@@ -53,6 +59,7 @@ export default function ProfileCard({type, avatarPath, level, username, missionA
                     type="text"
                     count={missionCount} // Missions Available Count #
                     label="Missions"
+                    onPress={navigateTo.Missions}
                 />
             </View>
         )

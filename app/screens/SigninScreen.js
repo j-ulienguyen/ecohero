@@ -181,6 +181,7 @@ export default function SigninScreen(){
                     />
                     <TextInput
                         placeholder = "Username"
+                        maxLength={13}
                         // require = ""
                         onChangeText = {(txt)=>{
                             username = txt;
