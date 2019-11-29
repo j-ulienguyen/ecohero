@@ -7,7 +7,7 @@ import StarCount from '../StarCount';
 import theme from '../../styles/ThemeStyles';
 
 
-export default function PrizeProgress({starRemainder, prizeName, progressText, congratsText, progressWidth, checkpoint5, checkpoint10, checkpoint20}){
+export default function PrizeProgress({progressText, congratsText, progressWidth, checkpoint5, checkpoint10, checkpoint20}){
     // UI
     return (
         <View style={styles.container}>

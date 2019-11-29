@@ -176,12 +176,6 @@ export default function HomeScreen(){
 		// If there is a reference from device storage for level
 		// Check to see whether LevelUpModal shows
 
-
-		// if (!level){
-		// 	AsyncStorage.setItem("level", JSON.stringify(1));
-		// 	console.log("!level");
-		// }
-
 		// Don't show modal
 		// Prevent modal from repeatedly showing up after navigating away
 		if (userLevel == level){
@@ -247,10 +241,18 @@ export default function HomeScreen(){
 	var progressText;
 	var congratsText;
 
-	var progressWidth = 315;
-	var checkpoint5 = theme.lightGray;
-	var checkpoint10 = theme.lightGray;
-	var checkpoint20 = theme.lightGray;
+	var progressWidth = 0;
+	var checkpoint5 = theme.xlightGray;
+	var checkpoint10 = theme.xlightGray;
+	var checkpoint20 = theme.xlightGray;
+
+	// 315 width / 20 stars
+	// 15.75 = 1 star
+	// 78.75 = 5 stars
+
+	const fullProgressBar = 315;
+	const starIncrement = 15.75;
+
 
 	// User has less than 20 stars
 	if (userStarCount <= 20){
@@ -282,6 +284,24 @@ export default function HomeScreen(){
 		starRemainder = (prizeStarCount - userStarCount) + ' stars';
 		// console.log("Star Remainder: ", starRemainder);
 
+		// Calculate the fill for progress bar
+		progressWidth = (userStarCount * starIncrement);
+
+		// 5 Star - Checkpoint
+		if (userStarCount >= 5){
+			checkpoint5 = theme.lightGreen;
+		}
+
+		// 10 Star - Checkpoint
+		if (userStarCount >= 10){
+			checkpoint10 = theme.lightGreen;
+		}
+
+		// 20 Star - Checkpoint
+		if (userStarCount >= 20){
+			checkpoint20 = theme.lightGreen;
+		}
+
 		// Set progress text
 		var progressText = (
 			<Text>You’re <Text style={styles.boldText}>{starRemainder}</Text> away from unlocking the {prizeName}!</Text>
@@ -291,6 +311,13 @@ export default function HomeScreen(){
 	// User has 20+ stars
 	// User has unlocked all prizes
 	if (userStarCount >= 20){
+
+		// Full Progress Bar
+		progressWidth = fullProgressBar;
+		checkpoint5 = theme.lightGreen;
+		checkpoint10 = theme.lightGreen;
+		checkpoint20 = theme.lightGreen;
+
 		progressText = null;
 		congratsText = (
 			<Text>You’ve unlocked all of the prizes. <Text style={styles.boldText}>Congratulations!</Text></Text>
