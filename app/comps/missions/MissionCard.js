@@ -29,10 +29,10 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
     var bonusRibbon = null;
     var missionButton;
 
-    var toggleIcon = {
-        'close': require('../../assets/imgs/close-box.png'),
-        'expand': require('../../assets/imgs/expand-box.png')
-    }
+    // var toggleIcon = {
+    //     'close': require('../../assets/imgs/close-box.png'),
+    //     'expand': require('../../assets/imgs/expand-box.png')
+    // }
 
 
     // Status = 1 -> Available
@@ -89,6 +89,7 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                             if(status === 1){
                                 StartMission();
                             }
+
                             // In Progress Tab
                             if(status === 2){
                                 console.log("Mission In Progress");
@@ -101,6 +102,9 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                                     UpdateMission
                                 });
                             }
+
+                            // Close card after clicking button inside
+                            setShowDetails(false);
                         }}/>
                 </View>
             )
@@ -134,6 +138,7 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                             if(status === 1){
                                 StartMission();
                             }
+
                             // In Progress Tab
                             if(status === 2){
                                 console.log("Mission In Progress");
@@ -146,6 +151,9 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                                     UpdateMission
                                 });
                             }
+
+                            // Close card after clicking button inside
+                            setShowDetails(false);
                         }}/>
                 </View>
             )
@@ -170,12 +178,12 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                 {missionButton}
             </View>
         );
-        toggleIcon = toggleIcon['close'];
+        // toggleIcon = toggleIcon['close'];
     } else {
         // CLOSED CARD
         cardHeight = 105;    // Initial value
         cardDetails = null;
-        toggleIcon = toggleIcon['expand'];
+        // toggleIcon = toggleIcon['expand'];
     }
 
 
@@ -183,43 +191,36 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
     return (
         <View style={styles.container}>
             {/* Mission Card */}
-            <View style={[styles.cardContainer, {backgroundColor: cardBG, height: cardHeight}]}>
-                {/* Bonus Ribbon */}
-                {bonusRibbon}
+            {/* Entire card is clickable -> Show Details */}
+            <TouchableOpacity activeOpacity={1} onPress={()=>{setShowDetails(!showDetails)}}>
+                <View style={[styles.cardContainer, {backgroundColor: cardBG, height: cardHeight}]}>
+                    {/* Bonus Ribbon */}
+                    {bonusRibbon}
 
-                {/* Mission Icon */}
-                <Image
-                    style = {styles.missionIcon}
-                    source = {iconPath}
-                />
-
-                {/* Expand/Close Button */}
-                <TouchableOpacity
-                    style = {styles.toggleBtn}
-                    onPress = {()=>{
-                        setShowDetails(!showDetails);
-                    }}
-                >
-                    <Image source={toggleIcon}/>
-                </TouchableOpacity>
-
-                {/* Mission Details */}
-                <View style={styles.missionDetailContainer}>
-                    {/* Mission Name */}
-                    <Text style={[styles.missionName, {color: textColor}]}>{missionName}</Text>
-
-                    {/* Rewards Bar - Star + XP */}
-                    <RewardsBar
-                        starAmount={starAmount}
-                        xpAmount={xpAmount}
-                        barBG={barBG}
-                        textColor={textColor}
+                    {/* Mission Icon */}
+                    <Image
+                        style = {styles.missionIcon}
+                        source = {iconPath}
                     />
 
-                    {/* Toggle Details */}
-                    {cardDetails}
+                    {/* Mission Details */}
+                    <View style={styles.missionDetailContainer}>
+                        {/* Mission Name */}
+                        <Text style={[styles.missionName, {color: textColor}]}>{missionName}</Text>
+
+                        {/* Rewards Bar - Star + XP */}
+                        <RewardsBar
+                            starAmount={starAmount}
+                            xpAmount={xpAmount}
+                            barBG={barBG}
+                            textColor={textColor}
+                        />
+
+                        {/* Toggle Details */}
+                        {cardDetails}
+                    </View>
                 </View>
-            </View>
+            </TouchableOpacity>
         </View>
     )
 }

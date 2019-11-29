@@ -42,6 +42,7 @@ export default function FilterTabMenu({tab1, tab2, tab3, setActiveTab}){
         <View style={styles.filterContainer}>
             {/* Tab 1 */}
             <TouchableOpacity
+                activeOpacity={0.7}
                 onPress={()=>{
                     AllFalse();
                     setToggleTab1(true)
@@ -53,6 +54,7 @@ export default function FilterTabMenu({tab1, tab2, tab3, setActiveTab}){
 
             {/* Tab 2 */}
             <TouchableOpacity
+                activeOpacity={0.7}
                 onPress={()=>{
                     AllFalse();
                     setToggleTab2(true)
@@ -64,6 +66,7 @@ export default function FilterTabMenu({tab1, tab2, tab3, setActiveTab}){
 
             {/* Tab 3 */}
             <TouchableOpacity
+                activeOpacity={0.7}
                 onPress={()=>{
                     AllFalse();
                     setToggleTab3(true)

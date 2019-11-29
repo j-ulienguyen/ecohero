@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 
 // Import comps & styles below
 import styles from '../../styles/HexBadgeStyles';
 
 
-export default function HexBadge({type, badgePath, label, count}){
+export default function HexBadge({type, badgePath, label, count, onPress}){
 
     var badgeLabel;
 
@@ -20,15 +20,17 @@ export default function HexBadge({type, badgePath, label, count}){
 
     // UI
     return (
-        <View style={styles.hexBadgeContainer}>
-            <Image
-                style = {styles.hexBadge}
-                source = {require('../../assets/imgs/hex-badge.png')}
-            />
-            <View style={styles.hexBadgeContent}>
-                <Text style={styles.countText}>{count}</Text>
-                {badgeLabel}
+        <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
+            <View style={styles.hexBadgeContainer}>
+                <Image
+                    style = {styles.hexBadge}
+                    source = {require('../../assets/imgs/hex-badge.png')}
+                />
+                <View style={styles.hexBadgeContent}>
+                    <Text style={styles.countText}>{count}</Text>
+                    {badgeLabel}
+                </View>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
