@@ -65,13 +65,20 @@ var styles = StyleSheet.create({
       justifyContent: "center",
       alignItems: "center",
    },
+   
+   ring: {
+      width: 70,
+      height: 70,
+      borderRadius: 40,
+      borderWidth: 4
+   },
 
    activeRing: {
       width: 70,
       height: 70,
       borderRadius: 40,
       borderColor: theme.lightGreen,
-      borderWidth: 3
+      borderWidth: 4
    },
 
    btmText: {
