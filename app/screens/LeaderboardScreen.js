@@ -3,6 +3,7 @@ import {View, Text, ScrollView} from 'react-native';
 
 // Import comps below
 import styles from '../styles/LeaderboardScreenStyles';
+import theme from '../styles/ThemeStyles';
 import PatternBG from '../comps/PatternBG';
 import LeaderboardCard from '../comps/leaderboard/LeaderboardCard';
 import LeaderboardUser from '../comps/leaderboard/LeaderboardUser';
@@ -137,8 +138,13 @@ export default function LeaderboardScreen({navigation}) {
 				}
 			}
 
+			// Slice the array to only show 30 cards
+			leaderboard = leaderboard.slice(0,30);
+			// console.log("Leaderboard Length: ", leaderboard.length);
+
 			// Set the rank number for user
 			user[0].rank_number = rank;
+
 			console.log("User Rank: ", rank);
 
 			// Set User Data
@@ -153,6 +159,27 @@ export default function LeaderboardScreen({navigation}) {
 
 	// Init var
 	var cardType; // To be used later inside allUsers.map
+	var leaderboarduser;
+	var highlightUser;
+	var borderWidth;
+
+	// If user is not in Top 30 -> Show LeaderboardUser Card
+	if(userRank.rank_number > 30){
+		leaderboarduser = (
+			<View style={{position: 'absolute', bottom: 55}}>
+				<LeaderboardUser
+					username = {userData.username}
+					iconPath = {avatarIcon[userData.avatar]}
+					rankNumber = {userRank.rank_number}
+					starCount = {userData.star_count}
+				/>
+			</View>
+		)
+	} else {
+		// User is in Top 30 -> Don't show LeaderboardUser Card
+		leaderboarduser = null;
+	}
+
 
 	/*
 	 *****************************************************************
@@ -198,6 +225,8 @@ export default function LeaderboardScreen({navigation}) {
 						allUsers.map((obj, i)=>{
 							// All cards initially normal
 							cardType = "normal";
+							highlightUser = "transparent";
+							borderWidth = 0;
 
 							// First Place
 							if (i == 0){
@@ -214,6 +243,17 @@ export default function LeaderboardScreen({navigation}) {
 								cardType = "third";
 							}
 
+							// Highlight User
+							if (i === (userRank.rank_number-1)){
+								// Won't highlight if user is ranked 1/2/3
+								if(i==0 || i==1 || i==2){
+									borderWidth = 0;
+								} else {
+									highlightUser = theme.lightGreen;
+									borderWidth = 2.5;
+								}
+							}
+
 							return <FriendsCard
 								key = {i}
 								type = {cardType}
@@ -221,6 +261,9 @@ export default function LeaderboardScreen({navigation}) {
 								iconPath = {avatarIcon[obj.avatar]}
 								username = {obj.username}
 								starCount = {obj.star_count}
+
+								highlightUser = {highlightUser}
+								borderWidth = {borderWidth}
 							/>
 						})
 					}
@@ -231,14 +274,7 @@ export default function LeaderboardScreen({navigation}) {
 			<NavBar currentScreen="LeaderboardScreen"/>
 
 			{/* Leaderboard User Card */}
-			<View style={{position: 'absolute', bottom: 55}}>
-				<LeaderboardUser
-					username = {userData.username}
-					iconPath = {avatarIcon[userData.avatar]}
-					rankNumber = {userRank.rank_number}
-					starCount = {userData.star_count}
-				/>
-			</View>
+			{leaderboarduser}
 		</View>
 	);
 }
