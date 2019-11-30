@@ -15,10 +15,11 @@ import {ax} from '../services/axios';
 import AsyncStorage from '@react-native-community/async-storage';
 
 
-export default function MissionsScreen(){
+export default function MissionsScreen({navigation}){
 
     // Filter Tab Menu
-    const [activeTab, setActiveTab] = useState("Available");
+    var defaultTab = navigation.state.params.activeTab || "Available";
+    const [activeTab, setActiveTab] = useState(defaultTab);
 
     // Normal Missions
     const [allMissions, setMissions] = useState([]);
@@ -49,7 +50,7 @@ export default function MissionsScreen(){
 
         // Show entire mission list inside console
         // console.log("Missions List", missions);
-        //console.log("Mission List length ", missions.length);
+        // console.log("Mission List length ", missions.length);
 
         setMissions(missions);
     }
@@ -65,6 +66,11 @@ export default function MissionsScreen(){
     var normalMission = allMissions;
     var bonusMission = allMissions;
 
+    // Init vars - For Filter Tab Menu
+    var statusTab1;
+    var statusTab2;
+    var statusTab3;
+
     // Filter missions according to the active tab
     if (activeTab === "Available"){
         // (Null or Status=1) and Mission_type=2
@@ -77,6 +83,11 @@ export default function MissionsScreen(){
         normalMission = allMissions.filter((obj, i)=>{
             return (!obj.status || obj.status === 1) && obj.mission_type >= 0;
         });
+
+        // Filter Tab Menu - Determine which tab is active
+        statusTab1 = true;
+        statusTab2 = false;
+        statusTab3 = false;
     }
 
     if (activeTab === "In Progress"){
@@ -89,6 +100,11 @@ export default function MissionsScreen(){
         normalMission = allMissions.filter((obj, i)=>{
             return (obj.status && obj.status === 2) && obj.mission_type == 1;
         });
+
+        // Filter Tab Menu - Determine which tab is active
+        statusTab1 = false;
+        statusTab2 = true;
+        statusTab3 = false;
     }
 
     if (activeTab === "Completed"){
@@ -101,6 +117,12 @@ export default function MissionsScreen(){
         normalMission = allMissions.filter((obj, i)=>{
             return (obj.status && obj.status === 3) && obj.mission_type == 1;
         });
+
+
+        // Filter Tab Menu - Determine which tab is active
+        statusTab1 = false;
+        statusTab2 = false;
+        statusTab3 = true;
     }
 
     // Filter normal missions again to only show mission_type = 1
@@ -140,6 +162,11 @@ export default function MissionsScreen(){
                         tab1 = "Available"
                         tab2 = "In Progress"
                         tab3 = "Completed"
+
+                        statusTab1 = {statusTab1}
+                        statusTab2 = {statusTab2}
+                        statusTab3 = {statusTab3}
+
                         setActiveTab = {setActiveTab}
                     />
 

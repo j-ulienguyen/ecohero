@@ -82,7 +82,6 @@ export default function SigninScreen(){
         try {
             var userAccount = await ax("users_create", {username, password, level:1, mission_count:0,star_count:0, xp_amount:0});
             console.log("Create UserID: ", userAccount[0].id);
-
             console.log("CreateAccount: ", userAccount);
 
             StoreUserID(userAccount[0].id);
@@ -102,7 +101,6 @@ export default function SigninScreen(){
         try {
             var userAccount = await ax("users_auth", {username, password});
             console.log("Auth UserID: ", userAccount[0].id);
-
             console.log("CreateAccount: ", userAccount);
 
             await StoreUserID(userAccount[0].id);

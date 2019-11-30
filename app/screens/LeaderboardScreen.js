@@ -17,11 +17,20 @@ import {ax} from '../services/axios';
 import AsyncStorage from '@react-native-community/async-storage';
 
 
-export default function LeaderboardScreen() {
-	const [activeTab, setActiveTab] = useState("Weekly");
+export default function LeaderboardScreen({navigation}) {
 
+	// Filter Tab Menu
+	var defaultTab = navigation.state.params.activeTab || "Weekly";
+	const [activeTab, setActiveTab] = useState(defaultTab);
+
+	// User Data
     const [userData, setUserData] = useState({});
 
+	// All Users Data - Leaderboard
+	const [leaderboardUsers, setLeaderboardUsers] = useState([]);
+
+	// Avatar Icons
+	// avatarIcon['name']
 	const avatarIcon = {
 		'jug': require('../assets/imgs/jug-avatar.png'),
 		'tote': require('../assets/imgs/tote-avatar.png'),
@@ -29,6 +38,38 @@ export default function LeaderboardScreen() {
 		'can': require('../assets/imgs/can-avatar.png'),
 		'paper': require('../assets/imgs/paper-avatar.png'),
 		'lunchbox': require('../assets/imgs/lunchbox-avatar.png')
+	}
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
+
+	// Init vars - For Filter Tab Menu
+
+	var statusTab1 = true;
+	var statusTab2 = true;
+	var statusTab3 = false;
+	// var statusTab1;
+	// var statusTab2;
+	// var statusTab3;
+
+	if (activeTab === "Weekly"){
+		statusTab1 = true;
+		statusTab2 = false;
+		statusTab3 = false;
+	}
+
+	if (activeTab === "Monthly"){
+		statusTab1 = false;
+		statusTab2 = true;
+		statusTab3 = false;
+	}
+
+	if (activeTab === "All-time"){
+		statusTab1 = false;
+		statusTab2 = false;
+		statusTab3 = true;
 	}
 
 	/*
@@ -74,9 +115,38 @@ export default function LeaderboardScreen() {
 	 *****************************************************************
 	*/
 
+	const GetAllUsers = async()=>{
+		var user_id = await AsyncStorage.getItem("user_id");
+		user_id = parseInt(user_id);
+
+		try {
+			var allUsers = await ax("users_read_stars", {});
+			//console.log("GetAllUsers: ", allUsers);
+			// Set Leaderboard Users into empty array
+			setLeaderboardUsers(allUsers);
+		} catch(error){
+			console.log("Error GetAllUsers", error.message)
+		}
+	}
+
+	var allUsers = leaderboardUsers;
+
+	// Sort the array in descending order
+	// Highest -> Least star_count
+	allUsers.sort((a, b) => parseInt(b.star_count) - parseInt(a.star_count));
+
+
+	var cardType;
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
+
 	// Load once
     useEffect(()=>{
 		GetUserData();
+		GetAllUsers();
 	}, [])
 
 	/*
@@ -98,13 +168,48 @@ export default function LeaderboardScreen() {
 					tab1 = "Weekly"
 					tab2 = "Monthly"
 					tab3 = "All-time"
+
+					statusTab1 = {statusTab1}
+					statusTab2 = {statusTab2}
+					statusTab3 = {statusTab3}
+
 					setActiveTab = {setActiveTab}
 				/>
 
 				{/* Leaderboard Friends Card Section*/}
 				<View style={styles.cardSection}>
-					{/* Populate with Friends Card from FriendsData.js */}
 					{
+						allUsers.map((obj, i)=>{
+							// All cards initially normal
+							cardType = "normal";
+
+							// First Place
+							if (i == 0){
+								cardType = "first";
+							}
+
+							// Second Place
+							if (i == 1){
+								cardType = "second";
+							}
+
+							// Third Color
+							if (i == 2){
+								cardType = "third";
+							}
+
+							return <FriendsCard
+								key = {i}
+								type = {cardType}
+								username = {obj.username}
+								starCount = {obj.star_count}
+								iconPath = {avatarIcon[obj.avatar]}
+								rankNumber = {i+1} // Need to +1 b/c index starts at 0
+							/>
+						})
+					}
+					{/* Populate with Friends Card from FriendsData.js */}
+					{/* {
 						friends.map((obj, i)=>{
 							return <FriendsCard
 								key = {i}
@@ -115,7 +220,7 @@ export default function LeaderboardScreen() {
 								rankNumber = {obj.rankNumber}
 							/>
 						})
-					}
+					} */}
 				</View>
 			</ScrollView>
 
