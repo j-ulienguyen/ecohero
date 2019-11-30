@@ -6,7 +6,7 @@ import styles from '../styles/ChooseAvatarSubscreenStyles';
 import GreenButton from '../comps/GreenButton';
 import BackBar from '../comps/BackBar';
 import StepProgressBar from '../comps/signup/StepProgressBar';
-
+import theme from '../styles/ThemeStyles';
 // Navigation
 import * as navigateTo from '../../RouteConstants';
 
@@ -120,13 +120,30 @@ export default function ChooseAvatar(){
 	/*
 	 *****************************************************************
 	 *****************************************************************
-	*/
+   */
+   
+   var progressWidth = 220;
+   var checkpoint1 = theme.lightGreen;
+   var checkpoint2 = theme.lightGreen;
+   var checkpoint3 = theme.lightGray;
+   var width3 = 3;
+   var border3 = theme.lightGreen;
+   // var inprogressCircle = 
 
    return (
 
       <View style={styles.whiteBg}>
          <BackBar />
-         <StepProgressBar />
+         <StepProgressBar  
+            // inprogressCircle={inprogressCircle}
+            // activeCircle={activeCircle}
+            progressWidth={progressWidth}
+            checkpoint1={checkpoint1}
+            checkpoint2={checkpoint2}
+            checkpoint3={checkpoint3}
+            width3={width3}
+            border3={border3}
+         />
 
          <View style={styles.container}>
 
