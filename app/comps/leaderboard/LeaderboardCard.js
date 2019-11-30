@@ -6,7 +6,7 @@ import styles from '../../styles/LeaderboardCardStyles';
 import FilterTabMenu from '../FilterTabMenu';
 
 
-export default function LeaderboardCard({tab1, tab2, tab3, setActiveTab}) {
+export default function LeaderboardCard({tab1, tab2, tab3, setActiveTab, statusTab1, statusTab2, statusTab3}) {
 
 	// UI
 	return (
@@ -33,7 +33,12 @@ export default function LeaderboardCard({tab1, tab2, tab3, setActiveTab}) {
 				tab1 = {tab1}
                 tab2 = {tab2}
                 tab3 = {tab3}
-                setActiveTab = {setActiveTab}
+
+				statusTab1 = {statusTab1}
+				statusTab2 = {statusTab2}
+				statusTab3 = {statusTab3}
+
+				setActiveTab = {setActiveTab}
 			/>
 		</View>
 	);

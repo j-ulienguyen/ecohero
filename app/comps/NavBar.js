@@ -102,7 +102,8 @@ export default function NavBar({currentScreen}){
                 style = {styles.navBtn}
                 activeOpacity = {1}
                 onPress={()=>{
-                    Actions.reset('leaderboard');
+                    //Actions.reset('leaderboard');
+                    navigateTo.Leaderboard({activeTab:"Weekly"})
                 }}
             >
                 <Image

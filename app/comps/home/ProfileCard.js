@@ -59,7 +59,11 @@ export default function ProfileCard({type, avatarPath, level, username, missionA
                     type="text"
                     count={missionCount} // Missions Available Count #
                     label="Missions"
-                    onPress={navigateTo.Missions}
+                    onPress={()=>{
+                        navigateTo.Missions({
+                            activeTab: "Completed"
+                        })
+                    }}
                 />
             </View>
         )

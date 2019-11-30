@@ -148,6 +148,7 @@ export default function HomeScreen(){
 			// Check User Level + Stored Username
 			var storedUsername = await AsyncStorage.getItem("username");
 			var currentUsername = user[0].username;
+
 			console.log("Stored Username: ", storedUsername);
 			console.log("Current Username: ", currentUsername);
 
@@ -158,6 +159,7 @@ export default function HomeScreen(){
 					CheckLevel(user[0].level);
 				} else {
 					StoreUsername(user[0].username);
+					AsyncStorage.setItem("level", JSON.stringify(1));
 				}
 			}
 
@@ -346,6 +348,7 @@ export default function HomeScreen(){
 		checkpoint10 = theme.lightGreen;
 		checkpoint20 = theme.lightGreen;
 
+		// Set progress text
 		progressText = null;
 		congratsText = (
 			<Text>You’ve unlocked all of the prizes. <Text style={styles.boldText}>Congratulations!</Text></Text>

@@ -36,16 +36,18 @@ export const GetStarted = ()=>{
 }
 
 export const Home = (d)=>{
-    console.log("Home", d)
+    console.log("Home", d);
     Actions.home(d)
 }
 
-export const Missions = ()=>{
-    Actions.missions()
+export const Missions = (d)=>{
+    console.log("Mission", d);
+    Actions.missions(d)
 }
 
-export const Leaderboard = ()=>{
-    Actions.leaderboard()
+export const Leaderboard = (d)=>{
+    console.log("Leaderboard", d);
+    Actions.leaderboard(d)
 }
 
 export const Profile = ()=>{
@@ -75,6 +77,5 @@ export const RewardModal = (d)=>{
 }
 
 export const BadgeModal = (d)=>{
-    // Ability to pass props
     Actions.badgeModal(d)
 }

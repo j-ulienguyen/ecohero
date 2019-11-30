@@ -96,6 +96,8 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                             // Available Tab
                             if(status === 1){
                                 StartMission();
+                                // Mission Started Modal
+                                setToggleModal(true);
                             }
 
                             // In Progress Tab
@@ -145,6 +147,7 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                             // Available Tab
                             if(status === 1){
                                 StartMission();
+                                // Mission Started Modal
                                 setToggleModal(true);
                             }
 

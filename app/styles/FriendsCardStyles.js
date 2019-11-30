@@ -17,6 +17,8 @@ var styles = StyleSheet.create({
         alignItems: "center",
         paddingLeft: 10,
         paddingRight: 0,
+
+        //borderColor: "transparent"
     },
 
     userName: {

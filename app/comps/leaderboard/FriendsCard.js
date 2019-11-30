@@ -6,7 +6,7 @@ import styles from '../../styles/FriendsCardStyles';
 import theme from '../../styles/ThemeStyles';
 import StarCount from '../StarCount';
 
-export default function FriendsCard({type, rankNumber, username, starCount, iconPath}) {
+export default function FriendsCard({type, rankNumber, username, starCount, iconPath, highlightUser, borderWidth}) {
 
 	var textColor;
 	var barBG;
@@ -51,7 +51,7 @@ export default function FriendsCard({type, rankNumber, username, starCount, icon
 			style = {{position:'absolute', top: 0}}
 			source = {cardBG}
 		/>
-		<View style={[styles.friendsCardContainer, {backgroundColor: barBG}, {elevation: shadow}]}>
+		<View style={[styles.friendsCardContainer, {backgroundColor: barBG, elevation: shadow, borderColor: highlightUser, borderWidth: borderWidth}]}>
 
 			{/* Rank # */}
 			<Text style={[styles.rankNumber, {color: textColor}]}>{rankNumber}</Text>
