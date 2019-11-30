@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text} from 'react-native';
-import { SafeAreaView, Image, TextInput } from 'react-native';
+import { SafeAreaView, Image, TextInput, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard} from 'react-native';
 
 // Import comps & styles below
 import TreeBg from '../comps/TreeBg';
@@ -153,7 +153,11 @@ export default function SigninScreen(){
 
     // UI
     return (
-        <SafeAreaView style={styles.whiteBg}>
+            <KeyboardAvoidingView 
+                behavior="padding"
+                style={styles.whiteBg}
+            >
+        {/* <TouchableWithoutFeedback onPress = {Keyboard.dismiss}> */}
             {/* Fixed Tree BG */}
             <TreeBg/>
             {/* EcoHero Logo */}
@@ -178,7 +182,7 @@ export default function SigninScreen(){
                     <Image
                         style={styles.inputIcon}
                         source={require('../assets/imgs/user-icon.png')}
-                    />
+                        />
                     <TextInput
                         placeholder = "Username"
                         maxLength={13}
@@ -193,7 +197,7 @@ export default function SigninScreen(){
                                 setDisabled2(true);
                             }
                         }}
-                    />
+                        />
                 </View>
 
                 {/* Password Field Entry */}
@@ -201,26 +205,26 @@ export default function SigninScreen(){
                     <Image
                         style={styles.inputIcon}
                         source={require('../assets/imgs/lock-icon.png')}
-                    />
+                        />
                     <TextInput
                         placeholder = "Password"
                         onChangeText = {(txt)=>{
                             password = txt;
-
+                            
                             if (username === '' || password === '' || password.length < 6){
                                 setDisabled2(false);
                                 setError('Password must be atleast 6 characters.');
                             }
                             if (password.length >= 6) {
-                                setValid('Password is good to go.');
+                                setValid("");
                                 setError("");
                             } else {
                                 setDisabled2(true);
                             }
                         }}
-
+                        
                         secureTextEntry={true}
-                    />
+                        />
                     {/* Input Error Message */}
                     <Text style={styles.errorMsg}>{error}</Text>
                     {/* Input Valid Message */}
@@ -229,7 +233,9 @@ export default function SigninScreen(){
             </View>
 
             {signin}
-
-        </SafeAreaView>
+            {/* <View style={{ height: 60 }} /> */}
+        {/* </SafeAreaViestyle={styles.whiteBg}> */}
+    {/* </TouchableWithoutFeedback> */}
+        </KeyboardAvoidingView>
     );
 };

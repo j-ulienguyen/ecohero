@@ -35,8 +35,8 @@ var styles = StyleSheet.create({
       position: "relative",
       top: 220,
       borderRadius: 80,
-      width: 110,
-      height: 110,
+      width: 140,
+      height: 140,
       backgroundColor: theme.lightGray
    },
 
@@ -44,18 +44,18 @@ var styles = StyleSheet.create({
       position: "absolute",
       top: 0,
       borderRadius: 80,
-      width: 110,
-      height: 110,
+      width: 140,
+      height: 140,
    },
    
    avatarCont: {
       flexDirection: "row",
       flexWrap: "wrap",
-      top: 240,
+      top: 230,
       width: "70%",
       justifyContent: "center",
       alignItems: "center",
-      marginBottom: 100
+      marginBottom: 85
    },
    
    smIcon: {

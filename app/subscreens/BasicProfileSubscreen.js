@@ -7,6 +7,7 @@ import GreenButton from '../comps/GreenButton';
 import TreeBg from '../comps/TreeBg';
 import BackBar from '../comps/BackBar';
 import StepProgressBar from '../comps/signup/StepProgressBar';
+import theme from '../styles/ThemeStyles';
 
 // Navigation
 import * as navigateTo from '../../RouteConstants';
@@ -20,6 +21,12 @@ var first_name = "";
 var last_name = "";
 var email = "";
 var classroom_code = "";
+
+// step bar
+var progressWidth = 120;
+var checkpoint1 = theme.lightGreen;
+var checkpoint2 = theme.lightGray;
+var checkpoint3 = theme.lightGray;
 
 
 export default function BasicProfile(){
@@ -46,7 +53,13 @@ export default function BasicProfile(){
    return (
       <View style={styles.whiteBg}>
          <BackBar/>
-         <StepProgressBar/>
+         <StepProgressBar
+            progressWidth={progressWidth}
+            checkpoint1={checkpoint1}
+            checkpoint2={checkpoint2}
+            checkpoint3={checkpoint3}
+
+         />
 
          <View style={styles.container}>
             {/* EcoHero Profile Text */}
