@@ -24,10 +24,11 @@ export default function LeaderboardScreen({navigation}) {
 	const [activeTab, setActiveTab] = useState(defaultTab);
 
 	// User Data
-    const [userData, setUserData] = useState({});
+	const [userData, setUserData] = useState({});
 
 	// All Users Data - Leaderboard
 	const [leaderboardUsers, setLeaderboardUsers] = useState([]);
+	const [userRank, setUserRank] = useState({});
 
 	// Avatar Icons
 	// avatarIcon['name']
@@ -46,13 +47,9 @@ export default function LeaderboardScreen({navigation}) {
 	*/
 
 	// Init vars - For Filter Tab Menu
-
-	var statusTab1 = true;
-	var statusTab2 = true;
-	var statusTab3 = false;
-	// var statusTab1;
-	// var statusTab2;
-	// var statusTab3;
+	var statusTab1;
+	var statusTab2;
+	var statusTab3;
 
 	if (activeTab === "Weekly"){
 		statusTab1 = true;
@@ -115,15 +112,38 @@ export default function LeaderboardScreen({navigation}) {
 	 *****************************************************************
 	*/
 
+	// Get All Users - For Leaderboard
 	const GetAllUsers = async()=>{
 		var user_id = await AsyncStorage.getItem("user_id");
 		user_id = parseInt(user_id);
 
 		try {
+			// Current User
+			var user = await ax("users_read", {id:user_id});
+			// All leaderboard users
 			var allUsers = await ax("users_read_stars", {});
-			//console.log("GetAllUsers: ", allUsers);
-			// Set Leaderboard Users into empty array
-			setLeaderboardUsers(allUsers);
+
+			// Init var
+			var leaderboard;
+
+			// Sort the array in descending order
+			// Highest -> Least star_count
+			leaderboard = allUsers.sort((a, b) => parseInt(b.star_count) - parseInt(a.star_count));
+
+			// Loop through array to determine user's rank
+			for(i = 0; i < leaderboard.length; i++){
+				if(user[0].username == leaderboard[i].username){
+					var rank = i+1;
+				}
+			}
+
+			// Set the rank number for user
+			user[0].rank_number = rank;
+			console.log("User Rank: ", rank);
+
+			// Set User Data
+			setLeaderboardUsers(leaderboard);
+			setUserRank(user[0]);
 		} catch(error){
 			console.log("Error GetAllUsers", error.message)
 		}
@@ -131,12 +151,8 @@ export default function LeaderboardScreen({navigation}) {
 
 	var allUsers = leaderboardUsers;
 
-	// Sort the array in descending order
-	// Highest -> Least star_count
-	allUsers.sort((a, b) => parseInt(b.star_count) - parseInt(a.star_count));
-
-
-	var cardType;
+	// Init var
+	var cardType; // To be used later inside allUsers.map
 
 	/*
 	 *****************************************************************
@@ -201,26 +217,13 @@ export default function LeaderboardScreen({navigation}) {
 							return <FriendsCard
 								key = {i}
 								type = {cardType}
+								rankNumber = {i+1} // Need to +1 b/c index starts at 0
+								iconPath = {avatarIcon[obj.avatar]}
 								username = {obj.username}
 								starCount = {obj.star_count}
-								iconPath = {avatarIcon[obj.avatar]}
-								rankNumber = {i+1} // Need to +1 b/c index starts at 0
 							/>
 						})
 					}
-					{/* Populate with Friends Card from FriendsData.js */}
-					{/* {
-						friends.map((obj, i)=>{
-							return <FriendsCard
-								key = {i}
-								type = {obj.type}
-								username = {obj.username}
-								starCount = {obj.starCount}
-								iconPath = {obj.iconPath}
-								rankNumber = {obj.rankNumber}
-							/>
-						})
-					} */}
 				</View>
 			</ScrollView>
 
@@ -232,7 +235,7 @@ export default function LeaderboardScreen({navigation}) {
 				<LeaderboardUser
 					username = {userData.username}
 					iconPath = {avatarIcon[userData.avatar]}
-					rankNumber = {35}
+					rankNumber = {userRank.rank_number}
 					starCount = {userData.star_count}
 				/>
 			</View>
