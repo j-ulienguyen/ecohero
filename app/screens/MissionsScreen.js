@@ -188,6 +188,7 @@ export default function MissionsScreen({navigation}){
                                     xpAmount = {obj.mission_xp}
 
                                     GetMissions = {GetMissions}
+                                    setToggleModal = {setToggleModal}
                                 />
                             })
                         }

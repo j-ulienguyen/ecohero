@@ -162,9 +162,11 @@ export default function LeaderboardScreen({navigation}) {
 	var leaderboarduser;
 	var highlightUser;
 	var borderWidth;
+	var cardSectionMargin;
 
 	// If user is not in Top 30 -> Show LeaderboardUser Card
 	if(userRank.rank_number > 30){
+		cardSectionMargin = 140;
 		leaderboarduser = (
 			<View style={{position: 'absolute', bottom: 55}}>
 				<LeaderboardUser
@@ -174,10 +176,11 @@ export default function LeaderboardScreen({navigation}) {
 					starCount = {userData.star_count}
 				/>
 			</View>
-		)
+		);
 	} else {
 		// User is in Top 30 -> Don't show LeaderboardUser Card
 		leaderboarduser = null;
+		cardSectionMargin = 80;
 	}
 
 
@@ -220,7 +223,7 @@ export default function LeaderboardScreen({navigation}) {
 				/>
 
 				{/* Leaderboard Friends Card Section*/}
-				<View style={styles.cardSection}>
+				<View style={[styles.cardSection, {marginBottom: cardSectionMargin}]}>
 					{
 						allUsers.map((obj, i)=>{
 							// All cards initially normal
