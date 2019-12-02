@@ -41,7 +41,7 @@ export const Home = (d)=>{
 }
 
 export const Missions = (d)=>{
-    console.log("Mission", d);
+    //console.log("Mission", d);
     Actions.missions(d)
 }
 
