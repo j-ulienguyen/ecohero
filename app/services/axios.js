@@ -7,7 +7,8 @@ import axios from 'axios';
 
 var IP_ADDRESS = "142.232.155.211";
 
-const url = "http://"+IP_ADDRESS+":3001/post";
+// const url = "http://"+IP_ADDRESS+":3001/post";
+const url = "https://ecohero.herokuapp.com/post";
 
 export async function ax(key, data){
     var obj = {

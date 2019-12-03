@@ -27,8 +27,8 @@ var styles = StyleSheet.create({
    },
 
    entryCont: {
-      position: "relative",
-      top: 15,
+      position: "absolute",
+      top: 70,
       justifyContent: "center",
       alignItems: "center"
       // bottom: 400

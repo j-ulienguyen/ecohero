@@ -25,6 +25,8 @@ export default function ChooseAvatar(){
    const [selectIcon5, setSelectIcon5] = useState(false);
    const [selectIcon6, setSelectIcon6] = useState(false);
 
+   const [disabled, setDisabled] = useState(true);
+
    var chosenAvatarName;
 
    const avatarIcon = {
@@ -55,6 +57,7 @@ export default function ChooseAvatar(){
       activeRing1 = styles.activeRing;
       chosenAvatarIcon = avatarIcon1;
       chosenAvatarName = "jug";
+      //setDisabled(false);
    }
 
    if(selectIcon2 === true){
@@ -174,7 +177,8 @@ export default function ChooseAvatar(){
                   <TouchableOpacity
                      onPress={()=>{
                         AllFalse();
-                        setSelectIcon1(true)
+                        setSelectIcon1(true);
+                        setDisabled(false);
                      }}
                   >
                      <Image
@@ -188,6 +192,7 @@ export default function ChooseAvatar(){
                      onPress={()=>{
                         AllFalse();
                         setSelectIcon2(true)
+                        setDisabled(false);
                      }}
                   >
                      <Image
@@ -201,6 +206,7 @@ export default function ChooseAvatar(){
                      onPress={()=>{
                         AllFalse();
                         setSelectIcon3(true)
+                        setDisabled(false);
                      }}
                   >
                      <Image
@@ -214,6 +220,7 @@ export default function ChooseAvatar(){
                      onPress={()=>{
                         AllFalse();
                         setSelectIcon4(true)
+                        setDisabled(false);
                      }}
                   >
                      <Image
@@ -227,6 +234,7 @@ export default function ChooseAvatar(){
                      onPress={()=>{
                         AllFalse();
                         setSelectIcon5(true)
+                        setDisabled(false);
                      }}
                   >
                      <Image
@@ -240,6 +248,7 @@ export default function ChooseAvatar(){
                      onPress={()=>{
                         AllFalse();
                         setSelectIcon6(true)
+                        setDisabled(false);
                      }}
                   >
                      <Image
@@ -258,6 +267,7 @@ export default function ChooseAvatar(){
             <GreenButton
                width={309} height={43}
                title="Continue"
+               disabled={disabled}
                onPress={async()=>{
                   await UpdateAvatar();
                   navigateTo.GetStarted()
