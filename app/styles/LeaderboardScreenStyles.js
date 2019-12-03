@@ -8,7 +8,7 @@ var styles = StyleSheet.create({
 
     cardSection: {
         marginVertical:25,
-        marginBottom: 140
+        //marginBottom: 140
     }
 });
 

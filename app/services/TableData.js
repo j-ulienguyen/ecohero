@@ -73,3 +73,41 @@ VALUES (18, 'Soapy DIY', 'Be green and make your own natural, non-toxic, environ
 INSERT INTO missions
 (id, mission_name, mission_description, mission_star, mission_xp, mission_month, mission_type, mission_icon)
 VALUES (1, 'Picker Upper', 'Help clean up the community by cleaning up after yourself and others. Take a walk around the neighbourhood, and bring a bag with you. Pick up any plastic or garbage you see on the ground. Remember to wear gloves and be safe!', 5, 50, 'December', 2, 'eco');
+
+
+
+INSERT INTO users
+(username, avatar, star_count, xp_amount)
+VALUES
+('cooldude1240', 'tote', 9, 200),
+('Necloed', 'bottle', 15, 400),
+('abhimanyucc', 'jug', 25, 625),
+('SamMeechWard', 'paper', 35, 800),
+('Abhimannyu', 'lunchbox', 7, 185),
+('XxIceFirexX', 'tote', 30, 750),
+('cooldude1240', 'can', 9, 350),
+('Elitegamer224', 'bottle', 15, 400),
+('irvy', 'lunchbox', 40, 925),
+('oOoOoOoOo', 'can', 10, 225),
+('pewdiepiefan45', 'paper', 28, 700),
+('Chengman', 'bottle', 21, 525),
+('quickninja', 'bottle', 29, 725),
+('daemonB', 'tote', 10, 325),
+('frozenbestmovie123', 'paper', 17, 475),
+('moana234155', 'jug', 13, 385),
+('shimmycocopuffsss', 'lunchbox', 4, 100),
+('venivici500', 'can', 24, 650),
+('awesomesauce2010', 'lunchbox', 2, 80),
+('iamagamer90', 'jug', 20, 525),
+('twitchgamer77', 'bottle', 16, 450),
+('4444formaggio', 'can', 6, 150),
+('hardstylebaby424', 'paper', 12, 300),
+('Yassuo', 'paper', 9, 200),
+('blahblah100', 'can', 3, 100),
+('yeahyeah123', 'lunchbox', 18, 500),
+('dababyfan800', 'jug', 3, 100),
+('kcmusiclover123', 'can', 3, 100),
+('souljaboyfan100', 'tote', 3, 100),
+('realecohero9', 'bottle', 3, 100),
+('lilreek', 'paper', 0, 0),
+('clubpenguin4lyfe', 'jug', 0, 0);

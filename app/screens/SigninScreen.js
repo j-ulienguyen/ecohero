@@ -84,6 +84,9 @@ export default function SigninScreen(){
             console.log("Create UserID: ", userAccount[0].id);
             console.log("CreateAccount: ", userAccount);
 
+            // Clear storage for key: "level"
+            await AsyncStorage.removeItem("level");
+
             StoreUserID(userAccount[0].id);
         } catch (error){
             console.log("Error CreateAccount", error.message);
@@ -101,8 +104,11 @@ export default function SigninScreen(){
         // console.log(username,password);
         try {
             var userAccount = await ax("users_auth", {username, password});
-            // console.log("Auth UserID: ", userAccount[0].id);
+            console.log("Auth UserID: ", userAccount[0].id);
             console.log("LoginAccount: ", userAccount);
+
+            // Clear storage for key: "level"
+            await AsyncStorage.removeItem("level");
 
             await StoreUserID(userAccount[0].id);
             await StoreUsername(userAccount[0].username);

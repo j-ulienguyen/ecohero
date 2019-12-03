@@ -136,30 +136,41 @@ export default function HomeScreen(){
 			for (var level in xp_required){
 				if (user[0].xp_amount >= xp_required[level]){
 					currentLevel = parseInt(level);
-					console.log("Loop -> Current Level: ", currentLevel);
+					// console.log("Loop -> Current Level: ", currentLevel);
 				}
 			}
 
 			// Set user level
-			user[0].level = currentLevel;
-			console.log("User Level: ", user[0].level);
+			currentLevel = user[0].level;
+
+			console.log("Current Level: ", currentLevel);
 			console.log("Current XP: ", user[0].xp_amount);
 
 			// Check User Level + Stored Username
+			var storedLevel = await AsyncStorage.getItem("level");
+
 			var storedUsername = await AsyncStorage.getItem("username");
 			var currentUsername = user[0].username;
 
 			console.log("Stored Username: ", storedUsername);
 			console.log("Current Username: ", currentUsername);
 
+			// Prevent LevelUpModal from showing up after logging in if user's xp is the same as xp required to level up
+			if (storedLevel === null){
+				console.log("Stored Level is", storedLevel);
+
+				AsyncStorage.setItem("level", JSON.stringify(currentLevel));
+
+				console.log("Stored Level is now set to user's current level ->", currentLevel);
+			}
+
 			if (storedUsername){
 				if(storedUsername == currentUsername){
 					// Compare user level with device storage level
 					// Determine whether to show LevelUpModal
-					CheckLevel(user[0].level);
+					CheckLevel(currentLevel);
 				} else {
 					StoreUsername(user[0].username);
-					AsyncStorage.setItem("level", JSON.stringify(1));
 				}
 			}
 
@@ -223,7 +234,7 @@ export default function HomeScreen(){
 		}
 
 		// Show modal because user leveled up and there's no reference
-		else if (userLevel > 1){
+		else if (level && userLevel > 1){
 			AsyncStorage.setItem("level", JSON.stringify(userLevel));
 			setToggleModal(true);
 
