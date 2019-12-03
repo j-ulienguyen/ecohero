@@ -10,9 +10,6 @@ import LeaderboardUser from '../comps/leaderboard/LeaderboardUser';
 import FriendsCard from '../comps/leaderboard/FriendsCard';
 import NavBar from '../comps/NavBar';
 
-// Import data files below
-import {friends} from '../data/FriendsData';
-
 // Database & Storage
 import {ax} from '../services/axios';
 import AsyncStorage from '@react-native-community/async-storage';

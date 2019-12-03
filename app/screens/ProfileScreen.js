@@ -21,7 +21,11 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 export default function ProfileScreen(){
 
+	// User Data
     const [userData, setUserData] = useState({});
+
+	// Normal Missions
+	const [allMissions, setMissions] = useState([]);
 
     // Avatar Icons
     // avatarIcon['name']
@@ -103,12 +107,12 @@ export default function ProfileScreen(){
 			for (var level in xp_required){
 				if (user[0].xp_amount >= xp_required[level]){
 					currentLevel = parseInt(level);
-					console.log("Loop -> Current Level: ", currentLevel);
+					// console.log("Loop -> Current Level: ", currentLevel);
 				}
 			}
 
-			// Set user level
-			user[0].level = currentLevel;
+			// Show user's current level
+			// console.log("Current Level: ", currentLevel);
 
             /*
              *****************************************************************
@@ -128,6 +132,25 @@ export default function ProfileScreen(){
 	 *****************************************************************
 	*/
 
+    // Load all missions from db
+    const GetMissions = async()=>{
+        var user_id = await AsyncStorage.getItem("user_id");
+        user_id = parseInt(user_id);
+
+        var missions = await ax("missions_read", {user_id:user_id});
+
+        // Show entire mission list inside console
+        // console.log("Missions List", missions);
+        // console.log("Mission List length ", missions.length);
+
+        setMissions(missions);
+    }
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
+
     // Reassign vars
 	var userName = userData.username;
 	var userAvatar = userData.avatar;
@@ -141,15 +164,52 @@ export default function ProfileScreen(){
 	 *****************************************************************
 	*/
 
+	// Init vars
+	var badgeStatus;
+
+    // Mission_type = 1 -> Normal
+	// Mission_type = 2 -> Bonus
+	// Status = 3 -> Completed
+
+    var normalMission = allMissions;
+	var bonusMission = allMissions;
+
+	var firstBonusMission;
+	var recycleMissions;
+
+	// New Leaf Badge
+	// Completed first bonus mission
+	bonusMission = allMissions.filter((obj, i)=>{
+		return (!obj.status || obj.status === 3) && obj.mission_type == 2;
+	});
+
+	firstBonusMission = bonusMission.length;
+
+	// Recycler Badge
+	// Completed 5 recycle missions
+	normalMission = allMissions.filter((obj, i)=>{
+		return (!obj.status || obj.status === 3) && obj.mission_type == 1 && obj.mission_icon == 'recycle';
+	});
+
+	recycleMissions = normalMission.length;
+
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
+
 	// Load once
     useEffect(()=>{
-        GetUserData();
+		GetUserData();
+		GetMissions();
 	}, [])
 
 	/*
 	 *****************************************************************
 	 *****************************************************************
 	*/
+
 
     // UI
     return (
@@ -193,12 +253,47 @@ export default function ProfileScreen(){
                         <View style={styles.badgeContainer}>
                             {
                                 badges.map((obj, i)=>{
+									// Badges initially locked
+									badgeStatus = false;
+
+									// Initiation Badge
+									if(i == 0 && userMissionCount >= 1){
+										badgeStatus = true;
+									}
+
+									// New Leaf Badge
+									if (i == 1 && firstBonusMission >= 1){
+										badgeStatus = true;
+									}
+
+									// Recycler Badge
+									if (i == 2 && recycleMissions >= 5){
+										badgeStatus = true;
+									}
+
+									// High Five Badge
+									if (i == 3 && userLevel >= 5){
+										badgeStatus = true;
+									}
+
+									// Grand Star Badge
+									if (i == 4 && userStarCount >= 30){
+										badgeStatus = true;
+									}
+
+									// 10 Missions Badge
+									if (i == 5 && userMissionCount >= 10){
+										badgeStatus = true;
+									}
+
+
                                     return <ProfileBadge
                                         key = {i}
                                         badgeName = {obj.badgeName}
                                         description = {obj.description}
                                         imagePath = {obj.imagePath}
-                                        status = {obj.status}
+                                        //status = {obj.status}
+										status = {badgeStatus}
                                     />
                                 })
                             }

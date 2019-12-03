@@ -141,8 +141,9 @@ export default function HomeScreen(){
 			}
 
 			// Set user level
-			user[0].level = currentLevel;
-			console.log("User Level: ", user[0].level);
+			currentLevel = user[0].level;
+
+			console.log("Current Level: ", currentLevel);
 			console.log("Current XP: ", user[0].xp_amount);
 
 			// Check User Level + Stored Username
@@ -158,16 +159,16 @@ export default function HomeScreen(){
 			if (storedLevel === null){
 				console.log("Stored Level is", storedLevel);
 
-				AsyncStorage.setItem("level", JSON.stringify(user[0].level));
+				AsyncStorage.setItem("level", JSON.stringify(currentLevel));
 
-				console.log("Stored Level is now set to user's current level ->", user[0].level);
+				console.log("Stored Level is now set to user's current level ->", currentLevel);
 			}
 
 			if (storedUsername){
 				if(storedUsername == currentUsername){
 					// Compare user level with device storage level
 					// Determine whether to show LevelUpModal
-					CheckLevel(user[0].level);
+					CheckLevel(currentLevel);
 				} else {
 					StoreUsername(user[0].username);
 				}

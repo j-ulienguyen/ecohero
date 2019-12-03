@@ -36,7 +36,7 @@ export const GetStarted = ()=>{
 }
 
 export const Home = (d)=>{
-    console.log("Home", d);
+    //console.log("Home", d);
     Actions.home(d)
 }
 
@@ -46,7 +46,7 @@ export const Missions = (d)=>{
 }
 
 export const Leaderboard = (d)=>{
-    console.log("Leaderboard", d);
+    //console.log("Leaderboard", d);
     Actions.leaderboard(d)
 }
 
@@ -55,7 +55,7 @@ export const Profile = ()=>{
 }
 
 export const VerifyCode = (d)=>{
-    console.log("Verify", d);
+    //console.log("Verify", d);
     Actions.verifyCode(d)
 }
 
@@ -72,7 +72,7 @@ export const LevelupModal = (d)=>{
 }
 
 export const RewardModal = (d)=>{
-    console.log("Reward", d);
+    //console.log("Reward", d);
     Actions.rewardModal(d)
 }
 

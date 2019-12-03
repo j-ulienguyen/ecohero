@@ -114,16 +114,12 @@ export default function OnboardSteps(){
 
             showSkipButton={true}
             onSkip={async()=>{
-               // Clear storage for key: "level"
-               {/* await AsyncStorage.removeItem("level"); */}
                // Navigate to Home Screen
                navigateTo.Home()
             }}
             onDone={async()=>{
                // Will set onboarding mission to complete
                await DoneOnboard();
-               // Clear storage for key: "level"
-               {/* await AsyncStorage.removeItem("level"); */}
                // Navigate to Reward Modal
                navigateTo.RewardModal({
                   // Pass over following values
