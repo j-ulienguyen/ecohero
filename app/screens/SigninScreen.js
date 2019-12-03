@@ -139,6 +139,8 @@ export default function SigninScreen(){
         signin = (
             <SignInEntry
                 LoginAccount = {LoginAccount}
+                username = {username}
+                password = {password}
             />
         )
     } else if (selectedTab === 1){

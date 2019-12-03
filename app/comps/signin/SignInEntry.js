@@ -9,7 +9,7 @@ import GreenButton from '../../comps/GreenButton';
 import * as navigateTo from '../../../RouteConstants';
 
 
-export default function SignInEntry({LoginAccount}){
+export default function SignInEntry({LoginAccount, username, password}){
    // UI
    return (
       <View style={styles.container}>
@@ -18,7 +18,11 @@ export default function SignInEntry({LoginAccount}){
             title="Continue"
             width={309} height={43} marginTop={25}
             onPress={()=>{
-               LoginAccount();
+               if(username == '' || password ==''){
+                  alert('Please fill out all required fields.');
+               } else {
+                  LoginAccount();
+               }
          }}/>
 
          {/* Forgot Pw Text Button */}
