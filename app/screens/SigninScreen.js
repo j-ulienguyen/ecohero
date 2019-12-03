@@ -8,7 +8,6 @@ import EcoHeroLogo from '../comps/EcoHeroLogo';
 import SignInEntry from '../comps/signin/SignInEntry';
 import SignUpEntry from '../comps/signup/SignUpEntry';
 import MaterialTabs from 'react-native-material-tabs';
-// import styles from '../styles/MaterialTabsStyles';
 import styles from '../styles/StartPageStyles';
 
 // Database & Storage
@@ -29,7 +28,7 @@ export default function SigninScreen(){
     const [selectedTab, setSelectedTab] = useState(0);
 
     // Username + Password Entry
-    const [txt, setTxt] = useState("");
+    // const [txt, setTxt] = useState("");
     const [error, setError] = useState("");
     const [valid, setValid] = useState("");
     const [disabled2, setDisabled2] = useState(false);
@@ -126,9 +125,9 @@ export default function SigninScreen(){
 	*/
 
     // Load once
-    useEffect(()=>{
-        GetUserID();
-    }, [])
+    // useEffect(()=>{
+    //     GetUserID();
+    // }, []);
 
 	/*
 	 *****************************************************************
@@ -158,12 +157,11 @@ export default function SigninScreen(){
 
     // UI
     return (
-            <KeyboardAvoidingView 
-                behavior="position"
-                // enabled
-                style={styles.whiteBg}
-            >
-        {/* <TouchableWithoutFeedback onPress = {Keyboard.dismiss}> */}
+        <KeyboardAvoidingView
+            behavior="position"
+            // enabled
+            style={styles.whiteBg}
+        >
             {/* Fixed Tree BG */}
             <TreeBg/>
             {/* EcoHero Logo */}
@@ -192,10 +190,8 @@ export default function SigninScreen(){
                     <TextInput
                         placeholder = "Username"
                         maxLength={13}
-                        // require = ""
                         onChangeText = {(txt)=>{
                             username = txt;
-                            //setTxt(txt);
                             if (username === '' || password === ''){
                                 setDisabled2(false);
                                 // alert('empty.');
@@ -216,7 +212,6 @@ export default function SigninScreen(){
                         placeholder = "Password"
                         onChangeText = {(txt)=>{
                             password = txt;
-                            
                             if (username === '' || password === '' || password.length < 6){
                                 setDisabled2(false);
                                 setError('Password must be atleast 6 characters.');
@@ -228,7 +223,7 @@ export default function SigninScreen(){
                                 setDisabled2(true);
                             }
                         }}
-                        
+
                         secureTextEntry={true}
                         />
                     {/* Input Error Message */}
@@ -238,10 +233,9 @@ export default function SigninScreen(){
                 </View>
             </View>
 
+            {/* Sign In / Create Account Button */}
             {signin}
-            {/* <View style={{ height: 60 }} /> */}
-        {/* </SafeAreaViestyle={styles.whiteBg}> */}
-    {/* </TouchableWithoutFeedback> */}
+
         </KeyboardAvoidingView>
     );
 };

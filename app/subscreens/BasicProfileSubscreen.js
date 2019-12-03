@@ -22,7 +22,7 @@ var last_name = "";
 var email = "";
 var classroom_code = "";
 
-// step bar
+// Step Bar
 var progressWidth = 120;
 var checkpoint1 = theme.lightGreen;
 var checkpoint2 = theme.lightGray;
@@ -31,7 +31,7 @@ var checkpoint3 = theme.lightGray;
 
 export default function BasicProfile(){
 
-   const [txt, setTxt] = useState("");
+   // const [txt, setTxt] = useState("");
    const [disabled, setDisabled] = useState("");
 
 
@@ -52,19 +52,17 @@ export default function BasicProfile(){
 
 
    return (
-      <KeyboardAvoidingView 
-      behavior="position"
-      // enabled
-      style={styles.whiteBg}
-  >
-      {/* <View style={styles.whiteBg}> */}
+      <KeyboardAvoidingView
+         behavior="position"
+         // enabled
+         style={styles.whiteBg}
+      >
          <BackBar/>
          <StepProgressBar
             progressWidth={progressWidth}
             checkpoint1={checkpoint1}
             checkpoint2={checkpoint2}
             checkpoint3={checkpoint3}
-
          />
 
          <View style={styles.container}>
@@ -80,7 +78,7 @@ export default function BasicProfile(){
                      placeholder = "First Name"
                      onChangeText = {(text)=>{
                         first_name = text;
-                        if(first_name = '' || last_name == '' || email == '' || classroom_code == ''){
+                        if(first_name == '' || last_name == '' || email == '' || classroom_code == ''){
                            setDisabled(false);
                         } else {
                            setDisabled(true);
@@ -94,8 +92,7 @@ export default function BasicProfile(){
                      placeholder = "Last Name"
                      onChangeText = {(text)=>{
                         last_name = text;
-                        {/* setTxt(text); */}
-                        if(first_name = '' || last_name == '' || email == '' || classroom_code == ''){
+                        if(first_name == '' || last_name == '' || email == '' || classroom_code == ''){
                            setDisabled(false);
                         } else {
                            setDisabled(true);
@@ -109,8 +106,7 @@ export default function BasicProfile(){
                      placeholder = "Email Address"
                      onChangeText = {(text)=>{
                         email = text;
-                        {/* setTxt(text); */}
-                        if(first_name = '' || last_name == '' || email == '' || classroom_code == ''){
+                        if(first_name == '' || last_name == '' || email == '' || classroom_code == ''){
                            setDisabled(false);
                         } else {
                            setDisabled(true);
@@ -124,8 +120,7 @@ export default function BasicProfile(){
                      placeholder = "Classroom Code"
                      onChangeText = {(text)=>{
                         classroom_code = text;
-                        {/* setTxt(text); */}
-                        if(first_name = '' || last_name == '' || email == '' || classroom_code == ''){
+                        if(first_name == '' || last_name == '' || email == '' || classroom_code == ''){
                            setDisabled(false);
                         } else {
                            setDisabled(true);
