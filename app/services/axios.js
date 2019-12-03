@@ -5,9 +5,10 @@ import axios from 'axios';
 // Terminal -> ifconfig
 // http://YourIP:3001/post
 
-var IP_ADDRESS = "192.168.0.3";
+var IP_ADDRESS = "192.168.0.182";
 
-const url = "http://"+IP_ADDRESS+":3001/post";
+// const url = "http://"+IP_ADDRESS+":3001/post";
+const url = "https://ecohero.herokuapp.com/post";
 
 export async function ax(key, data){
     var obj = {

@@ -98,10 +98,11 @@ export default function SigninScreen(){
 
     // Login Account
     const LoginAccount = async()=>{
+        // console.log(username,password);
         try {
             var userAccount = await ax("users_auth", {username, password});
-            console.log("Auth UserID: ", userAccount[0].id);
-            console.log("CreateAccount: ", userAccount);
+            // console.log("Auth UserID: ", userAccount[0].id);
+            console.log("LoginAccount: ", userAccount);
 
             await StoreUserID(userAccount[0].id);
             await StoreUsername(userAccount[0].username);
@@ -152,7 +153,8 @@ export default function SigninScreen(){
     // UI
     return (
             <KeyboardAvoidingView 
-                behavior="padding"
+                behavior="position"
+                // enabled
                 style={styles.whiteBg}
             >
         {/* <TouchableWithoutFeedback onPress = {Keyboard.dismiss}> */}

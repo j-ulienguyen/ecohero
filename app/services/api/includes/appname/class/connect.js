@@ -24,7 +24,11 @@ if (config.db.type === "dev"){
   //using rds for prod
   exp = {
     query:async (q, d) => {
-      var client = new Client(dbconfig);
+      // var client = new Client(dbconfig);
+      var client = new Client({
+        connectionString: process.env.DATABASE_URL,
+        ssl: true,
+      });
       await client.connect();
       try {
         var results = await client.query(q,d);

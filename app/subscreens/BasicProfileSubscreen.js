@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TextInput, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
 
 // Import comps & styles below
 import styles from '../styles/BasicProfileSubscreenStyles';
@@ -32,6 +32,7 @@ var checkpoint3 = theme.lightGray;
 export default function BasicProfile(){
 
    const [txt, setTxt] = useState("");
+   const [disabled, setDisabled] = useState("");
 
 
    // Update Profile
@@ -51,7 +52,12 @@ export default function BasicProfile(){
 
 
    return (
-      <View style={styles.whiteBg}>
+      <KeyboardAvoidingView 
+      behavior="position"
+      // enabled
+      style={styles.whiteBg}
+  >
+      {/* <View style={styles.whiteBg}> */}
          <BackBar/>
          <StepProgressBar
             progressWidth={progressWidth}
@@ -74,7 +80,11 @@ export default function BasicProfile(){
                      placeholder = "First Name"
                      onChangeText = {(text)=>{
                         first_name = text;
-                        {/* setTxt(text); */}
+                        if(first_name = '' || last_name == '' || email == '' || classroom_code == ''){
+                           setDisabled(false);
+                        } else {
+                           setDisabled(true);
+                        }
                      }}
                      />
                </View>
@@ -85,6 +95,11 @@ export default function BasicProfile(){
                      onChangeText = {(text)=>{
                         last_name = text;
                         {/* setTxt(text); */}
+                        if(first_name = '' || last_name == '' || email == '' || classroom_code == ''){
+                           setDisabled(false);
+                        } else {
+                           setDisabled(true);
+                        }
                      }}
                      />
                </View>
@@ -95,6 +110,11 @@ export default function BasicProfile(){
                      onChangeText = {(text)=>{
                         email = text;
                         {/* setTxt(text); */}
+                        if(first_name = '' || last_name == '' || email == '' || classroom_code == ''){
+                           setDisabled(false);
+                        } else {
+                           setDisabled(true);
+                        }
                      }}
                      />
                </View>
@@ -105,6 +125,11 @@ export default function BasicProfile(){
                      onChangeText = {(text)=>{
                         classroom_code = text;
                         {/* setTxt(text); */}
+                        if(first_name = '' || last_name == '' || email == '' || classroom_code == ''){
+                           setDisabled(false);
+                        } else {
+                           setDisabled(true);
+                        }
                      }}
                      />
                </View>
@@ -112,16 +137,18 @@ export default function BasicProfile(){
          </View>
 
          {/* Continue Button */}
-         <View style={{alignItems: "center", width: "100%", marginTop: 200, marginBottom:200}}>
+         <View style={{alignItems: "center", width: "100%", marginTop: 430, marginBottom:100}}>
             <GreenButton
                title="Continue"
                width={309} height={43}
                onPress= {async()=>{
-                  await UpdateProfile();
-                  navigateTo.ChooseAvatar();
+                  (disabled)?
+                  (await UpdateProfile(),
+                  navigateTo.ChooseAvatar()):
+                  alert('Please fill out all required fields.');
                }}
             />
          </View>
-      </View>
+      </KeyboardAvoidingView>
    );
 };
