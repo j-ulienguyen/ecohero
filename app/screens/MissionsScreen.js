@@ -21,7 +21,7 @@ export default function MissionsScreen({navigation}){
     var defaultTab = navigation.state.params.activeTab || "Available";
     const [activeTab, setActiveTab] = useState(defaultTab);
 
-    // Normal Missions
+    // Missions
     const [allMissions, setMissions] = useState([]);
 
     // Mission In Progress Modal
@@ -118,7 +118,6 @@ export default function MissionsScreen({navigation}){
             return (obj.status && obj.status === 3) && obj.mission_type == 1;
         });
 
-
         // Filter Tab Menu - Determine which tab is active
         statusTab1 = false;
         statusTab2 = false;
@@ -188,6 +187,7 @@ export default function MissionsScreen({navigation}){
                                     xpAmount = {obj.mission_xp}
 
                                     GetMissions = {GetMissions}
+                                    setToggleModal = {setToggleModal}
                                 />
                             })
                         }
