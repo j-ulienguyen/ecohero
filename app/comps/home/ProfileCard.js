@@ -12,7 +12,7 @@ import UsernameLabel from '../UsernameLabel';
 import * as navigateTo from '../../../RouteConstants';
 
 
-export default function ProfileCard({type, avatarPath, level, username, missionAvailable, starCount, missionCount}){
+export default function ProfileCard({type, avatarPath, level, username, missionAvailable, starCount, missionCount, progressCircle}){
 
     var userBubble;
     var badges;
@@ -20,12 +20,13 @@ export default function ProfileCard({type, avatarPath, level, username, missionA
     if(type === "compact"){
         userBubble = null,
         badges = (
-            <View style={styles.badgesContainer}>
+            <View style={[styles.badgesContainer, {marginTop: 10}]}>
                 {/* Avatar Level Badge */}
                 <AvatarLevel
                     avatarPath={avatarPath}
                     level={level}
                     disabled={true}
+                    progressCircle={progressCircle}
                 />
             </View>
         )
@@ -52,6 +53,7 @@ export default function ProfileCard({type, avatarPath, level, username, missionA
                     avatarPath={avatarPath}
                     level={level} // Current Level
                     onPress={navigateTo.Profile}
+                    progressCircle={progressCircle}
                 />
 
                 {/* Mission Count Badge */}

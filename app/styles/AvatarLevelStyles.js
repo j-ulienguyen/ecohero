@@ -6,18 +6,26 @@ var styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
 
-        width: 115,
-        height: 115,
+        // width: 115,
+        // height: 115,
 
         // Circle Level Stroke
-        borderRadius: 100,
-        borderWidth: 5,
-        borderColor: "white"
+        // borderRadius: 100,
+        // borderWidth: 5,
+        // borderColor: "white"
+    },
+
+    progressCircle: {
+        transform: [{rotateZ: '180deg'}],
+        position: "absolute",
+        // bottom: 0
     },
 
     avatarIcon: {
         width: 95,
-        height: 95
+        height: 95,
+        left: 0.5,
+        top: 0.1
     },
 
     levelContainer: {

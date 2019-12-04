@@ -399,6 +399,7 @@ export default function HomeScreen(){
 						level = {userLevel}
 						starCount = {userStarCount || 0}
 						missionCount = {userMissionCount}
+						progressCircle = {0.25}
 					/>
 
 					{/* Star Prizes - Progress Bar */}

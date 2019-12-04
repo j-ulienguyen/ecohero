@@ -1,17 +1,28 @@
 import React from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
+import * as Progress from 'react-native-progress';
 
 // Import comps & styles below
 import styles from '../styles/AvatarLevelStyles';
-
-// Navigation
-import * as navigateTo from '../../RouteConstants';
+import theme from '../styles/ThemeStyles';
 
 
-export default function AvatarLevel({avatarPath, level, onPress, disabled}){
+export default function AvatarLevel({avatarPath, level, onPress, disabled, progressCircle}){
     // UI
     return (
         <View style={styles.avatar}>
+            <Progress.Circle
+                style={styles.progressCircle}
+                size={114}
+                thickness={6}
+                progress={progressCircle}
+                animated={true}
+                color={theme.yellowGold}
+                unfilledColor="white"
+                borderWidth={0}
+                borderColor="white"
+            />
+
             {/* Avatar Image */}
             <TouchableOpacity activeOpacity={0.8} onPress={onPress} disabled={disabled}>
                 <Image
