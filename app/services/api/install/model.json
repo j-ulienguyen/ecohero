@@ -8,8 +8,8 @@
   },
   {
     "model":"missions",
-    "cols":["id", "mission_name", "mission_description", "mission_star", "mission_xp", "mission_month", "mission_type", "mission_icon"],
-    "colstype":["SERIAL PRIMARY KEY", "TEXT", "TEXT", "INTEGER", "INTEGER", "TEXT", "INTEGER", "TEXT"],
+    "cols":["id", "mission_name", "mission_description", "mission_star", "mission_xp", "mission_month", "mission_type", "mission_icon", "mission_code"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "TEXT", "INTEGER", "INTEGER", "TEXT", "INTEGER", "TEXT", "TEXT"],
     "order":["id"]
   },
   {

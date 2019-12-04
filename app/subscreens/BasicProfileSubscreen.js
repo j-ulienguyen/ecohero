@@ -34,6 +34,10 @@ export default function BasicProfile(){
    // const [txt, setTxt] = useState("");
    const [disabled, setDisabled] = useState("");
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
 
    // Update Profile
    const UpdateProfile = async()=>{
@@ -50,6 +54,10 @@ export default function BasicProfile(){
          console.log("End of UpdateProfile");
    }
 
+	/*
+	 *****************************************************************
+	 *****************************************************************
+   */
 
    return (
       <KeyboardAvoidingView

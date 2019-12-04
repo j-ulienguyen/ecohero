@@ -19,7 +19,8 @@ module.exports = {
 				model:"missions",
 				data:[
 					{col:"mission_xp", as:"xp"},
-					{col:"mission_star", as:"stars"}
+					{col:"mission_star", as:"stars"},
+					{col:"mission_code", as:"code"}
 				],
 				join_stmt:"completion_list.mission_id = missions.id"
 			}

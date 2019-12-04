@@ -29,11 +29,6 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
     var bonusRibbon = null;
     var missionButton;
 
-    // var toggleIcon = {
-    //     'close': require('../../assets/imgs/close-box.png'),
-    //     'expand': require('../../assets/imgs/expand-box.png')
-    // }
-
 	/*
 	 *****************************************************************
 	 *****************************************************************
@@ -194,12 +189,10 @@ export default function MissionCard({id, cl_id, status, type, iconPath, missionN
                 {missionButton}
             </View>
         );
-        // toggleIcon = toggleIcon['close'];
     } else {
         // CLOSED CARD
         cardHeight = 105;    // Initial value
         cardDetails = null;
-        // toggleIcon = toggleIcon['expand'];
     }
 
 	/*
