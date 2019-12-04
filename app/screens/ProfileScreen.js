@@ -102,6 +102,9 @@ export default function ProfileScreen(){
 			}
 
 			var currentLevel;
+			var currentXP;
+			var xpCircle;
+			var nextLevel;
 
 			// Loop through to determine user's current level
 			for (var level in xp_required){
@@ -111,8 +114,16 @@ export default function ProfileScreen(){
 				}
 			}
 
-			// Show user's current level
-			// console.log("Current Level: ", currentLevel);
+			// Set user level + xp
+			currentLevel = user[0].level;
+			currentXP = user[0].xp_amount;
+			nextLevel = currentLevel + 1;
+
+			// Calculate percentage for XP progress circle
+			xpCircle = currentXP / xp_required[nextLevel];
+
+			// Set percentage for XP progress circle for the user
+			user[0].xpCircle = xpCircle;
 
             /*
              *****************************************************************
@@ -157,7 +168,7 @@ export default function ProfileScreen(){
 	var userStarCount = userData.star_count;
 	var userMissionCount = userData.mission_count;
 	var userLevel = userData.level;
-	var userXP = userData.xp_amount;
+	var userXP = userData.xpCircle;
 
 	/*
 	 *****************************************************************
@@ -225,6 +236,7 @@ export default function ProfileScreen(){
                         avatarPath = {avatarIcon[userAvatar]}
 						username = {userName || ""}
 						level = {userLevel}
+						progressCircle={userXP}
                     />
                 </View>
 

@@ -180,7 +180,6 @@ export default function LeaderboardScreen({navigation}) {
 		cardSectionMargin = 80;
 	}
 
-
 	/*
 	 *****************************************************************
 	 *****************************************************************
@@ -190,6 +189,7 @@ export default function LeaderboardScreen({navigation}) {
     useEffect(()=>{
 		GetUserData();
 		GetAllUsers();
+		// GetDate();
 	}, [])
 
 	/*
