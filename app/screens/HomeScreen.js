@@ -131,6 +131,9 @@ export default function HomeScreen(){
 			}
 
 			var currentLevel;
+			var currentXP;
+			var xpCircle;
+			var nextLevel;
 
 			// Loop through to determine user's current level
 			for (var level in xp_required){
@@ -140,11 +143,26 @@ export default function HomeScreen(){
 				}
 			}
 
-			// Set user level
+			// Set user level + xp
 			currentLevel = user[0].level;
+			currentXP = user[0].xp_amount;
+			nextLevel = currentLevel + 1;
+
+			// Calculate percentage for XP progress circle
+			xpCircle = currentXP / xp_required[nextLevel];
+
+			// Set percentage for XP progress circle for the user
+			user[0].xpCircle = xpCircle;
 
 			console.log("Current Level: ", currentLevel);
-			console.log("Current XP: ", user[0].xp_amount);
+			console.log("Current XP: ", currentXP);
+			console.log("XP Required for Next Level: ", xp_required[nextLevel]);
+			console.log("XP Circle %: ", xpCircle);
+
+			/*
+             *****************************************************************
+             *****************************************************************
+            */
 
 			// Check User Level + Stored Username
 			var storedLevel = await AsyncStorage.getItem("level");
@@ -266,7 +284,7 @@ export default function HomeScreen(){
 	var userMissionCount = userData.mission_count;
 	var userMissionAvailable = userData.mission_available;
 	var userLevel = userData.level;
-	var userXP = userData.xp_amount;
+	var userXP = userData.xpCircle;
 
 	/*
 	 *****************************************************************
@@ -399,7 +417,7 @@ export default function HomeScreen(){
 						level = {userLevel}
 						starCount = {userStarCount || 0}
 						missionCount = {userMissionCount}
-						progressCircle = {0.25}
+						progressCircle = {userXP}
 					/>
 
 					{/* Star Prizes - Progress Bar */}
