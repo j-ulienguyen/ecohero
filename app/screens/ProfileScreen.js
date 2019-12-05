@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text, ScrollView, Image} from 'react-native';
+import Modal from 'react-native-modal';
 
 // Import comps & styles below
 import styles from '../styles/ProfileScreenStyles';
@@ -10,6 +11,7 @@ import SettingsIcon from '../comps/profile/SettingsIcon';
 import AchievementCard from '../comps/profile/AchievementCard';
 import ProfileBadge from '../comps/profile/ProfileBadge';
 import NavBar from '../comps/NavBar';
+import GreenButton from '../comps/GreenButton';
 
 // Import data files below
 import {badges} from '../data/BadgeData';
@@ -17,6 +19,9 @@ import {badges} from '../data/BadgeData';
 // Database & Storage
 import {ax} from '../services/axios';
 import AsyncStorage from '@react-native-community/async-storage';
+
+// Navigation
+import * as navigateTo from '../../RouteConstants';
 
 
 export default function ProfileScreen(){
@@ -26,6 +31,9 @@ export default function ProfileScreen(){
 
 	// Normal Missions
 	const [allMissions, setMissions] = useState([]);
+
+	// Settings -> Modal
+    const [toggleModal, setToggleModal] = useState(false);
 
     // Avatar Icons
     // avatarIcon['name']
@@ -162,6 +170,24 @@ export default function ProfileScreen(){
 	 *****************************************************************
 	*/
 
+	const LogoutUser = async()=>{
+		try {
+			// Clear local storage
+			await AsyncStorage.clear();
+			// Navigate to Signin Screen
+			navigateTo.Signin();
+
+			console.log("User has logged out.");
+		} catch(error){
+			console.log("Error LogoutUser", error.message);
+		}
+	}
+
+	/*
+	 *****************************************************************
+	 *****************************************************************
+	*/
+
     // Reassign vars
 	var userName = userData.username;
 	var userAvatar = userData.avatar;
@@ -241,7 +267,10 @@ export default function ProfileScreen(){
                 </View>
 
                 {/* Settings - Gear Icon */}
-                <SettingsIcon/>
+                <SettingsIcon
+					onPress={()=>{
+						setToggleModal(true);
+				}}/>
 
                 <View style={styles.achievementSection}>
                     {/* Total Stars Card */}
@@ -311,6 +340,28 @@ export default function ProfileScreen(){
                             }
                         </View>
                     </View>
+
+                    {/* Mission In Progress Modal */}
+                    <Modal isVisible={toggleModal}>
+                        <View style={styles.modalContainer}>
+							<View style={styles.modal}>
+								{/* Settings - Modal Heading */}
+								<Text style={styles.modalHeading}>Settings</Text>
+
+								{/* Logout Button */}
+								<GreenButton
+									title="Logout"
+									width={174}
+									height={43}
+									onPress={()=>{
+										setToggleModal(false); // Close modal
+										LogoutUser();
+									}}
+								/>
+							</View>
+						</View>
+                    </Modal>
+
                 </View>
             </ScrollView>
 

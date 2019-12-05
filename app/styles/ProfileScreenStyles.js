@@ -41,6 +41,28 @@ var styles = StyleSheet.create({
         justifyContent: "space-between",
         flexWrap: "wrap",
         marginVertical: 30
+    },
+
+    modalContainer: {
+        alignItems: "center"
+    },
+
+    modal: {
+        width: 300,
+        height: 150,
+        borderRadius: 20,
+        backgroundColor: "#F2F2F2",
+
+        // Align content inside
+        justifyContent: "space-evenly",
+        alignItems: "center",
+        paddingVertical: 15
+    },
+
+    modalHeading: {
+        fontFamily: theme.PoppinsBold,
+        fontSize: 18,
+        color: theme.darkGreen
     }
 });
 

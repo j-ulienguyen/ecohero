@@ -2,10 +2,10 @@ import React from 'react';
 import {Image, TouchableOpacity, StyleSheet} from 'react-native';
 
 
-export default function SettingsIcon(){
+export default function SettingsIcon({onPress}){
     // UI
     return (
-        <TouchableOpacity style={styles.settingsIcon}>
+        <TouchableOpacity style={styles.settingsIcon} onPress={onPress}>
             <Image source = {require('../../assets/imgs/settings-icon.png')}/>
         </TouchableOpacity>
     )
