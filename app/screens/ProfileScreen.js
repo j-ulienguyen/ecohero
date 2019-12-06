@@ -12,6 +12,7 @@ import AchievementCard from '../comps/profile/AchievementCard';
 import ProfileBadge from '../comps/profile/ProfileBadge';
 import NavBar from '../comps/NavBar';
 import GreenButton from '../comps/GreenButton';
+import PurpleButton from '../comps/PurpleButton';
 
 // Import data files below
 import {badges} from '../data/BadgeData';
@@ -350,14 +351,27 @@ export default function ProfileScreen(){
 
 								{/* Logout Button */}
 								<GreenButton
-									title="Logout"
+									title="Log out"
 									width={174}
 									height={43}
 									onPress={()=>{
 										setToggleModal(false); // Close modal
-										LogoutUser();
+										LogoutUser(); // Clear storage, logout, navigate to Signin Screen
 									}}
 								/>
+
+								{/* Close Button */}
+								<View style={{position:"absolute", top: -20, right: -5}}>
+
+								<PurpleButton
+									title="x"
+									width={40}
+									height={40}
+									onPress={()=>{
+										setToggleModal(false); // Close modal
+									}}
+								/>
+								</View>
 							</View>
 						</View>
                     </Modal>
