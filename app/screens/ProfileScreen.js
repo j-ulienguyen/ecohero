@@ -174,7 +174,8 @@ export default function ProfileScreen(){
 	const LogoutUser = async()=>{
 		try {
 			// Clear local storage
-			await AsyncStorage.clear();
+			// await AsyncStorage.clear(); -> Don't need to clear everything, messes with LevelUpModal
+
 			// Navigate to Signin Screen
 			navigateTo.Signin();
 
