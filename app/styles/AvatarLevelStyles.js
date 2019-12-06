@@ -5,7 +5,7 @@ var styles = StyleSheet.create({
     avatar: {
         justifyContent: "center",
         alignItems: "center",
-
+        bottom: 7
         // width: 115,
         // height: 115,
 
@@ -30,7 +30,7 @@ var styles = StyleSheet.create({
 
     levelContainer: {
         position: "absolute",
-        bottom: -10,
+        bottom: -16,
         justifyContent: "center",
         alignItems: "center"
     },
